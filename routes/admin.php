@@ -32,7 +32,16 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
     Route::get('/main-categories/destroy', [App\Http\Controllers\Admin\MainCategoryController::class, 'destroy'])->name('admin.maincategories.destroy');
     Route::get('changeStatus/{id}', [App\Http\Controllers\Admin\MainCategoryController::class, 'changeStatus'])->name('admin.maincategories.status');
 
-    ########################################## End  MainCategories Route ##############################################################
+    ########################################## End  SubCategories Route ######################################################################################################## Start MainCategories Route ##############################################################
+    Route::get('/sub-categories/index', [App\Http\Controllers\Admin\SubCategoryController::class, 'index'])->name('admin.subcategories');
+    Route::get('/sub-categories/create', [App\Http\Controllers\Admin\SubCategoryController::class, 'create'])->name('admin.subcategories.create');
+    Route::post('/sub-categories/store', [App\Http\Controllers\Admin\SubCategoryController::class, 'store'])->name('admin.subcategories.store');
+    Route::get('/sub-categories/edit/{id}', [App\Http\Controllers\Admin\SubCategoryController::class, 'edit'])->name('admin.subcategories.edit');
+    Route::post('/sub-categories/update', [App\Http\Controllers\Admin\SubCategoryController::class, 'update'])->name('admin.subcategories.update');
+    Route::get('/sub-categories/destroy', [App\Http\Controllers\Admin\SubCategoryController::class, 'destroy'])->name('admin.subcategories.destroy');
+    Route::get('changeStatus/{id}', [App\Http\Controllers\Admin\SubCategoryController::class, 'changeStatus'])->name('admin.subcategories.status');
+
+    ########################################## End  SubCategories Route ##############################################################
     ########################################## Start Products Route ##############################################################
     Route::get('/products', [App\Http\Controllers\Admin\ProductController::class, 'index'])->name('admin.products');
     Route::get('/products/create', [App\Http\Controllers\Admin\ProductController::class, 'create'])->name('admin.products.create');
