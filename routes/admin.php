@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::group(
+    [
+        'prefix' => 'admin',
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){
 Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function () {
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
     ########################################## Start Languages Route ##############################################################
@@ -68,3 +73,4 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'guest:admin'], function()
     Route::get('login', [App\Http\Controllers\Admin\LoginController::class, 'getLogin'])->name('get.admin.login');
     Route::post('login', [App\Http\Controllers\Admin\LoginController::class, 'login'])->name('admin.login');
 });
+    });

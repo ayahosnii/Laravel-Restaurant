@@ -4,9 +4,14 @@ return [
 
     'en' => ' in english',
     'ar' => ' in arabic',
+    'Hello' => 'Hello',
     'search' => 'search',
+    //Admins
     "All Categories" => 'All Categories',
+    "Main-Categories" => 'Main-Categories',
+    "Sub-Categories" => 'Sub-Categories',
     'permissions' => 'permissions',
+    'Categories' => 'Categories',
 
     //Admin sidebar
     'add' => 'add',

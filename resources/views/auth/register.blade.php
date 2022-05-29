@@ -29,8 +29,29 @@
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
                             <input type="text" name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="Name" />
+                            @error('name')
+                            <span class="invalid-feedback text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                             <input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" placeholder="Email" required />
+                            @error('email')
+                            <span class="invalid-feedback text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                            <input id="mobile" class="block mt-1 w-full" type="text" name="mobile" :value="old('mobile')" placeholder="Mobile" required />
+                            @error('mobile')
+                            <span class="invalid-feedback text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                             <input  id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" placeholder="Password">
+                            @error('password')
+                            <span class="invalid-feedback text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                             <input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" placeholder="Password Confirmation">
                             <button type="submit" class="btn-style1">Create</button>
                         </form>

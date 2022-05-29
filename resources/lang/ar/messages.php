@@ -5,7 +5,11 @@ return [
 
     'en' => 'باللغة الانجليزية',
     'ar' => 'باللغة العربية',
+    'Hello' => 'مرحبا',
     "All Categories" => 'كل الاقسام',
+    "Main-Categories" => 'الأقسام الرئيسية',
+    "Sub-Categories" => 'الأقسام الفرعية',
+    'Categories' => 'الأقسام',
     'add' => 'اضف',
     'create' => 'اضافه',
     'read' => 'عرض',

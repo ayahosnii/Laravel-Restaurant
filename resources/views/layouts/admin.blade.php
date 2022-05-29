@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html class="loading" lang="en" data-textdirection="rtl">
+<html class="loading" lang="{{ LaravelLocalization::getCurrentLocaleNative() }}" dir="{{ LaravelLocalization::getCurrentLocaleNative() }}">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,9 +19,7 @@
     <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css"
           rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/css-rtl/plugins/animate/animate.css')}}">
     <!-- BEGIN VENDOR CSS-->
-    <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/css-rtl/vendors.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/vendors/css/weather-icons/climacons.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/fonts/meteocons/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/vendors/css/charts/morris.css')}}">
@@ -32,27 +30,65 @@
     <link rel="stylesheet" type="text/css"
           href="{{asset('assets/vendors/css/forms/toggle/bootstrap-switch.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/vendors/css/forms/toggle/switchery.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/css-rtl/core/menu/menu-types/vertical-menu.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/css-rtl/pages/chat-application.css')}}">
     <!-- END VENDOR CSS-->
-    <!-- BEGIN MODERN CSS-->
-    <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/css-rtl/app.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css-rtl/custom-rtl.css')}}">
-    <!-- END MODERN CSS-->
+
     <!-- BEGIN Page Level CSS-->
-    <link rel="stylesheet" type="text/css"
-          href="admin-assets/css-rtl/core/menu/menu-types/vertical-menu.css')}}'">
-    <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/css-rtl/core/colors/palette-gradient.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/fonts/simple-line-icons/style.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/css-rtl/core/colors/palette-gradient.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/css-rtl/pages/timeline.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/vendors/css/cryptocoins/cryptocoins.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/vendors/css/extensions/datedropper.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/vendors/css/extensions/timedropper.min.css')}}">
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/css-rtl/style-rtl.css')}}">
     <!-- END Custom CSS-->
+
+    @if(app()->getLocale() == 'ar')
+    <!--Start css rtl-->
+        <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/css-rtl/plugins/animate/animate.css')}}">
+
+        <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/css-rtl/vendors.css')}}">
+
+        <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/css-rtl/core/menu/menu-types/vertical-menu.css')}}">
+
+        <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/css-rtl/pages/chat-application.css')}}">
+
+        <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/css-rtl/app.css')}}">
+
+        <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/css-rtl/core/colors/palette-gradient.css')}}">
+
+        <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/css-rtl/core/colors/palette-gradient.css')}}">
+
+        <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/css-rtl/pages/timeline.css')}}">
+
+        <link rel="stylesheet" type="text/css"
+              href="admin-assets/css-rtl/core/menu/menu-types/vertical-menu.css')}}'">
+
+        <link rel="stylesheet" type="text/css" href="{{asset('admin-assets/css-rtl/style-rtl.css')}}">
+
+
+        <!--End css rtl-->
+        <style>
+            body, h1, h2, h3, h4, h5, h6 {
+                font-family: 'Cairo', sans-serif !important;
+            }
+        </style>
+    @else
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/site/css/font-awesome.min.css')}}">
+    <!--
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/site/css/bootstrap.min.css')}}">
+-->
+        <!--Start css rtl-->
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/plugins/animate/animate.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/vendors.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/core/menu/menu-types/vertical-menu.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/pages/chat-application.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/app.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/custom.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/core/menu/menu-types/vertical-menu.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/core/colors/palette-gradient.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/core/colors/palette-gradient.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/pages/timeline.css')}}">
+        <!--End css rtl-->    @endif
 
     <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
     <style>

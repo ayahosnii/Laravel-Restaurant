@@ -3,34 +3,60 @@
 
 
 
-        <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-2698px, 0px, 0px); transition: all 0s ease 0s; width: 4047px;"><div class="owl-item" style="width: 1349px;"><div class="items">
-                        <div class="img-back" style="background-image:url({{asset('assets/img/slider1.jpg')}});">
+        <div class="owl-stage-outer">
+            <div class="owl-stage" style="transform: translate3d(-2698px, 0px, 0px); transition: all 0s ease 0s; width: 4047px;">
+                <div class="owl-item" style="width: 1349px;">
+                    <div class="items">
+                        <div class="img-back" style="background-image:url({{asset('assets/img/sliders/slide4.jpg')}});">
                             <div class="h-s-content slide-c-l">
-                                <span>Summer vage sale</span>
-                                <h1>Fresh fruits<br>&amp;vegetable</h1>
+                                <span>Pizza</span>
+                                <h1>Best Pizza Ever<br>&ampWith Cheese</h1>
                                 <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="btn btn-style1">Shop now</a>
                             </div>
                         </div>
-                    </div></div><div class="owl-item" style="width: 1349px;"><div class="items">
-                        <div class="img-back" style="background-image:url({{asset('assets/img/slider2.jpg')}});">
+                    </div>
+                </div>
+
+
+
+                <div class="owl-item" style="width: 1349px;">
+                    <div class="items">
+                        <div class="img-back" style="background-image:url({{asset('assets/img/sliders/slider2.jpg')}});">
                             <div class="h-s-content slide-c-r">
-                                <span>Organic indian masala</span>
-                                <h1>Prod of indian<br>100% pacaging</h1>
+                                <span>we have healthy meal too</span>
+                                <h1>Try Prod of indian<br>100% pacaging</h1>
                                 <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="btn btn-style1">Shop now</a>
                             </div>
                         </div>
-                    </div></div><div class="owl-item active" style="width: 1349px;"><div class="items">
-                        <div class="img-back" style="background-image:url({{asset('assets/img/slider3.jpg')}});">
+                    </div></div>
+                <div class="owl-item" style="width: 1349px;">
+                    <div class="items">
+                        <div class="img-back" style="background-image:url({{asset('assets/img/sliders/slider4.jpg')}});">
+                            <div class="h-s-content slide-c-l">
+                                <span>Cakes</span>
+                                <h1>Cute Cake<br>With Cream</h1>
+                                <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="btn btn-style1">Shop now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<!--                <div class="owl-item active" style="width: 1349px;"><div class="items">
+                        <div class="img-back" style="background-image:url({{asset('assets/img/sliders/slider3.jpg')}});">
                             <div class="h-s-content slide-c-c">
                                 <span>Top selling!</span>
                                 <h1>Fresh for your health</h1>
                                 <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="btn btn-style1">Shop now</a>
                             </div>
                         </div>
-                    </div></div></div></div><div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i class="fa fa-angle-double-left"></i></button><button type="button" role="presentation" class="owl-next disabled"><i class="fa fa-angle-double-right"></i></button></div><div class="owl-dots"><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot active"><span></span></button></div></div>
+                    </div>
+                </div>-->
+            </div>
+        </div
+        ><div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i class="fa fa-angle-double-left"></i></button><button type="button" role="presentation" class="owl-next disabled"><i class="fa fa-angle-double-right"></i></button></div><div class="owl-dots"><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot active"><span></span></button></div></div>
 </section>
 <!--home page slider start-->
 <!--banner start-->
+<!--
 <section class="t-banner1 section-tb-padding">
     <div class="container">
         <div class="row">
@@ -38,16 +64,16 @@
                 <div class="home-offer-banner">
                     <div class="o-t-banner">
                         <a href="https://spacingtech.com/html/vegist-final/vegist/product.html" class="image-b">
-                            <img class="img-fluid" src="{{asset('assets/img/banner-1.jpg')}}" alt="banner image">
+                            <img class="img-fluid" src="{{asset('assets/img/banners/sub-banner-1.jpg')}}" alt="banner image">
                         </a>
                         <div class="o-t-content">
-                            <h6>Fresh fruits, vagetable on our product</h6>
+                            <h6></h6>
                             <a href="https://spacingtech.com/html/vegist-final/vegist/product.html" class="btn btn-style1">Shop now</a>
                         </div>
                     </div>
                     <div class="o-t-banner">
                         <a href="https://spacingtech.com/html/vegist-final/vegist/product.html" class="image-b">
-                            <img class="img-fluid" src="{{asset('assets/img/banner-2.jpg')}}" alt="banner image">
+                            <img class="img-fluid" src="{{asset('assets/img/banners/banner-2.jpg')}}" alt="banner image">
                         </a>
                         <div class="o-t-content banner-color">
                             <h6>Vagetable eggplant 100% fresh food</h6>
@@ -59,6 +85,7 @@
         </div>
     </div>
 </section>
+-->
 <!-- banner end -->
 <!-- Category image slide -->
 <section class="category-img1 section-t-padding section-b-padding">
@@ -76,7 +103,7 @@
                                     <div class="h-cate">
                                         <div class="c-img">
                                             <a href="{{ route('product.category',['category_slug'=>  $category->slug]) }}" class="home-cate-img">
-                                                <img class="img-fluid" src="{{asset($category->photo)}}" alt="cate-image">
+                                                <img class="img-fluid" src="{{asset($category->photo)}}" alt="cate-image" style="height: 90px; width: 90px">
                                                 <span class="cat-title">{{$category->name}}</span>
                                             </a>
                                         </div>

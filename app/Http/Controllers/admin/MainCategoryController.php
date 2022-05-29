@@ -116,4 +116,9 @@ class MainCategoryController extends Controller
     {
         //
     }
+
+    public function changeStatus(MainCategory $subCategory)
+    {
+
+    }
 }

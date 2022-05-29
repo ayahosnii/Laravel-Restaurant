@@ -13,9 +13,8 @@ class MainCategory extends Model
         'id', 'translation_lang', 'translate_of', 'name', 'slug', 'photo', 'active', 'created_at',	'updated_at'
     ];
 
-    public function scopeActive($query){
-        return $query ->where('active', 1);
-    }
+    protected $hidden = ['translation'];
+
 
     public function getPhotoAttribute($val)
     {
@@ -34,6 +33,10 @@ class MainCategory extends Model
         return $this -> active == 1 ? 'مفعل' : 'غبر مفعل';
     }
 
+    public function scopeActive($query){
+        return $query ->where('active', 1);
+    }
+
     //get all translation category
     public function categories()
     {
@@ -46,5 +49,9 @@ class MainCategory extends Model
 
     public function products(){
         return $this -> hasMany('App\Models\admin\Product', 'category_id', 'id');
+    }
+
+    public function subcats(){
+        return $this -> hasMany('App\Models\admin\SubCategory', 'category_id', 'id')->where('translation_lang', get_default_language());
     }
 }

@@ -24,7 +24,7 @@
 
 
             <li class="nav-item"><a href=""><i class="la la-group"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">الأقسام الرئيسية </span>
+                    <span class="menu-title" data-i18n="nav.dash.main">@lang('messages.Main-Categories') </span>
                     <span
                         class="badge badge badge-danger badge-pill float-right mr-2"></span>
                 </a>
@@ -33,6 +33,21 @@
                                           data-i18n="nav.dash.ecommerce"> عرض الكل </a>
                     </li>
                     <li><a class="menu-item" href="{{route('admin.maincategories.create')}}" data-i18n="nav.dash.crypto">أضافة
+                            قسم </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">@lang('messages.Sub-Categories') </span>
+                    <span
+                        class="badge badge badge-danger badge-pill float-right mr-2"></span>
+                </a>
+                <ul class="menu-content">
+                    <li class="inactive"><a class="menu-item" href="{{route('admin.subcategories')}}"
+                                            data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    </li>
+                    <li><a class="menu-item" href="{{route('admin.subcategories.create')}}" data-i18n="nav.dash.crypto">أضافة
                             قسم </a>
                     </li>
                 </ul>

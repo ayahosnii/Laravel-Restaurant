@@ -49,6 +49,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'subcategories' => [
+            'driver' => 'local',
+            'root' => public_path('/assets/images/subcategories/'),
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+        ],
+
         'products' => [
             'driver' => 'local',
             'root' => public_path('/assets/images/products/'),
