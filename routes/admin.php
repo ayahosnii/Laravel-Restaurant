@@ -67,6 +67,37 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
     Route::get('changeStatus/{id}', [App\Http\Controllers\Admin\CouponController::class, 'changeStatus'])->name('admin.coupons.status');
 
     ########################################## End  Coupons Route ##############################################################
+    ################################## attrributes routes ######################################
+    Route::group(['prefix' => 'attributes'], function () {
+        Route::get('/', [\App\Http\Controllers\admin\AttributeController::class, 'index'])->name('admin.attributes');
+        Route::get('create', [\App\Http\Controllers\admin\AttributeController::class, 'create'])->name('admin.attributes.create');
+        Route::post('store', [\App\Http\Controllers\admin\AttributeController::class, 'store'])->name('admin.attributes.store');
+        Route::get('delete/{id}', [\App\Http\Controllers\admin\AttributeController::class, 'destroy'])->name('admin.attributes.delete');
+        Route::get('edit/{id}', [\App\Http\Controllers\admin\AttributeController::class, 'edit'])->name('admin.attributes.edit');
+        Route::post('update/{id}', [\App\Http\Controllers\admin\AttributeController::class, 'update'])->name('admin.attributes.update');
+    });
+    ################################## end attributes    #######################################
+
+    ################################## start options ######################################
+    Route::group(['prefix' => 'options'], function () {
+        Route::get('/', [\App\Http\Controllers\admin\OptionController::class, 'index'])->name('admin.options');
+        Route::get('create', [\App\Http\Controllers\admin\OptionController::class, 'create'])->name('admin.options.create');
+        Route::post('store', [\App\Http\Controllers\admin\OptionController::class, 'store'])->name('admin.options.store');
+        //Route::get('delete/{id}','OptionsController@destroy') -> name('admin.options.delete');
+        Route::get('edit/{id}', [\App\Http\Controllers\admin\OptionController::class, 'edit'])->name('admin.options.edit');
+        Route::post('update/{id}', [\App\Http\Controllers\admin\OptionController::class, 'update'])->name('admin.options.update');
+    });
+    ################################## end options    #######################################
+    # ################################## start roles ######################################
+    Route::group(['prefix' => 'roles'], function () {
+        Route::get('/', [\App\Http\Controllers\admin\RoleController::class, 'index'])->name('admin.roles');
+        Route::get('create', [\App\Http\Controllers\admin\RoleController::class, 'create'])->name('admin.roles.create');
+        Route::post('store', [\App\Http\Controllers\admin\RoleController::class, 'store'])->name('admin.roles.store');
+        //Route::get('delete/{id}','RolesController@destroy') -> name('admin.roles.delete');
+        Route::get('edit/{id}', [\App\Http\Controllers\admin\RoleController::class, 'edit'])->name('admin.roles.edit');
+        Route::post('update/{id}', [\App\Http\Controllers\admin\RoleController::class, 'update'])->name('admin.roles.update');
+    });
+    ################################## end options    #######################################
 });
 
 Route::group(['namespace' => 'Admin', 'middleware' => 'guest:admin'], function(){

@@ -13,9 +13,11 @@ class SubCategory extends Model
     protected $table = 'sub_categories';
     protected $guarded = [''];
 
+
     public function scopeParent($query){
         return $query ->whereNull('parent_id');
     }
+
 
     public function scopeChild($query){
         return $query ->whereNull('parent_id');

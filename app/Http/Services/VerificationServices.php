@@ -26,6 +26,8 @@ class VerificationServices
         return $code.$message;
     }
 
+
+
     public function checkOTPCode ($code){
 
         if (Auth::guard()->check()) {
@@ -40,11 +42,6 @@ class VerificationServices
         }
         return false;
     }
-
-   /* public function removeOTPCode($code)
-    {
-        UserVerification::where('code',$code) -> delete();
-    }*/
 
     public function removeOTPCode($code)
     {

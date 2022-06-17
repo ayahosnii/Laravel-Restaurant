@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\admin\Product;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -63,5 +64,15 @@ class User extends Authenticatable
     public function codes()
     {
         return $this -> hasMany(UserVerification::class, 'user_id');
+    }
+
+    public function wishlist()
+    {
+        return $this->belongsToMany(Product::class, 'wish_lists')->withTimestamps();
+    }
+
+    public function wishlistHas($productId)
+    {
+        return self::wishlist()->where('product_id', $productId)->exists();
     }
 }

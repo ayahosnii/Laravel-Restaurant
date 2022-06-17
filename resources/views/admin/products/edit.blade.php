@@ -204,21 +204,7 @@
 
 
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-md-12 ">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1"> وصف قصير</label>
-                                                            <input type="text" id="short_description"
-                                                                      class="form-control"
-                                                                      placeholder=""
-                                                                      value="{{$product->short_description}}"
-                                                                      name="short_description">
-                                                            @error("short_description")
-                                                            <span class="text-danger">{{$message}}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                </div>
+
 
                                                 <div class="row">
                                                     <div class="col-md-12 ">

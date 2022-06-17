@@ -188,7 +188,7 @@
                                         </div>
                                     </div>
                                     <div class="caption">
-                                        <h3><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">Fresh organic fruit (50gm)</a></h3>
+                                        <h3><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">{{$product->name}}</a></h3>
                                         <div class="rating">
                                             <i class="fa fa-star c-star"></i>
                                             <i class="fa fa-star c-star"></i>

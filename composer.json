@@ -6,6 +6,8 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "ext-json": "*",
+        "astrotomic/laravel-translatable": "^11.10",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "hardevine/shoppingcart": "^3.1",
@@ -15,7 +17,10 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
         "livewire/livewire": "^2.5",
-        "mcamara/laravel-localization": "^1.7"
+        "mcamara/laravel-localization": "^1.7",
+        "santigarcor/laratrust": "^7.1",
+        "spatie/enum": "^3.13",
+        "twilio/sdk": "^6.37"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",
@@ -32,7 +37,8 @@
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }, "files": [
-            "App/Helpers/Generals.php"
+            "App/Helpers/Generals.php",
+            "App/Basket/Basket.php"
         ]
     },
     "autoload-dev": {

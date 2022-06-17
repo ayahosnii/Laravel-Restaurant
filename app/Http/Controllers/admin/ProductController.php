@@ -73,7 +73,6 @@ class ProductController extends Controller
             $default_product_id = Product::insertGetId([
                 'name' => $default_products['name'],
                 'slug' => $default_products['name'],
-                'short_description' => $default_products['short_description'],
                 'description' => $default_products['description'],
                 'regular_price' => $request->regular_price,
                 'sale_price' => $request->sale_price,
@@ -96,8 +95,7 @@ class ProductController extends Controller
                 foreach ($prods as $prod) {
                     $prods_arr[] = [
                         'name' => $prod['name'],
-                        'slug' => $prod['name'],
-                        'short_description' => $prod['short_description'],
+                        'slug' => $default_products['name'],
                         'description' => $prod['description'],
                         'regular_price' => $request->regular_price,
                         'sale_price' => $request->sale_price,
@@ -162,6 +160,11 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Product $product)
+    {
+        //
+    }
+
+    public function changeStatus(Product $product)
     {
         //
     }

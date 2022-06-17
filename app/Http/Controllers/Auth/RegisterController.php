@@ -73,7 +73,6 @@ class RegisterController extends Controller
         try {
 
             DB::beginTransaction();
-
             $verification = [];
             $user = User::create([
                 'name' => $data['name'],
@@ -82,22 +81,18 @@ class RegisterController extends Controller
                 'password' => Hash::make($data['password']),
             ]);
 
-
             // send OTP SMS code
-
-            //set/ generate new code
+            // set/ generate new code
             $verification['user_id'] = $user->id;
-            $verification_data = $this->sms_services->setVerificationCode($verification);
-            $message = $this->sms_services->getSMSVerifyMessageByAppName($verification_data->code);
-
-            //save this code is verification table
-                //done
-
-            //send code to user mobile by sms gateway //be careful there are no gateway credentails in config file
-            # app(VictoryLinkSms::class)->sendSms($user->mobile, $message);
+            $verification_data =  $this->sms_services->setVerificationCode($verification);
+            $message = $this->sms_services->getSMSVerifyMessageByAppName($verification_data -> code );
+            //save this code in verification table
+            //done
+            //send code to user mobile by sms gateway   // note  there are no gateway credentials in config file
+            #app(VictoryLinkSms::class) -> sendSms($user -> mobile,$message);
             DB::commit();
-
-            return $user;
+            return  $user;
+            //send to user  mobile
 
         } catch (\Exception $exception) {
             DB::rollBack(); // if any error happen don't commit

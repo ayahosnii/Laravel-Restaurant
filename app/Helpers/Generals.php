@@ -14,6 +14,7 @@
  * */
 //https://github.com/barryvdh/laravel-ide-helper
 
+define('PAGINATION_COUNT', 10);
     function get_languages()
     {
         return \App\Models\admin\Language::active()->selection()->get();

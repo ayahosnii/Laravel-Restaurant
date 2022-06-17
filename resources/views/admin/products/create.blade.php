@@ -88,7 +88,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6 ">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> SKU</label>
+                                                            <label for="projectinput1"> Calories</label>
                                                             <input type="text" id="SKU"
                                                                    class="form-control"
                                                                    placeholder=""
@@ -98,6 +98,7 @@
                                                             @enderror
                                                         </div>
                                                     </div>
+
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
@@ -152,19 +153,7 @@
                                                         </div>
 
 
-                                               <div class="row">
-                                                        <div class="col-md-6 ">
-                                                            <div class="form-group">
-                                                                <label for="projectinput1"> الكمية</label>
-                                                                <input type="text" id="quantity"
-                                                                       class="form-control"
-                                                                       placeholder=""
-                                                                       name="product[{{$index}}][quantity]">
-                                                                @error("product.$index.quantity")
-                                                                <span class="text-danger">{{$message}}</span>
-                                                                @enderror
-                                                            </div>
-                                                        </div>
+
 
                                                             <div class="col-md-6 hidden">
                                                                 <div class="form-group">
@@ -180,21 +169,6 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
-                                            <div class="row">
-                                                <div class="col-md-12 ">
-                                                    <div class="form-group">
-                                                        <label for="projectinput1"> وصف قصير</label>
-                                                        <textarea type="text" id="short_description"
-                                                               class="form-control"
-                                                               placeholder=""
-                                                                 name="product[{{$index}}][short_description]"></textarea>
-                                                        @error("product.$index.short_description")
-                                                        <span class="text-danger">{{$message}}</span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                            </div>
 
                                          <div class="row">
                                                 <div class="col-md-12 ">
