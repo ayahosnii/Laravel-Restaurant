@@ -4,6 +4,8 @@ namespace App\Http\Livewire;
 
 use App\Models\admin\MainCategory;
 use App\Models\admin\Product;
+use App\Models\providers\Branch;
+use App\Models\providers\Meal;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -56,8 +58,11 @@ class CategoryComponent extends Component
 
         $default_lang = get_default_language();
         $categories = MainCategory::where('translation_lang', $default_lang)->get();
+        $meals = Meal::where('maincate_id', $category_id)->paginate($this->pagesize);
+        //$branches = Branch::where($meals->branch_id, 'id');
 
 
-        return view('livewire.category-component', ['categories' => $categories, 'category' => $category, 'products' => $products])->layout('layouts.base');
+
+        return view('livewire.category-component', ['categories' => $categories, 'category' => $category, 'products' => $products, 'meals' => $meals])->layout('layouts.base');
     }
 }

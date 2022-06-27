@@ -195,6 +195,41 @@
                                     </div>
                                 </li>
                             @endforeach
+                                @foreach($meals as $meal)
+                                    <li class="grid-items">
+                                        <div class="tred-pro">
+                                            <div class="tr-pro-img">
+                                                <a href="{{route('meal.details',$meal -> name)}}">
+                                                    <img class="img-fluid" style="height: 300px; width: 500px"  src="{{asset($meal->image)}}" alt="pro-img1">
+                                                    <img class="img-fluid additional-image" style="height: 300px; width: 500px" src="{{$meal->image}}" alt="additional image">
+                                                </a>
+                                            </div>
+                                            <div class="Pro-lable">
+                                                <span class="p-text">New</span>
+                                            </div>
+                                            <div class="pro-icn">
+                                                <a href="#" id="addToWishlist" class="addToWishlist w-c-q-icn wishlistProd_22" data-product-id="{{$meal -> id}}"><i class="fa fa-heart"></i></a>
+                                                <form
+                                                    action=""
+                                                    method="post" class="formAddToCart" style="display: inline">
+                                                    @csrf
+                                                    <input type="hidden" name="id"
+                                                           value="{{$meal -> id}}">
+                                                    <a href="#" class="add-to-cart cart-addition w-c-q-icn" data-product-id="{{$meal -> id}}" data-product-slug="{{$meal -> slug}}" data-button-action="add-to-cart"><i class="fa fa-shopping-bag"></i></a>
+                                                </form>
+                                                <a href="#" id="quick-view" class="w-c-q-icn hidden-sm-down" data-product-id="{{$meal -> id}}" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="caption">
+                                            <a href="{{route('meal.details',$meal -> name)}}" class="sb-menu-item sb-menu-item-sm sb-mb-15">
+                                                <div class="sb-card-tp">
+                                                    <h4 class="sb-card-title">{{$meal->name}}</h4>
+                                                    <div class="sb-price"><sub>£{{$meal->price}}</sub> </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                @endforeach
                         </ul>
                     </div>
                 </div>

@@ -65,6 +65,7 @@
     @livewireStyles()
 </head>
 <body class="home-1" style="">
+<body class="home-1" style="">
 <!-- top notificationbar start -->
 <section class="top1">
     <div class="container">
@@ -200,33 +201,84 @@
                                         </div>
                                         @if(Route::has("login"))
                                             @auth()
-                                        <div class="user-info">
-                                            <span class="acc-title">{{Auth::user() -> name}}</span>
-                                            <div class="account-login">
-                                                @if(Auth::user()->utype === 'ADM')
-                                                    <a href="{{route('get.admin.login')}}">Dashboard</a>
-                                                    <a title="Logout" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
-                                                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                                                    @csrf
-                                                         </form>
-                                                @else
-                                                    <a href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
-                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                                        @csrf
-                                                    </form>
-                                            </div>
-                                        </div>
-                                                @endif
-
-                                            @else
                                                 <div class="user-info">
-                                                    <span class="acc-title">Account</span>
+                                                    <span class="acc-title">{{Auth::user() -> name}}</span>
                                                     <div class="account-login">
-                                                <a href="{{route('register')}}">Register</a>
-                                                <a href="{{route('login')}}">Login</a>
+                                                        @if(Auth::user()->utype === 'ADM')
+                                                            <ul class="main-menu">
+
+                                                                <li class="menu-link parent">
+                                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-page-menu" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                                        <span class="sp-link-title">Action</span>
+                                                                        <i class="fa fa-angle-down"></i>
+                                                                    </a>
+
+                                                                    <ul class="dropdown-submenu sub-menu collapse" id="collapse-page-menu">
+
+                                                                        <li class="submenu-li">
+                                                                            <a href="{{route('get.admin.login')}}">Dashboard</a>
+                                                                        </li>
+
+                                                                        <li class="submenu-li">
+                                                                            <a title="Logout" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                                                                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                                                                @csrf
+                                                                            </form>
+                                                                        </li>
+
+                                                                        <ul class="collapse blog-style-1" id="blog-style03">
+                                                                            <li>
+                                                                                <a href="javascript:void(0)" class="sub-style"><span></span><i class="fa fa-angle-right"></i></a>
+                                                                                <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#grid1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                            </li>
+
+                                                                        </ul>
+
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+
+                                                        @else
+                                                            <ul class="main-menu">
+
+                                                                <li class="menu-link parent">
+                                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-page-menu" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                                        <span class="sp-link-title">Action</span>
+                                                                        <i class="fa fa-angle-down"></i>
+                                                                    </a>
+
+                                                                    <ul class="dropdown-submenu sub-menu collapse" id="collapse-page-menu">
+
+                                                                        <li class="submenu-li">
+                                                                            <a title="Logout" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                                                                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                                                                @csrf
+                                                                            </form>
+                                                                        </li>
+                                                                        <ul class="collapse blog-style-1" id="blog-style03">
+                                                                            <li>
+                                                                                <a href="javascript:void(0)" class="sub-style"><span></span><i class="fa fa-angle-right"></i></a>
+                                                                                <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#grid1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                            </li>
+
+                                                                        </ul>
+
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
                                                     </div>
                                                 </div>
                                             @endif
+
+                                        @else
+                                            <div class="user-info">
+                                                <span class="acc-title">Account</span>
+                                                <div class="account-login">
+                                                    <a href="{{route('register')}}">Register</a>
+                                                    <a href="{{route('login')}}">Login</a>
+                                                </div>
+                                            </div>
+                                        @endif
                                         @endif
                                     </div>
                                     <div class="acc-mob">
@@ -236,7 +288,24 @@
                                     </div>
                                 </li>
                                 @livewire('wish-list-count-component')
-                                @livewire('cart-count-component')
+                                <!--cart-count-component-->
+
+                                <li class="side-wrap cart-wrap">
+                                    <div class="shopping-widget">
+                                        <div class="shopping-cart">
+                                            <a href="javascript:void(0)" class="cart-count">
+                                                              <span class="cart-icon-wrap">
+                         <span class="cart-icon"><i class="fa-solid fa-bag-shopping"></i></span>
+                          <span id="cart-total" class="bigcounter">{{$basket  -> itemCount()}}</span>
+                   </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!--cart-count-component end-->
+
+
+
                             </ul>
                         </div>
                         <!-- header-icon end -->
@@ -268,8 +337,8 @@
                                                     </a>
                                                 </li>
                                                 <li class="menu-link parent">
-                                                    <a href="javascript:void(0)" class="link-title">
-                                                        <span class="sp-link-title">Categories</span>
+                                                    <a href="{{route('shop')}}" class="link-title">
+                                                        <span class="sp-link-title">Shop</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
                                                     <a href="{{route('shop')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
@@ -284,45 +353,20 @@
                                                                 <ul class="collapse blog-style-1" id="blog-style03">
                                                                     @foreach($main_cat->subcats as $subcat)
                                                                         @isset($subcat->name)
-                                                                    <li>
-                                                                        <a href="javascript:void(0)" class="sub-style"><span>{{$subcat->name}}</span><i class="fa fa-angle-right"></i></a>
-                                                                        <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#grid1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
-                                                                        <ul class="grid-style collapse" id="grid1">
-                                                                            <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-3-grid.html">Blog 3 grid</a></li>
-                                                                            <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-left-3-grid.html">Left blog 3 grid</a></li>
-                                                                            <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-right-3-grid.html">Right blog 3 grid</a></li>
-                                                                        </ul>
-                                                                    </li>
+                                                                            <li>
+                                                                                <a href="{{ route('sub-category.index', $subcat->slug) }}" class="sub-style"><span>{{$subcat->name}}</span><i class="fa fa-angle-right"></i></a>
+                                                                                <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#grid1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                                <ul class="grid-style collapse" id="grid1">
+                                                                                    <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-3-grid.html">Blog 3 grid</a></li>
+                                                                                    <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-left-3-grid.html">Left blog 3 grid</a></li>
+                                                                                    <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-right-3-grid.html">Right blog 3 grid</a></li>
+                                                                                </ul>
+                                                                            </li>
                                                                         @endisset
                                                                     @endforeach
                                                                 </ul>
                                                             </li>
                                                         @endforeach
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-link parent">
-                                                    <a href="javascript:void(0)" class="link-title">
-                                                        <span class="sp-link-title">Shop</span>
-                                                        <i class="fa fa-angle-down"></i>
-                                                    </a>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#blog-style" data-bs-toggle="collapse" class="link-title link-title-lg">
-                                                        <span class="sp-link-title">Shop</span>
-                                                        <i class="fa fa-angle-down"></i>
-                                                    </a>
-                                                    <ul class="dropdown-submenu sub-menu collapse" id="collapse-page-menu">
-
-                                                        <li class="submenu-li">
-                                                            @foreach($main_cats as $main_cat)
-                                                            <a href="{{--{{route('shop')}}--}}" class="submenu-link"><span>{{$main_cat->name}}</span> <i class="fa fa-angle-right"></i></a>
-                                                            @endforeach
-                                                            <ul class="collapse blog-style-1" id="blog-style03">
-                                                                <li>
-                                                                    <a href="javascript:void(0)" class="sub-style"><span></span><i class="fa fa-angle-right"></i></a>
-                                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#grid1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
-                                                                </li>
-
-                                                            </ul>
-                                                        </li>
                                                     </ul>
                                                 </li>
                                                 <li class="menu-link parent">
@@ -364,13 +408,13 @@
                                                         <li class="submenu-li">
                                                             <a href="https://spacingtech.com/html/vegist-final/vegist/about-us.html" class="submenu-link"><i class="fa fa-angle-right"></i></a>
                                                         </li>
-                                                            <ul class="collapse blog-style-1" id="blog-style03">
-                                                                <li>
-                                                                    <a href="javascript:void(0)" class="sub-style"><span></span><i class="fa fa-angle-right"></i></a>
-                                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#grid1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
-                                                                </li>
+                                                        <ul class="collapse blog-style-1" id="blog-style03">
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="sub-style"><span></span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#grid1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
+                                                            </li>
 
-                                                            </ul>
+                                                        </ul>
 
                                                     </ul>
                                                 </li>
@@ -451,8 +495,8 @@
                                                     </ul>
                                                 </li>
                                                 <li class="menu-link">
-                                                    <a href="javascript:void(0)" class="link-title">
-                                                        <span class="sp-link-title">Buy vegist <span class="hot">Hot</span></span>
+                                                    <a href="{{route('restaurant.index')}}" class="link-title">
+                                                        <span class="sp-link-title">Restaurants <span class="hot">Hot</span></span>
                                                     </a>
                                                 </li>
                                             </ul>
@@ -476,7 +520,7 @@
             </div>
         </div>
     </div>
-    @livewire('mini-cart-component')
+    @include('site.includes.mini-cart')
 
 </header>
 <!-- header end -->
@@ -1030,6 +1074,7 @@
         </div>
     </div>
 </div>
+
 
 {{$slot}}
 

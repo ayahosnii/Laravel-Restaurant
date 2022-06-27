@@ -25,6 +25,14 @@ define('PAGINATION_COUNT', 10);
         return Config::get('app.locale');
     }
 
+function    uploadImage($folder, $image)
+{
+    $image->store('/', $folder);
+    $filename = $image->hashName();
+    $path = 'images/' . $folder . '/' . $filename;
+    return $path;
+}
+
     function uploadImages($folder, $image)
     {
         $image->store('/', $folder);

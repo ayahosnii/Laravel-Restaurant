@@ -164,8 +164,20 @@ class ProductController extends Controller
         //
     }
 
-    public function changeStatus(Product $product)
+    public function changeStatus($id)
     {
-        //
+        try {
+            $product = Product::find($id);
+            if (!$product)
+                return redirect()->route('admin.products')->with(['error' => 'هذا المنتج غير موجود']);
+
+            $status = $product->active == 0 ? 1 : 0;
+
+            $product->update(['active' => $status]);
+            return redirect()->route('admin.products')->with(['success' => 'تم تغيير حالة المنتج بنجاح']);
+
+        } catch (\Exception $ex) {
+            return redirect()->route('admin.products')->with(['error' => 'حدث خطأ برجاء المحاولة لاحقا']);
+        }
     }
 }

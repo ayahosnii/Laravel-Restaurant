@@ -102,12 +102,12 @@
                                                                                 <div class="login-box" style="width: 1500px">
                                                                                     <h1 style="font-family: 'Kdam Thmor Pro', sans-serif;">Login Provider Account</h1>
                                                                                     <p style="font-family: 'Kdam Thmor Pro', sans-serif;">Please login below account detail</p>
-                                                                                    <form method="POST" action="{{ route('login') }}">
+                                                                                    <form method="POST" action="{{ route('login.store') }}">
                                                                                         @csrf
                                                                                         <label  style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">Email</label>
-                                                                                        <input id="email" class="form__input block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus placeholder="Email">
+                                                                                        <input id="email" class="form__input block mt-1 w-full" type="email" name="provider-email" :value="old('email')" required autofocus placeholder="Email">
                                                                                         <label  style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">Password</label>
-                                                                                        <input id="password" class="form__input block mt-1 w-full" type="password" name="password" required autocomplete="current-password" placeholder="Password">
+                                                                                        <input id="password" class="form__input block mt-1 w-full" type="password" name="provider-password" required autocomplete="current-password" placeholder="Password">
                                                                                         <button type="submit" class="btn-style1">Sign in</button>
                                                                                         @if (Route::has('password.request'))
                                                                                             <a href=href="{{ route('password.request') }}" class="re-password">Forgot your password?</a>

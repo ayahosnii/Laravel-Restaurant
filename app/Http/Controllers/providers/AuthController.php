@@ -17,11 +17,11 @@ class AuthController extends Controller
     public function get_activate_phone(){
 
 
-        if (!auth('provider')->check()) {
+        if (!auth('providers')->check()) {
             return redirect('/login');
         }
 
-        if (auth('provider')->user()->phoneactivated == "1"){
+        if (auth('providers')->user()->phoneactivated == "1"){
             return redirect('/providers/dashboard');
         }
 
@@ -32,7 +32,7 @@ class AuthController extends Controller
     $data['class'] = "page-template password recovery";
 
 
-    return view("auth.verification", $data);
+    return view("auth.verification-code", $data);
 
 }
 
@@ -44,14 +44,14 @@ class AuthController extends Controller
         ];
         $this->validate($request, $rules, $messages);
         $code = $request->code;
-        $hash = json_decode(auth('provider')->user()->active_phone_hash);
+        $hash = json_decode(auth('providers')->user()->activate_phone_hash);
         if ($hash->code != $code){
             return redirect()->back()->with("error", trans("messages.register.active.notMatch"));
         }
 
-        DB::table("provider")
-            ->where("id", auth('provider'))
-            ->where("id", auth('provider')->id())
+        DB::table("provider_registers")
+            ->where("id", auth('providers'))
+            ->where("id", auth('providers')->id())
             ->update([
                 "phoneactived" => "1",
                 "activate_phone_hash" => ""

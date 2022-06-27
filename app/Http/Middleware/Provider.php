@@ -16,15 +16,16 @@ class Provider
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth('provider') -> check() ){
+        if(auth('providers') -> check() ){
 
-            if(auth('provider')->user()->phoneactivated == "0" ) {
+            if(auth('providers')->user()->phoneactivated == "0" ) {
                 return redirect("/providers/activate-phone");
             }
            }else{
 
-            return redirect("/login");
+            return redirect("/providers/dashboard");
         }
+
         return $next($request);
     }
 }

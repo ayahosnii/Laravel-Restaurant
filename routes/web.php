@@ -34,6 +34,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     //Route::get('/shop', \App\Http\Livewire\ShopComponent::class)->name('shop');
     Route::get('/shop', [\App\Http\Controllers\ShopController::class, 'index'])->name('shop');
     route::get('shop/{slug}', [\App\Http\Controllers\ProductController::class, 'productsBySlug'])->name('product.details');
+    route::get('shop/meal/{name}', [\App\Http\Controllers\ProductController::class, 'mealsBySlug'])->name('meal.details');
     route::get('/findprice', [\App\Http\Controllers\ProductController::class, 'findprice'])->name('findprice');
 
 });
@@ -73,7 +74,14 @@ Route::group(['prefix' => 'cart'], function () {
     Route::post('/update/{slug}', [\App\Http\Controllers\Site\CartController::class, 'postUpdate'])->name('site.cart.update');
     Route::post('/update-all', [\App\Http\Controllers\Site\CartController::class, 'postUpdateAll'])->name('site.cart.update-all');
 });
-Auth::routes();
+
+Route::group(['prefix' => 'restaurant'], function () {
+    Route::get('/', [\App\Http\Controllers\RestaurantController::class, 'index'])->name('restaurant.index');
+    Route::get('/{user_name}', [\App\Http\Controllers\RestaurantController::class, 'get_rest'])->name('restaurant.details');
+});
+Route::middleware(['guest:web', 'guest:providers'])->group(function(){
+    Auth::routes();
+});
 
 //Route::get('/shop-vue', [\App\Http\Controllers\ShopController::class, 'index'])->name('shop-vue');
 

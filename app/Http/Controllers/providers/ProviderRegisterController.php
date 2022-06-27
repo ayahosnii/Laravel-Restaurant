@@ -75,8 +75,8 @@ class ProviderRegisterController extends Controller
             "phone.required"                            =>  $msg[1],
             "email.required"                                   =>  $msg[1],
             "password.required"                                =>  $msg[1],
-            "provider-ar-details.required"                     =>  $msg[1],
-            "provider-en-details.required"                     =>  $msg[1],
+            "ar_details.required"                     =>  $msg[1],
+            "en_details.required"                     =>  $msg[1],
             "image.required"                                   =>  $msg[1],
             "service-provider.exists"                          =>  $msg[1],
             "automatic-list.in"             => ' لابد من اختيار الخدمات المطلوبة ',
@@ -129,8 +129,8 @@ class ProviderRegisterController extends Controller
                 'city_id'                   => $request->city,*/
                 'address'                   => $request->address,
                 'password'                  => $request->password,
-                "provider-ar-details"       => $request->ar_details,
-                "provider-en-details"       => $request->en_details,
+                "ar_details"       => $request->ar_details,
+                "en_details"       => $request->en_details,
                 'activate_phone_hash'       => $hash,
                 'token'                     => $token
         ]);
@@ -146,7 +146,7 @@ class ProviderRegisterController extends Controller
 
             ]);
 
-        Auth::guard('provider')->login(ProviderRegister::find($data->id));
+        Auth::guard('providers')->login(ProviderRegister::find($data->id));
 
             return response()->json([
                 "status" => true,

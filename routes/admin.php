@@ -54,7 +54,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
     Route::get('/products/edit/{id}', [App\Http\Controllers\Admin\ProductController::class, 'edit'])->name('admin.products.edit');
     Route::post('/products/update', [App\Http\Controllers\Admin\ProductController::class, 'update'])->name('admin.products.update');
     Route::get('/products/destroy', [App\Http\Controllers\Admin\ProductController::class, 'destroy'])->name('admin.products.delete');
-    Route::get('changeStatus/{id}', [App\Http\Controllers\Admin\ProductController::class, 'changeStatus'])->name('admin.products.status');
+    Route::get('/products/change/{id}', [App\Http\Controllers\Admin\ProductController::class, 'changeStatus'])->name('admin.products.status');
 
     ########################################## End  Products Route ##############################################################
     ########################################## Start Coupons Route ##############################################################

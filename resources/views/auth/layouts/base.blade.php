@@ -278,8 +278,7 @@
                                                 <span><i class="fa-regular fa-user"></i></span>
                                             </a>
                                         </div>
-                                        @if(Route::has("login"))
-                                            @auth()
+                                        @if(Auth::guard('web')->check())
                                                 <div class="user-info">
                                                     <span class="acc-title">{{Auth::user() -> name}}</span>
                                                     <div class="account-login">
@@ -289,7 +288,7 @@
                                                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                                                 @csrf
                                                             </form>
-                                                        @else
+                                                            @if(Auth::check())
                                                             <a href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
                                                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                                                 @csrf
@@ -297,7 +296,22 @@
                                                     </div>
                                                 </div>
                                             @endif
-
+                                        @elseif(Auth::guard('providers')->check())
+                                            <div class="user-info">
+                                                <span class="acc-title">{{Auth::guard('providers')->user()->name}}</span>
+                                                <div class="account-login">
+                                                        <a href="{{route('get.admin.login')}}">Dashboard</a>
+                                                        <a title="Logout" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                                                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                                            @csrf
+                                                        </form>
+                                                        @if(Auth::check())
+                                                            <a href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                                                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                                                @csrf
+                                                            </form>
+                                                </div>
+                                            </div>
                                         @else
                                             <div class="user-info">
                                                 <span class="acc-title">Account</span>
@@ -306,6 +320,7 @@
                                                     <a href="{{route('login')}}">Login</a>
                                                 </div>
                                             </div>
+                                        @endif
                                         @endif
                                         @endif
                                     </div>

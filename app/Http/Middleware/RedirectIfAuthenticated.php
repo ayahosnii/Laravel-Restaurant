@@ -26,7 +26,7 @@ class RedirectIfAuthenticated
                 switch ($guard) {
                     case 'admin':
                         return redirect("/admin/dashboard");
-                    case 'provider':
+                    case 'providers':
                         return redirect('/providers/dashboard');
                     default:
                         return redirect(RouteServiceProvider::HOME);

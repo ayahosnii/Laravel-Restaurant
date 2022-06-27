@@ -31,8 +31,8 @@ class ProviderRegisterRequest extends FormRequest
             'city'                      => 'required',*/
             'address'                   => 'required',
             'password'                  => 'required',
-            "provider-ar-details"       => "required",
-            "provider-en-details"       => "required",
+            "ar_details"       => "required",
+            "en_details"       => "required",
             "image"                     => "required"
         ];
 
@@ -54,8 +54,8 @@ class ProviderRegisterRequest extends FormRequest
             "mobile.required"                            =>  $msg[1],
             "email.required"                                   =>  $msg[1],
             "password.required"                                =>  $msg[1],
-            "provider-ar-details.required"                     =>  $msg[1],
-            "provider-en-details.required"                     =>  $msg[1],
+            "ar_details.required"                     =>  $msg[1],
+            "en_details.required"                     =>  $msg[1],
             "image.required"                                   =>  $msg[1],
             "service-provider.exists"                          =>  $msg[1],
             "automatic-list.in"             => ' لابد من اختيار الخدمات المطلوبة ',

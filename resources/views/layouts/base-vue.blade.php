@@ -193,12 +193,14 @@
                                                                 <li class="submenu-li">
                                                                     <a href="{{route('get.admin.login')}}">Dashboard</a>
                                                                 </li>
+
                                                                 <li class="submenu-li">
                                                                     <a title="Logout" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
                                                                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                                                         @csrf
                                                                     </form>
                                                                 </li>
+
                                                                 <ul class="collapse blog-style-1" id="blog-style03">
                                                                     <li>
                                                                         <a href="javascript:void(0)" class="sub-style"><span></span><i class="fa fa-angle-right"></i></a>
@@ -468,8 +470,8 @@
                                                     </ul>
                                                 </li>
                                                 <li class="menu-link">
-                                                    <a href="javascript:void(0)" class="link-title">
-                                                        <span class="sp-link-title">Buy vegist <span class="hot">Hot</span></span>
+                                                    <a href="{{route('restaurant.index')}}" class="link-title">
+                                                        <span class="sp-link-title">Restaurants <span class="hot">Hot</span></span>
                                                     </a>
                                                 </li>
                                             </ul>

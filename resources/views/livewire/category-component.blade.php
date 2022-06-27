@@ -202,6 +202,44 @@
                                     </div>
                                 </li>
                                 @endforeach
+
+                                    @foreach($meals as $meal)
+                                <li class="grid-items">
+                                    <div class="tred-pro">
+                                        <div class="tr-pro-img">
+                                            <a href="https://spacingtech.com/html/vegist-final/vegist/product.html">
+                                                <img class="img-fluid" style="height: 300px; width: 500px" src="{{asset($meal->image)}}" alt="pro-img1">
+                                                <img class="img-fluid additional-image" style="height: 300px; width: 500px" src="{{asset($meal->image)}}" alt="additional image">
+                                            </a>
+                                        </div>
+                                        <div class="Pro-lable">
+                                            <span class="p-text">New</span>
+                                        </div>
+                                        <div class="pro-icn">
+                                            <a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html" class="w-c-q-icn"><i class="fa fa-heart"></i></a>
+                                            <a href="https://spacingtech.com/html/vegist-final/vegist/cart.html" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
+                                            <a href="javascript:void(0)" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="caption">
+                                        <h3><b><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">{{$meal->name}}</a></b></h3>
+                                        @if ($meal->branch)
+                                        <h3><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">{{$meal->provider->name}}</a></h3>
+                                        @endif
+
+                                        <div class="rating">
+                                            <i class="fa fa-star c-star"></i>
+                                            <i class="fa fa-star c-star"></i>
+                                            <i class="fa fa-star c-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div>
+                                        <div class="pro-price">
+                                            <span class="new-price">{{$meal->price}} LE</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
