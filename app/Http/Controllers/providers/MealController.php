@@ -9,6 +9,7 @@ use App\Models\providers\Category;
 use App\Models\providers\Meal;
 use App\Models\providers\MealTranslation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MealController extends Controller
 {
@@ -19,7 +20,8 @@ class MealController extends Controller
      */
     public function index()
     {
-        //
+        $meals = Meal::where('providers_id', Auth::guard('providers')->user()->id)->get();
+        return view('providers.meal.index', compact('meals'));
     }
 
     /**
@@ -55,14 +57,15 @@ class MealController extends Controller
         }
 
         $meal = Meal::create([
-            'images' => $filePath,
+            'image' => $filePath,
             'name' => $request->input('en_name'),
             'price' => $request->price,
             'description' => $request->en_details,
             'calories' => $request->calories,
             'category_id' =>$request->category_id,
             'maincate_id' =>$request->maincate_id,
-            'subcate_id ' =>$request->sub_cat,
+            'subcate_id' =>$request->sub_cat,
+            'providers_id ' =>$request->Auth::guard('providers')->user()->id,
             'branch_id' =>$request->branch_id,
             'published' => $request -> published
         ]);

@@ -421,12 +421,10 @@
 
                                                 <li class="menu-link parent">
                                                     <a href="javascript:void(0)" class="link-title">
-                                                        <span class="sp-link-title">Feature</span>
-                                                        <i class="fa fa-angle-down"></i>
+                                                        <span class="sp-link-title">Blog</span>
                                                     </a>
                                                     <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#feature1" data-bs-toggle="collapse" class="link-title link-title-lg">
-                                                        <span class="sp-link-title">Feature</span>
-                                                        <i class="fa fa-angle-down"></i>
+                                                        <span class="sp-link-title">Blog</span>
                                                     </a>
                                                     <ul class="dropdown-submenu mega-menu collapse" id="feature1">
                                                         <li class="megamenu-li parent">
@@ -520,7 +518,9 @@
             </div>
         </div>
     </div>
+{{--
     @include('site.includes.mini-cart')
+--}}
 
 </header>
 <!-- header end -->

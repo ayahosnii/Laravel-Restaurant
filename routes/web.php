@@ -33,6 +33,13 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('/base', [\App\Http\Controllers\BaseController::class, 'index'])->name('base');
     //Route::get('/shop', \App\Http\Livewire\ShopComponent::class)->name('shop');
     Route::get('/shop', [\App\Http\Controllers\ShopController::class, 'index'])->name('shop');
+    //Route::get('/blog', [\App\Http\Controllers\BlogController::class, 'index'])->name('blog');
+    //Route::get('/post/{slug}', [\App\Http\Controllers\BlogController::class, 'create'])->name('blog');
+    Route::get('/reservations', [\App\Http\Controllers\ReservationController::class, 'get_reservations'])->name('reservations');
+    Route::get("/reservations/reservation-details/{id}" , [\App\Http\Controllers\ReservationController::class, "get_reservation"]);
+    Route::get("/reservations/add-reservation/{id}/{type}" , [\App\Http\Controllers\ReservationController::class, "add_reservation"])->name('add.reservations');
+    //Route::post("/reservations/add-reservation" , "User\ReservationController@post_add_reservation");
+    Route::get("/reservations/decline/{id}" , [\App\Http\Controllers\ReservationController::class, "decline_reservation"]);
     route::get('shop/{slug}', [\App\Http\Controllers\ProductController::class, 'productsBySlug'])->name('product.details');
     route::get('shop/meal/{name}', [\App\Http\Controllers\ProductController::class, 'mealsBySlug'])->name('meal.details');
     route::get('/findprice', [\App\Http\Controllers\ProductController::class, 'findprice'])->name('findprice');
@@ -78,6 +85,7 @@ Route::group(['prefix' => 'cart'], function () {
 Route::group(['prefix' => 'restaurant'], function () {
     Route::get('/', [\App\Http\Controllers\RestaurantController::class, 'index'])->name('restaurant.index');
     Route::get('/{user_name}', [\App\Http\Controllers\RestaurantController::class, 'get_rest'])->name('restaurant.details');
+    Route::get('branch/{b_username}', [\App\Http\Controllers\RestaurantController::class, 'get_branch'])->name('branch.details');
 });
 Route::middleware(['guest:web', 'guest:providers'])->group(function(){
     Auth::routes();
@@ -90,3 +98,8 @@ Route::middleware(['guest:web', 'guest:providers'])->group(function(){
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('sendSMS', [\App\Http\Controllers\Site\VerificationCodeController::class, 'index']);
+
+
+Route::get('{any}', function ($any){
+    return view('site.home');
+})->where('any','.*');

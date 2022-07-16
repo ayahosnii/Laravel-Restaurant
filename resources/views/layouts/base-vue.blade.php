@@ -396,78 +396,11 @@
 
                                                 <li class="menu-link parent">
                                                     <a href="javascript:void(0)" class="link-title">
-                                                        <span class="sp-link-title">Feature</span>
-                                                        <i class="fa fa-angle-down"></i>
+                                                        <span class="sp-link-title">Blog</span>
                                                     </a>
                                                     <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#feature1" data-bs-toggle="collapse" class="link-title link-title-lg">
-                                                        <span class="sp-link-title">Feature</span>
-                                                        <i class="fa fa-angle-down"></i>
+                                                        <span class="sp-link-title">Blog</span>
                                                     </a>
-                                                    <ul class="dropdown-submenu mega-menu collapse" id="feature1">
-                                                        <li class="megamenu-li parent">
-                                                            <h2 class="sublink-title">Header style</h2>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#feature01" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
-                                                                <span>Header style</span>
-                                                                <i class="fa fa-angle-down"></i>
-                                                            </a>
-                                                            <ul class="dropdown-supmenu collapse" id="feature01">
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/header-style-1.html">Header style 1</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/header-style-2.html">Header style 2</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/header-style-3.html">Header style 3</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/header-style-4.html">Header style 4</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/header-style-5.html">Header style 5</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/header-style-6.html">Header style 6</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/header-style-7.html">Header style 7</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="megamenu-li parent">
-                                                            <h2 class="sublink-title">Footer style</h2>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#feature02" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
-                                                                <span>Footer style</span>
-                                                                <i class="fa fa-angle-down"></i>
-                                                            </a>
-                                                            <ul class="dropdown-supmenu collapse" id="feature02">
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/footer-style-1.html">Footer style 1</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/footer-style-2.html">Footer style 2</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/footer-style-3.html">Footer style 3</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/footer-style-4.html">Footer style 4</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/footer-style-5.html">Footer style 5</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/footer-style-6.html">Footer style 6</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/footer-style-7.html">Footer style 7</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="megamenu-li parent">
-                                                            <h2 class="sublink-title">Product details</h2>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#feature03" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
-                                                                <span>Product details</span>
-                                                                <i class="fa fa-angle-down"></i>
-                                                            </a>
-                                                            <ul class="dropdown-supmenu collapse" id="feature03">
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">Product details style 1</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-2.html">Product details style 2</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-3.html">Product details style 3</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-4.html">Product details style 4</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-5.html">Product details style 5</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Product details style 6</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-7.html">Product details style 7</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="megamenu-li parent">
-                                                            <h2 class="sublink-title">Other style</h2>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#feature04" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
-                                                                <span>Other style</span>
-                                                                <i class="fa fa-angle-down"></i>
-                                                            </a>
-                                                            <ul class="dropdown-supmenu collapse" id="feature04">
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/checkout-1.html">Checkout style 1</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/checkout-2.html">Checkout style 2</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/checkout-3.html">Checkout style 3</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/cart.html">Cart style 1</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/cart-2.html">Cart style 2</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/cart-3.html">Cart style 3</a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
                                                 </li>
                                                 <li class="menu-link">
                                                     <a href="{{route('restaurant.index')}}" class="link-title">
@@ -1240,7 +1173,10 @@
 <script src="{{ asset('js/app.js') }}" defer></script>
 
 <script src="{{asset('js/vue.js')}}"></script>
+
+<!--
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
+-->
 <script src="https://unpkg.com/vue-toastr/dist/vue-toastr.umd.min.js"></script>
 
 @yield('scripts')

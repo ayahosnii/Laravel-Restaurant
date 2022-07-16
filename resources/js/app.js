@@ -4,14 +4,12 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import Vue from "vue";
+
 require('./bootstrap');
 
 window.Vue = require('vue').default;
 
-import Vue from 'vue';
-
-import VueToastr from 'vue-toastr'
-Vue.use(VueToastr);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -24,14 +22,17 @@ Vue.use(VueToastr);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('add-to-cart-button', require('./components/AddToCart.vue').default);
+Vue.component('global-home', require('./components/GlobalHome.vue').default);
+Vue.component('posts', require('./components/Posts.vue').default);
+Vue.component('post-details', require('./components/PostDetails.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
+import router from './routes/routes'
 const app = new Vue({
     el: '#app',
+    router,
 });

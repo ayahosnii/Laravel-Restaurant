@@ -5,6 +5,7 @@ namespace App\Http\Controllers\providers;
 use App\Http\Controllers\Controller;
 use App\Models\providers\Branch;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -17,7 +18,8 @@ class BranchController extends Controller
      */
     public function index()
     {
-        return view('providers.branch.create-branch');
+        $branches = Branch::where('provider_id', Auth::guard('providers')->user()->id)->get();
+        return view('providers.branch.index', compact('branches'));
     }
 
     /**

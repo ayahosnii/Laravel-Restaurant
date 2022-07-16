@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProviderBranch;
 use App\Models\ProviderRegister;
 use App\Models\providers\Branch;
+use App\Models\providers\Category;
 use App\Models\providers\Meal;
 use Illuminate\Http\Request;
 
@@ -31,7 +33,24 @@ class RestaurantController extends Controller
         $rests_user_name = $rests->user_name;
         $rests_id = $rests->id;
         $meals = Meal::where('providers_id', $rests_id)->get();
-        return view('site.restaurant', compact('rests', 'meals'));
+        $categories = Category::where('provider_id', $rests_id)->get();
+        $branches = Branch::where('provider_id', $rests_id)->get();
+        return view('site.restaurant', compact('rests', 'meals','branches', 'categories'));
+    }
+
+  public function get_branch($b_branch)
+    {
+        $branches = Branch::where('b_username', $b_branch)->firstOrFail();
+        //$branches_username= $rests->b_username;
+        $branches_id = $branches->id;
+        $prov_branch = ProviderBranch::select()->first();
+        /*$prov_branch_user = ProviderBranch::where('branches_id', $prov_branch->branches_id)->first();
+        $rests_user = \App\Models\providers\ProviderRegister::where('id', $prov_branch_user->providers_id)->first();
+        //$rests_id = $rests_user->id;
+        $rests_provider = \App\Models\providers\ProviderRegister::where('id', $rests_user->id)->get();*/
+        $meals = Meal::where('branch_id', $branches_id)->get();
+        //$categories = Category::where('provider_id', $rests_provider->id)->get();
+        return view('site.branch', compact( 'meals','branches'));
     }
 
     /**

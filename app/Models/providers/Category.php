@@ -22,6 +22,11 @@ class Category extends Model implements TranslatableContract
     protected $with = ['translations'];
     protected $translatedAttributes = ['name'];
 
+    public function getImagesAttribute($val)
+    {
+        return ($val !== null) ? asset('assets/' . $val) : "";
+
+    }
 
 
     /**

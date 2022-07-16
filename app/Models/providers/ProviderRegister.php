@@ -28,4 +28,9 @@ class ProviderRegister extends Authenticatable
     {
         return $this->belongsToMany(Meal::class, 'meal_branch', 'branch_id',  'meal_id');
     }
+
+    public function branch()
+    {
+        return $this->belongsToMany(Branch::class, 'providers_branches', 'providers_id','branch_id');
+    }
 }

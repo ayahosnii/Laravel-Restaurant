@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
 
-class Meal extends Model //implements TranslatableContract
+class Meal extends Model implements TranslatableContract
 {
     public $table = "meals";
-    //use Translatable;
+    use Translatable;
 
-    //public $translatedAttributes = ['name',	'description'];
-    public $fillable = ['id','name',	'description',	'calories',	'category_id', 'maincate_id',	'branch_id',
+    public $translatedAttributes = ['name',	'description'];
+    public $fillable = ['id','name','slug','image','subcate_id',	'description',	'calories',	'category_id', 'maincate_id',	'branch_id',
         'price',	'published','providers_id ',	'created_at',	'updated_at'];
 
     public function branch()

@@ -31,10 +31,10 @@ class ProductController extends Controller
         return view('site.products-details', $data);
     }
 
-    public function mealsBySlug($name)
+    public function mealsBySlug($slug)
     {
         $data=[];
-        $data['meal'] = Meal::where('name',$name) -> first();  //improve select only required fields
+        $data['meal'] = Meal::where('slug',$slug) -> first();  //improve select only required fields
 
 
         $meal_id = $data['meal'] -> id ;

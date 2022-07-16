@@ -7,6 +7,7 @@ use App\Http\Enumerations\CategoryType;
 use App\Http\Requests\CategoryRequest;
 use App\Models\providers\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
@@ -18,7 +19,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::where('provider_id', Auth::guard('providers')->user()->id)->get();
+        return view('providers.category.index', compact('categories'));
     }
 
     /**

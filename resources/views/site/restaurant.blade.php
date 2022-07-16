@@ -5,14 +5,14 @@
 
 <!-- slider start -->
 <section class="home8-slider">
-    <div class="owl-carousel owl-theme home-slider-main owl-loaded owl-drag" style="height: 700px;">
+    <div class="owl-carousel owl-theme home-slider-main owl-loaded owl-drag">
 
 
 
-        <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 5059px; height: 500px;">
-                <div class="owl-item active" style="width: 1686.25px; height: 500px;">
+        <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 5059px;">
+                <div class="owl-item active" style="width: 1686.25px;">
                     <div class="item">
-                        <div class="slider-image" style="height: 500px; background-image: url({{asset($rests->rest_img)}});">
+                        <div class="slider-image" style="background-image: url({{asset($rests->rest_img)}});">
                             <div class="container">
                                 <div class="row">
                                     <div class="col">
@@ -22,7 +22,11 @@
                                                 <span>{{$rests->name}}</span>
                                                 <span class="text">{{$rests->address}}</span>
                                             </h1>
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="slider-btn btn-style1">Shop now</a>
+                                            @foreach($branches as $branch)
+                                                <div class="branch" style="display: inline; width: 30%; margin: 10px">
+                                                    <a href="{{route('branch.details', $branch->b_username)}}" class="slider-btn btn-style1">{{$branch -> name}}</a>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -76,8 +80,93 @@
         </div>
     </div>
 </section>
-<!-- slider end -->
 
+<!-- branch start -->
+<section class="category-area section-tb-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="swiper-container category-slider swiper-container-initialized swiper-container-horizontal">
+                    <div class="swiper-wrapper" style="transform: translate3d(-2346.75px, 0px, 0px); transition-duration: 300ms;">
+                        @foreach($categories as $category)
+                        <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0" style="width: 305.25px; margin-right: 30px;">
+                            <div class="category-area">
+                                <div class="cat-image">
+                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="cat-url">
+                                        <img src="{{asset($category -> images)}}" class="img-fluid" alt="image">
+                                        <span class="item-count">08 items</span>
+                                    </a>
+                                </div>
+                                <div class="cat-title">
+                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="title"><span>{{$category -> name}}</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                            <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="1" style="width: 305.25px; margin-right: 30px;">
+                            <div class="category-area">
+                                <div class="cat-image">
+                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="cat-url">
+                                        <img src="./restuarantsss_files/cat14.jpg" class="img-fluid" alt="image">
+                                        <span class="item-count">03 items</span>
+                                    </a>
+                                </div>
+                                <div class="cat-title">
+                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="title"><span>Fresh fruits</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="2" style="width: 305.25px; margin-right: 30px;">
+                            <div class="category-area">
+                                <div class="cat-image">
+                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="cat-url">
+                                        <img src="./restuarantsss_files/cat15.jpg" class="img-fluid" alt="image">
+                                        <span class="item-count">07 items</span>
+                                    </a>
+                                </div>
+                                <div class="cat-title">
+                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="title"><span>Fresh meatt</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="3" style="width: 305.25px; margin-right: 30px;">
+                            <div class="category-area">
+                                <div class="cat-image">
+                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="cat-url">
+                                        <img src="./restuarantsss_files/cat16.jpg" class="img-fluid" alt="image">
+                                        <span class="item-count">11 items</span>
+                                    </a>
+                                </div>
+                                <div class="cat-title">
+                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="title"><span>Organic juice</span></a>
+                                </div>
+                            </div>
+                        </div>
+                            @foreach($categories as $category)
+                            <div class="swiper-slide swiper-slide-duplicate-next" data-swiper-slide-index="0" style="width: 305.25px; margin-right: 30px;">
+                            <div class="category-area">
+                                <div class="cat-image">
+                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="cat-url">
+                                        <img src="{{asset($category -> images)}}" class="img-fluid" alt="image" style="width: 200px; height: 200px;">
+                                        <span class="item-count">08 items</span>
+                                    </a>
+                                </div>
+                                <div class="cat-title">
+                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="title"><span>{{$category -> name}}</span></a>
+                                </div>
+                            </div>
+                        </div>
+                            @endforeach
+
+                            </div>
+                        </div>
+                    </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- branch end -->
 
 <!-- service start -->
 <section class="home-service">
@@ -166,15 +255,11 @@
                 <div class="section-title">
                     <h2>Our products</h2>
                     <ul class="nav nav-tabs">
+                        @foreach($categories as $category)
                         <li class="nav-item">
-                            <a class="nav-link active" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/index8.html#home">Organic dryfruit</a>
+                            <a class="nav-link active" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/index8.html#home">{{$category->name}}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/index8.html#profile">Fresh meat</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/index8.html#contact">Green seafood</a>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="tab-content pro-tab-slider">
