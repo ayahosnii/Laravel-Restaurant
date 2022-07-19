@@ -1262,6 +1262,7 @@
 <script src="{{asset('assets/js/swup.min.js')}}"></script>
 <!-- custom -->
 <script src="{{asset('assets/js/custom.js')}}"></script>
+</body>
 @livewireScripts()
 </body>
 </html>

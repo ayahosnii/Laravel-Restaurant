@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CategoryBlog;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -10,11 +11,11 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-        $posts = Post::latest()->with('user')->get();
+        $posts = Post::latest()->with('user')->paginate(1);
         foreach($posts as $post){
             $post->setAttribute('added_at', $post->created_at->diffForHumans());
             $post->setAttribute('comments_count',$post->comments->count());;
@@ -25,22 +26,31 @@ class PostController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function create()
-    {
-        //
+    public function categoryPosts($slug){
+        $category = CategoryBlog::whereSlug($slug)->first();
+        $posts = Post::whereCategoryId($category->id)->with('user')->get();
+        foreach($posts as $post){
+            $post->setAttribute('added_at',$post->created_at->diffForHumans());
+            $post->setAttribute('comments_count',$post->comments->count());
+        }
+        return response()->json($posts);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function searchposts($query)
     {
-        //
+        $posts = Post::where('title','like','%'.$query.'%')->with('user');
+        //get all rows //count
+        $nbposts = count($posts->get());
+
+        foreach($posts->get() as $post){
+            $post->setAttribute('added_at',$post->created_at->diffForHumans());
+            $post->setAttribute('comments_count',$post->comments->count());
+        }
+        $posts = $posts->paginate(intval($nbposts));
+        return response()->json($posts);
     }
 
     /**

@@ -91,6 +91,7 @@
 @endif
 
 
+{{--
 @section('scripts')
     <script>
         $.ajaxSetup({
@@ -112,3 +113,4 @@
         });
     </script>
 @stop
+--}}

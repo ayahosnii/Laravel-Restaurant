@@ -4,20 +4,20 @@
     <!-- Page Content -->
     <div class="container intro-container" id="app">
         <global-home></global-home>
-      <div class="row">
+<!--      <div class="row">
 
-       <!-- Blog Entries Column -->
+       &lt;!&ndash; Blog Entries Column &ndash;&gt;
        <div class="col-md-8">
 
          <h1 class="my-4">Page Heading
            <small>Secondary Text</small>
          </h1>
 
-         <!-- Blog Post -->
+         &lt;!&ndash; Blog Post &ndash;&gt;
 
 
 
-         <!-- Pagination -->
+         &lt;!&ndash; Pagination &ndash;&gt;
          <nav aria-label="...">
            <ul class="pagination float-right">
              <li class="page-item disabled">
@@ -39,10 +39,10 @@
 
        </div>
 
-       <!-- Sidebar Widgets Column -->
+       &lt;!&ndash; Sidebar Widgets Column &ndash;&gt;
        <div class="col-md-4">
 
-         <!-- Search Widget -->
+         &lt;!&ndash; Search Widget &ndash;&gt;
          <div class="card my-4">
            <h5 class="card-header">Search</h5>
            <div class="card-body">
@@ -55,7 +55,7 @@
            </div>
          </div>
 
-         <!-- Categories Widget -->
+         &lt;!&ndash; Categories Widget &ndash;&gt;
          <div class="card my-4">
            <h5 class="card-header">Categories</h5>
            <div class="card-body">
@@ -95,8 +95,8 @@
        </div>
 
      </div>
-    <!-- /.row -->
+    &lt;!&ndash; /.row &ndash;&gt;
 
-    </div>
+    </div>-->
     <!-- /.container -->
 @endsection

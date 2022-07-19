@@ -4,13 +4,14 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-import Home from '../components/GlobalHome';
-import Post from '../components/Posts.vue';
+import Post from '../components/Posts.vue'
 import PostDetails from '../components/PostDetails.vue';
+import CategoryPosts from '../components/CategoryPosts.vue';
 
 const routes = [
-    { path: '/blog', component: Post, name: 'Post' },
+    { path: '/post', component: Post, name: 'Post' },
     { path: '/post/:slug', component: PostDetails, name: 'PostDetails' },
+    { path: '/category/:slug/posts', component: CategoryPosts, name: 'CategoryPosts' },
  ];
 
 

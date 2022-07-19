@@ -7,12 +7,12 @@
                         <div class="blog-style-1-details">
                             <div class="single-image">
                                 <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">
-                                    <img :src=post.image class="img-fluid" alt="image">
+                                    <img :src="post.image" class="img-fluid" alt="image">
                                 </a>
                             </div>
                             <div class="single-blog-content">
                                 <div class="single-b-title">
-                                    <h4>{{ post.title }} {{slug}}</h4>
+                                    <h4>{{ post.title }}</h4>
                                 </div>
                                 <div class="date-edit-comments">
                                     <div class="blog-info-wrap">
@@ -52,7 +52,7 @@
                                     <h4><span>{{post.comments_count}}</span> Comments</h4>
                                     <div class="blog-comment-info">
                                         <ul class="comments-arae" v-for="(comment,i) in post.comments" :key="i">
-                                            <li class="comments-man">JM</li>
+                                            <li class="comments-man">{{comment.user.name.substr(0,2).toUpperCase()}}</li>
                                             <li class="comments-content">
                                                 <span class="comments-result">{{comment.body}}</span>
                                                 <span class="comment-name"><i>By <span class="comments-title">{{comment.user.name}}</span></i></span>
@@ -140,11 +140,10 @@ export default {
     },
     created(){
         this.getPost();
-        this.updateToken();
     },
     methods: {
         getPost() {
-            axios.get('/api/posts/ways-to-cook-eggs')
+            window.axios.get('/api/posts/'+this.$route.params.slug)
                 .then(res => {
                     console.log(res)
                     this.post = res.data
@@ -162,11 +161,7 @@ export default {
                 console.log(res)
                 this.comments.unshift(res.data)
             })
-    },
-        updateToken(){
-            let token =JSON.parse(localStorage.getItem('userToken'));
-            this.$store.commit('setUserToken',token)
-        }
+    }
     },
 
 }

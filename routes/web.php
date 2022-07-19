@@ -33,7 +33,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('/base', [\App\Http\Controllers\BaseController::class, 'index'])->name('base');
     //Route::get('/shop', \App\Http\Livewire\ShopComponent::class)->name('shop');
     Route::get('/shop', [\App\Http\Controllers\ShopController::class, 'index'])->name('shop');
-    //Route::get('/blog', [\App\Http\Controllers\BlogController::class, 'index'])->name('blog');
+    Route::get('/blog', [\App\Http\Controllers\BlogController::class, 'index'])->name('blog');
     //Route::get('/post/{slug}', [\App\Http\Controllers\BlogController::class, 'create'])->name('blog');
     Route::get('/reservations', [\App\Http\Controllers\ReservationController::class, 'get_reservations'])->name('reservations');
     Route::get("/reservations/reservation-details/{id}" , [\App\Http\Controllers\ReservationController::class, "get_reservation"]);
