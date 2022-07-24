@@ -9,9 +9,15 @@ import PostDetails from '../components/PostDetails.vue';
 import CategoryPosts from '../components/CategoryPosts.vue';
 
 const routes = [
-    { path: '/post', component: Post, name: 'Post' },
-    { path: '/post/:slug', component: PostDetails, name: 'PostDetails' },
-    { path: '/category/:slug/posts', component: CategoryPosts, name: 'CategoryPosts' },
+    { path: '/en/post', component: Post, name: 'Post' },
+    { path: '/ar/post', component: Post, name: 'Post' },
+
+    { path: '/en/post/:slug', component: PostDetails, name: 'PostDetails' },
+    { path: '/ar/post/:slug', component: PostDetails, name: 'PostDetails' },
+
+    { path: '/en/category/:slug/posts', component: CategoryPosts, name: 'CategoryPosts' },
+    { path: '/ar/category/:slug/posts', component: CategoryPosts, name: 'CategoryPosts' },
+
  ];
 
 

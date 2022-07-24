@@ -17,15 +17,15 @@
                                 <div class="date-edit-comments">
                                     <div class="blog-info-wrap">
                                         <span class="blog-data date">
-                                            <i class="icon-clock"></i>
+                                            <i class="fa-solid fa-calendar"></i>
                                             <span class="blog-d-n-c">{{ post.added_at }}</span>
                                         </span>
                                         <span class="blog-data blog-edit">
-                                            <i class="icon-user"></i>
-                                            <span class="blog-d-n-c">By <span class="editor"></span></span>
+                                            <i class="fa-solid fa-user"></i>
+                                            <span class="blog-d-n-c">By <span class="editor">{{ post.user.name }}</span></span>
                                         </span>
                                         <span class="blog-data comments">
-                                            <i class="icon-bubble"></i>
+                                            <i class="fa-solid fa-comment"></i>
                                             <span class="blog-d-n-c">{{post.comments_count}} <span class="add-comments">comments</span></span>
                                         </span>
                                     </div>
@@ -36,11 +36,10 @@
                                 </div>
                                 <div class="blog-info">
                                     <i class="fa fa-quote-left"></i>
-                                    <h6></h6>
+                                    <h6>{{ post.user.name }}</h6>
                                 </div>
                                 <div class="b-link">
-                                    <a href="https://spacingtech.com/html/vegist-final/vegist/blog.html">Garlic</a>
-                                    <a href="https://spacingtech.com/html/vegist-final/vegist/blog.html">Tost</a>
+                                    <a :href="'/category/'+categoryslug+'/posts'">{{ post.category.name }}</a>
                                 </div>
                                 <div class="blog-social">
                                     <a href="javascript:void(0)" class="facebook"><i class="fa fa-facebook"></i></a>
@@ -52,7 +51,7 @@
                                     <h4><span>{{post.comments_count}}</span> Comments</h4>
                                     <div class="blog-comment-info">
                                         <ul class="comments-arae" v-for="(comment,i) in post.comments" :key="i">
-                                            <li class="comments-man">{{comment.user.name.substr(0,2).toUpperCase()}}</li>
+                                            <li class="comments-man">{{comment.user.name.match(/\b(\w)/g).join('').toUpperCase()}}</li>
                                             <li class="comments-content">
                                                 <span class="comments-result">{{comment.body}}</span>
                                                 <span class="comment-name"><i>By <span class="comments-title">{{comment.user.name}}</span></i></span>
@@ -135,11 +134,13 @@ export default {
             slug:this.$route.params.slug,
             body:'',
             post_id : '',
-            comments:[]
+            comments:[],
+            categories :'',
         }
     },
     created(){
         this.getPost();
+        this.getCategories();
     },
     methods: {
         getPost() {
@@ -154,6 +155,13 @@ export default {
                     console.log(err)
                 })
         },
+        getCategories(){
+            axios.get('/api/categories'+this.post.category.slug)
+                .then(res => {
+                    this.categories = res.data;
+                })
+                .catch(err => console.log(err))
+        },
     addComment(){
         let {body,post_id} = this;
         axios.post('/api/comment/create',{body,post_id})
@@ -163,6 +171,14 @@ export default {
             })
     }
     },
+    computed:{
+        categoryslug:{
+            get() {
+                return this.post.category.slug
+
+            }
+        }
+    }
 
 }
 </script>

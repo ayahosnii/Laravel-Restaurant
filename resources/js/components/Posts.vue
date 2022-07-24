@@ -12,35 +12,43 @@
         <div class="blog-start" v-for="post in posts.data" :key="post.id">
             <div class="blog-post">
                 <div class="blog-image">
-<!--
-                    <router-link :to="'/post/'+post.slug">
--->
+                    <a :href="'/post/'+post.slug">
 
                         <img :src=post.image alt="blog-image" class="img-fluid">
 
-<!--
-                    </router-link>
--->
+                    </a>
                 </div>
                 <div class="blog-content">
                     <div class="blog-title">
-                        <h6><!--<router-link :to="'/post/'+post.slug">-->{{post.title}}<!--</router-link>--></h6>
+                        <h6><a :href="'/post/'+post.slug">{{post.title}}</a></h6>
                     </div>
                     <div class="date-comm-adit">
-                        <span class="blog-date"><i class="ti-calendar"></i> {{ post.added_at }}</span>
-                        <a href="javascript:void(0)"><i class="ti-comment-alt"></i> {{ post.comments_count }} Comment</a>
-                        <span class="blog-admin"><i class="ti-user"></i> By <span class="blog-editor"> </span></span>
+                        <span class="blog-date"><i class="fa-solid fa-calendar"></i> {{ post.added_at }}</span>
+                        <a href="javascript:void(0)"><i class="fa-solid fa-comment"></i>{{ post.comments_count }} Comment</a>
+                        <span class="blog-admin"><i class="fa-solid fa-user"></i> By <span class="blog-editor">{{ post.user.name }}</span></span>
                     </div>
-                    <p class="blog-description"><!--{{post.body.substr(0,150)}}--></p>
-<!--                    <a :href="'/post/'+post.slug" class="read-link">
+                    <p class="blog-description">{{post.body.substr(0,150)}}</p>
+                    <a :href="'/post/'+post.slug" class="read-link">
                         <span>Read more</span>
-                        <i class="ti-arrow-right"></i>
-                    </a>-->
+                        <i class="fa-solid fa-angles-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-                <div class="col-md-4">
+                <div class="col-md-3" style="margin-left:100px; align-items: center;">
+                    <div class="align-content-center" style="align-items: center; margin-bottom: 30px; margin-left:30px;">
+                        <h6 style="font-family: 'Kdam Thmor Pro', sans-serif;align-items: center;">Quick Register/Login</h6>
+                        <li class="" data-toggle="modal" data-target="#register-modal">
+                            <a class="btn btn-info nav-link" href="#" data-toggle="modal" data-target="#register-modal">Register</a>
+                        </li>
+
+                        <li  class="nav-item reg-login-btn" data-toggle="modal" data-target="#login-modal">
+                            <a class="btn btn-outline-danger" href="#" style="font-family: 'Kdam Thmor Pro', sans-serif;">login</a>
+                        </li>
+
+                    </div>
+
                     <div class="wrapper">
                         <div class="container">
                             <form role="search" method="get" class="search-form form" action="">
@@ -112,7 +120,6 @@ import LaravelVuePagination from 'laravel-vue-pagination';
         mounted() {
             console.log('Component mounted.')
             this.getPosts();
-            this.getResults();
         },
          methods:{
              getPosts(){

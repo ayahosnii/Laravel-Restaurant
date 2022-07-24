@@ -6,7 +6,7 @@
             <ul class="list-unstyled mb-0">
                 <li v-for="category in categories" :key="category.id">
 
-                    <a href="#">{{ category.name }}</a>
+                    <a :href="'/category/'+category.slug+'/posts'" style="font-family: 'Kdam Thmor Pro', sans-serif; font-size: medium">{{ category.name }}</a>
 
                 </li>
 

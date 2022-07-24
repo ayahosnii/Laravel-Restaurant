@@ -10513,11 +10513,13 @@ __webpack_require__.r(__webpack_exports__);
       slug: this.$route.params.slug,
       body: '',
       post_id: '',
-      comments: []
+      comments: [],
+      categories: ''
     };
   },
   created: function created() {
     this.getPost();
+    this.getCategories();
   },
   methods: {
     getPost: function getPost() {
@@ -10532,8 +10534,17 @@ __webpack_require__.r(__webpack_exports__);
         console.log(err);
       });
     },
-    addComment: function addComment() {
+    getCategories: function getCategories() {
       var _this2 = this;
+
+      axios.get('/api/categories' + this.post.category.slug).then(function (res) {
+        _this2.categories = res.data;
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    },
+    addComment: function addComment() {
+      var _this3 = this;
 
       var body = this.body,
           post_id = this.post_id;
@@ -10543,8 +10554,15 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (res) {
         console.log(res);
 
-        _this2.comments.unshift(res.data);
+        _this3.comments.unshift(res.data);
       });
+    }
+  },
+  computed: {
+    categoryslug: {
+      get: function get() {
+        return this.post.category.slug;
+      }
     }
   }
 });
@@ -10602,7 +10620,6 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     console.log('Component mounted.');
     this.getPosts();
-    this.getResults();
   },
   methods: {
     getPosts: function getPosts() {
@@ -10652,8 +10669,12 @@ var render = function render() {
     return _c("li", {
       key: category.id
     }, [_c("a", {
+      staticStyle: {
+        "font-family": "'Kdam Thmor Pro', sans-serif",
+        "font-size": "medium"
+      },
       attrs: {
-        href: "#"
+        href: "/category/" + category.slug + "/posts"
       }
     }, [_vm._v(_vm._s(category.name))])]);
   }), 0)])]);
@@ -10725,17 +10746,17 @@ var render = function render() {
     }, [_c("span", {
       staticClass: "blog-date"
     }, [_c("i", {
-      staticClass: "ti-calendar"
+      staticClass: "fa-solid fa-calendar"
     }), _vm._v(" " + _vm._s(post.added_at))]), _vm._v(" "), _c("a", {
       attrs: {
         href: "javascript:void(0)"
       }
     }, [_c("i", {
-      staticClass: "ti-comment-alt"
+      staticClass: "fa-solid fa-comment"
     }), _vm._v(" " + _vm._s(post.comments_count) + " Comment")]), _vm._v(" "), _c("span", {
       staticClass: "blog-admin"
     }, [_c("i", {
-      staticClass: "ti-user"
+      staticClass: "fa-solid fa--user"
     }), _vm._v(" By "), _c("span", {
       staticClass: "blog-editor"
     }, [_vm._v(_vm._s(post.user.name))])])]), _vm._v(" "), _c("p", {
@@ -10746,7 +10767,7 @@ var render = function render() {
         href: "/post/" + post.slug
       }
     }, [_c("span", [_vm._v("Read more")]), _vm._v(" "), _c("i", {
-      staticClass: "ti-arrow-right"
+      staticClass: "fa-solid fa-angles-right"
     })])])])]);
   }), 0)]), _vm._v(" "), _vm._m(0)])])]);
 };
@@ -10869,20 +10890,38 @@ var render = function render() {
   }, [_c("span", {
     staticClass: "blog-data date"
   }, [_c("i", {
-    staticClass: "icon-clock"
+    staticClass: "fa-solid fa-calendar"
   }), _vm._v(" "), _c("span", {
     staticClass: "blog-d-n-c"
-  }, [_vm._v(_vm._s(_vm.post.added_at))])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("span", {
+  }, [_vm._v(_vm._s(_vm.post.added_at))])]), _vm._v(" "), _c("span", {
+    staticClass: "blog-data blog-edit"
+  }, [_c("i", {
+    staticClass: "fa-solid fa-user"
+  }), _vm._v(" "), _c("span", {
+    staticClass: "blog-d-n-c"
+  }, [_vm._v("By "), _c("span", {
+    staticClass: "editor"
+  }, [_vm._v(_vm._s(_vm.post.user.name))])])]), _vm._v(" "), _c("span", {
     staticClass: "blog-data comments"
   }, [_c("i", {
-    staticClass: "icon-bubble"
+    staticClass: "fa-solid fa-comment"
   }), _vm._v(" "), _c("span", {
     staticClass: "blog-d-n-c"
   }, [_vm._v(_vm._s(_vm.post.comments_count) + " "), _c("span", {
     staticClass: "add-comments"
   }, [_vm._v("comments")])])])])]), _vm._v(" "), _c("div", {
     staticClass: "blog-description"
-  }, [_c("p", [_vm._v(" " + _vm._s(_vm.post.body) + " ")])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v(" " + _vm._s(_vm.post.body) + " ")])]), _vm._v(" "), _c("div", {
+    staticClass: "blog-info"
+  }, [_c("i", {
+    staticClass: "fa fa-quote-left"
+  }), _vm._v(" "), _c("h6", [_vm._v(_vm._s(_vm.post.user.name))])]), _vm._v(" "), _c("div", {
+    staticClass: "b-link"
+  }, [_c("a", {
+    attrs: {
+      href: "/category/" + _vm.categoryslug + "/posts"
+    }
+  }, [_vm._v(_vm._s(_vm.post.category.name))])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "blog-comments"
   }, [_c("h4", [_c("span", [_vm._v(_vm._s(_vm.post.comments_count))]), _vm._v(" Comments")]), _vm._v(" "), _c("div", {
     staticClass: "blog-comment-info"
@@ -10892,7 +10931,7 @@ var render = function render() {
       staticClass: "comments-arae"
     }, [_c("li", {
       staticClass: "comments-man"
-    }, [_vm._v(_vm._s(comment.user.name.substr(0, 2).toUpperCase()))]), _vm._v(" "), _c("li", {
+    }, [_vm._v(_vm._s(comment.user.name.match(/\b(\w)/g).join("").toUpperCase()))]), _vm._v(" "), _c("li", {
       staticClass: "comments-content"
     }, [_c("span", {
       staticClass: "comments-result"
@@ -10900,48 +10939,11 @@ var render = function render() {
       staticClass: "comment-name"
     }, [_c("i", [_vm._v("By "), _c("span", {
       staticClass: "comments-title"
-    }, [_vm._v(_vm._s(comment.user.name))])])]), _vm._v(" "), _vm._m(4, true)])]);
-  }), _vm._v(" "), _vm._m(5)], 2)]), _vm._v(" "), _vm._m(6)])])])]), _vm._v(" "), _vm._m(7)])])]);
+    }, [_vm._v(_vm._s(comment.user.name))])])]), _vm._v(" "), _vm._m(1, true)])]);
+  }), _vm._v(" "), _vm._m(2)], 2)]), _vm._v(" "), _vm._m(3)])])])]), _vm._v(" "), _vm._m(4)])])]);
 };
 
 var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("span", {
-    staticClass: "blog-data blog-edit"
-  }, [_c("i", {
-    staticClass: "icon-user"
-  }), _vm._v(" "), _c("span", {
-    staticClass: "blog-d-n-c"
-  }, [_vm._v("By "), _c("span", {
-    staticClass: "editor"
-  })])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "blog-info"
-  }, [_c("i", {
-    staticClass: "fa fa-quote-left"
-  }), _vm._v(" "), _c("h6")]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "b-link"
-  }, [_c("a", {
-    attrs: {
-      href: "https://spacingtech.com/html/vegist-final/vegist/blog.html"
-    }
-  }, [_vm._v("Garlic")]), _vm._v(" "), _c("a", {
-    attrs: {
-      href: "https://spacingtech.com/html/vegist-final/vegist/blog.html"
-    }
-  }, [_vm._v("Tost")])]);
-}, function () {
   var _vm = this,
       _c = _vm._self._c;
 
@@ -11106,7 +11108,7 @@ var render = function render() {
     staticClass: "row"
   }, [_vm.issearching ? _c("div", {
     staticClass: "col-md-8"
-  }, [_vm._v("\n             .... searching now\n         ")]) : _c("div", {
+  }, [_vm._v("\n         .... searching now\n     ")]) : _c("div", {
     staticClass: "blog-style-1-list col-md-8",
     attrs: {
       id: "app"
@@ -11119,34 +11121,59 @@ var render = function render() {
       staticClass: "blog-post"
     }, [_c("div", {
       staticClass: "blog-image"
+    }, [_c("a", {
+      attrs: {
+        href: "/post/" + post.slug
+      }
     }, [_c("img", {
       staticClass: "img-fluid",
       attrs: {
         src: post.image,
         alt: "blog-image"
       }
-    })]), _vm._v(" "), _c("div", {
+    })])]), _vm._v(" "), _c("div", {
       staticClass: "blog-content"
     }, [_c("div", {
       staticClass: "blog-title"
-    }, [_c("h6", [_vm._v(_vm._s(post.title))])]), _vm._v(" "), _c("div", {
+    }, [_c("h6", [_c("a", {
+      attrs: {
+        href: "/post/" + post.slug
+      }
+    }, [_vm._v(_vm._s(post.title))])])]), _vm._v(" "), _c("div", {
       staticClass: "date-comm-adit"
     }, [_c("span", {
       staticClass: "blog-date"
     }, [_c("i", {
-      staticClass: "ti-calendar"
+      staticClass: "fa-solid fa-calendar"
     }), _vm._v(" " + _vm._s(post.added_at))]), _vm._v(" "), _c("a", {
       attrs: {
         href: "javascript:void(0)"
       }
     }, [_c("i", {
-      staticClass: "ti-comment-alt"
-    }), _vm._v(" " + _vm._s(post.comments_count) + " Comment")]), _vm._v(" "), _vm._m(0, true)]), _vm._v(" "), _c("p", {
+      staticClass: "fa-solid fa-comment"
+    }), _vm._v(_vm._s(post.comments_count) + " Comment")]), _vm._v(" "), _c("span", {
+      staticClass: "blog-admin"
+    }, [_c("i", {
+      staticClass: "fa-solid fa-user"
+    }), _vm._v(" By "), _c("span", {
+      staticClass: "blog-editor"
+    }, [_vm._v(_vm._s(post.user.name))])])]), _vm._v(" "), _c("p", {
       staticClass: "blog-description"
-    })])])]);
+    }, [_vm._v(_vm._s(post.body.substr(0, 150)))]), _vm._v(" "), _c("a", {
+      staticClass: "read-link",
+      attrs: {
+        href: "/post/" + post.slug
+      }
+    }, [_c("span", [_vm._v("Read more")]), _vm._v(" "), _c("i", {
+      staticClass: "fa-solid fa-angles-right"
+    })])])])]);
   }), 0), _vm._v(" "), _c("div", {
-    staticClass: "col-md-4"
-  }, [_c("div", {
+    staticClass: "col-md-3",
+    staticStyle: {
+      "margin-left": "100px",
+      "align-items": "center"
+    }
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "wrapper"
   }, [_c("div", {
     staticClass: "container"
@@ -11197,13 +11224,45 @@ var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("span", {
-    staticClass: "blog-admin"
-  }, [_c("i", {
-    staticClass: "ti-user"
-  }), _vm._v(" By "), _c("span", {
-    staticClass: "blog-editor"
-  })]);
+  return _c("div", {
+    staticClass: "align-content-center",
+    staticStyle: {
+      "align-items": "center",
+      "margin-bottom": "30px",
+      "margin-left": "30px"
+    }
+  }, [_c("h6", {
+    staticStyle: {
+      "font-family": "'Kdam Thmor Pro', sans-serif",
+      "align-items": "center"
+    }
+  }, [_vm._v("Quick Register/Login")]), _vm._v(" "), _c("li", {
+    attrs: {
+      "data-toggle": "modal",
+      "data-target": "#register-modal"
+    }
+  }, [_c("a", {
+    staticClass: "btn btn-info nav-link",
+    attrs: {
+      href: "#",
+      "data-toggle": "modal",
+      "data-target": "#register-modal"
+    }
+  }, [_vm._v("Register")])]), _vm._v(" "), _c("li", {
+    staticClass: "nav-item reg-login-btn",
+    attrs: {
+      "data-toggle": "modal",
+      "data-target": "#login-modal"
+    }
+  }, [_c("a", {
+    staticClass: "btn btn-outline-danger",
+    staticStyle: {
+      "font-family": "'Kdam Thmor Pro', sans-serif"
+    },
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("login")])])]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
@@ -11297,6 +11356,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('posts', (__webpack_requir
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('post-details', (__webpack_require__(/*! ./components/PostDetails.vue */ "./resources/js/components/PostDetails.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('categories', (__webpack_require__(/*! ./components/Categories */ "./resources/js/components/Categories.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('CategoryPosts', (__webpack_require__(/*! ./components/CategoryPosts */ "./resources/js/components/CategoryPosts.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('pagination', __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js"));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -11370,15 +11430,27 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_router__WEBPACK_IMPORTED_MOD
 
 
 var routes = [{
-  path: '/post',
+  path: '/en/post',
   component: _components_Posts_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
   name: 'Post'
 }, {
-  path: '/post/:slug',
+  path: '/ar/post',
+  component: _components_Posts_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+  name: 'Post'
+}, {
+  path: '/en/post/:slug',
   component: _components_PostDetails_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
   name: 'PostDetails'
 }, {
-  path: '/category/:slug/posts',
+  path: '/ar/post/:slug',
+  component: _components_PostDetails_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+  name: 'PostDetails'
+}, {
+  path: '/en/category/:slug/posts',
+  component: _components_CategoryPosts_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+  name: 'CategoryPosts'
+}, {
+  path: '/ar/category/:slug/posts',
   component: _components_CategoryPosts_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
   name: 'CategoryPosts'
 }];

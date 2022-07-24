@@ -27,6 +27,7 @@ Vue.component('posts', require('./components/Posts').default);
 Vue.component('post-details', require('./components/PostDetails.vue').default);
 Vue.component('categories', require('./components/Categories').default);
 Vue.component('CategoryPosts', require('./components/CategoryPosts').default);
+Vue.component('pagination', require('laravel-vue-pagination'));
 
 
 /**
@@ -39,3 +40,4 @@ new Vue({
     el: '#app',
     router,
 });
+

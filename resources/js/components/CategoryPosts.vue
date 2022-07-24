@@ -18,14 +18,14 @@
                                         <h6><router-link :to="'/post/'+post.slug">{{post.title}}</router-link></h6>
                                     </div>
                                     <div class="date-comm-adit">
-                                        <span class="blog-date"><i class="ti-calendar"></i> {{ post.added_at }}</span>
-                                        <a href="javascript:void(0)"><i class="ti-comment-alt"></i> {{ post.comments_count }} Comment</a>
-                                        <span class="blog-admin"><i class="ti-user"></i> By <span class="blog-editor">{{post.user.name}}</span></span>
+                                        <span class="blog-date"><i class="fa-solid fa-calendar"></i> {{ post.added_at }}</span>
+                                        <a href="javascript:void(0)"><i class="fa-solid fa-comment"></i> {{ post.comments_count }} Comment</a>
+                                        <span class="blog-admin"><i class="fa-solid fa--user"></i> By <span class="blog-editor">{{post.user.name}}</span></span>
                                     </div>
                                     <p class="blog-description">{{post.body.substr(0,150)}}</p>
                                     <a :href="'/post/'+post.slug" class="read-link">
                                         <span>Read more</span>
-                                        <i class="ti-arrow-right"></i>
+                                        <i class="fa-solid fa-angles-right"></i>
                                     </a>
                                 </div>
                             </div>

@@ -30,6 +30,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('/', \App\Http\Livewire\HomeComponent::class)->name('index');
     Route::get('/shop/main-category/{category_slug}', \App\Http\Livewire\CategoryComponent::class)->name('product.category');
     Route::get('/shop/sub-category/{sub_category_slug}', [\App\Http\Controllers\SubCategoryController::class, 'index'])->name('sub-category.index');
+    Route::get('{any}', function ($any){
+        return view('site.home');
+    })->where('any','.*');
     Route::get('/base', [\App\Http\Controllers\BaseController::class, 'index'])->name('base');
     //Route::get('/shop', \App\Http\Livewire\ShopComponent::class)->name('shop');
     Route::get('/shop', [\App\Http\Controllers\ShopController::class, 'index'])->name('shop');
@@ -87,9 +90,9 @@ Route::group(['prefix' => 'restaurant'], function () {
     Route::get('/{user_name}', [\App\Http\Controllers\RestaurantController::class, 'get_rest'])->name('restaurant.details');
     Route::get('branch/{b_username}', [\App\Http\Controllers\RestaurantController::class, 'get_branch'])->name('branch.details');
 });
-Route::middleware(['guest:web', 'guest:providers'])->group(function(){
+/*Route::middleware(['guest:web', 'guest:providers'])->group(function(){
     Auth::routes();
-});
+});*/
 
 //Route::get('/shop-vue', [\App\Http\Controllers\ShopController::class, 'index'])->name('shop-vue');
 
@@ -100,6 +103,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('sendSMS', [\App\Http\Controllers\Site\VerificationCodeController::class, 'index']);
 
 
-Route::get('{any}', function ($any){
-    return view('site.home');
-})->where('any','.*');
+

@@ -14,7 +14,7 @@ class Post extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function categories()
+    public function category()
     {
         return $this->belongsTo(CategoryBlog::class, 'category_id', 'id');
     }
