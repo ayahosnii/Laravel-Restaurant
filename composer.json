@@ -38,8 +38,8 @@
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }, "files": [
-            "App/Helpers/Generals.php",
-            "App/Basket/Basket.php"
+            "app/Helpers/Generals.php",
+            "app/Basket/Basket.php"
         ]
     },
     "autoload-dev": {
