@@ -36,7 +36,7 @@
             </div>
         </div>
     </div>
-
+                <div class="col-md-3" style="margin-left:100px; align-items: center;">
                     <div class="wrapper">
                         <div class="container">
                             <form role="search" method="get" class="search-form form" action="">
