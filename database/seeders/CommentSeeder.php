@@ -16,17 +16,20 @@ class CommentSeeder extends Seeder
     public function run()
     {
         Comment::create([
+            'id' => 1,
             'body' => 'some comments to show in comments section',
             'user_id' => 1,
             'post_id' => 1,
         ]);
          Comment::create([
-            'body' => 'some comments to show in comments section',
+             'id' => 2,
+             'body' => 'some comments to show in comments section',
             'user_id' => 1,
             'post_id' => 2,
         ]);
          Comment::create([
-            'body' => 'some comments to show in comments section',
+             'id' => 3,
+             'body' => 'some comments to show in comments section',
             'user_id' => 1,
             'post_id' => 3,
         ]);
