@@ -18,7 +18,7 @@ class AdminSeeder extends Seeder
     {
         User::create([
             'name' => 'Aya Restaurant',
-            'email' => 'aya_restaurant"site.com',
+            'email' => 'aya_restaurant@site.com',
             'password' => '12345678',
             'utype' => 'ADM',
         ]);
