@@ -20,6 +20,7 @@ class UserController extends Controller
             'email' => $request->email,
             'profile_img'=>'profile_img1.jpg',
             'password' => bcrypt($request->password),
+            'utype' => 'ADM'
         ]);
 
         $token = $user->createToken('programingVh')->accessToken;
