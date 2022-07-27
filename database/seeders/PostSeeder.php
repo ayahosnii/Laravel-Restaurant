@@ -17,6 +17,7 @@ class PostSeeder extends Seeder
     public function run()
     {
         Post::create([
+            'id' => 1,
             'title' =>"ways to cook Eggs",
             'slug' => Str::slug('ways to cook eggs'),
             'body' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -30,6 +31,7 @@ class PostSeeder extends Seeder
             'category_id' =>1,
         ]);
         Post::create([
+            'id' => 2,
             'title' =>"How to make pizza",
             'slug' => Str::slug('how to make pizza'),
             'body' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -43,6 +45,7 @@ class PostSeeder extends Seeder
             'category_id' =>2,
         ]);
         Post::create([
+            'id' => 3,
             'title' =>"Delicious dinners",
             'slug' => Str::slug('delicious dinners'),
             'body' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry.

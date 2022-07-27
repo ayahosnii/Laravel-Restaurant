@@ -16,7 +16,8 @@ class SettingSeeder extends Seeder
     public function run()
     {
         Setting::create([
-             'site_name' => 'Aya Restaurant',
+            'id' => 1,
+            'site_name' => 'Aya Restaurant',
             'contact_email' => 'aya_restaurant"site.com',
             'address' => '.....',
         ]);
