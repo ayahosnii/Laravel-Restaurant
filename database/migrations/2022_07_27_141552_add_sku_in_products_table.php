@@ -14,7 +14,7 @@ class AddTransOfInProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->string('translation_of');
+            $table->integer('translation_of');
         });
     }
 
