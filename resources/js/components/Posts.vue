@@ -36,18 +36,6 @@
             </div>
         </div>
     </div>
-                <div class="col-md-3" style="margin-left:100px; align-items: center;">
-                    <div class="align-content-center" style="align-items: center; margin-bottom: 30px; margin-left:30px;">
-                        <h6 style="font-family: 'Kdam Thmor Pro', sans-serif;align-items: center;">Quick Register/Login</h6>
-                        <li class="" data-toggle="modal" data-target="#register-modal">
-                            <a class="btn btn-info nav-link" href="#" data-toggle="modal" data-target="#register-modal">Register</a>
-                        </li>
-
-                        <li  class="nav-item reg-login-btn" data-toggle="modal" data-target="#login-modal">
-                            <a class="btn btn-outline-danger" href="#" style="font-family: 'Kdam Thmor Pro', sans-serif;">login</a>
-                        </li>
-
-                    </div>
 
                     <div class="wrapper">
                         <div class="container">
