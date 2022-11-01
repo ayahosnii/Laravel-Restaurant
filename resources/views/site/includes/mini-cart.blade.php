@@ -32,8 +32,8 @@
                         <a class="remove-from-cart sb-remove" onclick="$(this).closest('.cart-item').remove()"
                            rel="nofollow"
                            data-link-action="delete-from-cart"
-                           data-id-product="{{$product -> id}}"
-                           data-url-product="{{route('site.cart.update',$product -> slug)}}"
+                           data-id-product="{{$item -> id}}"
+                           data-url-product="{{route('site.cart.update',$item -> slug)}}"
                            data-id-customization=""><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>

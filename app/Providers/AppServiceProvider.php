@@ -58,6 +58,7 @@ class AppServiceProvider extends ServiceProvider
             View::composer('layouts.base-vue', CartComposer::class);
             View::composer('layouts.base', CartComposer::class);
             View::composer('layouts.base-res', CartComposer::class);
+            View::composer('site.includes.mini-cart', CartComposer::class);
             View::composer('providers.includes.layout', ProfileComposer::class);
 
 
