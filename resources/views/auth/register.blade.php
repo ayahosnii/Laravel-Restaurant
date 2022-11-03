@@ -152,6 +152,13 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
+                            <label for="name" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">User Name</label>
+                            <input class="form__input"  type="text" name="user_name" :value="old('name')" required autofocus autocomplete="name" placeholder="User Name" />
+                            @error('user_name')
+                            <span class="invalid-feedback text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                             <label for="email" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">Email</label>
                             <input class="form__input" id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" placeholder="Email" required />
                             @error('email')
