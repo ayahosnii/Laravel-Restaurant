@@ -54,21 +54,12 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get('/{user_name}', [\App\Http\Controllers\RestaurantController::class, 'get_rest'])->name('restaurant.details');
         Route::get('branch/{b_username}', [\App\Http\Controllers\RestaurantController::class, 'get_branch'])->name('branch.details');
     });
-    Route::get('{any}', function ($any){
-        return view('site.home');
-    })->where('any','.*');
-});
 
-Route::group(
-    [
-        'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'verifiedUser' ]
-    ], function(){
     Route::get('/search', \App\Http\Livewire\SearchComponent::class)->name('search');
     //Route::get('/cart', \App\Http\Livewire\CartComponent::class)->name('cart');
     Route::get('/wish-list', \App\Http\Livewire\WishListComponent::class)->name('wishlist');
     Route::get('/checkout', \App\Http\Livewire\CheckoutComponent::class)->name('checkout');
-/*    Route::get('/shop/{slug}', \App\Http\Livewire\DetailsComponent::class)->name('details');*/
+    /*    Route::get('/shop/{slug}', \App\Http\Livewire\DetailsComponent::class)->name('details');*/
 
     //Must authenticate user and verify
     Route::get('profile', function(){
@@ -79,13 +70,14 @@ Route::group(
     Route::group( ['middleware' => 'auth' ], function() {
         Route::get('verify', [\App\Http\Controllers\Site\VerificationCodeController::class, 'getVerifyPage'])->name('get.verification.form');
         Route::post('verify-user/', [\App\Http\Controllers\Site\VerificationCodeController::class, 'verify'])->name('verify-user');
+        Route::post('wishlist', [\App\Http\Controllers\WishlistController::class, 'store'])->name('wishlist.store');
+        Route::delete('wishlist', [\App\Http\Controllers\WishlistController::class, 'destroy'])->name('wishlist.destroy');
+        Route::get('wishlist/products', [\App\Http\Controllers\WishlistController::class, 'index'])->name('wishlist.products.index');
     });
-});
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::post('wishlist', [\App\Http\Controllers\WishlistController::class, 'store'])->name('wishlist.store');
-    Route::delete('wishlist', [\App\Http\Controllers\WishlistController::class, 'destroy'])->name('wishlist.destroy');
-    Route::get('wishlist/products', [\App\Http\Controllers\WishlistController::class, 'index'])->name('wishlist.products.index');
+    Route::get('{any}', function ($any){
+        return view('site.home');
+    })->where('any','.*');
 });
 
 
