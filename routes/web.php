@@ -49,6 +49,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::post('/update/{slug}', [\App\Http\Controllers\Site\CartController::class, 'postUpdate'])->name('site.cart.update');
         Route::post('/update-all', [\App\Http\Controllers\Site\CartController::class, 'postUpdateAll'])->name('site.cart.update-all');
     });
+    Route::group(['prefix' => 'restaurant'], function () {
+        Route::get('/', [\App\Http\Controllers\RestaurantController::class, 'index'])->name('restaurant.index');
+        Route::get('/{user_name}', [\App\Http\Controllers\RestaurantController::class, 'get_rest'])->name('restaurant.details');
+        Route::get('branch/{b_username}', [\App\Http\Controllers\RestaurantController::class, 'get_branch'])->name('branch.details');
+    });
     Route::get('{any}', function ($any){
         return view('site.home');
     })->where('any','.*');
@@ -85,11 +90,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 
-Route::group(['prefix' => 'restaurant'], function () {
-    Route::get('/', [\App\Http\Controllers\RestaurantController::class, 'index'])->name('restaurant.index');
-    Route::get('/{user_name}', [\App\Http\Controllers\RestaurantController::class, 'get_rest'])->name('restaurant.details');
-    Route::get('branch/{b_username}', [\App\Http\Controllers\RestaurantController::class, 'get_branch'])->name('branch.details');
-});
+
 /*Route::middleware(['guest:web', 'guest:providers'])->group(function(){
     Auth::routes();
 });*/
