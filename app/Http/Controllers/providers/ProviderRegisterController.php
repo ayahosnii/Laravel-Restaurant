@@ -46,6 +46,7 @@ class ProviderRegisterController extends Controller
     {
         $rules = [
             'name'                      => 'required',
+            'user_name'                      => 'required',
             'email'                     => 'required|email',
             'mobile'                    => 'required|numeric',
             /*   'province'                  => 'required',
@@ -123,6 +124,7 @@ class ProviderRegisterController extends Controller
 
         $data = ProviderRegister::create ([
                 'name'                      => $request->name,
+                'user_name'                      => $request->user_name,
                 'email'                     => $request->email,
                 'phone'                     => $request->mobile,
                /* 'province_id'             => $request->province,
