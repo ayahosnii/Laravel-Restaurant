@@ -15,6 +15,8 @@ class AddUserNameToProviderRegistersTable extends Migration
     {
         Schema::table('provider_registers', function (Blueprint $table) {
             $table->string('user_name')->nullable();
+            $table->string('ar_details')->nullable();
+            $table->string('en_details')->nullable();
         });
     }
 
