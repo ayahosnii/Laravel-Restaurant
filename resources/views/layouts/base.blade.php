@@ -35,7 +35,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- title -->
-    <title>Vegist - Multipurpose eCommerce HTML Template</title>
+    <title>Aya's Restuarant</title>
     <meta name="description" content="A best clean, modern, stylish, creative, responsive theme for different eCommerce business or industries.">
     <meta name="keywords" content="organic food theme, vegetables, foof store, eCommerce html template, responsive, electronics store, furniture wood, fashion, furniture, mobile, watches, electronics, computers accessories, toys, jewellery, restaurant accessories">
     <meta name="author" content="spacingtech_webify">
@@ -393,31 +393,6 @@
                                                         </li>
                                                     </ul>
                                                 </li>
-                                                <li class="menu-link parent">
-                                                    <a href="javascript:void(0)" class="link-title">
-                                                        <span class="sp-link-title">Pages</span>
-                                                        <i class="fa fa-angle-down"></i>
-                                                    </a>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-page-menu" data-bs-toggle="collapse" class="link-title link-title-lg">
-                                                        <span class="sp-link-title">Pages</span>
-                                                        <i class="fa fa-angle-down"></i>
-                                                    </a>
-
-                                                    <ul class="dropdown-submenu sub-menu collapse" id="collapse-page-menu">
-
-                                                        <li class="submenu-li">
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/about-us.html" class="submenu-link"><i class="fa fa-angle-right"></i></a>
-                                                        </li>
-                                                        <ul class="collapse blog-style-1" id="blog-style03">
-                                                            <li>
-                                                                <a href="javascript:void(0)" class="sub-style"><span></span><i class="fa fa-angle-right"></i></a>
-                                                                <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#grid1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
-                                                            </li>
-
-                                                        </ul>
-
-                                                    </ul>
-                                                </li>
 
                                                 <li class="menu-link parent">
                                                     <a href="javascript:void(0)" class="link-title">
@@ -497,6 +472,11 @@
                                                         <span class="sp-link-title">Restaurants <span class="hot">Hot</span></span>
                                                     </a>
                                                 </li>
+                                                <li class="menu-link">
+                                                    <a href="{{route('conversations.index')}}" class="link-title">
+                                                        <span class="sp-link-title">Chat <i class="fa fa-comment"></i></span>
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -518,9 +498,7 @@
             </div>
         </div>
     </div>
-{{--
     @include('site.includes.mini-cart')
---}}
 
 </header>
 <!-- header end -->
