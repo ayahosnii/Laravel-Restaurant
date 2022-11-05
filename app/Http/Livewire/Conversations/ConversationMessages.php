@@ -17,7 +17,7 @@ class ConversationMessages extends Component
     {
         return [
             'message.created' => 'prependMessage',
-            "echo-private:conversations.{$this->conversationId}, Conversations\\MessageAdded" => 'prependMessage:conversation',
+            "echo-private:conversations.{$this->conversationId},Conversations\\MessageAdded" => 'prependMessageFromBroadcast',
             ];
     }
 
