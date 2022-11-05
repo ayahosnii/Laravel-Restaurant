@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Livewire\Conversions;
+namespace App\Http\Livewire\Conversations;
 
 use Illuminate\Support\Collection;
 use Livewire\Component;
+use function view;
 
 class ChatList extends Component
 {

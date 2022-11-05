@@ -1,10 +1,10 @@
 <div>
     @foreach($chats as $chat)
         <a href="{{route('conversations.show', $chat)}}" class="list-group-item list-group-item-action warning text-white rounded-0">
-            <div class="media"><img src="{{$chat->user->avatar()}}" alt="{{$chat->user->name }}" width="50" class="rounded-circle">
+            <div class="media"><img src="{{ asset('assets/img/chats/beautiful-housewife-is-cooking.webp') }}" alt="{{$chat->name != '' ? $chat->name : $chat->users->pluck('name')->join(', ')}}" width="50" class="rounded-circle">
                 <div class="media-body ml-4">
                     <div class="d-flex align-items-center justify-content-between mb-1">
-                        <h6 class="mb-0">{{$chat->name != '' ? $chat->name : $chat->user->pluck('name')->join(', ')}}</h6><small class="small font-weight-bold">25 Dec</small>
+                        <h6 class="mb-0">{{$chat->name != '' ? $chat->name : $chat->users->pluck('name')->join(', ')}}</h6><small class="small font-weight-bold">25 Dec</small>
                     </div>
                     <p class="font-italic mb-0 text-small">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
                 </div>
