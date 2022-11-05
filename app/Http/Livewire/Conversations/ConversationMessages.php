@@ -26,6 +26,11 @@ class ConversationMessages extends Component
         $this->messages->push(Message::find($id));
     }
 
+    public function prependMessageFromBroadcast($payload)
+    {
+        $this->prependMessage($payload['message']['id']);
+    }
+
     public function mount(Conversation $conversation, Collection $messages)
     {
         $this->conversationId = $conversation->id;
