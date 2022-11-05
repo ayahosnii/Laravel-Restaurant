@@ -126,13 +126,14 @@ class ProviderRegisterController extends Controller
                 'name'                      => $request->name,
                 'user_name'                      => $request->user_name,
                 'email'                     => $request->email,
+                'rest_img'                     => $request->rest_img,
                 'phone'                     => $request->mobile,
                /* 'province_id'             => $request->province,
                 'city_id'                   => $request->city,*/
                 'address'                   => $request->address,
                 'password'                  => $request->password,
-                "ar_details"       => $request->ar_details,
-                "en_details"       => $request->en_details,
+                "ar_details"                => $request->ar_details,
+                "en_details"                => $request->en_details,
                 'activate_phone_hash'       => $hash,
                 'token'                     => $token
         ]);
