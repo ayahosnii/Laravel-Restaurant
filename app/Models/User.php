@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\admin\Product;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
@@ -60,9 +61,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $appends = [
-        'profile_photo_url',
+        'profile_photo_url', 'name'
     ];
 
+    public function getNameAttribute($value)
+    {
+         return ucwords($value);
+    }
     public function codes()
     {
         return $this -> hasMany(UserVerification::class, 'user_id');
@@ -81,5 +86,15 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function conversations()
+    {
+        return $this->belongsToMany(Conversation::class)->withPivot('read_at');
+    }
+
+    public function avatar()
+    {
+        return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) ) . "?d=mm&s=80";
     }
 }

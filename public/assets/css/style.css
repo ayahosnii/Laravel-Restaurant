@@ -13246,3 +13246,24 @@ letter-spacing: 0;
 .sb-btn.sb-btn-2 span {
     padding: 0 0 0 15px;
 }
+
+.rating-css div {
+    color: #f5ab1e;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 20px 0;
+}
+.rating-css input {
+    display: none;
+}
+.rating-css input + label {
+    font-size: 60px;
+    cursor: pointer;
+}
+.rating-css input:checked + label ~ label {
+    color: #b4afaf;
+}
+.rating-css label:active {
+    transform: scale(0.8);
+    transition: 0.3s ease;
+}

@@ -287,25 +287,37 @@
                                 <a href="https://spacingtech.com/html/vegist-final/vegist/product.html#add-review" data-bs-toggle="collapse">Write a review</a>
                             </div>
                             <div class="review-form collapse" id="add-review">
+                                @if(!Auth::check())
+                                <h4>Please <a href="{{route('login')}}">Login</a></h4>
+                                @else
                                 <h4>Write a review</h4>
                                 <form>
                                     <label>Name</label>
-                                    <input type="text" name="name" placeholder="Enter your name">
+                                    <input type="text" name="name" placeholder="Enter your name" value="{{Auth::user()->name}}" hidden>
                                     <label>Email</label>
-                                    <input type="text" name="mail" placeholder="Enter your Email">
+                                    <input type="text" name="mail" placeholder="Enter your Email" value="{{Auth::user()->email}}">
                                     <label>Rating</label>
-                                    <span>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
+
+                                    <div class="rating-css">
+                                        <div class="star-icon">
+                                            <input type="radio" value="1" name="product_rating" id="rating1">
+                                            <label for="rating1" class="fa fa-star"></label>
+                                            <input type="radio" value="2" name="product_rating" id="rating2">
+                                            <label for="rating2" class="fa fa-star"></label>
+                                            <input type="radio" value="3" name="product_rating" id="rating3">
+                                            <label for="rating3" class="fa fa-star"></label>
+                                            <input type="radio" value="4" name="product_rating" id="rating4">
+                                            <label for="rating4" class="fa fa-star"></label>
+                                            <input type="radio" value="5" name="product_rating" id="rating5" checked>
+                                            <label for="rating5" class="fa fa-star"></label>
+                                        </div>
+                                    </div>
                                     <label>Review title</label>
                                     <input type="text" name="mail" placeholder="Review title">
                                     <label>Add comments</label>
                                     <textarea name="comment" placeholder="Write your comments"></textarea>
                                 </form>
+                                @endif
                             </div>
                             <div class="customer-reviews">
                                         <span class="p-rating">
