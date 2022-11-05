@@ -97,14 +97,16 @@
                                 <div class="comments-form">
                                     <h4>Leave a comment</h4>
                                     <form>
+                                        <input type="hidden" name="" v-model="post_id">
                                         <label>Name*</label>
-                                        <input type="text" name="name" placeholder="Name">
+                                        <input type="text" name="name" placeholder="Name" v-model="user">
                                         <label>Email*</label>
-                                        <input type="text" name="email" placeholder="Email">
+                                        <input type="text" name="email" placeholder="Email" v-model="email">
                                         <label>Comment*</label>
-                                        <textarea placeholder="Message"></textarea>
+                                        <textarea placeholder="Message" v-model="body"></textarea>
                                     </form>
                                     <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-3-grid.html" class="btn-style1">Post comment</a>
+                                    <button type="submit" class="btn btn-primary" @click.prevent="addComment">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -132,6 +134,8 @@ export default {
         return {
             post:'',
             slug:this.$route.params.slug,
+            user:'',
+            email:'',
             body:'',
             post_id : '',
             comments:[],
