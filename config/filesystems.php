@@ -42,6 +42,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'chats' => [
+            'driver' => 'local',
+            'root' => public_path('assets/img/chats/attachments'),
+            'url' => env('APP_URL').'attachments',
+            'visibility' => 'public',
+        ],
+
         'maincategories' => [
             'driver' => 'local',
             'root' => public_path('/assets/images/maincategories/'),

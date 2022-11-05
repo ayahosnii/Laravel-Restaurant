@@ -12,9 +12,10 @@ class ConversationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $chats = $request->user()->conversations;
+        return view('site.conversations.index', compact('chats'));
     }
 
     /**
@@ -44,9 +45,10 @@ class ConversationController extends Controller
      * @param  \App\Models\Conversation  $conversation
      * @return \Illuminate\Http\Response
      */
-    public function show(Conversation $conversation)
+    public function show(Conversation $conversation, Request $request)
     {
-        //
+        $conversations = $request->user()->conversations;
+        return view('site.conversations.show', compact('conversation','conversations'));
     }
 
     /**
