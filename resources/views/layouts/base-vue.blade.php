@@ -19,6 +19,7 @@
     <link rel="shortcut icon" type="image/favicon" href="https://spacingtech.com/html/vegist-final/vegist/image/fevicon.png">
     <!-- bootstrap -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/chat.css')}}">
     <!-- simple-line icon -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/simple-line-icons.css')}}">
     <!-- font-awesome icon -->
@@ -39,6 +40,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive.css')}}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js" />
     <style>
         input[type="search"] {
             -webkit-appearance: none !important;
@@ -148,6 +150,7 @@
         }
 
     </style>
+    @livewireStyles
 </head>
 <body class="home-1" style="">
 <!-- top notificationbar start -->
@@ -477,31 +480,6 @@
                                                         </li>
                                                     </ul>
                                                 </li>
-                                                <li class="menu-link parent">
-                                                    <a href="javascript:void(0)" class="link-title">
-                                                        <span class="sp-link-title">Pages</span>
-                                                        <i class="fa fa-angle-down"></i>
-                                                    </a>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-page-menu" data-bs-toggle="collapse" class="link-title link-title-lg">
-                                                        <span class="sp-link-title">Pages</span>
-                                                        <i class="fa fa-angle-down"></i>
-                                                    </a>
-
-                                                    <ul class="dropdown-submenu sub-menu collapse" id="collapse-page-menu">
-
-                                                        <li class="submenu-li">
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/about-us.html" class="submenu-link"><i class="fa fa-angle-right"></i></a>
-                                                        </li>
-                                                        <ul class="collapse blog-style-1" id="blog-style03">
-                                                            <li>
-                                                                <a href="javascript:void(0)" class="sub-style"><span></span><i class="fa fa-angle-right"></i></a>
-                                                                <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#grid1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
-                                                            </li>
-
-                                                        </ul>
-
-                                                    </ul>
-                                                </li>
 
                                                 <li class="menu-link parent">
                                                     <a href="javascript:void(0)" class="link-title">
@@ -513,7 +491,12 @@
                                                 </li>
                                                 <li class="menu-link">
                                                     <a href="{{route('restaurant.index')}}" class="link-title">
-                                                        <span class="sp-link-title">Restaurants <span class="hot">Hot</span></span>
+                                                        <span class="sp-link-title">Restaurants</span>
+                                                    </a>
+                                                </li>
+                                                <li class="menu-link">
+                                                    <a href="{{route('conversations.index')}}" class="link-title">
+                                                        <span class="sp-link-title">Chat <i class="fa fa-comment"></i></span>
                                                     </a>
                                                 </li>
                                             </ul>
@@ -1143,7 +1126,7 @@
     ?>;
 </script>
 
-
+@livewireScripts
 @yield('scripts')
 
 
