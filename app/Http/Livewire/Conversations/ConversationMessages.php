@@ -3,23 +3,32 @@
 namespace App\Http\Livewire\Conversations;
 
 use App\Models\Conversation;
+use App\Models\Message;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 use function view;
 
 class ConversationMessages extends Component
 {
-    public $conversation;
+    public $conversationId;
     public $messages;
 
     public function getListeners()
     {
-        'message.created' => ''
+        return [
+            'message.created' => 'prependMessage',
+            "echo-private:conversations.{$this->conversationId}, Conversations\\MessageAdded" => 'prependMessage:conversation',
+            ];
+    }
+
+    public function prependMessage($id)
+    {
+        $this->messages->push(Message::find($id));
     }
 
     public function mount(Conversation $conversation, Collection $messages)
     {
-        $this->conversation = $conversation;
+        $this->conversationId = $conversation->id;
         $this->messages = $messages;
     }
 
