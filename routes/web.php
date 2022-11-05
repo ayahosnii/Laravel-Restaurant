@@ -1,5 +1,12 @@
 <?php
 
+use App\Http\Controllers\BaseController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ConversationController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\ShopController;
+use App\Http\Livewire\HomeComponent;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -27,22 +34,25 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 Route::group(['prefix' => LaravelLocalization::setLocale(),
     'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath'/*, 'verifiedUser', 'guest'*/ ]  ], function () {
 
-    Route::get('/', \App\Http\Livewire\HomeComponent::class)->name('index');
+    Route::get('/', HomeComponent::class)->name('index');
     Route::get('/shop/main-category/{category_slug}', \App\Http\Livewire\CategoryComponent::class)->name('product.category');
     Route::get('/shop/sub-category/{sub_category_slug}', [\App\Http\Controllers\SubCategoryController::class, 'index'])->name('sub-category.index');
-    Route::get('/base', [\App\Http\Controllers\BaseController::class, 'index'])->name('base');
+    Route::get('/base', [BaseController::class, 'index'])->name('base');
     //Route::get('/shop', \App\Http\Livewire\ShopComponent::class)->name('shop');
-    Route::get('/shop', [\App\Http\Controllers\ShopController::class, 'index'])->name('shop');
-    Route::get('/blog', [\App\Http\Controllers\BlogController::class, 'index'])->name('blog');
+    Route::get('/shop', [ShopController::class, 'index'])->name('shop');
+
+
+
+    Route::get('/blog', [BlogController::class, 'index'])->name('blog');
     //Route::get('/post/{slug}', [\App\Http\Controllers\BlogController::class, 'create'])->name('blog');
-    Route::get('/reservations', [\App\Http\Controllers\ReservationController::class, 'get_reservations'])->name('reservations');
-    Route::get("/reservations/reservation-details/{id}" , [\App\Http\Controllers\ReservationController::class, "get_reservation"]);
-    Route::get("/reservations/add-reservation/{id}/{type}" , [\App\Http\Controllers\ReservationController::class, "add_reservation"])->name('add.reservations');
+    Route::get('/reservations', [ReservationController::class, 'get_reservations'])->name('reservations');
+    Route::get("/reservations/reservation-details/{id}" , [ReservationController::class, "get_reservation"]);
+    Route::get("/reservations/add-reservation/{id}/{type}" , [ReservationController::class, "add_reservation"])->name('add.reservations');
     //Route::post("/reservations/add-reservation" , "User\ReservationController@post_add_reservation");
-    Route::get("/reservations/decline/{id}" , [\App\Http\Controllers\ReservationController::class, "decline_reservation"]);
-    route::get('shop/{slug}', [\App\Http\Controllers\ProductController::class, 'productsBySlug'])->name('product.details');
-    route::get('shop/meal/{name}', [\App\Http\Controllers\ProductController::class, 'mealsBySlug'])->name('meal.details');
-    route::get('/findprice', [\App\Http\Controllers\ProductController::class, 'findprice'])->name('findprice');
+    Route::get("/reservations/decline/{id}" , [ReservationController::class, "decline_reservation"]);
+    route::get('shop/{slug}', [ProductController::class, 'productsBySlug'])->name('product.details');
+    route::get('shop/meal/{name}', [ProductController::class, 'mealsBySlug'])->name('meal.details');
+    route::get('/findprice', [ProductController::class, 'findprice'])->name('findprice');
     Route::group(['prefix' => 'cart'], function () {
         Route::get('/', [\App\Http\Controllers\Site\CartController::class, 'getIndex'])->name('site.cart.index');
         Route::post('/add/{slug?}', [\App\Http\Controllers\Site\CartController::class, 'postAdd'])->name('site.cart.add');
@@ -68,6 +78,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 
     //Verification [SMS]
     Route::group( ['middleware' => 'auth' ], function() {
+        Route::get('/conversations', [ConversationController::class, 'index'])->name('conversations.index');
+        Route::get('/conversations/{conversation}', [ConversationController::class, 'show'])->name('conversations.show');
+
         Route::get('verify', [\App\Http\Controllers\Site\VerificationCodeController::class, 'getVerifyPage'])->name('get.verification.form');
         Route::post('verify-user/', [\App\Http\Controllers\Site\VerificationCodeController::class, 'verify'])->name('verify-user');
         Route::post('wishlist', [\App\Http\Controllers\WishlistController::class, 'store'])->name('wishlist.store');
@@ -75,9 +88,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get('wishlist/products', [\App\Http\Controllers\WishlistController::class, 'index'])->name('wishlist.products.index');
     });
 
-    Route::get('{any}', function ($any){
+   /* Route::get('{any}', function ($any){
         return view('site.home');
-    })->where('any','.*');
+    })->where('any','.*');*/
 });
 
 
