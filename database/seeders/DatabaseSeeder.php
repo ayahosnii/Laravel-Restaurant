@@ -20,9 +20,9 @@ class DatabaseSeeder extends Seeder
         $this->call(CommentSeeder::class);
         $this->call(PostSeeder::class);
         $this->call(SettingSeeder::class);
-        $this->call(AdminSeeder::class);
-        $this->call(ConversationSeeder::class);*/
-//        $this->call(ConversationUserSeeder::class);
+        $this->call(AdminSeeder::class);*/
+        $this->call(ConversationSeeder::class);
+        $this->call(ConversationUserSeeder::class);
         $this->call(MessagesTableSeeder::class);
     }
 }

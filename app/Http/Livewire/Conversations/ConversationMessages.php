@@ -10,6 +10,7 @@ use function view;
 
 class ConversationMessages extends Component
 {
+    public $conversation;
     public $conversationId;
     public $messages;
 
