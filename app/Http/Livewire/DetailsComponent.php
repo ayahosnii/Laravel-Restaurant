@@ -18,11 +18,17 @@ class DetailsComponent extends Component
         $this->qty = 1;
     }
 
-    public function store($product_id, $product_name, $product_price)
+    public function store($product_id, $product_name, $product_price, $product_qty)
     {
-        Cart::instance('cart')->add($product_id, $product_name,1, $product_price)->associate('App\Models\admin\Product');
+        Cart::instance('cart')->add($product_id, $product_name,$product_qty, $product_price)->associate('App\Models\admin\Product');
         Session()->flash('success_message', 'Item added in Cart');
-        return redirect()->route('cart');
+    }
+
+    public function buyNow($product_id, $product_name, $product_price, $product_qty)
+    {
+        Cart::instance('cart')->add($product_id, $product_name,$product_qty, $product_price)->associate('App\Models\admin\Product');
+        Session()->flash('success_message', 'Item added in Cart');
+        return redirect()->route('checkout');
     }
 
     public function increaseQuantity()
@@ -34,6 +40,12 @@ class DetailsComponent extends Component
     {
         if ($this->qty > 1)
             $this->qty--;
+    }
+
+    public function addToWishList($product_id, $product_name, $product_price)
+    {
+        Cart::instance('wishlist')->add($product_id, $product_name,1, $product_price)->associate('App\Models\admin\Product');
+        $this->emitTo('wish-list-count-component', 'refreshComponent');
     }
     public function render()
     {

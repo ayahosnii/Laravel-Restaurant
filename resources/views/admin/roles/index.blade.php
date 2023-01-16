@@ -39,8 +39,8 @@
                                     </div>
                                 </div>
 
-                                @include('dashboard.includes.alerts.success')
-                                @include('dashboard.includes.alerts.errors')
+                                @include('admin.includes.alerts.success')
+                                @include('admin.includes.alerts.errors')
 
                                 <div class="card-content collapse show">
                                     <div class="card-body card-dashboard">

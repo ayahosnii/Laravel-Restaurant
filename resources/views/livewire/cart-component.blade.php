@@ -26,7 +26,7 @@
                         <div class="billing-area" style="width: 70%">
                             <div class="container">
                             <form>
-                                <h2>Your Cart</h2>
+                                <h2>Your Meal</h2>
                                 <div class="billing-form">
                                     <ul class="billing-ul input-2">
                                         @if(Cart::instance('cart')->count() > 0)
@@ -42,7 +42,7 @@
                                                     <div class="sb-cart-table" style="width: 1000px">
                                                         <div class="sb-cart-table-header">
                                                             <div class="row">
-                                                                <div class="col-lg-6">Product</div>
+                                                                <div class="col-lg-6">Your Order</div>
                                                                 <div class="col-lg-3">Quantity</div>
                                                                 <div class="col-lg-1">Price</div>
                                                                 <div class="col-lg-1"></div>
@@ -52,7 +52,7 @@
                                                             <div class="sb-cart-item">
                                                                 <div class="row align-items-center">
                                                                     <div class="col-lg-6">
-                                                                        <a class="sb-product" href="/">
+                                                                        <a class="sb-product" href="{{--route('product.details', $item->slug)--}}">
                                                                             <div class="sb-cover-frame">
                                                                                 <img src="{{$item->model->image}}" alt="{{$item->name}}">
                                                                             </div>
@@ -73,7 +73,7 @@
                                                                         <p class="text-right"> <a href="#">Save later</a> </p>
                                                                     </div>
                                                                     <div class="col-3 col-lg-1">
-                                                                        <div class="sb-price-1"><span>Price: </span>£E{{$item->model->sale_price}}</div>
+                                                                        <div class="sb-price-1"><span>Price: </span>£E{{$item->model->sale_price ?? $item->model->regular_price ?? $item->model->price}}</div>
                                                                     </div>
                                                                     <div class="col-1">
                                                                         <style>
@@ -176,7 +176,7 @@
                                     <div class="sb-total-title">Subtotal:</div>
                                 </div>
                                 <div class="col-4">
-                                    <div class="sb-price-1 text-right">£E{{$item->subtotal}}</div>
+                                    <div class="sb-price-1 text-right">£E{{Cart::instance('cart')->subtotal()}}</div>
                                 </div>
                             </div>
                         </div>
@@ -186,7 +186,7 @@
                                     <div class="sb-total-title">Tax:</div>
                                 </div>
                                 <div class="col-4">
-                                    <div class="sb-price-1 text-right">£E{{$item->tax}}</div>
+                                    <div class="sb-price-1 text-right">£E{{Cart::instance('cart')->tax()}}</div>
                                 </div>
                             </div>
                         </div>
@@ -231,7 +231,7 @@
                                     <div class="sb-total-title">Total:</div>
                                 </div>
                                 <div class="col-4">
-                                    <div class="sb-price-2 text-right">£E{{$item->total}}</div>
+                                    <div class="sb-price-2 text-right">£E{{Cart::instance('cart')->total()}}</div>
                                 </div>
                             </div>
                         </div>
@@ -243,11 +243,11 @@
                     </span>
                             <span>Continue shopping</span>
                         </a>
-                        <a href="https://elanta.app/nazar/starbelly-demo/checkout.html" class="sb-btn sb-m-0">
+                        <a href="{{route('checkout')}}" class="sb-btn sb-m-0">
                     <span class="sb-icon">
                       <img src="{{asset('assets/img/arrow.svg')}}" alt="icon">
                     </span>
-                            <span>Checkout</span>
+                            <span>Order Delivery</span>
                         </a>
                     </div>
                 </div>

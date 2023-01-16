@@ -11,12 +11,13 @@ use Livewire\WithFileUploads;
 class ConversationReply extends Component
 {
     use WithFileUploads;
+
     public $body = '';
     public $attachment = '';
     public $attachment_name = '';
     public $conversation;
 
-    public function amount(Conversation $conversation)
+    public function mount(Conversation $conversation)
     {
         $this->conversation = $conversation;
     }
@@ -28,15 +29,16 @@ class ConversationReply extends Component
 
     public function reply()
     {
+
         $this->validate();
 
         if ($this->attachment != '') {
-            $this->attachment_name = md5($this -> attachment . microtime()) . $this->attachment->excetension();
+            $this->attachment_name = md5($this->attachment . microtime()) . '.' . $this->attachment->extension();
             $this->attachment->storeAs('/', $this->attachment_name, 'media');
             $data['attachment'] = $this->attachment_name;
-        } else {
+        }
             $data['body'] = $this->body;
-            $data['user_id'] = auth()->user()->id;
+            $data['user_id'] = auth()->id();
 
             $message = $this->conversation->messages()->create($data);
             $this->conversation->update([
@@ -49,14 +51,16 @@ class ConversationReply extends Component
                 ]);
             }
 
-            Broadcast(new MessageAdded($message))->toOthers();
+            broadcast(new MessageAdded($message))->toOthers();
 
-            $this->emit('message.created', $message->id);
 
-            $this->body = '';
+        $this->emit('message.created', $message->id);
+
+
+        $this->body = '';
             $this->attachment = '';
-            $this->attachment_name ='';
-        }
+            $this->attachment_name = '';
+
     }
 
     public function render()

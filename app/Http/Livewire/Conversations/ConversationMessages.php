@@ -10,7 +10,6 @@ use function view;
 
 class ConversationMessages extends Component
 {
-    public $conversation;
     public $conversationId;
     public $messages;
 
@@ -18,7 +17,7 @@ class ConversationMessages extends Component
     {
         return [
             'message.created' => 'prependMessage',
-            "echo-private:conversations.{$this->conversationId},Conversations\\MessageAdded" => 'prependMessageFromBroadcast',
+            "echo-private:conversations.{$this->conversationId},Conversation\\MessageAdded" => 'prependMessageFromBroadcast',
             ];
     }
 
@@ -35,7 +34,7 @@ class ConversationMessages extends Component
     public function mount(Conversation $conversation, Collection $messages)
     {
         $this->conversationId = $conversation->id;
-        $this->messages = $messages;
+        $this->messages = $messages->reverse();
     }
 
     public function render()

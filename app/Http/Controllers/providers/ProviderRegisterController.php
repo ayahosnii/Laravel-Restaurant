@@ -55,7 +55,7 @@ class ProviderRegisterController extends Controller
             'password'                  => 'required',
             "ar_details"                => "required",
             "en_details"                => "required",
-            "image"                     => "required"
+            "rest_img"                     => "required"
         ];
 
         $msg = [
@@ -78,7 +78,7 @@ class ProviderRegisterController extends Controller
             "password.required"                                =>  $msg[1],
             "ar_details.required"                     =>  $msg[1],
             "en_details.required"                     =>  $msg[1],
-            "image.required"                                   =>  $msg[1],
+            "rest_img.required"                                   =>  $msg[1],
             "service-provider.exists"                          =>  $msg[1],
             "automatic-list.in"             => ' لابد من اختيار الخدمات المطلوبة ',
             "accept-online-payment.in"      => $msg[1],
@@ -111,12 +111,12 @@ class ProviderRegisterController extends Controller
         #$res = (new SmsController())->send($message, $request->input("phone"));
 
 
-        if($request->hasFile("image")){
+        if($request->hasFile("rest_img")){
 
-            $request->image->store('providers-logo', 'public');
+            $request->rest_img->store('providers-logo', 'public');
             $img_id = DB::table("provider_registers")
                 ->insertGetId([
-                    "name" => $request->image->hashName()
+                    "name" => $request->rest_img->hashName()
                 ]);
 
             $data['images'] = $img_id;
@@ -140,14 +140,14 @@ class ProviderRegisterController extends Controller
 
        /* $id = DB::table("provider_registers")
             ->insertGetId($data);*/
-
-            DB::table('role_user_lara') -> insert([
-
-                'role_id'     => 2,
-                'user_id'    => $data->id,
-                'user_type'  => 'provider',
-
-            ]);
+//
+//            DB::table('role_user_lara') -> insert([
+//
+//                'role_id'     => 2,
+//                'user_id'    => $data->id,
+//                'user_type'  => 'provider',
+//
+//            ]);
 
         Auth::guard('providers')->login(ProviderRegister::find($data->id));
 

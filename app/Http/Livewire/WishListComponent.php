@@ -4,6 +4,8 @@ namespace App\Http\Livewire;
 
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Livewire\Component;
+use App\Models\admin\Product;
+
 
 class WishListComponent extends Component
 {
@@ -24,7 +26,7 @@ class WishListComponent extends Component
     {
         $item = Cart::instance('wishlist')->get($rowId);
         Cart::instance('wishlist')->remove($rowId);
-        Cart::instance('cart')->add($item->id, $item->name, 1,$item->price)->associate('App\Models\Product');
+        Cart::instance('cart')->add($item->id, $item->name, 1,$item->price)->associate('App\Models\admin\Product');
         $this->emitTo('wish-list-count-component', 'refreshComponent');
         $this->emitTo('cart-count-component', 'refreshComponent');
     }

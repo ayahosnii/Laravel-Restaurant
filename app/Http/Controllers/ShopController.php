@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\admin\Product;
+use App\Models\admin\ProductTranslation;
 use App\Models\providers\Meal;
 use Illuminate\Http\Request;
 
@@ -11,7 +12,8 @@ class ShopController extends Controller
     public function index()
     {
         $default_lang = get_default_language();
-        $products = Product::where('translation_lang', $default_lang)->where('active', 1)->get();
+       $products = Product::where('active', '1')->get();
+
         $meals = Meal::where('published', 1)->get();
         return view('site.shop', compact('products', 'meals'));
     }

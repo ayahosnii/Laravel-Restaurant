@@ -8,6 +8,11 @@ use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use function auth;
+use function redirect;
+use function trans;
+use function url;
+use function view;
 
 class ReservationController extends Controller
 {

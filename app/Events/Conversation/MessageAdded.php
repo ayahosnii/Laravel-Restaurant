@@ -8,6 +8,7 @@ use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
@@ -28,7 +29,6 @@ class MessageAdded implements ShouldBroadcast
 
     public function broadcastWith()
     {
-
         return [
             'message' => [
                 'id' => $this->message->id
@@ -40,6 +40,7 @@ class MessageAdded implements ShouldBroadcast
 
     public function broadcastOn()
     {
-        return new PrivateChannel('conversations' . $this->message->conversation->id);
+
+        return new PrivateChannel('conversations.' . $this->message->conversation->id);
     }
 }

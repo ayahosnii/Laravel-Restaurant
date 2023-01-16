@@ -39,6 +39,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/restaurant/css/style8.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/restaurant/css/responsive8.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/restaurant/css/menu.min.css')}}">
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -497,7 +499,7 @@
             </div>
         </div>
     </div>
-    @include('site.includes.mini-cart')
+    @livewire('mini-cart-component')
 
 </header>
 <!-- header end -->

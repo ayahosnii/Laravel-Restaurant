@@ -22,7 +22,7 @@ class MessagesTableSeeder extends Seeder
             for ($i = 1; $i <= 5; $i++) {
                 Message::create([
                     'conversation_id' => $conversation->id,
-                    'user_id' => rand(5, 15),
+                    'user_id' => rand(1, 5),
                     'body' => $faker->sentence,
                 ]);
             }

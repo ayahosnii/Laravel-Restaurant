@@ -1,6 +1,7 @@
 @extends('providers.includes.layout')
 @section('providers-containers')
 <!--home page slider start-->
+@if(isset($branches))
 <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1987px, 0px, 0px); transition: all 0s ease 0s; width: 6957px;"><div class="owl-item cloned" style="width: 993.75px;"><div class="items">
                                             <div class="img-back" style="background-image:url({{asset($branches->image)}});">
                                                 <div class="slide-c-2 h-s-content">
@@ -9,6 +10,7 @@
                                                     <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-2.html" class="btn btn-style1">View collection</a>
                                                 </div>
                                             </div>
+
                                         </div></div><div class="owl-item cloned animated owl-animated-out fadeOut" style="width: 993.75px; left: 994px;"><div class="items">
                                             <div class="img-back" style="background-image:url({{asset($branches->image)}});">
                                                 <div class="slide-c-3 h-s-content">
@@ -25,6 +27,7 @@
                                                     <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-2.html" class="btn btn-style1">Shop now</a>
                                                 </div>
                                             </div>
+                @endif
                                         </div></div><div class="owl-item" style="width: 993.75px;"><div class="items">
                                             <div class="img-back" style="background-image:url(image/slider5.jpg);">
                                                 <div class="slide-c-2 h-s-content">

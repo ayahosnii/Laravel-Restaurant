@@ -22,11 +22,17 @@
                                                 <span>{{$rests->name}}</span>
                                                 <span class="text">{{$rests->address}}</span>
                                             </h1>
+                                            @if(isset($branches))
                                             @foreach($branches as $branch)
                                                 <div class="branch" style="display: inline; width: 30%; margin: 10px">
                                                     <a href="{{route('branch.details', $branch->b_username)}}" class="slider-btn btn-style1">{{$branch -> name}}</a>
                                                 </div>
                                             @endforeach
+                                            @else
+                                                <div class="branch" style="display: inline; width: 30%; margin: 10px">
+                                                    <a href="" class="slider-btn btn-style1">Reservation</a>
+                                                </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -93,7 +99,7 @@
                             <div class="category-area">
                                 <div class="cat-image">
                                     <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="cat-url">
-                                        <img src="{{asset($category -> images)}}" class="img-fluid" alt="image">
+                                        <img src="{{asset($category -> images)}}" class="img-fluid" alt="image" style="height: 100px">
                                         <span class="item-count">08 items</span>
                                     </a>
                                 </div>
@@ -147,7 +153,7 @@
                             <div class="category-area">
                                 <div class="cat-image">
                                     <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="cat-url">
-                                        <img src="{{asset($category -> images)}}" class="img-fluid" alt="image" style="width: 200px; height: 200px;">
+                                        <img src="{{asset($category -> images)}}" class="img-fluid" alt="image" style="height: 100%">
                                         <span class="item-count">08 items</span>
                                     </a>
                                 </div>
@@ -167,86 +173,83 @@
     </div>
 </section>
 <!-- branch end -->
-
-<!-- service start -->
-<section class="home-service">
+<section id="gtco-menu" class="section-padding">
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="section-title">
-                    <h2>Exquisite service</h2>
-                </div>
-                <div class="service-area-main">
-                    <div class="service-area-1 service">
-                        <ul class="service-ul">
-                            <li class="service-li">
-                                <div class="icon">
-                                    <a href="javascript:void(0)">
-                                                <span class="icon">
-                                                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
-                                                </span>
-                                    </a>
-                                </div>
-                                <div class="text">
-                                    <h4 class="title">Quality support</h4>
-                                    <span class="sub-title">Alway online 24/7</span>
-                                </div>
-                            </li>
-                            <li class="service-li">
-                                <div class="icon">
-                                    <a href="javascript:void(0)">
-                                                <span class="icon">
-                                                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-                                                </span>
-                                    </a>
-                                </div>
-                                <div class="text">
-                                    <h4 class="title">Free delivary</h4>
-                                    <span class="sub-title">Orders from all item</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="service-area-1 service-img">
-                        <img src="{{asset($rests->images)}}" class="img-fluid" alt="image">
-                    </div>
-                    <div class="service-area-2 service">
-                        <ul class="service-ul">
-                            <li class="service-li">
-                                <div class="icon">
-                                    <a href="javascript:void(0)">
-                                                <span class="icon">
-                                                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                                                </span>
-                                    </a>
-                                </div>
-                                <div class="text">
-                                    <h4 class="title">Join newslleter</h4>
-                                    <span class="sub-title">20% off by subscribing</span>
-                                </div>
-                            </li>
-                            <li class="service-li">
-                                <div class="icon">
-                                    <a href="javascript:void(0)">
-                                                <span class="icon">
-                                                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
-                                                </span>
-                                    </a>
-                                </div>
-                                <div class="text">
-                                    <h4 class="title">Return &amp; refund</h4>
-                                    <span class="sub-title">Money back guarantee</span>
-                                </div>
-                            </li>
-                        </ul>
+        <div class="section-content">
+            <div class="row mb-5">
+                <div class="col-md-12">
+                    <div class="heading-section text-center">
+                        <span class="subheading">
+                            Specialties
+                        </span>
+                        <h2>
+                            Our Menu
+                        </h2>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                @foreach($mealCategories as $meal)
+                <div class="col-lg-2 menu-wrap">
+                    <div class="heading-menu">
+                        <h3 class="text-center mb-5"></h3>
+                    </div>
+
+                    <div class="menus d-flex align-items-center">
+                        <div class="menu-img rounded-circle">
+                            <img class="img-fluid" src="{{asset('assets/restaurant/img/breakfast-1.jpg')}}" alt="">
+                        </div>
+                        <div class="text-wrap">
+                            <div class="row align-items-start">
+                                <div class="col-8">
+                                    <h4>{{$meal->name}}</h4>
+                                </div>
+                                <div class="col-4">
+                                    <h4 class="text-muted menu-price">{{$meal->price}} LE</h4>
+                                </div>
+                            </div>
+                            <p>category: {{substr($meal->category_name, 0, 13)}}</p>
+                        </div>
+                    </div>
+                    <div class="menus d-flex align-items-center">
+                        <div class="menu-img rounded-circle">
+                            <img class="img-fluid" src="{{asset('assets/restaurant/img/breakfast-1.jpg')}}" alt="">
+                        </div>
+                        <div class="text-wrap">
+                            <div class="row align-items-start">
+                                <div class="col-8">
+                                    <h4>Egg</h4>
+                                </div>
+                                <div class="col-4">
+                                    <h4 class="text-muted menu-price">$30</h4>
+                                </div>
+                            </div>
+                            <p>Meat Ball, Mie</p>
+                        </div>
+                    </div>
+                    <div class="menus d-flex align-items-center">
+                        <div class="menu-img rounded-circle">
+                            <img class="img-fluid" src="{{asset('assets/restaurant/img/breakfast-1.jpg')}}" alt="">
+                        </div>
+                        <div class="text-wrap">
+                            <div class="row align-items-start">
+                                <div class="col-8">
+                                    <h4>Egg</h4>
+                                </div>
+                                <div class="col-4">
+                                    <h4 class="text-muted menu-price">$30</h4>
+                                </div>
+                            </div>
+                            <p>Meat Ball, Mie</p>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+
             </div>
         </div>
     </div>
 </section>
-<!-- service end -->
-
 <!-- product tab start -->
 <section class="product-tab section-b-padding">
     <div class="container">
@@ -1414,61 +1417,190 @@
 <!-- product tab end -->
 
 <!-- home deal start -->
-<section class="home-deal-area section-b-padding">
-    <div class="deal-area-main">
-        <div class="deal-banner banner-1">
-            <img src="./restuarantsss_files/deal-banner-1.jpg" class="img-fluid" alt="image">
-            <div class="text">
-                <span class="sub-title">Fresh organic</span>
-                <h1 class="title">Healthy foods</h1>
-                <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="btn-style1 deal-btn">Shop now</a>
-            </div>
-        </div>
-        <div class="deal-counter">
-            <ul class="contdown_row">
-                <li class="countdown_section">
-                    <span id="days" class="countdown_timer">769</span>
-                    <span class="countdown_title">Day</span>
-                </li>
-                <li class="countdown_section">
-                    <span id="hours" class="countdown_timer">17</span>
-                    <span class="countdown_title">Hrs</span>
-                </li>
-                <li class="countdown_section">
-                    <span id="minutes" class="countdown_timer">18</span>
-                    <span class="countdown_title">Min</span>
-                </li>
-                <li class="countdown_section">
-                    <span id="seconds" class="countdown_timer">21</span>
-                    <span class="countdown_title">Sec</span>
-                </li>
-            </ul>
-        </div>
-        <div class="deal-banner banner-2">
-            <img src="./restuarantsss_files/deal-banner-2.jpg" class="img-fluid" alt="image">
-            <div class="video-btn">
-                <a href="https://spacingtech.com/html/vegist-final/vegist/index8.html#" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" class="banner-video"><i class="fa fa-play"></i></a>
-            </div>
-        </div>
-    </div>
-    <!-- model video start -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <a href="https://spacingtech.com/html/vegist-final/vegist/index8.html#" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                    </a>
-                </div>
-                <div class="modal-body">
-                    <iframe src="./restuarantsss_files/0etCKCAsImI.html" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- model video end -->
-</section>
+{{--<section class="home-deal-area section-b-padding">--}}
+{{--    <div class="deal-area-main">--}}
+{{--        <div class="deal-banner banner-1">--}}
+{{--            <img src="./restuarantsss_files/deal-banner-1.jpg" class="img-fluid" alt="image">--}}
+{{--            <div class="text">--}}
+{{--                <span class="sub-title">Fresh organic</span>--}}
+{{--                <h1 class="title">Healthy foods</h1>--}}
+{{--                <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="btn-style1 deal-btn">Shop now</a>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="deal-counter">--}}
+{{--            <ul class="contdown_row">--}}
+{{--                <li class="countdown_section">--}}
+{{--                    <span id="days" class="countdown_timer">769</span>--}}
+{{--                    <span class="countdown_title">Day</span>--}}
+{{--                </li>--}}
+{{--                <li class="countdown_section">--}}
+{{--                    <span id="hours" class="countdown_timer">17</span>--}}
+{{--                    <span class="countdown_title">Hrs</span>--}}
+{{--                </li>--}}
+{{--                <li class="countdown_section">--}}
+{{--                    <span id="minutes" class="countdown_timer">18</span>--}}
+{{--                    <span class="countdown_title">Min</span>--}}
+{{--                </li>--}}
+{{--                <li class="countdown_section">--}}
+{{--                    <span id="seconds" class="countdown_timer">21</span>--}}
+{{--                    <span class="countdown_title">Sec</span>--}}
+{{--                </li>--}}
+{{--            </ul>--}}
+{{--        </div>--}}
+{{--        <div class="deal-banner banner-2">--}}
+{{--            <img src="./restuarantsss_files/deal-banner-2.jpg" class="img-fluid" alt="image">--}}
+{{--            <div class="video-btn">--}}
+{{--                <a href="https://spacingtech.com/html/vegist-final/vegist/index8.html#" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" class="banner-video"><i class="fa fa-play"></i></a>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--    <!-- model video start -->--}}
+{{--    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">--}}
+{{--        <div class="modal-dialog modal-dialog-centered" role="document">--}}
+{{--            <div class="modal-content">--}}
+{{--                <div class="modal-header">--}}
+{{--                    <a href="https://spacingtech.com/html/vegist-final/vegist/index8.html#" class="close" data-bs-dismiss="modal" aria-label="Close">--}}
+{{--                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--                <div class="modal-body">--}}
+{{--                    <iframe src="./restuarantsss_files/0etCKCAsImI.html" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--    <!-- model video end -->--}}
+{{--</section>--}}
 <!-- home deal end -->
+
+
+
+<!-- Offers start -->
+<section class="section-tb-padding home8-blog">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section-title">
+                    <h2>Offers</h2>
+                </div>
+                <div class="blog-home8 owl-carousel owl-theme owl-loaded owl-drag">
+
+                    <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 2663px;">
+                            <div class="owl-item active" style="width: 423.673px; margin-right: 20px;">
+                                <div class="items">
+                                    <div class="blog-start">
+                                        <div class="blog-image">
+                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">
+                                                <img src="{{asset('assets/img/banners/offers/offer.webp')}}" alt="blog-image" class="img-fluid">
+                                            </a>
+                                        </div>
+                                        <div class="blog-content">
+                                            <div class="blog-title">
+                                                <h6><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">Green onion knife and salad plased</a></h6>
+                                            </div>
+                                            <p class="blog-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit doli. aenean commodo ligula eget dolor...</p>
+                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html" class="read-link">
+                                                <span>Read more</span>
+                                                <i class="ti-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div></div><div class="owl-item active" style="width: 423.673px; margin-right: 20px;"><div class="items">
+                                    <div class="blog-start">
+                                        <div class="blog-image">
+                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">
+                                                <img src="./restuarantsss_files/blog-2.jpg" alt="blog-image" class="img-fluid">
+                                            </a>
+                                        </div>
+                                        <div class="blog-content">
+                                            <div class="blog-title">
+                                                <h6><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">All time fresh every time healthy</a></h6>
+                                            </div>
+                                            <p class="blog-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit doli. Aenean commodo ligula eget dolor...</p>
+                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html" class="read-link">
+                                                <span>Read more</span>
+                                                <i class="ti-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div></div><div class="owl-item active" style="width: 423.673px; margin-right: 20px;"><div class="items">
+                                    <div class="blog-start">
+                                        <div class="blog-image">
+                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">
+                                                <img src="./restuarantsss_files/blog-3.jpg" alt="blog-image" class="img-fluid">
+                                            </a>
+                                        </div>
+                                        <div class="blog-content">
+                                            <div class="blog-title">
+                                                <h6><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">Health and skin for your organic</a></h6>
+                                            </div>
+                                            <p class="blog-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit doli. Aenean commodo ligula eget dolor...</p>
+                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html" class="read-link">
+                                                <span>Read more</span>
+                                                <i class="ti-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div></div><div class="owl-item active" style="width: 423.673px; margin-right: 20px;"><div class="items">
+                                    <div class="blog-start">
+                                        <div class="blog-image">
+                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">
+                                                <img src="./restuarantsss_files/blog-4.jpg" alt="blog-image" class="img-fluid">
+                                            </a>
+                                        </div>
+                                        <div class="blog-content">
+                                            <div class="blog-title">
+                                                <h6><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">Health and skin for your organic</a></h6>
+                                            </div>
+                                            <p class="blog-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit doli. Aenean commodo ligula eget dolor...</p>
+                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html" class="read-link">
+                                                <span>Read more</span>
+                                                <i class="ti-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div></div><div class="owl-item" style="width: 423.673px; margin-right: 20px;"><div class="items">
+                                    <div class="blog-start">
+                                        <div class="blog-image">
+                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">
+                                                <img src="./restuarantsss_files/blog-5.jpg" alt="blog-image" class="img-fluid">
+                                            </a>
+                                        </div>
+                                        <div class="blog-content">
+                                            <div class="blog-title">
+                                                <h6><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">Organic mix masala fresh &amp; soft</a></h6>
+                                            </div>
+                                            <p class="blog-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit doli. Aenean commodo ligula eget dolor...</p>
+                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html" class="read-link">
+                                                <span>Read more</span>
+                                                <i class="ti-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div></div><div class="owl-item" style="width: 423.673px; margin-right: 20px;"><div class="items">
+                                    <div class="blog-start">
+                                        <div class="blog-image">
+                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">
+                                                <img src="./restuarantsss_files/blog-6.jpg" alt="blog-image" class="img-fluid">
+                                            </a>
+                                        </div>
+                                        <div class="blog-content">
+                                            <div class="blog-title">
+                                                <h6><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">Fresh organic brand and picnic</a></h6>
+                                            </div>
+                                            <p class="blog-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit doli. Aenean commodo ligula eget dolor...</p>
+                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html" class="read-link">
+                                                <span>Read more</span>
+                                                <i class="ti-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog end -->
 
 <!-- testimonial start -->
 <section class="textimonial-area section-tb-padding">
@@ -1589,189 +1721,6 @@
     </div>
 </section>
 <!-- testimonial end -->
-
-<!-- Blog start -->
-<section class="section-tb-padding home8-blog">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="section-title">
-                    <h2>Recent news</h2>
-                </div>
-                <div class="blog-home8 owl-carousel owl-theme owl-loaded owl-drag">
-
-
-
-
-
-
-                    <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 2663px;"><div class="owl-item active" style="width: 423.673px; margin-right: 20px;"><div class="items">
-                                    <div class="blog-start">
-                                        <div class="blog-image">
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">
-                                                <img src="./restuarantsss_files/blog-1.jpg" alt="blog-image" class="img-fluid">
-                                            </a>
-                                        </div>
-                                        <div class="blog-content">
-                                            <div class="blog-title">
-                                                <h6><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">Green onion knife and salad plased</a></h6>
-                                            </div>
-                                            <p class="blog-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit doli. aenean commodo ligula eget dolor...</p>
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html" class="read-link">
-                                                <span>Read more</span>
-                                                <i class="ti-arrow-right"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div></div><div class="owl-item active" style="width: 423.673px; margin-right: 20px;"><div class="items">
-                                    <div class="blog-start">
-                                        <div class="blog-image">
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">
-                                                <img src="./restuarantsss_files/blog-2.jpg" alt="blog-image" class="img-fluid">
-                                            </a>
-                                        </div>
-                                        <div class="blog-content">
-                                            <div class="blog-title">
-                                                <h6><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">All time fresh every time healthy</a></h6>
-                                            </div>
-                                            <p class="blog-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit doli. Aenean commodo ligula eget dolor...</p>
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html" class="read-link">
-                                                <span>Read more</span>
-                                                <i class="ti-arrow-right"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div></div><div class="owl-item active" style="width: 423.673px; margin-right: 20px;"><div class="items">
-                                    <div class="blog-start">
-                                        <div class="blog-image">
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">
-                                                <img src="./restuarantsss_files/blog-3.jpg" alt="blog-image" class="img-fluid">
-                                            </a>
-                                        </div>
-                                        <div class="blog-content">
-                                            <div class="blog-title">
-                                                <h6><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">Health and skin for your organic</a></h6>
-                                            </div>
-                                            <p class="blog-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit doli. Aenean commodo ligula eget dolor...</p>
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html" class="read-link">
-                                                <span>Read more</span>
-                                                <i class="ti-arrow-right"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div></div><div class="owl-item active" style="width: 423.673px; margin-right: 20px;"><div class="items">
-                                    <div class="blog-start">
-                                        <div class="blog-image">
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">
-                                                <img src="./restuarantsss_files/blog-4.jpg" alt="blog-image" class="img-fluid">
-                                            </a>
-                                        </div>
-                                        <div class="blog-content">
-                                            <div class="blog-title">
-                                                <h6><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">Health and skin for your organic</a></h6>
-                                            </div>
-                                            <p class="blog-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit doli. Aenean commodo ligula eget dolor...</p>
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html" class="read-link">
-                                                <span>Read more</span>
-                                                <i class="ti-arrow-right"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div></div><div class="owl-item" style="width: 423.673px; margin-right: 20px;"><div class="items">
-                                    <div class="blog-start">
-                                        <div class="blog-image">
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">
-                                                <img src="./restuarantsss_files/blog-5.jpg" alt="blog-image" class="img-fluid">
-                                            </a>
-                                        </div>
-                                        <div class="blog-content">
-                                            <div class="blog-title">
-                                                <h6><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">Organic mix masala fresh &amp; soft</a></h6>
-                                            </div>
-                                            <p class="blog-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit doli. Aenean commodo ligula eget dolor...</p>
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html" class="read-link">
-                                                <span>Read more</span>
-                                                <i class="ti-arrow-right"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div></div><div class="owl-item" style="width: 423.673px; margin-right: 20px;"><div class="items">
-                                    <div class="blog-start">
-                                        <div class="blog-image">
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">
-                                                <img src="./restuarantsss_files/blog-6.jpg" alt="blog-image" class="img-fluid">
-                                            </a>
-                                        </div>
-                                        <div class="blog-content">
-                                            <div class="blog-title">
-                                                <h6><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">Fresh organic brand and picnic</a></h6>
-                                            </div>
-                                            <p class="blog-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit doli. Aenean commodo ligula eget dolor...</p>
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html" class="read-link">
-                                                <span>Read more</span>
-                                                <i class="ti-arrow-right"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div></div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Blog end -->
-
-<!-- brand logo start -->
-<section class="home-brand section-b-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="owl-carousel owl-theme brand-slider owl-loaded owl-drag">
-
-
-
-
-
-
-
-
-                    <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-786px, 0px, 0px); transition: all 3s linear 0s; width: 2098px;"><div class="owl-item" style="width: 262.204px;"><div class="item">
-                                    <a href="javascript:void(0)">
-                                        <img src="./restuarantsss_files/l1.png" class="img-fluid" alt="image">
-                                    </a>
-                                </div></div><div class="owl-item" style="width: 262.204px;"><div class="item">
-                                    <a href="javascript:void(0)">
-                                        <img src="./restuarantsss_files/l2.png" class="img-fluid" alt="image">
-                                    </a>
-                                </div></div><div class="owl-item" style="width: 262.204px;"><div class="item">
-                                    <a href="javascript:void(0)">
-                                        <img src="./restuarantsss_files/l3.png" class="img-fluid" alt="image">
-                                    </a>
-                                </div></div><div class="owl-item active" style="width: 262.204px;"><div class="item">
-                                    <a href="javascript:void(0)">
-                                        <img src="./restuarantsss_files/l4.png" class="img-fluid" alt="image">
-                                    </a>
-                                </div></div><div class="owl-item active" style="width: 262.204px;"><div class="item">
-                                    <a href="javascript:void(0)">
-                                        <img src="./restuarantsss_files/l5.png" class="img-fluid" alt="image">
-                                    </a>
-                                </div></div><div class="owl-item active" style="width: 262.204px;"><div class="item">
-                                    <a href="javascript:void(0)">
-                                        <img src="./restuarantsss_files/l6.png" class="img-fluid" alt="image">
-                                    </a>
-                                </div></div><div class="owl-item active" style="width: 262.204px;"><div class="item">
-                                    <a href="javascript:void(0)">
-                                        <img src="./restuarantsss_files/l7.png" class="img-fluid" alt="image">
-                                    </a>
-                                </div></div><div class="owl-item active" style="width: 262.204px;"><div class="item">
-                                    <a href="javascript:void(0)">
-                                        <img src="./restuarantsss_files/l8.png" class="img-fluid" alt="image">
-                                    </a>
-                                </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div></div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- brand logo end -->
 
 <!-- footer start -->
 <section class="footer-8 section-tb-padding">

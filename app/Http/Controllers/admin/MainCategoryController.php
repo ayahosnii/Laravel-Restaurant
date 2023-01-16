@@ -29,7 +29,6 @@ class MainCategoryController extends Controller
     public function store(MainCategoryRequest $request)
     {
         try {
-
             $main_categories = collect($request->category);
 
             $filter = $main_categories->filter(function ($value, $key) {
@@ -49,6 +48,7 @@ class MainCategoryController extends Controller
                 'translate_of' => 0,
                 'name' => $default_category['name'],
                 'slug' => $default_category['name'],
+                'active' => $request->input('category.0.active'),
                 'photo' => $filePath
             ]);
 
@@ -64,6 +64,7 @@ class MainCategoryController extends Controller
                         'translate_of' => 0,
                         'name' => $category['name'],
                         'slug' => $category['name'],
+                        'active' => $request->input('category.1.active'),
                         'photo' => $filePath
                     ];
                 }
@@ -89,9 +90,10 @@ class MainCategoryController extends Controller
      * @param  \App\Models\admin\MainCategory  $mainCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(MainCategory $mainCategory)
+    public function edit(MainCategory $mainCategory, $id)
     {
-        //
+        $mainCategory =  MainCategory::find($id);
+        return view('admin.maincategories.edit', compact('mainCategory'));
     }
 
     /**
@@ -99,11 +101,44 @@ class MainCategoryController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\admin\MainCategory  $mainCategory
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, MainCategory $mainCategory)
+    public function update($id, MainCategoryRequest $request)
     {
-        //
+        try {
+            $mainCategory =  MainCategory::find($id);
+            if (!$mainCategory){
+                return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود']);
+            }
+
+            $category = array_values($request->category) [0];
+            if (!$request->has('category.0.active'))
+                $request->request->add(['active' => 0]);
+            else
+                $request->request->add(['active' => 1]);
+            MainCategory::where('id', $id)
+                ->update([
+                    'name' => $category['name'],
+                    'active' => $request->active,
+                ]);
+
+            //save image
+
+            if ($request->has('photo')) {
+
+                $filePath = uploadImage('maincategories', $request->photo);
+                MainCategory::where('id', $mainCat_id)
+                    ->update([
+                        'photo' => $filePath,
+                    ]);
+            }
+
+            return redirect()->route('admin.maincategories')->with(['success' => 'تم التحديث بنجاح']);
+        } catch (\Exception $ex){
+            return $ex;
+        }
+
+
     }
 
     /**
@@ -117,8 +152,22 @@ class MainCategoryController extends Controller
         //
     }
 
-    public function changeStatus(MainCategory $subCategory)
-    {
 
+    public function changeStatus($id)
+    {
+        try {
+            $mainCategory = MainCategory::find($id);
+
+            if (!$mainCategory){
+                return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود']);
+            }
+            $status = $mainCategory->active == 0 ? 1 : 0;
+            $mainCategory->update(['active' => $status]);
+
+            return redirect()->route('admin.maincategories')->with(['success' => 'تم تغيير حالة القسم بنجاح']);
+        } catch (\Exception $ex) {
+            return $ex;
+            return redirect()->route('admin.maincategories')->with(['error' => 'حدث خطأ برجاء المحاولة لاحقا']);
+        }
     }
 }

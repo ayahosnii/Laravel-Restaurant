@@ -57,10 +57,10 @@
                                     <div class="wishlist-all-pro">
                                         <div class="wishlist-pro">
                                             <div class="wishlist-pro-image">
-                                                <a href="https://spacingtech.com/html/vegist-final/vegist/product.html"><img src="{{$item->model->image}}" style="width: 200px; height: 200px" class="img-fluid" alt="image"></a>
+                                                <a href="{{route('product.details', $item->model->slug)}}"><img src="{{$item->model->image}}" style="width: 200px; height: 200px" class="img-fluid" alt="image"></a>
                                             </div>
                                             <div class="pro-details">
-                                                <h4><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">{{$item->name}}</a></h4>
+                                                <h4><a href="{{route('product.details', $item->model->slug)}}">{{$item->name}}</a></h4>
                                                 <span class="all-size">Quantity: <span class="pro-size">{{$item->model->quantity}}kg</span></span>
                                             </div>
                                         </div>

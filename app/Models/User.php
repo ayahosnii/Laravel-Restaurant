@@ -93,6 +93,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Conversation::class)->withPivot('read_at');
     }
 
+    public function inConversation($id)
+    {
+        return $this->conversations->contains('id', $id);
+    }
+
     public function avatar()
     {
         return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) ) . "?d=mm&s=80";

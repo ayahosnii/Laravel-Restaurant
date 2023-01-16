@@ -173,7 +173,7 @@
                                 <li class="grid-items">
                                     <div class="tred-pro">
                                         <div class="tr-pro-img">
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/product.html">
+                                            <a href="{{route('product.details', $product->slug)}}">
                                                 <img class="img-fluid" style="height: 300px; width: 500px" src="{{$product->image}}" alt="pro-img1">
                                                 <img class="img-fluid additional-image" style="height: 300px; width: 500px" src="{{$product->image}}" alt="additional image">
                                             </a>
@@ -182,13 +182,13 @@
                                             <span class="p-text">New</span>
                                         </div>
                                         <div class="pro-icn">
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html" class="w-c-q-icn"><i class="fa fa-heart"></i></a>
+                                            <a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html" class="addToWishlist w-c-q-icn"><i class="fa fa-heart"></i></a>
                                             <a href="https://spacingtech.com/html/vegist-final/vegist/cart.html" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
                                             <a href="javascript:void(0)" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
                                         </div>
                                     </div>
                                     <div class="caption">
-                                        <h3><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">{{$product->name}}</a></h3>
+                                        <h3><a href="{{route('product.details', $product->slug)}}">{{$product->name}}</a></h3>
                                         <div class="rating">
                                             <i class="fa fa-star c-star"></i>
                                             <i class="fa fa-star c-star"></i>
@@ -203,6 +203,7 @@
                                 </li>
                                 @endforeach
 
+                                @if(isset($meals))
                                     @foreach($meals as $meal)
                                 <li class="grid-items">
                                     <div class="tred-pro">
@@ -240,6 +241,7 @@
                                     </div>
                                 </li>
                                 @endforeach
+                               @endif
                             </ul>
                         </div>
                     </div>
@@ -259,6 +261,7 @@
     </section>
     <!-- grid-list start -->
     <!-- quick veiw start -->
+    @foreach($products as $product)
     <section class="quick-view">
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -272,7 +275,7 @@
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="image-1">
                                     <a href="javascript:void(0)" class="long-img">
-                                        <img src="./products_files/pro-page-image.jpg" class="img-fluid" alt="image">
+                                        <img src="{{$product->image}}" class="img-fluid" alt="image">
                                     </a>
                                 </div>
                                 <div class="tab-pane fade show" id="image-2">
@@ -339,10 +342,10 @@
                                             </li></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div></ul>
                         </div>
                         <div class="quick-caption">
-                            <h4>Fresh organic reachter</h4>
+                            <h4>{{$product->name}}</h4>
                             <div class="quick-price">
-                                <span class="new-price">$350.00 USD</span>
-                                <span class="old-price"><del>$399.99 USD</del></span>
+                                <span class="new-price">{{$product->sale_price}} LE</span>
+                                <span class="old-price"><del>{{$product->regular_price}} LE</del></span>
                             </div>
                             <div class="quick-rating">
                                 <i class="fa fa-star c-star"></i>
@@ -352,7 +355,7 @@
                                 <i class="fa fa-star-o"></i>
                             </div>
                             <div class="pro-description">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and</p>
+                                <p>{{$product->description}}</p>
                             </div>
                             <div class="pro-size">
                                 <label>Size: </label>
@@ -368,8 +371,8 @@
                                     <input type="text" name="name" value="1">
                                     <a href="javascript:void(0)" class="plus-btn text-black">+</a>
                                 </span>
-                                <a href="https://spacingtech.com/html/vegist-final/vegist/cart.html" class="quick-cart"><i class="fa fa-shopping-bag"></i></a>
-                                <a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html" class="quick-wishlist"><i class="fa fa-heart"></i></a>
+                                <a href=#" class="quick-cart"><i class="fa fa-shopping-bag"></i></a>
+                                <a href="#" class="quick-wishlist addToWishlist" data-product-id="{{$product -> id}}"><i class="fa fa-heart"></i></a>
                             </div>
                         </div>
                     </div>
@@ -377,3 +380,46 @@
             </div>
         </div>
     </section>
+@endforeach
+    @section('scripts')
+        <script>
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $(document).on('click', '.addToWishlist', function (e) {
+                e.preventDefault();
+                @guest()
+                $('.w-c-q-icn').css('display','block');
+                @endguest
+                $.ajax({
+                    type: 'post',
+                    url: "{{Route('wishlist.store')}}",
+                    data: {
+                        'productId': $(this).attr('data-product-id'),
+                    },
+                    success: function (data) {
+                        if(data.wished )
+                            $('.alert-modal').css('display','block');
+                        else
+                            $('.alert-modal2').css('display','block');
+                    }
+                });
+            });
+            $(document).on('click', '.cart-addition', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: 'post',
+                    url: "{{Route('site.cart.add')}}",
+                    data: {
+                        'product_id': $(this).attr('data-product-id'),
+                        'product_slug' : $(this).attr('data-product-slug'),
+                    },
+                    success: function (data) {
+                    }
+                });
+            });
+        </script>
+
+@stop

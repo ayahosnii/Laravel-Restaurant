@@ -4,6 +4,8 @@ namespace App\Http\Livewire;
 
 use App\Models\admin\MainCategory;
 use App\Models\admin\Product;
+use App\Models\providers\Meal;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class SearchComponent extends Component
@@ -24,6 +26,7 @@ class SearchComponent extends Component
 
     public $search;
     public $product_cat_id;
+    public $meal_cat_id;
 
 
 
@@ -41,7 +44,7 @@ class SearchComponent extends Component
         $this->min_date = 1;
         $this->max_date = 10000;
 
-        $this->fill(request()->only('search', 'product_cat', 'product_cat_id'));
+        $this->fill(request()->only('search', 'product_cat', 'product_cat_id', 'meal_cat_id'));
     }
 
     public function render()
@@ -49,19 +52,30 @@ class SearchComponent extends Component
         $default_lang = get_default_language();
         if($this->sorting=='date')
         {
-            $products = Product::where('translation_lang', $default_lang)->where('name', 'like', '%'.$this->search .'%')->where('category_id','like','%'. $this->product_cat_id .'%')->orderBy('created_at', 'DESC')->paginate($this->pagesize);
+            $products = Product::where('name', 'like', '%'.$this->search .'%')->where('category_id','like','%'. $this->product_cat_id .'%')->orderBy('created_at', 'DESC')->paginate($this->pagesize);
+            $meals = Meal::where('name', 'like', '%'.$this->search .'%')->where('meal_id','like','%'. $this->meal_cat_id .'%')->orderBy('created_at', 'DESC')->paginate($this->pagesize);
         }
         else if ($this->sorting=="price")
         {
-            $products = Product::where('translation_lang', $default_lang)->where('name', 'like', '%'.$this->search .'%')->where('category_id','like','%'. $this->product_cat_id .'%')->orderBy('regular_price', 'ASC')->paginate($this->pagesize);
+            $products = Product::where('name', 'like', '%'.$this->search .'%')->where('category_id','like','%'. $this->product_cat_id .'%')->orderBy('regular_price', 'ASC')->paginate($this->pagesize);
+            $meals = Meal::where('name', 'like', '%'.$this->search .'%')->orderBy('price', 'ASC')/*->where('meal_id','like','%'. $this->meal_cat_id .'%')*/->paginate($this->pagesize);
+            $products = $products->merge($meals);
         }
         else if ($this->sorting=="price-desc")
         {
-            $products = Product::where('translation_lang', $default_lang)->where('name', 'like', '%'.$this->search .'%')->where('category_id','like','%'. $this->product_cat_id .'%')->orderBy('regular_price', 'DESC')->paginate($this->pagesize);
+            $products = Product::where('name', 'like', '%'.$this->search .'%')->where('category_id','like','%'. $this->product_cat_id .'%')->orderBy('regular_price', 'DESC')->paginate($this->pagesize);
+            $meals = Meal::where('name', 'like', '%'.$this->search .'%')->orderBy('price', 'DESC')/*->where('meal_id','like','%'. $this->meal_cat_id .'%')*/->paginate($this->pagesize);
+            $products = $products->merge($meals);
         }
         else
         {
-            $products = Product::where('translation_lang', $default_lang)->where('name', 'like', '%'.$this->search .'%')->where('category_id','like','%'. $this->product_cat_id .'%')->paginate($this->pagesize);
+            //$products = Product::where('name', 'like', '%'.$this->search .'%')->where('category_id','like','%'. $this->product_cat_id .'%')->paginate($this->pagesize);
+            //$meals = Meal::where('name', 'like', '%'.$this->search .'%')/*->where('meal_id','like','%'. $this->meal_cat_id .'%')*/->paginate($this->pagesize);
+            dd(DB::table('products')
+                ->crossJoin('meals')
+                ->select('*')
+                ->get());
+
         }
 
 

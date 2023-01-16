@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\providers;
 
 use App\Http\Controllers\Controller;
+use App\Models\providers\ProviderRegister;
 use Illuminate\Http\Request;
 use DB;
 
@@ -45,17 +46,23 @@ class AuthController extends Controller
         $this->validate($request, $rules, $messages);
         $code = $request->code;
         $hash = json_decode(auth('providers')->user()->activate_phone_hash);
+
         if ($hash->code != $code){
             return redirect()->back()->with("error", trans("messages.register.active.notMatch"));
         }
 
-        DB::table("provider_registers")
-            ->where("id", auth('providers'))
-            ->where("id", auth('providers')->id())
-            ->update([
-                "phoneactived" => "1",
-                "activate_phone_hash" => ""
-            ]);
+        ProviderRegister::where('id', auth('providers')->id())->update([
+            "phoneactivated" => "1",
+            "activate_phone_hash" => ""
+        ]);
+//
+//        DB::table("provider_registers")
+//            ->where("id", auth('providers'))
+//            ->where("id", auth('providers')->id())
+//            ->update([
+//                "phoneactivated" => "1",
+//                "activate_phone_hash" => ""
+//            ]);
 
         return redirect()->back();
 

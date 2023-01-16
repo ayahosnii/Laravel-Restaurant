@@ -78,7 +78,7 @@
                                         </li></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div></ul>
                     </div>
                     <div class="quick-caption">
-                        <h4>Fresh organic reachter</h4>
+                        <h4></h4>
                         <div class="quick-price">
                             <span class="new-price">$350.00 USD</span>
                             <span class="old-price"><del>$399.99 USD</del></span>

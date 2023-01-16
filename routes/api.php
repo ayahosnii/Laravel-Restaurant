@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Apis\FetchBranchController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,10 @@ Route::apiResource('posts',\App\Http\Controllers\PostController::class);
 Route::apiResource('categories',\App\Http\Controllers\CategoryController::class);
 Route::get('category/{slug}/posts',[\App\Http\Controllers\PostController::class, 'categoryPosts']);
 Route::get('searchposts/{query}',[\App\Http\Controllers\PostController::class, 'searchposts']);
+
+
+Route::post('fetch-branches', [FetchBranchController::class, 'fetchBranch']);
+
 Route::post('login', [\App\Http\Controllers\UserController::class, 'login']);
 Route::post('register', [\App\Http\Controllers\UserController::class, 'register']);
 

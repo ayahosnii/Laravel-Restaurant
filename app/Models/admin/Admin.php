@@ -10,6 +10,7 @@ class Admin extends Authenticatable
 {
     use HasFactory;
     use Notifiable;
+
     protected $table = 'admins';
     protected $fillable = [
         'name',
@@ -28,4 +29,9 @@ class Admin extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function receivesBroadcastNotificationsOn()
+    {
+        return 'App.Models.Admin.admin.'.$this->id;
+    }
 }

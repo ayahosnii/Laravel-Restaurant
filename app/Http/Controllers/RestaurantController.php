@@ -18,7 +18,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $branches = \App\Models\providers\ProviderRegister::select()->get();
+        $branches = ProviderRegister::select()->get();
         return view('site.restaurant-list', compact('branches'));
     }
 
@@ -33,9 +33,14 @@ class RestaurantController extends Controller
         $rests_user_name = $rests->user_name;
         $rests_id = $rests->id;
         $meals = Meal::where('providers_id', $rests_id)->get();
+        $mealCategories = Meal::select(['meals.*', 'categories.name as category_name'])
+            ->join('categories', 'meals.category_id', '=', 'categories.id')
+/*            ->groupBy('categories.name')*/
+            ->orderBy('categories.name')
+            ->get();
         $categories = Category::where('provider_id', $rests_id)->get();
         $branches = Branch::where('provider_id', $rests_id)->get();
-        return view('site.restaurant', compact('rests', 'meals','branches', 'categories'));
+        return view('site.restaurant', compact('rests', 'meals','branches', 'categories', 'mealCategories'));
     }
 
   public function get_branch($b_branch)

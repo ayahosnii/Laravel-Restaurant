@@ -125,7 +125,7 @@
                             <div class="form-group">
                                 <label for="name" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.7rem; font-size: 20px">{{trans('site.restaurant_logo')}}</label>
                                 <div class="custom-file h-auto">
-                                    <input type="file" name="image" class="custom-file-input" id="restaurant-logo" hidden>
+                                    <input type="file" name="rest_img" class="custom-file-input" id="restaurant-logo" hidden>
                                     <label class="border-0 mb-0 cursor" for="restaurant-logo">
                                         <img class="provider-uploaded-logo d-none" src="" />
                                         <span id="provider-logo-content" class="d-inline-block border border-gray rounded-circle p-4">

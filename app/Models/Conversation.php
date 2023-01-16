@@ -10,12 +10,14 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Conversation extends Model
 {
     use HasFactory;
+
     protected $guarded = [];
+
     protected $dates = ['last_message_at'];
 
     public function getRouteKeyName()
     {
-        return "uuid";
+        return 'uuid';
     }
 
     public function users(): BelongsToMany
@@ -26,15 +28,17 @@ class Conversation extends Model
             ->latest();
     }
 
-    public function others()
+    public function others(): BelongsToMany
     {
         return $this->users()->where('user_id', '!=', auth()->id());
     }
 
-    public function messages() :HasMany
+    public function messages(): hasMany
     {
         return $this->hasMany(Message::class)
-            ->oldest();
+            ->latest();
     }
+
+
 
 }

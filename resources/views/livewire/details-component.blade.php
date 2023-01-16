@@ -140,7 +140,11 @@
                             <span class="new-price">{{$product->sale_price}} £</span>
                             <span class="old-price"><del>{{$product->regular_price}} £</del></span>
                             <div class="Pro-lable">
-                                <span class="p-discount">-8%</span>
+                                <span class="p-discount">
+                                    @if($product->sale_price !== '')
+                                        {{$product->getDiscount() }}%
+                                    @endif
+                                </span>
                             </div>
                         </div>
                         <span class="pro-details">Hurry up! only <span class="pro-number">7</span> products left in stock!</span>
@@ -165,18 +169,26 @@
                             <span class="qty">Quantity:</span>
                             <div class="plus-minus">
                                         <span>
-                                            <a href="javascript:void(0)" class="minus-btn text-black">-</a>
-                                            <input type="text" name="name" value="1">
-                                            <a href="javascript:void(0)" class="plus-btn text-black">+</a>
+                                            <a href="javascript:void(0)" class="minus-btn text-black" wire:click.prevent="decreaseQuantity">-</a>
+                                            <input type="text" name="quantity" wire:model="qty">
+                                            <a href="javascript:void(0)" class="plus-btn text-black" wire:click.prevent="increaseQuantity">+</a>
                                         </span>
                             </div>
                         </div>
 
 
+                        @php
+                            $witems = Cart::instance('wishlist')->content()->pluck('id');
+                        @endphp
+
                         <div class="pro-btn">
-                            <a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html" class="btn btn-style1"><i class="fa fa-heart"></i></a>
-                            <a href="#" class="btn btn-style1" wire:click.prevent="store('{{ $product->id}}', '{{$product->name}}', '{{ $product->regular_price }}')"><i class="fa fa-shopping-bag"></i> Add to cart</a>
-                            <a href="https://spacingtech.com/html/vegist-final/vegist/checkout-1.html" class="btn btn-style1">Buy now</a>
+                            @if($witems->contains($product->id))
+                            <a href="#" class="btn btn-style1" wire:click.prevent="removeToWishList({{ $product->id }},'{{ $product->name }}',{{ $product->regular_price }})"><i class="fa fa-heart"></i></a>
+                            @else
+                                <a href="#" class="btn btn-style1" wire:click.prevent="addToWishList({{ $product->id }},'{{ $product->name }}',{{ $product->regular_price }})"><i class="fa fa-heart"></i></a>
+                            @endif
+                                <a href="#" class="btn btn-style1" wire:click.prevent="store('{{ $product->id}}', '{{$product->name}}', '{{ $product->sale_price ?? $product->regular_price }}', '{{$this->qty}}')"><i class="fa fa-shopping-bag"></i> Add to cart</a>
+                            <a href="#" class="btn btn-style1" wire:click.prevent="buyNow('{{ $product->id}}', '{{$product->name}}', '{{ $product->sale_price ?? $product->regular_price }}', '{{$this->qty}}')">Buy now</a>
                         </div>
 
                         <div class="share">
@@ -189,7 +201,7 @@
                             </ul>
                         </div>
                         <div class="pay-img">
-                            <a href="https://spacingtech.com/html/vegist-final/vegist/checkout-1.html">
+                            <a href="#" wire:click.prevent="buyNow('{{ $product->id}}', '{{$product->name}}', '{{ $product->sale_price ?? $product->regular_price }}', '{{$this->qty}}')">
                                 <img src="./details-Vegist_files/pay-image.jpg" class="img-fluid" alt="pay-image">
                             </a>
                         </div>
@@ -821,11 +833,11 @@
                                             </a>
                                         </div>
                                         <div class="Pro-lable">
-                                            <span class="p-discount">-20%</span>
+                                            <span class="p-discount">{{$product->getDiscount()}}%</span>
                                         </div>
                                         <div class="pro-icn">
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html" class="w-c-q-icn"><i class="fa fa-heart"></i></a>
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/cart.html" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
+                                            <a href="#" class="wish-c-q-icn" data-product-id="{{$product -> id}}"><i class="fa fa-heart"></i></a>
+                                            <a href="#" class="bag-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
                                             <a href="javascript:void(0)" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
                                         </div>
                                     </div>
@@ -839,8 +851,8 @@
                                             <i class="fa fa-star-o"></i>
                                         </div>
                                         <div class="pro-price">
-                                            <span class="new-price">{{$related_product->sale_price}} USD</span>
-                                            <span class="old-price"><del>{{$related_product->regular_price}} USD</del></span>
+                                            <span class="new-price">{{$related_product->sale_price}} LE</span>
+                                            <span class="old-price"><del>{{$related_product->regular_price}} LE</del></span>
                                         </div>
                                     </div>
                                 </div>
@@ -873,7 +885,7 @@
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="image-1">
                                 <a href="javascript:void(0)" class="long-img">
-                                    <img src="./details-Vegist_files/pro-page-image.jpg" class="img-fluid" alt="image">
+                                    <img src="{{$product->image}}" class="img-fluid" alt="image">
                                 </a>
                             </div>
                             <div class="tab-pane fade show" id="image-2">
@@ -940,10 +952,10 @@
                                         </li></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div></ul>
                     </div>
                     <div class="quick-caption">
-                        <h4>Fresh organic reachter</h4>
+                        <h4>{{$product->name}}</h4>
                         <div class="quick-price">
-                            <span class="new-price">$350.00 USD</span>
-                            <span class="old-price"><del>$399.99 USD</del></span>
+                            <span class="new-price">{{$product->sale_price}} LE</span>
+                            <span class="old-price"><del>{{$product->regular_price}} LE</del></span>
                         </div>
                         <div class="quick-rating">
                             <i class="fa fa-star c-star"></i>
@@ -953,7 +965,7 @@
                             <i class="fa fa-star-o"></i>
                         </div>
                         <div class="pro-description">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and</p>
+                            <p>{{$product->description}}</p>
                         </div>
                         <div class="pro-size">
                             <label>Size: </label>
@@ -970,7 +982,8 @@
                                         <a href="javascript:void(0)" class="plus-btn text-black">+</a>
                                     </span>
                             <a href="https://spacingtech.com/html/vegist-final/vegist/cart.html" class="quick-cart"><i class="fa fa-shopping-bag"></i></a>
-                            <a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html" class="quick-wishlist"><i class="fa fa-heart"></i></a>
+                            <a href="#" class="quick-wishlist" wire:click.prevent="store({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }}><i class="fa fa-heart"></i></a>
+
                         </div>
                     </div>
                 </div>
@@ -978,3 +991,45 @@
         </div>
     </div>
 </section>
+@section('scripts')
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $(document).on('click', '.addToWishlist', function (e) {
+            e.preventDefault();
+            @guest()
+            $('.wish-c-q-icn').css('color', '#f5ab1e');
+            @endguest
+            $.ajax({
+                type: 'post',
+                url: "{{Route('wishlist.store')}}",
+                data: {
+                    'productId': $(this).attr('data-product-id'),
+                },
+                success: function (data) {
+                    if(data.wished )
+                        $('.wish-c-q-icn').css('color', '#f5ab1e');
+                    else
+                        $('.wish-c-q-icn').css('color', '#000');
+                }
+            });
+        });
+        $(document).on('click', '.cart-addition', function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'post',
+                url: "{{Route('site.cart.add')}}",
+                data: {
+                    'product_id': $(this).attr('data-product-id'),
+                    'product_slug' : $(this).attr('data-product-slug'),
+                },
+                success: function (data) {
+                }
+            });
+        });
+    </script>
+
+@stop

@@ -297,7 +297,7 @@
         }
     </style>
 </head>
-<body class="" style="">
+<body class="" style="">z
 <!-- top notificationbar start -->
 <section class="top-2" style="background-image: url(image/top-2.jpg);">
     <div class="container">
@@ -906,18 +906,23 @@
                                         <a href="https://spacingtech.com/html/vegist-final/vegist/index2.html#search-modal" class="search-popuup" data-bs-toggle="modal"><i class="ion-ios-search-strong"></i></a>
                                     </div>
                                 </li>
+
                                 <li class="side-wrap wishlist-wrap">
                                     <a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html" class="header-wishlist">
-                                        <span class="wishlist-icon"><i class="icon-heart"></i></span>
+                                        <span class="wishlist-icon"><i class="fa-solid fa-messages"></i></span>
                                         <span class="wishlist-counter">0</span>
                                     </a>
                                 </li>
+
+
+
+
                                 <li class="side-wrap cart-wrap">
                                     <div class="shopping-widget">
                                         <div class="shopping-cart">
                                             <a href="javascript:void(0)" class="cart-count">
                                                         <span class="cart-icon-wrap">
-                                                            <span class="cart-icon"><i class="icon-handbag"></i></span>
+                                                            <span class="cart-icon"><i class="fa-solid fa-bell"></i></span>
                                                             <span id="cart-total" class="bigcounter">5</span>
                                                         </span>
                                             </a>
@@ -1177,6 +1182,20 @@
                                                     </li>
                                                 </ul>
                                             </li>
+
+                                            <li class="menu-link parent side-wrap cart-wrap">
+                                                <div class="shopping-widget">
+                                                    <div class="shopping-cart">
+                                                        <a href="javascript:void(0)" class="cart-count">
+                                                        <span class="cart-icon-wrap">
+                                                            <span class="cart-icon"><i class="fa-solid fa-bell"></i></span>
+                                                            <span id="cart-total" class="bigcounter">5</span>
+                                                        </span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </li>
+
                                             <li class="menu-link parent">
                                                 <a href="javascript:void(0)" class="link-title">
                                                     <span class="sp-link-title">Blogs</span>
@@ -1699,6 +1718,31 @@
                                             <ul class="submenu-megamenu-link collapse" id="left-menu-b3">
                                                 <li class="left-menu-link"><a href="{{route('meals')}}">All Meals</a></li>
                                                 <li class="left-menu-link"><a href="{{route('meals.create')}}">Add New Meals</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-link parent">
+                                    <a href="javascript:void(0)" class="link-title">
+                                        <i class="fa-solid fa-utensils"></i>
+                                        <span>Tables</span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index2.html#fresh-fruits3" data-bs-toggle="collapse" class="left-mega-menu-xl">
+                                        <img src="./Vegist - dashboard_files/image01.jpg" alt="menu-image">
+                                        <span>Tables</span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="dropdown-submenu collapse" id="fresh-fruits3">
+                                        <li class="submenu-li parant">
+                                            <h6>Sections</h6>
+                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index2.html#left-menu-b3" data-bs-toggle="collapse" class="left-mega-menu-xl">
+                                                <span>Popular searches</span>
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="submenu-megamenu-link collapse" id="left-menu-b3">
+                                                <li class="left-menu-link"><a href="{{route('tables')}}">All Tables</a></li>
+                                                <li class="left-menu-link"><a href="{{route('tables.create')}}">Add New Tables</a></li>
                                             </ul>
                                         </li>
                                     </ul>

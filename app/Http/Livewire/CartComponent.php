@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Coupon;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Carbon\Carbon;
 
@@ -64,6 +65,18 @@ class CartComponent extends Component
             'cart_value' => $coupon->cart_value,
             'expiry_date'=> $coupon->expiry_date,
             ]);
+    }
+
+    public function checkout()
+    {
+
+            return redirect()->route('checkout');
+
+    }
+
+    public function cPrice()
+    {
+        $this->subtotalAfterDiscount = Cart::instance('cart')->subtotal();
     }
 
 

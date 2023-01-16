@@ -10,6 +10,8 @@
     <meta name="keywords"
           content="admin template, modern admin template, dashboard template, flat admin template, responsive admin template, web app, crypto dashboard, bitcoin dashboard">
     <meta name="author" content="PIXINVENT">
+    <meta name="adminId" content="{{ auth()->guard('admin') ? auth()->guard('admin')->id() : '' }}">
+
     <title>  modern </title>
     <link rel="apple-touch-icon" href="http://127.0.0.1:8000/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="http://127.0.0.1:8000/images/ico/favicon.ico">
@@ -156,6 +158,9 @@
 <script src="{{asset('admin-assets/js/scripts/forms/checkbox-radio.js')}}'" type="text/javascript"></script>
 
 <script src="{{asset('admin-assets/js/scripts/modal/components-modal.js')}}" type="text/javascript"></script>
+
+<script src="{{ mix('js/app.js') }}" defer></script>
+
 
 <script>
     $('#meridians1').timeDropper({

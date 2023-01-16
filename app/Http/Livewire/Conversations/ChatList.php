@@ -8,11 +8,13 @@ use function view;
 
 class ChatList extends Component
 {
-    public $chats;
+    public $conversations;
+
     public function mount(Collection $conversations)
     {
-        $this->chats = $conversations->reverse();
+        $this->conversations = $conversations->reverse();
     }
+
     public function render()
     {
         return view('livewire.conversations.chat-list');

@@ -9,18 +9,19 @@
         </p>
     </div>
     <ul class="cart-item-loop">
+        @if(Cart::instance('cart')->content()->count() > 0)
         @foreach(Cart::instance('cart')->content() as $item)
         <li class="cart-item">
             <div class="cart-img">
-                <a href="https://spacingtech.com/html/vegist-final/vegist/product.html">
+                <a href="{{route('product.details', $item->model->slug)}}">
                     <img src="{{$item->model->image}}" alt="{{$item->name}}" class="img-fluid">
                 </a>
             </div>
             <div class="cart-title">
-                <h6><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">Fresh apple 5kg</a></h6>
+                <h6><a href="#">{{$item->model->name}}</a></h6>
                 <div class="cart-pro-info">
                     <div class="cart-qty-price">
-                        <span class="price-box">£{{$item->model->sale_price}}</span>
+                        <span class="price-box">£{{$item->model->sale_price ?? $item->model->regular_price ?? $item->model->price}}</span>
                     </div>
                     <div class="delete-item-cart">
                         <a href="https://spacingtech.com/html/vegist-final/vegist/empty-cart.html"><i class="icon-trash icons"></i></a>
@@ -29,6 +30,9 @@
             </div>
         </li>
         @endforeach
+        @else
+            <h3>no</h3>
+        @endif
     </ul>
     <ul class="subtotal-title-area">
         <li class="subtotal-info">

@@ -54,7 +54,7 @@
             </li>
 
             <li class="nav-item"><a href=""><i class="la la-male"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">المنتجات  </span>
+                    <span class="menu-title" data-i18n="nav.dash.main">@lang('messages.Products')  </span>
                     <span
                         class="badge badge badge-success badge-pill float-right mr-2"></span>
                 </a>
@@ -70,12 +70,12 @@
 
 
             <li class="nav-item"><a href=""><i class="la la-male"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">الطلاب  </span>
+                    <span class="menu-title" data-i18n="nav.dash.main">@lang('messages.Restaurnats')  </span>
                     <span
                         class="badge badge badge-warning  badge-pill float-right mr-2"></span>
                 </a>
                 <ul class="menu-content">
-                    <li class="inactive"><a class="menu-item" href=""
+                    <li class="inactive"><a class="menu-item" href="{{route('admin.restaurants')}}"
                                           data-i18n="nav.dash.ecommerce"> عرض الكل </a>
                     </li>
                     <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة

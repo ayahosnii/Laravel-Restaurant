@@ -8,102 +8,68 @@
                         <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html#category-filter" data-bs-toggle="collapse" class="filter-link"><span>Categories </span><i class="fa fa-angle-down"></i></a>
                         <ul class="all-option collapse" id="category-filter">
                             @foreach($categories as $category)
-                            <li class="grid-list-option">
-                                <input type="checkbox">
-                                <a href="javascript:void(0)">{{$category->name}} <span class="grid-items"></span></a>
-                            </li>
+                                <li class="grid-list-option">
+                                    <input type="checkbox" wire:model="categoryInputs{{--.{{$category->id}}--}}" value="{{$category->id}}">
+                                    <a href="javascript:void(0)">{{$category->name}} <span class="grid-items"></span></a>
+                                </li>
                             @endforeach
                         </ul>
                     </div>
+{{--                    <div class="vendor-filter">--}}
+{{--                        <h4 class="filter-title">Filter by providers</h4>--}}
+{{--                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html#vendor" data-bs-toggle="collapse" class="filter-link"><span>Filter by vendor </span><i class="fa fa-angle-down"></i></a>--}}
+{{--                        <ul class="all-vendor collapse" id="vendor">--}}
+{{--                            @foreach($providers as $provider)--}}
+{{--                                <li class="f-vendor">--}}
+{{--                                    <input type="checkbox" wire:model="filterProviders" value="{{$provider->id}}">--}}
+{{--                                    <label>{{$provider->name}}</label>--}}
+{{--                                </li>--}}
+{{--                            @endforeach--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
                     <div class="price-filter">
-                        <h4 class="filter-title">Filter by price</h4>
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html#price-filter" data-bs-toggle="collapse" class="filter-link"><span>Filter by price </span><i class="fa fa-angle-down"></i></a>
-                        <ul class="all-price collapse" id="price-filter">
-                            <li class="f-price">
-                                <input type="checkbox">
-                                <label>0-100</label>
-                            </li>
-                            <li class="f-price">
-                                <input type="checkbox">
-                                <label>100-200</label>
-                            </li>
-                            <li class="f-price">
-                                <input type="checkbox">
-                                <label>200-300</label>
-                            </li>
-                        </ul>
+                           <div class="sidebar-widget price_range range">
+                                <div class="widget-header position-relative mb-20 pb-10">
+                                    <h5 class="widget-title mb-10">Filter by price</h5>
+                                    <div class="bt-1 border-color-1"></div>
+                                </div>
+                                <div class="price-filter">
+                                    <div class="price-filter-inner">
+                                        <div id="slider-range" wire:ignore></div>
+                                        <div class="price_slider_amount">
+                                            <div class="label-input">
+                                                <span>Range:</span><span class="text-warning">{{$min_price}} LE</span> - <span class="text-warning">{{$max_price}} LE</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group">
+                                    <div class="list-group-item mb-10 mt-10">
+
+                                        <label class="fw-900 mt-15">Item Condition</label>
+                                        <div class="custome-checkbox">
+                                            <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox11" wire:model="sorting" value="date-desc">
+                                            <label class="form-check-label" for="exampleCheckbox11"><span>New (1506)</span></label>
+                                            <br>
+                                            <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox21" value="">
+                                            <label class="form-check-label" for="exampleCheckbox21"><span>Refurbished (27)</span></label>
+                                            <br>
+                                            <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox31" value="">
+                                            <label class="form-check-label" for="exampleCheckbox31"><span>Used (45)</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
-                    <div class="pro-size">
-                        <h4 class="filter-title">Filter by size</h4>
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html#size-filter" data-bs-toggle="collapse" class="filter-link"><span>Filter by size </span><i class="fa fa-angle-down"></i></a>
-                        <ul class="all-size collapse" id="size-filter">
-                            <li class="choice-size">
-                                <input type="checkbox">
-                                <label>10kg</label>
-                            </li>
-                            <li class="choice-size">
-                                <input type="checkbox">
-                                <label>10ltr</label>
-                            </li>
-                            <li class="choice-size">
-                                <input type="checkbox">
-                                <label>1kg</label>
-                            </li>
-                            <li class="choice-size">
-                                <input type="checkbox">
-                                <label>1ltr</label>
-                            </li>
-                            <li class="choice-size">
-                                <input type="checkbox">
-                                <label>2kg</label>
-                            </li>
-                            <li class="choice-size">
-                                <input type="checkbox">
-                                <label>3kg</label>
-                            </li>
-                            <li class="choice-size">
-                                <input type="checkbox">
-                                <label>5kg</label>
-                            </li>
-                            <li class="choice-size">
-                                <input type="checkbox">
-                                <label>5ltr</label>
-                            </li>
-                        </ul>
-                    </div>
+
                     <div class="filter-tag">
                         <h4 class="filter-title">Filter by tags</h4>
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html#tags-filter" data-bs-toggle="collapse" class="filter-link"><span>Filter by tags </span><i class="fa fa-angle-down"></i></a>
+                        <a href="" data-bs-toggle="collapse" class="filter-link"><span>Filter by tags </span><i class="fa fa-angle-down"></i></a>
+
                         <ul class="all-tag collapse" id="tags-filter">
                             @foreach($categories as $category)
-                            <li class="tag"><a href="{{route('product.category',['category_slug'=>$category->slug])}}">{{$category->name}}</a></li>
+                                <li class="tag"><a href="{{route('product.category',['category_slug'=>$category->slug])}}">{{$category->name}}</a></li>
                             @endforeach
-                        </ul>
-                    </div>
-                    <div class="vendor-filter">
-                        <h4 class="filter-title">Filter by vendor</h4>
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html#vendor" data-bs-toggle="collapse" class="filter-link"><span>Filter by vendor </span><i class="fa fa-angle-down"></i></a>
-                        <ul class="all-vendor collapse" id="vendor">
-                            <li class="f-vendor">
-                                <input type="checkbox">
-                                <label>Fargglad</label>
-                            </li>
-                            <li class="f-vendor">
-                                <input type="checkbox">
-                                <label>Flisat</label>
-                            </li>
-                            <li class="f-vendor">
-                                <input type="checkbox">
-                                <label>Kyrre</label>
-                            </li>
-                            <li class="f-vendor">
-                                <input type="checkbox">
-                                <label>Lustigt</label>
-                            </li>
-                            <li class="f-vendor">
-                                <input type="checkbox">
-                                <label>Sundvik</label>
-                            </li>
                         </ul>
                     </div>
                     <div class="filter-banner">
@@ -116,8 +82,8 @@
             <div class="col-lg-9 col-md-8 col-12">
                 <div class="grid-list-banner" style="background-image: url({{asset('assets/img/slider17.jpg')}});">
                     <div class="grid-banner-content">
-                        <h4>Bestseller</h4>
-                        <p>Praesent dapibus, neque id cursus Ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, facilisis luc...</p>
+                        <h4>Food Store Food</h4>
+                        <p>This page for our restaurants and our products magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, facilisis luc...</p>
                     </div>
                 </div>
                 <div class="grid-list-area">
@@ -133,7 +99,7 @@
                                 <label>Sort by</label>
                                 <select wire:model="sorting">
                                     <option>Featured</option>
-                                    <option>Best selling</option>
+                                    <option value="bestseller">Best selling</option>
                                     <option value="alphabet">Alphabetically,A-Z</option>
                                     <option value="alphabet-desc">Alphabetically,Z-A</option>
                                     <option value="price">Price, low to high</option>
@@ -147,46 +113,46 @@
                     <div class="grid-pro">
                         <ul class="grid-product">
                             @foreach($products as $product)
-                            <li class="grid-items">
-                                <div class="tred-pro">
-                                    <div class="tr-pro-img">
-                                        <a href="{{route('details', ['slug'=>$product->slug])}}">
-                                            <img class="img-fluid" style="height: 300px; width: 500px"  src="{{$product->image}}" alt="pro-img1">
-                                            <img class="img-fluid additional-image" style="height: 300px; width: 500px" src="{{$product->image}}" alt="additional image">
+                                <li class="grid-items">
+                                    <div class="tred-pro">
+                                        <div class="tr-pro-img">
+                                            <a href="{{route('product.details', ['slug'=>$product->slug])}}">
+                                                <img class="img-fluid" style="height: 300px; width: 500px"  src="{{$product->image}}" alt="pro-img1">
+                                                <img class="img-fluid additional-image" style="height: 300px; width: 500px" src="{{$product->image}}" alt="additional image">
+                                            </a>
+                                        </div>
+                                        <div class="Pro-lable">
+                                            <span class="p-text">New</span>
+                                        </div>
+                                        <div class="pro-icn">
+                                            <a href="{{route('product.details', ['slug'=>$product->slug])}}" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
+                                            <a href="#" class="w-c-q-icn" wire:click.prevent="addToWishList('{{ $product->id}}', '{{$product->name}}', '{{ $product->sale_price ?? $product->regular_price }}')"><i class="fa fa-heart"></i></a>
+                                            <a href="#" class="w-c-q-icn" wire:click.prevent="store('{{ $product->id}}', '{{$product->name}}', '{{ $product->sale_price ?? $product->regular_price }}')"><i class="fa fa-shopping-bag"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="caption">
+                                        <a href="https://elanta.app/nazar/starbelly-demo/product.html" class="sb-menu-item sb-menu-item-sm sb-mb-15">
+                                            <div class="sb-card-tp">
+                                                <h4 class="sb-card-title">{{$product->name}}</h4>
+                                                <div class="sb-price"><sub>£</sub> {{$product->regular_price}}</div>
+                                            </div>
                                         </a>
                                     </div>
-                                    <div class="Pro-lable">
-                                        <span class="p-text">New</span>
-                                    </div>
-                                    <div class="pro-icn">
-                                        <a href="#" class="w-c-q-icn" wire:click.prevent="addToWishList('{{ $product->id}}', '{{$product->name}}', '{{ $product->regular_price }}')"><i class="fa fa-heart"></i></a>
-                                        <a href="#" class="w-c-q-icn" wire:click.prevent="store('{{ $product->id}}', '{{$product->name}}', '{{ $product->regular_price }}')"><i class="fa fa-shopping-bag"></i></a>
-                                        <a href="{{route('details', ['slug'=>$product->slug])}}" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
-                                    </div>
-                                </div>
-                                <div class="caption">
-                                    <a href="https://elanta.app/nazar/starbelly-demo/product.html" class="sb-menu-item sb-menu-item-sm sb-mb-15">
-                                        <div class="sb-card-tp">
-                                            <h4 class="sb-card-title">{{$product->name}}</h4>
-                                            <div class="sb-price"><sub>£</sub> {{$product->regular_price}}</div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </li>
+                                </li>
                             @endforeach
                         </ul>
                     </div>
                 </div>
-                <div class="list-all-page">
-                    <span class="page-title">Showing 1 - 17 of 17 result</span>
-                    <div class="page-number">
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="active">1</a>
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-2.html">2</a>
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-3.html">3</a>
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-4.html">4</a>
-                        <a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i></a>
-                    </div>
-                </div>
+{{--                <div class="list-all-page">--}}
+{{--                    <span class="page-title">Showing 1 - 17 of 17 result</span>--}}
+{{--                    <div class="page-number">--}}
+{{--                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="active">1</a>--}}
+{{--                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-2.html">2</a>--}}
+{{--                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-3.html">3</a>--}}
+{{--                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-4.html">4</a>--}}
+{{--                        <a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i></a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
         </div>
     </div>
@@ -311,3 +277,23 @@
         </div>
     </div>
 </section>
+
+@push('scripts')
+<script>
+    var sliderrange = $('#slider-range');
+    var amountprice = $('#amount');
+    $(function() {
+        sliderrange.slider({
+            range: true,
+            min: 16,
+            max: 400,
+            values: [0, 300],
+            slide: function(event, ui) {
+                //amountprice.val("$" + ui.values[0] + " - $" + ui.values[1]);
+            @this.set('min_price',ui.values[0]);
+            @this.set('max_price',ui.values[1]);
+            }
+        });
+    });
+</script>
+@endpush

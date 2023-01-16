@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\admin\backend\NotificationsController;
+use App\Http\Controllers\admin\MainCategoryController;
+use App\Http\Controllers\admin\RestaurantController;
+use App\Http\Controllers\admin\RoleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +24,10 @@ Route::group(
     ], function(){
 Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function () {
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
+
+    Route::any('/notifications/get', [NotificationsController::class, 'getNotifications']);
+    Route::any('/notifications/read', [NotificationsController::class, 'markAsRead']);
+    Route::any('/notifications/read/{id}', [NotificationsController::class, 'markAsReadAndRedirect']);
     ########################################## Start Languages Route ##############################################################
     Route::get('/languages/index', [App\Http\Controllers\Admin\LanguageController::class, 'index'])->name('admin.languages');
     Route::get('/languages/create', [App\Http\Controllers\Admin\LanguageController::class, 'create'])->name('admin.languages.create');
@@ -29,15 +37,17 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
     Route::get('/languages/destroy', [App\Http\Controllers\Admin\LanguageController::class, 'destroy'])->name('admin.languages.delete');
     ########################################## End  Languages Route ##############################################################
     ########################################## Start MainCategories Route ##############################################################
-    Route::get('/main-categories/index', [App\Http\Controllers\Admin\MainCategoryController::class, 'index'])->name('admin.maincategories');
-    Route::get('/main-categories/create', [App\Http\Controllers\Admin\MainCategoryController::class, 'create'])->name('admin.maincategories.create');
-    Route::post('/main-categories/store', [App\Http\Controllers\Admin\MainCategoryController::class, 'store'])->name('admin.maincategories.store');
-    Route::get('/main-categories/edit/{id}', [App\Http\Controllers\Admin\MainCategoryController::class, 'edit'])->name('admin.maincategories.edit');
-    Route::post('/main-categories/update', [App\Http\Controllers\Admin\MainCategoryController::class, 'update'])->name('admin.maincategories.update');
-    Route::get('/main-categories/destroy', [App\Http\Controllers\Admin\MainCategoryController::class, 'destroy'])->name('admin.maincategories.destroy');
-    Route::get('changeStatus/{id}', [App\Http\Controllers\Admin\MainCategoryController::class, 'changeStatus'])->name('admin.maincategories.status');
-
-    ########################################## End  SubCategories Route ######################################################################################################## Start MainCategories Route ##############################################################
+    Route::group(['prefix' => 'main-categories'], function () {
+        Route::get('/', [MainCategoryController::class, 'index'])->name('admin.maincategories');
+        Route::get('/create', [MainCategoryController::class, 'create'])->name('admin.maincategories.create');
+        Route::post('/store', [MainCategoryController::class, 'store'])->name('admin.maincategories.store');
+        Route::get('/edit/{id}', [MainCategoryController::class, 'edit'])->name('admin.maincategories.edit');
+        Route::post('/update/{id}', [MainCategoryController::class, 'update'])->name('admin.maincategories.update');
+        Route::get('/destroy', [MainCategoryController::class, 'destroy'])->name('admin.maincategories.destroy');
+        Route::get('/changeStatus/{id}', [MainCategoryController::class, 'changeStatus'])->name('admin.maincategories.status');
+    });
+    ########################################## End  MainCategories Route ######################################################################################################## Start MainCategories Route ##############################################################
+    ########################################## Start  SubCategories Route ######################################################################################################## Start MainCategories Route ##############################################################
     Route::get('/sub-categories/index', [App\Http\Controllers\Admin\SubCategoryController::class, 'index'])->name('admin.subcategories');
     Route::get('/sub-categories/create', [App\Http\Controllers\Admin\SubCategoryController::class, 'create'])->name('admin.subcategories.create');
     Route::post('/sub-categories/store', [App\Http\Controllers\Admin\SubCategoryController::class, 'store'])->name('admin.subcategories.store');
@@ -90,12 +100,23 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
     ################################## end options    #######################################
     # ################################## start roles ######################################
     Route::group(['prefix' => 'roles'], function () {
-        Route::get('/', [\App\Http\Controllers\admin\RoleController::class, 'index'])->name('admin.roles');
-        Route::get('create', [\App\Http\Controllers\admin\RoleController::class, 'create'])->name('admin.roles.create');
-        Route::post('store', [\App\Http\Controllers\admin\RoleController::class, 'store'])->name('admin.roles.store');
+        Route::get('/', [RoleController::class, 'index'])->name('admin.roles');
+        Route::get('create', [RoleController::class, 'create'])->name('admin.roles.create');
+        Route::post('store', [RoleController::class, 'store'])->name('admin.roles.store');
         //Route::get('delete/{id}','RolesController@destroy') -> name('admin.roles.delete');
-        Route::get('edit/{id}', [\App\Http\Controllers\admin\RoleController::class, 'edit'])->name('admin.roles.edit');
-        Route::post('update/{id}', [\App\Http\Controllers\admin\RoleController::class, 'update'])->name('admin.roles.update');
+        Route::get('edit/{id}', [RoleController::class, 'edit'])->name('admin.roles.edit');
+        Route::post('update/{id}', [RoleController::class, 'update'])->name('admin.roles.update');
+    });
+    ################################## end options    #######################################
+    # ################################## start roles ######################################
+    Route::group(['prefix' => 'restaurant'], function () {
+        Route::get('/', [RestaurantController::class, 'index'])->name('admin.restaurants');
+        Route::get('create', [RestaurantController::class, 'create'])->name('admin.restaurants.create');
+        Route::post('store', [RestaurantController::class, 'store'])->name('admin.restaurants.store');
+        //Route::get('delete/{id}','RolesController@destroy') -> name('admin.restaurants.delete');
+        Route::get('show/{id}', [RestaurantController::class, 'show'])->name('admin.restaurants.show');
+        Route::get('edit/{id}', [RestaurantController::class, 'edit'])->name('admin.restaurants.edit');
+        Route::post('update/{id}', [RestaurantController::class, 'update'])->name('admin.restaurants.update');
     });
     ################################## end options    #######################################
 });

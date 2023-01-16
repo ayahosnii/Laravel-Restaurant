@@ -9,33 +9,20 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- title -->
     <title>Aya's Restaurant</title>
     <meta name="description" content="A best clean, modern, stylish, creative, responsive theme for different eCommerce business or industries.">
     <meta name="keywords" content="organic food theme, vegetables, foof store, eCommerce html template, responsive, electronics store, furniture wood, fashion, furniture, mobile, watches, electronics, computers accessories, toys, jewellery, restaurant accessories">
     <meta name="author" content="spacingtech_webify">
 
-    <!-- favicon -->
     <link rel="shortcut icon" type="image/favicon" href="https://spacingtech.com/html/vegist-final/vegist/image/fevicon.png">
-    <!-- bootstrap -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/chat.css')}}">
-    <!-- simple-line icon -->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/simple-line-icons.css')}}">
-    <!-- font-awesome icon -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/font-awesome.min.css')}}">
-    <!-- themify icon -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/themify-icons.css')}}">
-    <!-- ion icon -->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/ionicons.min.css')}}">
-    <!-- owl slider -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/owl.theme.default.min.css')}}">
-    <!-- swiper -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/swiper.min.css')}}">
-    <!-- animation -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/animate.css')}}">
-    <!-- style -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive.css')}}">
 
@@ -153,19 +140,17 @@
     @livewireStyles
 </head>
 <body class="home-1" style="">
-<!-- top notificationbar start -->
 <section class="top1">
     <div class="container">
         <div class="row">
             <div class="col">
                 <ul class="top-home">
                     <li class="top-home-li">
-                        <!-- currency start -->
                         <div class="currency">
                             <span class="currency-head">currency:</span>
                             <div class="currency-drop">
                                 <div class="eur">
-                                    <img class="img-fluid" src="{{asset('assets/img/c-icon1.png')}}" alt="">
+                                    <img class="img-fluid" src="" alt="">
                                     <span class="cur-name">EUR</span>
                                 </div>
                                 <ul class="all-currency">
@@ -219,9 +204,35 @@
                                     </li>
                                 </ul>
                             </div>
+                            <span class="currency-head" style="margin-left: 15px">Language:</span>
+                            <div class="currency-drop">
+                                <div class="eur">
+                                    <img class="img-fluid" src="" alt="">
+                                    <span class="cur-name">En</span>
+                                </div>
+                                <ul class="all-currency">
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                            <img class="img-fluid" src="{{asset('assets/img/c-icon4.png')}}" alt="">
+                                            <span class="cur-name">AFN</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                            <img class="img-fluid" src="{{asset('assets/img/c-icon2.png')}}" alt="">
+                                            <span class="cur-name">BDT</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                            <img class="img-fluid" src="{{asset('assets/img/c-icon3.png')}}" alt="">
+                                            <span class="cur-name">CAD</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <!-- currency end -->
-                        <!-- mobile search start -->
+
                         <div class="r-search">
                             <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#r-search-modal" class="search-popuup" data-bs-toggle="modal"><i class="fa fa-search"></i></a>
                             <div class="modal fade" id="r-search-modal">
@@ -238,40 +249,31 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- mobile search end -->
                     </li>
                     <li class="top-home-li t-content">
-                        <!-- offer text start -->
                         <div class="top-content">
                             <p class="top-slogn"><span class="top-c">free shipping</span> orders from all item</p>
                         </div>
-                        <!-- offer text end -->
                     </li>
                 </ul>
             </div>
         </div>
     </div>
 </section>
-<!-- top notificationbar end -->
 
-<!-- header start -->
 <header class="header-area">
     <div class="header-main-area is-sticky">
         <div class="container">
             <div class="row">
                 <div class="col">
                     <div class="header-main">
-                        <!-- logo start -->
+
                         <div class="header-element logo">
                             <a href="/">
                                 <img src="{{asset('assets/img/logo2.png')}}" alt="logo-image" class="img-fluid">
                             </a>
                         </div>
-                        <!-- logo end -->
-                        <!-- search start -->
                         @livewire("header-search-component")
-                        <!-- search end -->
-                        <!-- header-icon start -->
                         <div class="header-element right-block-box">
                             <ul class="shop-element">
                                 <li class="side-wrap nav-toggler">
@@ -375,7 +377,6 @@
                                     </div>
                                 </li>
                                 @livewire('wish-list-count-component')
-                                <!--cart-count-component-->
 
                                 <li class="side-wrap cart-wrap">
                                     <div class="shopping-widget">
@@ -389,13 +390,11 @@
                                         </div>
                                     </div>
                                 </li>
-                                <!--cart-count-component end-->
 
 
 
                             </ul>
                         </div>
-                        <!-- header-icon end -->
                     </div>
                 </div>
             </div>
@@ -409,7 +408,7 @@
                                 <div class="box-header menu-close">
                                     <button class="close-box" type="button"><i class="ion-close-round"></i></button>
                                 </div>
-                                <!-- menu start -->
+
                                 <div class="navbar-collapse" id="navbarContent">
                                     <div class="megamenu-content">
                                         <div class="mainwrap">
@@ -503,7 +502,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- menu end -->
                                 <div class="img-hotline">
                                     <div class="image-line">
                                         <a href="javascript:void(0)"><img src="{{asset('assets/img/icon_contact.png')}}" class="img-fluid" alt="image-icon"></a>
@@ -520,11 +518,10 @@
             </div>
         </div>
     </div>
-    @include('site.includes.mini-cart')
+    @livewire('mini-cart-component')
 
 </header>
-<!-- header end -->
-<!-- mobile menu start -->
+
 <div class="header-bottom-area mobile">
     <div class="container">
         <div class="row">
@@ -534,7 +531,7 @@
                         <div class="box-header menu-close">
                             <button class="close-box" type="button"><i class="ion-close-round"></i></button>
                         </div>
-                        <!-- menu start -->
+
                         <div class="navbar-collapse" id="navbarContent01">
                             <div class="megamenu-content">
                                 <div class="mainwrap">
@@ -739,9 +736,7 @@
                                                 <li class="submenu-li">
                                                     <a href="https://spacingtech.com/html/vegist-final/vegist/contact.html" class="submenu-link">Contact us</a>
                                                 </li>
-                                                <li class="submenu-li">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/payment-policy.html" class="submenu-link">Payment policy</a>
-                                                </li>
+
                                                 <li class="submenu-li">
                                                     <a href="https://spacingtech.com/html/vegist-final/vegist/privacy-policy.html" class="submenu-link">privacy policy</a>
                                                 </li>
@@ -885,9 +880,9 @@
                                                             <a href="javascript:void(0)" class="sub-style"><span>Blog style 6</span><i class="fa fa-angle-right"></i></a>
                                                             <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#list-66a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 6</span><i class="fa fa-angle-right"></i></a>
                                                             <ul class="grid-style collapse" id="list-66a">
-                                                                <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-7-list-blog.html">Blog list</a></li><!--list-->
-                                                                <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-7-left-list-blog.html">Left blog list</a></li><!--list-->
-                                                                <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-7-right-list-blog.html">Right blog list</a></li><!--list-->
+                                                                <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-7-list-blog.html">Blog list</a></li>
+                                                                <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-7-left-list-blog.html">Left blog list</a></li>
+                                                                <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-7-right-list-blog.html">Right blog list</a></li>
                                                             </ul>
                                                         </li>
                                                     </ul>
@@ -975,80 +970,14 @@
                                             </ul>
                                         </li>
                                         <li class="menu-link parent">
-                                            <a href="javascript:void(0)" class="link-title">
-                                                <span class="sp-link-title">Feature</span>
-                                                <i class="fa fa-angle-down"></i>
+                                            <a href="{{url('/reservation/step-one')}}" class="link-title">
+                                                <span class="sp-link-title">Reservation</span>
                                             </a>
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#feature-1" data-bs-toggle="collapse" class="link-title link-title-lg">
-                                                <span class="sp-link-title">Feature</span>
-                                                <i class="fa fa-angle-down"></i>
+                                            <a href="{{url('/reservation/step-one')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                <span class="sp-link-title">Reservation</span>
                                             </a>
-                                            <ul class="dropdown-submenu mega-menu collapse" id="feature-1">
-                                                <li class="megamenu-li parent">
-                                                    <h2 class="sublink-title">Header style</h2>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#feature-01" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
-                                                        <span>Header style</span>
-                                                        <i class="fa fa-angle-down"></i>
-                                                    </a>
-                                                    <ul class="dropdown-supmenu collapse" id="feature-01">
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/header-style-1.html">Header style 1</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/header-style-2.html">Header style 2</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/header-style-3.html">Header style 3</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/header-style-4.html">Header style 4</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/header-style-5.html">Header style 5</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/header-style-6.html">Header style 6</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/header-style-7.html">Header style 7</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="megamenu-li parent">
-                                                    <h2 class="sublink-title">Footer style</h2>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#feature-02" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
-                                                        <span>Footer style</span>
-                                                        <i class="fa fa-angle-down"></i>
-                                                    </a>
-                                                    <ul class="dropdown-supmenu collapse" id="feature-02">
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/footer-style-1.html">Footer style 1</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/footer-style-2.html">Footer style 2</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/footer-style-3.html">Footer style 3</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/footer-style-4.html">Footer style 4</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/footer-style-5.html">Footer style 5</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/footer-style-6.html">Footer style 6</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/footer-style-7.html">Footer style 7</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="megamenu-li parent">
-                                                    <h2 class="sublink-title">Product details</h2>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#feature-03" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
-                                                        <span>Product details</span>
-                                                        <i class="fa fa-angle-down"></i>
-                                                    </a>
-                                                    <ul class="dropdown-supmenu collapse" id="feature-03">
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">Product details style 1</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-2.html">Product details style 2</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-3.html">Product details style 3</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-4.html">Product details style 4</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-5.html">Product details style 5</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Product details style 6</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-7.html">Product details style 7</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="megamenu-li parent">
-                                                    <h2 class="sublink-title">Other style</h2>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#feature-04" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
-                                                        <span>Other style</span>
-                                                        <i class="fa fa-angle-down"></i>
-                                                    </a>
-                                                    <ul class="dropdown-supmenu collapse" id="feature-04">
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/checkout-1.html">Checkout style 1</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/checkout-2.html">Checkout style 2</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/checkout-3.html">Checkout style 3</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/cart.html">Cart style 1</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/cart-2.html">Cart style 2</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/cart-3.html">Cart style 3</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
                                         </li>
+
                                         <li class="menu-link">
                                             <a href="javascript:void(0)" class="link-title">
                                                 <span class="sp-link-title">Buy vegist <span class="hot">Hot</span></span>
@@ -1058,7 +987,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- menu end -->
+
                         <div class="img-hotline">
                             <div class="image-line">
                                 <a href="javascript:void(0)"><img src="{{asset('assets/img/icon_contact.png')}}" class="img-fluid" alt="image-icon"></a>
@@ -1079,8 +1008,9 @@
 
 
 @include('layouts.footer')
-<!--modals-->
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+<script src="{{ asset('js/app.js') }}"></script>
+@livewireScripts
 <script>
     $(document).ready(function(){
         $('.switch-tologin-modal').on('click',function(){
@@ -1093,29 +1023,18 @@
         })
     })
 </script>
-<!-- jquery -->
 <script src="{{asset('assets/js/modernizr-2.8.3.min.js')}}"></script>
-<script src="{{asset('assets/js/jquery-3.6.0.js')}}"></script>
-<!-- bootstrap -->
 <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
-<!-- popper -->
 <script src="{{asset('assets/js/popper.min.js')}}"></script>
-<!-- fontawesome -->
 <script src="{{asset('assets/js/fontawesome.min.js')}}"></script>
-<!-- owl carousal -->
 <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
-<!-- swiper -->
 <script src="{{asset('assets/js/swiper.min.js')}}"></script>
-<!-- custom -->
+<script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
 <script src="{{asset('assets/js/custom.js')}}"></script>
-
-<script src="{{ asset('js/app.js') }}" defer></script>
-
-<script src="{{asset('js/vue.js')}}"></script>
+{{--<script src="{{asset('js/vue.js')}}"></script>--}}
 
 <script>
     window.trans = <?php
-    // copy all translations from /resources/lang/CURRENT_LOCALE/* to global JS variable
     $lang_files = File::files(resource_path() . '/lang/' . App::getLocale());
     $trans = [];
     foreach ($lang_files as $f) {
@@ -1126,9 +1045,7 @@
     ?>;
 </script>
 
-@livewireScripts
+
 @yield('scripts')
-
-
 </body>
 </html>

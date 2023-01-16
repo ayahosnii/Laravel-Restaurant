@@ -18,11 +18,11 @@
                                     <div class="blog-info-wrap">
                                         <span class="blog-data date">
                                             <i class="fa-solid fa-calendar"></i>
-                                            <span class="blog-d-n-c">{{ post.added_at }}</span>
+                                            <span class="blog-d-n-c">{{ post.created_at }}</span>
                                         </span>
                                         <span class="blog-data blog-edit">
                                             <i class="fa-solid fa-user"></i>
-                                            <span class="blog-d-n-c">By <span class="editor">{{ post.user.name }}</span></span>
+                                            <span class="blog-d-n-c">By <span class="editor">{{ post.user.email }}</span></span>
                                         </span>
                                         <span class="blog-data comments">
                                             <i class="fa-solid fa-comment"></i>
@@ -47,7 +47,7 @@
                                     <a href="javascript:void(0)" class="insta"><i class="fa fa-instagram"></i></a>
                                     <a href="javascript:void(0)" class="pinterest"><i class="fa fa-pinterest-p"></i></a>
                                 </div>
-                                <div class="blog-comments">
+<!--                                <div class="blog-comments">
                                     <h4><span>{{post.comments_count}}</span> Comments</h4>
                                     <div class="blog-comment-info">
                                         <ul class="comments-arae" v-for="(comment,i) in post.comments" :key="i">
@@ -66,7 +66,7 @@
                                                 <span class="comments-result c-date">jan 15, 2021 <a href="javascript:void(0)" class="Reply">Reply</a></span>
                                             </li>
                                         </ul>
-<!--
+&lt;!&ndash;
                                         <ul class="comments-arae comment-reply">
                                             <li class="comments-man">JE</li>
                                             <li class="comments-content">
@@ -75,8 +75,8 @@
                                                 <span class="comments-result c-date">jan 15, 2021 <a href="javascript:void(0)" class="Reply">Reply</a></span>
                                             </li>
                                         </ul>
--->
-<!--                                        <ul class="comments-arae all-reply">
+&ndash;&gt;
+&lt;!&ndash;                                        <ul class="comments-arae all-reply">
                                             <li class="comments-man">DV</li>
                                             <li class="comments-content">
                                                 <span class="comments-result">What is Lorem Ipsum Lorem Ipsum is simply dummy text industry Lorem Ipsum...</span>
@@ -91,9 +91,9 @@
                                                 <span class="comment-name"><i>By <span class="comments-title">Kartik</span></i></span>
                                                 <span class="comments-result c-date">jan 11, 2021 <a href="javascript:void(0)" class="Reply">Reply</a></span>
                                             </li>
-                                        </ul>-->
+                                        </ul>&ndash;&gt;
                                     </div>
-                                </div>
+                                </div>-->
                                 <div class="comments-form">
                                     <h4>Leave a comment</h4>
                                     <form>

@@ -43,6 +43,7 @@ class CategoryController extends Controller
     public function store(CategoryRequest $request)
     {
         try {
+
             //validation
 
             if (!$request->has('is_active'))
@@ -51,10 +52,11 @@ class CategoryController extends Controller
                 $request->request->add(['is_active' => 1]);
 
             $filePath = "";
-            if ($request->has('image')) {
+            if ($request->has('images')) {
                 $filePath = uploadImage('maincategories', $request->image);
             }
 
+            $id = Auth::guard('providers')->user()->id;
             if ($request -> type == CategoryType::mainCategory)
             {
 
@@ -63,7 +65,9 @@ class CategoryController extends Controller
                 'name' => $request->name,
                 'slug' => $request->slug,
                 'parent_id' =>$request->request->add(['parent_id' => null]),
-                'is_active' => $request -> is_active
+                'is_active' => $request -> is_active,
+                'provider_id' => $request->$id
+
             ]);
             } else {
                 $category = Category::create([
@@ -71,7 +75,8 @@ class CategoryController extends Controller
                     'name' => $request->name,
                     'slug' => $request->slug,
                     'parent_id' =>$request->parent_id,
-                    'is_active' => $request -> is_active
+                    'is_active' => $request -> is_active,
+                    'provider_id' => $request->Auth::guard('providers')->user()->id,
                 ]);
             }
 
@@ -81,7 +86,8 @@ class CategoryController extends Controller
             return redirect()->route('provider.dashboard')->with(['success' => 'تم ألاضافة بنجاح']);
 
         } catch (\Exception $ex) {
-            return redirect()->route('admin.maincategories')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return $ex;
+            return redirect()->route('provider.dashboard')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
         }
     }
 

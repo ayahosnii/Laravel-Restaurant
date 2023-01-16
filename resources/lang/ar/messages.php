@@ -10,6 +10,8 @@ return [
     "Main-Categories" => 'الأقسام الرئيسية',
     "Sub-Categories" => 'الأقسام الفرعية',
     'Categories' => 'الأقسام',
+    'Restaurants' => 'المطاعم',
+
     'add' => 'اضف',
     'create' => 'اضافه',
     'read' => 'عرض',

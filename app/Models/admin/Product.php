@@ -2,16 +2,19 @@
 
 namespace App\Models\admin;
 
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Product extends Model implements TranslatableContract
 {
+    use Translatable;
     use HasFactory;
 
     protected $table="products";
     protected $fillable=['id', 'name', 'slug', 'description', 'regular_price', 'sale_price', 'SKU', 'stock_status', 'featured', 'quantity', 'image', 'images', 'category_id','subcategory_id', 'active', 'translation_lang', 'translation_of', 'created_at', 'updated_at'];
-
+    public $translatedAttributes = ['name',	'description'];
 
     public function scopeActive($query){
         return $query ->where('active', 1);
@@ -23,6 +26,11 @@ class Product extends Model
          return ($val !== null) ? asset('assets/' . $val) : "";
 
      }
+    public function getSalePriceAttribute($val)
+    {
+        return ($val !== null) ? ceil($val) : "";
+
+    }
 
     /**
      * The attributes that should be cast to native types.
@@ -79,6 +87,11 @@ class Product extends Model
     {
         return $total =  $this->sale_price ?? $this -> regular_price;
 
+    }
+
+    public function getDiscount()
+    {
+        return round(($this->regular_price-($this->regular_price * $this->sale_price/100)));
     }
 
 

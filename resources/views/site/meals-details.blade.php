@@ -144,20 +144,19 @@
                         </div>
                         <div class="pro-availabale">
                             <span class="available">Branch:</span>
-                            <span class="pro-instock">{{$meal->branch->name}}</span>
+                            <span class="pro-instock">{{$meal->branch->name ?? '-'}}</span>
                         </div>
                         <div class="pro-price">
 <!--
                             <td><input type="text" name="price[]" class="form-control price"></td>
 -->
-                            <span class="new-price">{{$meal->sale_price}} £</span>
+                            <span class="new-price">{{$meal->price}} £</span>
                             <span class="old-price"><del>{{$meal->regular_price}} £</del></span>
                             <div class="Pro-lable">
                                 <span class="p-discount">-8%</span>
                             </div>
                         </div>
-                        <span class="pro-details">Hurry up! only <span class="pro-number">{{$meal->quantity}}</span> products left in stock!</span>
-                        <p>{{$meal->description}}</p>
+                        <p>{{substr($meal->description, 0, 250).'.....'}}</p>
                         <div class="pro-items">
                             @if(isset($meal_attributes) && count($meal_attributes) > 0 )
                                 @foreach($meal_attributes as $attribute)
@@ -271,13 +270,7 @@
                             <div class="tab-2content">
                                 <h4>Key specification</h4>
                                 <ul class="tab-description">
-                                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
-                                    <li>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</li>
-                                    <li>type here your detail one by one li more add</li>
-                                    <li>has been the industry’s standard dummy text ever since. Lorem Ips</li>
-                                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-                                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</li>
-                                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</li>
+                                    {{$meal->description}}
                                 </ul>
                             </div>
                         </div>
@@ -342,7 +335,7 @@
                         </div>
                         <div class="tab-pane fade show" id="tab-3">
                             <div class="embed-responsive embed-responsive-16by9">
-                                <p>Hello</p>
+                                <center><h2>{{$meal->calories}} KCal</h2></center>
                             </div>
                         </div>
                         <div class="tab-pane fade show" id="tab-5">

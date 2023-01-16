@@ -17,4 +17,10 @@ class Branch extends Model
     {
         return $this->belongsToMany(Meal::class, 'meal_branch', 'provider_id',  'meal_id');
     }
+
+    public function getImageAttribute($val)
+    {
+        return ($val !== null) ? asset('assets/' . $val) : "";
+
+    }
 }

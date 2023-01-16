@@ -58,6 +58,7 @@ class CartController extends Controller
         $product = Product::where('slug', $slug)->firstOrFail();
 
         try {
+            $this->emitTo('wish-list-count-component', 'refreshComponent');
             return $this->basket->add($product, $request->quantity ?? 1);
         } catch (QuantityExceededException $e) {
             return $e;

@@ -17,7 +17,7 @@ class Category extends Model implements TranslatableContract
      * @var array
      */
     protected $table = 'categories';
-    protected $fillable = ['id', 'images', 'name', 'parent_id', 'slug', 'is_active','created_at','updated_at'];
+    protected $fillable = ['id', 'images', 'name', 'parent_id', 'slug', 'is_active','provider_id','created_at','updated_at'];
     protected $hidden = ['translations'];
     protected $with = ['translations'];
     protected $translatedAttributes = ['name'];

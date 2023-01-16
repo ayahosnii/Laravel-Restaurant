@@ -22,7 +22,7 @@ class SessionStorage implements StorageInterface
      */
     public function __construct($bucket = 'default')
     {
-        if(! Session::has($bucket)) {
+        if(!Session::has($bucket)) {
             Session::put($bucket, []);
         }
 

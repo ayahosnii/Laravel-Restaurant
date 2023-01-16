@@ -145,7 +145,7 @@
                         <ul class="grid-list-selector">
                             <li>
                                 <label>Sort by</label>
-                                <select wire:model="sorting">
+                                <select>
                                     <option>Featured</option>
                                     <option>Best selling</option>
                                     <option value="alphabet">Alphabetically,A-Z</option>
@@ -172,17 +172,15 @@
                                         <div class="Pro-lable">
                                             <span class="p-text">New</span>
                                         </div>
+{{--                                        <div class="pro-icn">--}}
+{{--                                            <a href="#" id="addToWishlist" class="w-c-q-icn" data-product-id="{{$product -> id}}"><i class="fa fa-heart"></i></a>--}}
+{{--                                            <a href="#" class="w-c-q-icn" data-product-id="{{$product -> id}}" data-product-slug="{{$product -> slug}}" data-button-action="add-to-cart"><i class="fa fa-shopping-bag"></i></a>--}}
+{{--                                             <a href="#" id="quick-view" class="w-c-q-icn hidden-sm-down" data-product-id="{{$product -> id}}" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>--}}
+{{--                                        </div>--}}
                                         <div class="pro-icn">
-                                            <a href="#" id="addToWishlist" class="addToWishlist w-c-q-icn wishlistProd_22" data-product-id="{{$product -> id}}"><i class="fa fa-heart"></i></a>
-                                           <form
-                                                action=""
-                                                method="post" class="formAddToCart" style="display: inline">
-                                                @csrf
-                                                <input type="hidden" name="id"
-                                                       value="{{$product -> id}}">
-                                            <a href="#" class="add-to-cart cart-addition w-c-q-icn" data-product-id="{{$product -> id}}" data-product-slug="{{$product -> slug}}" data-button-action="add-to-cart"><i class="fa fa-shopping-bag"></i></a>
-                                           </form>
-                                                <a href="#" id="quick-view" class="w-c-q-icn hidden-sm-down" data-product-id="{{$product -> id}}" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
+                                            <a href="#" class="w-c-q-icn"><i class="fa fa-heart"></i></a>
+                                            <a href="#" id="cart-addition" class="w-c-q-icn" data-product-id="{{$product -> id}}" data-product-slug="{{$product -> slug}}" data-button-action="add-to-cart"><i class="fa fa-shopping-bag"></i></a>
+                                            <a href="{{route('details', ['slug'=>$product->slug])}}" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
                                         </div>
                                     </div>
                                     <div class="caption">
@@ -208,15 +206,11 @@
                                                 <span class="p-text">New</span>
                                             </div>
                                             <div class="pro-icn">
-                                                <a href="#" id="addToWishlist" class="addToWishlist w-c-q-icn wishlistProd_22" data-product-id="{{$meal -> id}}"><i class="fa fa-heart"></i></a>
-                                                <form
-                                                    action=""
-                                                    method="post" class="formAddToCart" style="display: inline">
-                                                    @csrf
+                                                <a href="#" id="addToWishlist" class=" w-c-q-icn " data-product-id="{{$meal -> id}}"><i class="fa fa-heart"></i></a>
+
                                                     <input type="hidden" name="id"
                                                            value="{{$meal -> id}}">
                                                     <a href="#" class="add-to-cart cart-addition w-c-q-icn" data-product-id="{{$meal -> id}}" data-product-slug="{{$meal -> slug}}" data-button-action="add-to-cart"><i class="fa fa-shopping-bag"></i></a>
-                                                </form>
                                                 <a href="#" id="quick-view" class="w-c-q-icn hidden-sm-down" data-product-id="{{$meal -> id}}" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
                                             </div>
                                         </div>
@@ -263,28 +257,9 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        $(document).on('click', '#addToWishlist', function (e) {
-            e.preventDefault();
-            @guest()
-            $('.not-loggedin-modal').css('display','block');
-            @endguest
-            $.ajax({
-                type: 'post',
-                url: "{{Route('wishlist.store')}}",
-                data: {
-                    'productId': $(this).attr('data-product-id'),
-                },
-                /*success: function (data) {
-                    if(data.wished) {
-                        $('.alert-modal1').css('display', 'block');
-                    }else {
-                        $('.alert-modal2').css('display', 'block');
-                    }
-                }*/
-            });
-        });
+
         var completedIncrements =  [];
-        $(document).on('click', '.cart-addition', function (e) {
+        $(document).on('click', '#cart-addition', function (e) {
             e.preventDefault();
             $.ajax({
                 type: 'post',

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\admin\MainCategory;
 use App\Models\admin\Product;
+use App\Models\admin\ProductTranslation;
 use Illuminate\Http\Request;
 use DB;
 
@@ -67,12 +68,12 @@ class ProductController extends Controller
             if ($request->has('image')) {
                 $filePath = uploadImages('products', $request->image);
             }
-
+/**/
 
             DB::beginTransaction();
             $default_product_id = Product::insertGetId([
                 'name' => $default_products['name'],
-                'slug' => $default_products['name'],
+                'slug' => strtolower($default_products['name']),
                 'description' => $default_products['description'],
                 'regular_price' => $request->regular_price,
                 'sale_price' => $request->sale_price,
@@ -86,6 +87,11 @@ class ProductController extends Controller
                 'image' => $filePath,
             ]);
 
+            $abbr = '';
+             $products->filter(function($value, $key) {
+                return $abbr = $value['abbr'] != get_default_language();
+            });
+
             $prods = $products->filter(function($value, $key) {
                 return $value['abbr'] != get_default_language();
             });
@@ -95,21 +101,11 @@ class ProductController extends Controller
                 foreach ($prods as $prod) {
                     $prods_arr[] = [
                         'name' => $prod['name'],
-                        'slug' => $default_products['name'],
                         'description' => $prod['description'],
-                        'regular_price' => $request->regular_price,
-                        'sale_price' => $request->sale_price,
-                        'SKU' => $request->SKU,
-                        'stock_status' => $request->stock_status,
-                        'active' => $prod['active'],
-                        'featured' => $request->featured,
-                        'category_id' => $prod['category_id'],
-                        'translation_lang' => $prod['abbr'],
-                        'translation_of' => $default_product_id,
-                        'image' => $filePath,
+                        'locale' => $prod['abbr']
                     ];
                 }
-                Product::insert($prods_arr);
+                ProductTranslation::insert($prods_arr);
             }
             DB::commit();
             return redirect() -> route('admin.products')->with(['success' => 'تم الحفظ بنجاح']);

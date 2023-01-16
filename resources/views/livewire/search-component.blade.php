@@ -203,8 +203,8 @@
             <div class="col-lg-9 col-md-8 col-12">
                 <div class="grid-list-banner" style="background-image: url({{asset('assets/img/slider17.jpg')}});">
                     <div class="grid-banner-content">
-                        <h4>Bestseller</h4>
-                        <p>Praesent dapibus, neque id cursus Ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, facilisis luc...</p>
+                        <h4>Search Page</h4>
+                        <p>All meals from all restaurant include our meals, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, facilisis luc...</p>
                     </div>
                 </div>
                 <div class="grid-list-area">
@@ -255,7 +255,7 @@
                                         <a href="https://elanta.app/nazar/starbelly-demo/product.html" class="sb-menu-item sb-menu-item-sm sb-mb-15">
                                             <div class="sb-card-tp">
                                                 <h4 class="sb-card-title">{{$product->name}}</h4>
-                                                <div class="sb-price"><sub>£</sub> {{$product->regular_price}}</div>
+                                                <div class="sb-price"><sub>£</sub> {{$product->sale_price ?? $product->regular_price ?? $product->price}}</div>
                                             </div>
                                         </a>
                                     </div>
@@ -264,16 +264,16 @@
                         </ul>
                     </div>
                 </div>
-                <div class="list-all-page">
-                    <span class="page-title">Showing 1 - 17 of 17 result</span>
-                    <div class="page-number">
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="active">1</a>
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-2.html">2</a>
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-3.html">3</a>
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-4.html">4</a>
-                        <a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i></a>
-                    </div>
-                </div>
+{{--                <div class="list-all-page">--}}
+{{--                    <span class="page-title">Showing 1 - 17 of 17 result</span>--}}
+{{--                    <div class="page-number">--}}
+{{--                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="active">1</a>--}}
+{{--                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-2.html">2</a>--}}
+{{--                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-3.html">3</a>--}}
+{{--                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-4.html">4</a>--}}
+{{--                        <a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i></a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
         </div>
     </div>

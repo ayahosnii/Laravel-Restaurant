@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4e4b4cbda467d7112710238bd2871b92",
+    "content-hash": "d02168db6db456c8fa500216b7f88520",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -64,16 +64,16 @@
         },
         {
             "name": "astrotomic/laravel-translatable",
-            "version": "v11.10.0",
+            "version": "v11.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Astrotomic/laravel-translatable.git",
-                "reference": "6f2e3855836d46ab7ad3dabd269a400404f8b42c"
+                "reference": "14335e33189a0902941a9795f744dea2a4a929f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Astrotomic/laravel-translatable/zipball/6f2e3855836d46ab7ad3dabd269a400404f8b42c",
-                "reference": "6f2e3855836d46ab7ad3dabd269a400404f8b42c",
+                "url": "https://api.github.com/repos/Astrotomic/laravel-translatable/zipball/14335e33189a0902941a9795f744dea2a4a929f1",
+                "reference": "14335e33189a0902941a9795f744dea2a4a929f1",
                 "shasum": ""
             },
             "require": {
@@ -151,7 +151,7 @@
                     "type": "issuehunt"
                 }
             ],
-            "time": "2022-02-05T10:42:52+00:00"
+            "time": "2022-10-10T12:35:52+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",
@@ -4928,16 +4928,16 @@
         },
         {
             "name": "pusher/pusher-php-server",
-            "version": "7.2.1",
+            "version": "7.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pusher/pusher-http-php.git",
-                "reference": "5d708d43d774218e1068037c56a887658a4930ac"
+                "reference": "4ace4873873b06c25cecb2dd6d9fdcbf2f20b640"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pusher/pusher-http-php/zipball/5d708d43d774218e1068037c56a887658a4930ac",
-                "reference": "5d708d43d774218e1068037c56a887658a4930ac",
+                "url": "https://api.github.com/repos/pusher/pusher-http-php/zipball/4ace4873873b06c25cecb2dd6d9fdcbf2f20b640",
+                "reference": "4ace4873873b06c25cecb2dd6d9fdcbf2f20b640",
                 "shasum": ""
             },
             "require": {
@@ -4983,9 +4983,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pusher/pusher-http-php/issues",
-                "source": "https://github.com/pusher/pusher-http-php/tree/7.2.1"
+                "source": "https://github.com/pusher/pusher-http-php/tree/7.2.2"
             },
-            "time": "2022-10-17T08:33:16+00:00"
+            "time": "2022-12-20T19:52:36+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -11998,7 +11998,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3|^8.0",
+        "php": "^7.3|^8.1",
         "ext-json": "*"
     },
     "platform-dev": [],

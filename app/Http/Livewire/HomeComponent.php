@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\admin\MainCategory;
 use App\Models\admin\Product;
 use App\Models\admin\SubCategory;
+use App\Models\Post;
 use Livewire\Component;
 
 class HomeComponent extends Component
@@ -37,6 +38,7 @@ class HomeComponent extends Component
             ->where('translation_lang', $default_lang)
             ->where('active', 1)
             ->inRandomOrder()->get()->take(8);
-        return view('livewire.home-component', $data, ['categories' => $categories,'main_cats' => $main_cats/*, 'sub_cat' => $sub_cats*/, 'products' => $products, 'lproducts' => $lproducts, 'sproducts' => $sproducts])->layout('layouts.base');
+        $posts = Post::latest()->with('user')->get();
+        return view('livewire.home-component', $data, ['categories' => $categories,'main_cats' => $main_cats/*, 'sub_cat' => $sub_cats*/, 'products' => $products, 'lproducts' => $lproducts, 'sproducts' => $sproducts, 'posts' => $posts])->layout('layouts.base');
     }
 }

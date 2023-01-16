@@ -34,19 +34,8 @@ class ProductController extends Controller
     public function mealsBySlug($slug)
     {
         $data=[];
-        $data['meal'] = Meal::where('slug',$slug) -> first();  //improve select only required fields
+        $data['meal'] = Meal::where('name',$slug) -> first();
 
-
-        $meal_id = $data['meal'] -> id ;
-        //$meal_categories_ids =  $data['meal'] -> categories ->pluck('id'); // [1,26,7] get all categories that meal on it
-
-
-
-        /*$data['meal_attributes'] =  Attribute::whereHas('options' , function ($q) use($meal_id){
-            $q -> whereHas('meal',function ($qq) use($meal_id){
-                $qq -> where('meal_id',$meal_id);
-            });
-        })->get();*/
 
         return view('site.meals-details', $data);
     }
