@@ -93,6 +93,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Conversation::class)->withPivot('read_at');
     }
 
+    public function cs_chats()
+    {
+        return $this->hasMany(CustomerServiceChat::class, 'user_id');
+    }
+
     public function inConversation($id)
     {
         return $this->conversations->contains('id', $id);

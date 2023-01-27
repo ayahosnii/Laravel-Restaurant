@@ -25,4 +25,8 @@ Broadcast::channel('conversations.{id}', function ($user, $id) {
     return $user->inConversation($id);
 });
 
+Broadcast::channel('conversation.{id}', function ($user, $id) {
+    return $user->conversations->contains($id);
+});
+
 

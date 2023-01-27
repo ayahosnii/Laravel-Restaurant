@@ -95,7 +95,7 @@
 
         </div>
     </section>
-    @section('scripts')
+@section('scripts')
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
             console.log('done')

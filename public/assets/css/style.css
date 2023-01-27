@@ -13706,3 +13706,14 @@ letter-spacing: 0;
 .coming-soon-area .comingsoon-main .comingsoon-social ul.social-ul li.social-li a:hover {
     color: #f5ab1e;
 }
+
+.user-message {
+    background-color: #f5ab1e;
+    color: #333;
+}
+
+.admin-message {
+    background-color: #333;
+    color: #fff;
+}
+

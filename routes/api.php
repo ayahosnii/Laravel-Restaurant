@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\CustomerServerChatController;
+use App\Http\Controllers\Api\CustomerServerMessageController;
 use App\Http\Controllers\Apis\FetchBranchController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,10 +29,14 @@ Route::get('searchposts/{query}',[\App\Http\Controllers\PostController::class, '
 
 Route::post('fetch-branches', [FetchBranchController::class, 'fetchBranch']);
 
+
+Route::get('conversation/{uuid}',[CustomerServerChatController::class, 'show']);
+Route::post('message',[CustomerServerMessageController::class, 'store']);
+
 Route::post('login', [\App\Http\Controllers\UserController::class, 'login']);
 Route::post('register', [\App\Http\Controllers\UserController::class, 'register']);
 
 Route::middleware('auth:api')->group(function () {
     Route::get('user', [\App\Http\Controllers\UserController::class, 'details']);
-    Route::post('comment/create', 'CommentController@store');
+    //Route::post('comment/create', 'CommentController@store');
 });

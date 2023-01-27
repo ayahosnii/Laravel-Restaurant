@@ -75,6 +75,7 @@
     @livewireStyles()
 </head>
 <body class="home-1" style="">
+
 <!-- top notificationbar start -->
 <section class="top1">
     <div class="container">

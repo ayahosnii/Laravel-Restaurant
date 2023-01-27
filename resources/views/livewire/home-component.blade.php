@@ -176,8 +176,17 @@
                             </div>
                             @endforeach
 
-                                <div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i class="fa fa-angle-left"></i></button><button type="button" role="presentation" class="owl-next"><i class="fa fa-angle-right"></i></button></div><div class="owl-dots disabled"></div></div>
-            </div>
+                           <div class="owl-nav">
+                               <button type="button" role="presentation" class="owl-prev">
+                                   <i class="fa fa-angle-left"></i>
+                               </button>
+                               <button type="button" role="presentation" class="owl-next">
+                                   <i class="fa fa-angle-right"></i></button></div>
+                                <div class="owl-dots disabled">
+
+                                </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -302,7 +311,7 @@
                         <div class="home-pro-tab swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-multirow">
                             <div class="swiper-wrapper" style="transition-duration: 300ms;">
                                 @foreach($lproducts as $lproduct)
-                                <div class="swiper-slide">
+                                <div class="swiper-slide" style="-webkit-box-ordinal-group: 6; order: 6; margin-top: 30px; width: 271.5px; margin-right: 30px;">
                                     <div class="h-t-pro">
                                         <div class="tred-pro">
                                             <div class="tr-pro-img">
@@ -352,42 +361,42 @@
                         <div class="home-pro-tab swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-multirow">
                             <div class="swiper-wrapper" style="transition-duration: 300ms;">
                                 @foreach($sproducts as $sproduct)
-                                <div class="swiper-slide">
-                                    <div class="h-t-pro">
-                                        <div class="tred-pro">
-                                            <div class="tr-pro-img">
-                                                <a href="https://spacingtech.com/html/vegist-final/vegist/product.html">
-                                                    <img src="{{$sproduct->image}}" style="height: 300px; width: 500px" alt="pro-img1" class="img-fluid">
-                                                    <img src="{{$sproduct->image}}" style="height: 300px; width: 500px" alt="additional image" class="img-fluid additional-image">
-                                                </a>
+                                    <div class="swiper-slide" style="-webkit-box-ordinal-group: 6; order: 6; margin-top: 30px; width: 271.5px; margin-right: 30px;">
+                                        <div class="h-t-pro">
+                                            <div class="tred-pro">
+                                                <div class="tr-pro-img">
+                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/product.html">
+                                                        <img src="{{$sproduct->image}}" style="height: 300px; width: 500px" alt="pro-img1" class="img-fluid">
+                                                        <img src="{{$sproduct->image}}" style="height: 300px; width: 500px" alt="additional image" class="img-fluid additional-image">
+                                                    </a>
+                                                </div>
+                                                <div class="Pro-lable">
+                                                    <span class="p-text">New</span>
+                                                </div>
+                                                <div class="pro-icn">
+                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html" class="w-c-q-icn"><i class="fa fa-heart"></i></a>
+                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/cart.html" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
+                                                    <a href="javascript:void(0)" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
+                                                </div>
                                             </div>
-                                            <div class="Pro-lable">
-                                                <span class="p-text">New</span>
-                                            </div>
-                                            <div class="pro-icn">
-                                                <a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html" class="w-c-q-icn"><i class="fa fa-heart"></i></a>
-                                                <a href="https://spacingtech.com/html/vegist-final/vegist/cart.html" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
-                                                <a href="javascript:void(0)" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="caption">
-                                            <h3><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">{{$sproduct->name}} ({{$sproduct->quantity}}Kg)</a></h3>
-                                            <div class="rating">
-                                                <i class="fa fa-star b-star"></i>
-                                                <i class="fa fa-star b-star"></i>
-                                                <i class="fa fa-star-o"></i>
-                                                <i class="fa fa-star-o"></i>
-                                                <i class="fa fa-star-o"></i>
-                                            </div>
-                                            <div class="pro-price">
-                                                <span class="new-price">{{$sproduct->sale_price}} LE</span>
-                                                <span class="old-price"><del>{{$sproduct->regular_price}} LE</del></span>
+                                            <div class="caption">
+                                                <h3><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">{{$sproduct->name}} ({{$sproduct->quantity}}Kg)</a></h3>
+                                                <div class="rating">
+                                                    <i class="fa fa-star b-star"></i>
+                                                    <i class="fa fa-star b-star"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <div class="pro-price">
+                                                    <span class="new-price">{{$sproduct->sale_price}} LE</span>
+                                                    <span class="old-price"><del>{{$sproduct->regular_price}} LE</del></span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
-                                </div>
+                                @endforeach
+                            </div>
                             <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
                         <div class="swiper-buttons">
                             <div class="content-buttons">
@@ -740,3 +749,6 @@
 </section>
 
 
+<div id="app">
+    <global-customer></global-customer>
+</div>

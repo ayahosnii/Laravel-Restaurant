@@ -27,6 +27,9 @@ Vue.component('categories', require('./components/Categories').default);
 Vue.component('CategoryPosts', require('./components/CategoryPosts').default);
 Vue.component('pagination', require('laravel-vue-pagination'));
 
+Vue.component('customer-service', require('./components/CustomerService').default);
+Vue.component('global-customer', require('./components/GlobalCustomer').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

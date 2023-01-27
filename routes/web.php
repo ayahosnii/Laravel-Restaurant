@@ -3,6 +3,7 @@
 use App\Http\Controllers\BaseController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ConversationController;
+use App\Http\Controllers\CustomerServiceChatController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\Site\CartController;
@@ -54,6 +55,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('/base', [BaseController::class, 'index'])->name('base');
     Route::get('/shop', \App\Http\Livewire\ShopComponent::class)->name('shop');
 
+    Route::get('/customer-server', [CustomerServiceChatController::class, 'index'])->name('customer-server.index');
+    Route::get('/customer-server/{uuid}', [CustomerServiceChatController::class, 'showConversation'])->name('customer-server.index');
+    Route::get('/customer-server/create', [CustomerServiceChatController::class, 'create'])->name('customer-server.create');
+    Route::post('/customer-server/store/', [CustomerServiceChatController::class, 'store'])->name('customer-server.store');
 
 
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
@@ -112,9 +117,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 
     });
 
-    Route::get('{any}', function ($any){
-        return view('site.home');
-    })->where('any','.*');
+//    Route::get('{any}', function ($any){
+//        return view('site.home');
+//    })->where('any','.*');
 });
 
 

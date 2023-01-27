@@ -28,15 +28,12 @@ class HomeComponent extends Component
 
         $default_lang = get_default_language();
         $categories = MainCategory::where('translation_lang', $default_lang)->get();
-        $products = Product::where('translation_lang', $default_lang)
-            ->where('active', 1)->get();
+        $products = Product::get();
 
         $lproducts = Product::orderBy('created_at','DESC')
-            ->where('translation_lang', $default_lang)->where('active', 1)->get()->take(8);
+            ->get()->take(8);
 
         $sproducts = Product::where('sale_price', '>', 0)
-            ->where('translation_lang', $default_lang)
-            ->where('active', 1)
             ->inRandomOrder()->get()->take(8);
         $posts = Post::latest()->with('user')->get();
         return view('livewire.home-component', $data, ['categories' => $categories,'main_cats' => $main_cats/*, 'sub_cat' => $sub_cats*/, 'products' => $products, 'lproducts' => $lproducts, 'sproducts' => $sproducts, 'posts' => $posts])->layout('layouts.base');
