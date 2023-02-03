@@ -27,7 +27,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive.css')}}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
     <style>
         input[type="search"] {
             -webkit-appearance: none !important;
@@ -1007,7 +1007,10 @@
 @yield('content')
 
 
+
 @include('layouts.footer')
+<script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
+<script src="{{asset('assets/js/plugins/images-loaded.js')}}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
 @livewireScripts
 <script>
@@ -1028,9 +1031,7 @@
 <script src="{{asset('assets/js/fontawesome.min.js')}}"></script>
 <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
 <script src="{{asset('assets/js/swiper.min.js')}}"></script>
-<script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
 <script src="{{asset('assets/js/custom.js')}}"></script>
-{{--<script src="{{asset('js/vue.js')}}"></script>--}}
 
 <script>
     window.trans = <?php
@@ -1044,7 +1045,8 @@
     ?>;
 </script>
 
-
 @yield('scripts')
+
+
 </body>
 </html>

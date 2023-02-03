@@ -165,5 +165,5 @@
 <!-- back to top end -->
 <div class="mm-fullscreen-bg"></div>
 <div id="app">
-    <register></register>
+<!--    <register></register>-->
 </div>

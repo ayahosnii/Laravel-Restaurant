@@ -7,7 +7,7 @@ Vue.use(VueRouter)
 import Post from '../components/Posts.vue'
 import PostDetails from '../components/PostDetails.vue';
 import CategoryPosts from '../components/CategoryPosts.vue';
-import CustomerService from "../components/CustomerService";
+//import CustomerService from "../components/CustomerService";
 
 const routes = [
     { path: '/en/post', component: Post, name: 'Post' },
@@ -18,9 +18,9 @@ const routes = [
 
     { path: '/en/category/:slug/posts', component: CategoryPosts, name: 'CategoryPosts' },
     { path: '/ar/category/:slug/posts', component: CategoryPosts, name: 'CategoryPosts' },
-
+/*
     { path: '/en/customer-server/:uuid', component: CustomerService, name: 'CustomerService' },
-    { path: '/ar/customer-server/:uuid', component: CustomerService, name: 'CustomerService' },
+    { path: '/ar/customer-server/:uuid', component: CustomerService, name: 'CustomerService' },*/
 
  ];
 
