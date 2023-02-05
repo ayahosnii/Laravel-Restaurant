@@ -931,6 +931,22 @@ idap-pro css
 ipad css
 ======================================*/
 @media (max-width: 991px){
+    .login-area .login-box{
+        width: 900px;
+    }
+
+    .register-area .register-box{
+        width: 900px;
+    }
+
+    .login-area .login-box .form__input {
+        width: 888px;
+    }
+
+    .register-area .register-box .form__input {
+        width: 800px;
+    }
+
     /* section title css */
     .section-title h2 {
         margin-bottom: 40px;
@@ -2822,7 +2838,7 @@ iphone css
         flex-direction: column;
     }
     .register-area .register-box{
-        width: 100%;
+        width: 600px;
     }
     .register-area .register-account{
         width: calc(100% - 0px);
@@ -2855,6 +2871,10 @@ iphone css
     .register-area .register-box {
 
         width: 600px;
+    }
+
+    .register-area .register-box .form__input {
+        width: 550px;
     }
 
     .login-area .login-account{
