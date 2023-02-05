@@ -48,6 +48,11 @@ idap-pro css
 
     width: 1500px;
 }
+
+.register-area .register-box {
+
+    width: 1500px;
+}
 .login-area .login-box .form__input {
     font-family: 'Roboto', sans-serif;
     color: #333;
@@ -2846,6 +2851,12 @@ iphone css
     .login-area .login-box{
         width: 600px;
     }
+
+    .register-area .register-box {
+
+        width: 600px;
+    }
+
     .login-area .login-account{
         width: calc(100% - 0px);
         margin-left: 0px;
@@ -3969,9 +3980,20 @@ iphone css
     .login-area .login-box{
         width: 400px;
     }
+    .register-area .register-box {
+
+        width: 400px;
+    }
+
+    .register-area .register-box .form__input {
+        width: 350px;
+    }
+
     .login-area .login-box .form__input {
        width: 350px;
     }
+
+
     /* banner grid css */
     .t-banner1 .home-offer-banner .o-t-banner .o-t-content h6 {
         font-size: 16px;
@@ -4492,7 +4514,16 @@ iphone css
     .login-area .login-box{
         width: 270px;
     }
+
+    .register-area .register-box{
+        width: 270px;
+    }
+
     .login-area .login-box .form__input {
+        width: 200px;
+    }
+
+    .register-area .register-box .form__input {
         width: 200px;
     }
 

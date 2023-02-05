@@ -69,7 +69,7 @@
                          aria-describedby="user-tab"
                     >
                 <div class="register-area">
-                    <div class="register-box" style="width: 1500px">
+                    <div class="register-box">
                         <h1 style="font-family: 'Kdam Thmor Pro', sans-serif;">Create User Account</h1>
                         <p style="font-family: 'Kdam Thmor Pro', sans-serif;">Here is user register form</p>
                         <form method="POST" action="{{ route('register') }}">
@@ -116,7 +116,7 @@
                  aria-labelledby="restaurant-tab">
 
                 <div class="register-area">
-                    <div class="register-box" style="width: 1500px">
+                    <div class="register-box">
                         <h1 style="font-family: 'Kdam Thmor Pro', sans-serif;">Create Provider Account</h1>
                         <p style="font-family: 'Kdam Thmor Pro', sans-serif;">Here is the provider register form</p>
                         <form id="providers-register-form" method="POST" action="{{ url('/providers/register') }}">
