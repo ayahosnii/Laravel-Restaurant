@@ -64,7 +64,7 @@
                                                          role="tabpanel"
                                                          aria-describedby="user-tab">
                                                         <div class="login-area">
-                                                            <div class="login-box" style="width: 1500px">
+                                                            <div class="login-box">
                                                                 <h1 style="font-family: 'Kdam Thmor Pro', sans-serif;">Login User Account</h1>
                                                                 <p style="font-family: 'Kdam Thmor Pro', sans-serif;">Please login below account detail</p>
                                                                 <form method="POST" action="{{ route('login') }}">
@@ -99,7 +99,7 @@
                                                                              role="tabpanel"
                                                                              aria-describedby="user-tab">
                                                                             <div class="login-area">
-                                                                                <div class="login-box" style="width: 1500px">
+                                                                                <div class="login-box">
                                                                                     <h1 style="font-family: 'Kdam Thmor Pro', sans-serif;">Login Provider Account</h1>
                                                                                     <p style="font-family: 'Kdam Thmor Pro', sans-serif;">Please login below account detail</p>
                                                                                     <form method="POST" action="{{ route('login.store') }}">

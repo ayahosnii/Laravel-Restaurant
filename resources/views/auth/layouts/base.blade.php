@@ -66,81 +66,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        .nav-tabs .nav-link.active {
-            border-bottom: 4px solid #f5ab1e;
-            border-right: none;
-            border-left: none;
-            border-top: none;
-            color: #f5ab1e;
-        }
 
-        /*.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
-            color: #495057;
-            background-color: #FFFFFF;
-            border-color: #E1E1E1 #E1E1E1 #FFFFFF;
-        }*/
-
-        .nav-tabs .nav-link {
-            border: none;
-            color: #44414C;
-        }
-
-        .nav-tabs .nav-link {
-            border: 1px solid transparent;
-            border-top-right-radius: 0.25rem;
-            border-top-left-radius: 0.25rem;
-        }
-
-        .register-area .register-box .form__input {
-            font-family: 'Roboto', sans-serif;
-            color: #333;
-            font-size: 18px;
-            margin-bottom: 1rem;
-            margin: 0.5rem;
-            padding: 1rem 1.5rem;
-            border-radius: 0.2rem;
-            background-color: rgb(255, 255, 255);
-            width: 500px;
-            display: block;
-            transition: all 0.3s;
-            border:0.5px solid #969696 w3-round-large;
-        }
-        .register-area .register-box .form__input:hover {
-            border:2px solid #f5ab1e;
-        }
-
-        .login-area .login-box .form__input {
-            font-family: 'Roboto', sans-serif;
-            color: #333;
-            font-size: 18px;
-            margin-bottom: 1rem;
-            margin: 0.5rem;
-            padding: 1rem 1.5rem;
-            border-radius: 0.2rem;
-            background-color: rgb(255, 255, 255);
-            width: 500px;
-            display: block;
-            transition: all 0.3s;
-            border:0.5px solid #969696 w3-round-large;
-        }
-        .login-area .login-box .form__input:hover {
-            border:2px solid #f5ab1e;
-        }
-
-        .login-area .login-box .login-account {
-            border:2px solid #f5ab1e;
-        }
-
-
-
-        .provider-uploaded-logo {
-            width: 93.3px;
-            height: 92.5px;
-            border: 1px solid #969696;
-            border-radius:50%;
-            -moz-border-radius:50%;
-            -webkit-border-radius:50%;
-        }
     </style>
     @livewireStyles()
 </head>
@@ -446,11 +372,11 @@
                                                 </li>
                                                 <li class="menu-link parent">
                                                     <a href="javascript:void(0)" class="link-title">
-                                                        <span class="sp-link-title">Pages</span>
+                                                        <span class="sp-link-title">hey</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
                                                     <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-page-menu" data-bs-toggle="collapse" class="link-title link-title-lg">
-                                                        <span class="sp-link-title">Pages</span>
+                                                        <span class="sp-link-title">hey</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
 
@@ -734,11 +660,11 @@
                                         </li>
                                         <li class="menu-link parent">
                                             <a href="javascript:void(0)" class="link-title">
-                                                <span class="sp-link-title">Pages</span>
+                                                <span class="sp-link-title">Hi</span>
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
                                             <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-page-menu1" data-bs-toggle="collapse" class="link-title link-title-lg">
-                                                <span class="sp-link-title">Pages</span>
+                                                <span class="sp-link-title">hi</span>
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
                                             <ul class="dropdown-submenu sub-menu collapse" id="collapse-page-menu1">
@@ -1102,7 +1028,7 @@
                                         </li>
                                         <li class="menu-link">
                                             <a href="javascript:void(0)" class="link-title">
-                                                <span class="sp-link-title">Buy vegist <span class="hot">Hot</span></span>
+                                                <span class="sp-link-title">try <span class="hot">Hot</span></span>
                                             </a>
                                         </li>
                                     </ul>
