@@ -1,4 +1,4 @@
-@extends('auth.layouts.base')
+@extends('layouts.base-vue')
 @section('content')
 <!--
 <section class="section-tb-padding">

@@ -58,7 +58,7 @@ Route::group(
         Route::post("/profile/update_res_profile/{id}" , [ProfileController::class, 'update_profile'])->name('providers.profile.update');
 
 #################################################### Start Reservation ####################################################3
-        Route::get("/reservation" , [ReservationController::class, 'show'])->name('providers.profile');
+        Route::get("/reservation" , [ReservationController::class, 'show'])->name('reservation.show');
 
 #################################################### Start Branches ####################################################3
         Route::get("/branches" , [BranchController::class, 'index'])->name('branch.all');

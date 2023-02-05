@@ -54,11 +54,15 @@ class ReservationController extends Controller
     public function stepTwo(Request $request)
     {
         $reservation = $request->session()->get('reservation');
+
         $res_table_ids = Reservation::orderBy('res_date')->get()->filter(function ($value) use ($reservation) {
-            return $value->res_date->format('Y-m-d') == $reservation->res_date->format('Y-m-d');
+            return $value->res_date = Carbon::parse($value->res_date);
         })->pluck('table_id');
+
         $tables = \App\Models\providers\Table::where('status', 'available')
             ->where('guest_number', '>=', $reservation->guest_number)
+            ->where('provider_id', $reservation->provider_id)
+            ->where('branch_id', $reservation->branch_id)
             ->whereNotIn('id', $res_table_ids)->get();
         return view('site.step-two', compact('reservation', 'tables'));
     }

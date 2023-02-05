@@ -54,11 +54,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('/shop/sub-category/{sub_category_slug}', [SubCategoryController::class, 'index'])->name('sub-category.index');
     Route::get('/base', [BaseController::class, 'index'])->name('base');
     Route::get('/shop', \App\Http\Livewire\ShopComponent::class)->name('shop');
-
-    Route::get('/customer-server', [CustomerServiceChatController::class, 'index'])->name('customer-server.index');
-    Route::get('/customer-server/{uuid}', [CustomerServiceChatController::class, 'showConversation'])->name('customer-server.index');
-    Route::get('/customer-server/create', [CustomerServiceChatController::class, 'create'])->name('customer-server.create');
-    Route::post('/customer-server/store/', [CustomerServiceChatController::class, 'store'])->name('customer-server.store');
+//
+//    Route::get('/customer-server', [CustomerServiceChatController::class, 'index'])->name('customer-server.index');
+//    Route::get('/customer-server/{uuid}', [CustomerServiceChatController::class, 'showConversation'])->name('customer-server.index');
+//    Route::get('/customer-server/create', [CustomerServiceChatController::class, 'create'])->name('customer-server.create');
+//    Route::post('/customer-server/store/', [CustomerServiceChatController::class, 'store'])->name('customer-server.store');
 
 
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
@@ -93,7 +93,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('/search', SearchComponent::class)->name('search');
     //Route::get('/cart', \App\Http\Livewire\CartComponent::class)->name('cart');
     Route::get('/order-history', OrderHistoryComponent::class)->name('order-history');
-    Route::get('/order-details/{id}', OrderHistoryComponent::class)->name('order-history');
+    Route::get('/order-details/{id}', OrderHistoryComponent::class)->name('order-details');
     Route::get('/shop/{slug}', DetailsComponent::class)->name('product.details');
 
     //Must authenticate user and verify
@@ -116,11 +116,12 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get('/thankyou', ThankyouComponent::class)->name('thankyou');
 
     });
-
-//    Route::get('{any}', function ($any){
+    //    Route::get('{any}', function ($any){
 //        return view('site.home');
 //    })->where('any','.*');
+
 });
+
 
 
 

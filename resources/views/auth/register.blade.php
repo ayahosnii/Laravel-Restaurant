@@ -1,4 +1,4 @@
-@extends('auth.layouts.base')
+@extends('layouts.base-vue')
 @section('content')
 <!--<section class="about-breadcrumb">
     <div class="about-back section-tb-padding" style="background-image: url({{asset('assets/img/about-image.jpg')}})">

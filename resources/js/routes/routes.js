@@ -9,12 +9,12 @@ import PostDetails from '../components/PostDetails.vue';
 import CategoryPosts from '../components/CategoryPosts.vue';
 //import CustomerService from "../components/CustomerService";
 
-const routes = [
+export const routes = [
     { path: '/en/post', component: Post, name: 'Post' },
-    { path: '/ar/post', component: Post, name: 'Post' },
+    { path: '/ar/post', component: Post, name: 'postAr'},
 
     { path: '/en/post/:slug', component: PostDetails, name: 'PostDetails' },
-    { path: '/ar/post/:slug', component: PostDetails, name: 'PostDetails' },
+    { path: '/ar/post/:slug', component: PostDetails, name: 'postDetailsAr' },
 
     { path: '/en/category/:slug/posts', component: CategoryPosts, name: 'CategoryPosts' },
     { path: '/ar/category/:slug/posts', component: CategoryPosts, name: 'CategoryPosts' },

@@ -24213,7 +24213,7 @@ render._withStripped = true;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _routes_routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./routes/routes */ "./resources/js/routes/routes.js");
+/* harmony import */ var _routes_routes_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./routes/routes.js */ "./resources/js/routes/routes.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -24250,9 +24250,12 @@ Vue.component('global-customer', require('./components/GlobalCustomer').default)
 */
 
 
+var router = new VueRouter({
+  routes: _routes_routes_js__WEBPACK_IMPORTED_MODULE_0__.routes
+});
 new Vue({
-  el: '#app',
-  router: _routes_routes__WEBPACK_IMPORTED_MODULE_0__["default"]
+  router: router,
+  el: '#app'
 });
 
 /***/ }),
@@ -24317,7 +24320,8 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "routes": () => (/* binding */ routes)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
@@ -24338,7 +24342,7 @@ var routes = [{
 }, {
   path: '/ar/post',
   component: _components_Posts_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-  name: 'Post'
+  name: 'postAr'
 }, {
   path: '/en/post/:slug',
   component: _components_PostDetails_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
@@ -24346,7 +24350,7 @@ var routes = [{
 }, {
   path: '/ar/post/:slug',
   component: _components_PostDetails_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-  name: 'PostDetails'
+  name: 'postDetailsAr'
 }, {
   path: '/en/category/:slug/posts',
   component: _components_CategoryPosts_vue__WEBPACK_IMPORTED_MODULE_4__["default"],

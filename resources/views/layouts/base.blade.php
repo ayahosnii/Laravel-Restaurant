@@ -333,11 +333,11 @@
                                                     </a>
                                                 </li>
                                                 <li class="menu-link parent">
-                                                    <a href="{{route('shop')}}" class="link-title">
-                                                        <span class="sp-link-title">Shop</span>
+                                                    <a href="{{route('restaurant.index')}}" class="link-title">
+                                                        <span class="sp-link-title">Restaurants' meals</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
-                                                    <a href="{{route('shop')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                    <a href="{{route('restaurant.index')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
                                                         <span class="sp-link-title">@lang('messages.Categories')</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
@@ -407,11 +407,6 @@
                                                     </a>
                                                 </li>
                                                 <li class="menu-link">
-                                                    <a href="{{route('restaurant.index')}}" class="link-title">
-                                                        <span class="sp-link-title">Restaurants <span class="hot">Hot</span></span>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-link">
                                                     <a href="{{route('conversations.index')}}" class="link-title">
                                                         <span class="sp-link-title">Chat <i class="fa fa-comment"></i></span>
                                                     </a>
@@ -457,121 +452,45 @@
                                 <div class="mainwrap">
                                     <ul class="main-menu">
                                         <li class="menu-link parent">
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html" class="link-title">
+                                            <a href="{{route('index')}}" class="link-title">
                                                 <span class="sp-link-title">Home</span>
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-home1" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                            <a href="{{route('index')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
                                                 <span class="sp-link-title">Home</span>
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
-                                            <ul class="dropdown-submenu sub-menu collapse" id="collapse-home1">
-                                                <li class="submenu-li">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html" class="submenu-link">Vegist home 01</a>
-                                                </li>
-                                                <li class="submenu-li">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist-rtl/index1.html" class="submenu-link">Vegist home 01 (RTL)</a>
-                                                </li>
-                                                <li class="submenu-li">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist-box/index1.html" class="submenu-link">Vegist home 01 (BOX)</a>
-                                                </li>
-                                                <li class="submenu-li">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index2.html" class="submenu-link">Vegist home 02</a>
-                                                </li>
-                                                <li class="submenu-li">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index3.html" class="submenu-link">Vegist home 03</a>
-                                                </li>
-                                                <li class="submenu-li">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index4.html" class="submenu-link">Vegist home 04</a>
-                                                </li>
-                                                <li class="submenu-li">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index5.html" class="submenu-link">Vegist home 05</a>
-                                                </li>
-                                                <li class="submenu-li">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index6.html" class="submenu-link">Vegist home 06</a>
-                                                </li>
-                                                <li class="submenu-li">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index7.html" class="submenu-link">Vegist home 07</a>
-                                                </li>
-                                                <li class="submenu-li">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index8.html" class="submenu-link">Vegist home 08</a>
-                                                </li>
-                                                <li class="submenu-li">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index9.html" class="submenu-link">Vegist home 09</a>
-                                                </li>
-                                                <li class="submenu-li">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index10.html" class="submenu-link">Vegist home 10</a>
-                                                </li>
-                                                <li class="submenu-li">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index11.html" class="submenu-link">Vegist home 11</a>
-                                                </li>
-                                            </ul>
                                         </li>
                                         <li class="menu-link parent">
-                                            <a href="javascript:void(0)" class="link-title">
+                                            <a href="{{route('restaurant.index')}}" class="link-title">
                                                 <span class="sp-link-title">Shop</span>
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-mega-menu1" data-bs-toggle="collapse" class="link-title link-title-lg">
-                                                <span class="sp-link-title">Shop</span>
+                                            <a href="#collapse-mega-menu1" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                <span class="sp-link-title">Restaurants' meal</span>
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
                                             <ul class="dropdown-submenu mega-menu collapse" id="collapse-mega-menu1">
+                                                @foreach($main_cats as $main_cat)
                                                 <li class="megamenu-li parent">
                                                     <h2 class="sublink-title">Fresh food</h2>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-sub-mega-menu1" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
-                                                        <span>Fresh food</span>
+                                                    <a href="{{ route('product.category',['category_slug'=>  $main_cat->slug]) }}#collapse-sub-mega-{{$main_cat->slug}}" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                        <span>{{$main_cat->name}}</span>
+                                                        @foreach($main_cat->subcats as $subcat)
+                                                            @isset($subcat->name)
                                                         <i class="fa fa-angle-down"></i>
+                                                            @endisset
+                                                        @endforeach
                                                     </a>
-                                                    <ul class="dropdown-supmenu collapse" id="collapse-sub-mega-menu1">
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">Categories</a></li>
+                                                    <ul class="dropdown-supmenu collapse" id="collapse-sub-mega-{{$main_cat->slug}}">
+                                                        @if(isset($main_cat->subcats))
+                                                        @foreach($main_cat->subcats as $subcat)
+                                                        <li class="supmenu-li"><a href="{{ route('sub-category.index', $subcat->slug) }}">{{$subcat->name}}</a></li>
+                                                            @endforeach
+                                                        @endif
                                                     </ul>
                                                 </li>
-                                                <li class="megamenu-li parent">
-                                                    <h2 class="sublink-title">Mixedfruits</h2>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-fruits-menu1" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
-                                                        <span>Mixedfruits</span>
-                                                        <i class="fa fa-angle-down"></i>
-                                                    </a>
-                                                    <ul class="dropdown-supmenu collapse" id="collapse-fruits-menu1">
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">Oranges</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">Coffee creamers</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">Ghee beverages</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">Ranch salad</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">Hemp milk</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">Nuts &amp; seeds</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="megamenu-li parent">
-                                                    <h2 class="sublink-title">Bananas &amp; plantains</h2>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-banana-menu1" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
-                                                        <span>Bananas &amp; plantains</span>
-                                                        <i class="fa fa-angle-down"></i>
-                                                    </a>
-                                                    <ul class="dropdown-supmenu collapse" id="collapse-banana-menu1">
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">Fresh gala</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">Fresh berries</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">Fruit &amp; nut</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">Fifts mixed fruits</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">Oranges</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">Oranges</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="megamenu-li parent">
-                                                    <h2 class="sublink-title">Apples berries</h2>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-apple-menu1" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
-                                                        <span>Apples berries</span>
-                                                        <i class="fa fa-angle-down"></i>
-                                                    </a>
-                                                    <ul class="dropdown-supmenu collapse" id="collapse-apple-menu1">
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">Pears produce</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">Bananas</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">Natural grassbeab</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">Fresh green orange</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">Fresh organic reachter</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">Balckberry 100%organic</a></li>
-                                                    </ul>
-                                                </li>
+                                                @endforeach
                                             </ul>
                                         </li>
                                         <li class="menu-link parent">
@@ -1100,8 +1019,15 @@
 <!-- back to top end -->
 <div class="mm-fullscreen-bg"></div>
 <!-- jquery -->
-<script src="{{asset('assets/js/modernizr-2.8.3.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
+<!-- jquery UI -->
+<script src="{{asset('assets/js/plugins/jquery-ui.js')}}"></script>
+<!-- imagesLoaded -->
+<script src="{{asset('assets/js/plugins/images-loaded.js')}}"></script>
+<script src="{{asset('assets/js/plugins/isotope.js')}}"></script>
+<script src="{{asset('assets/js/plugins/slick.js')}}"></script>
+<!-- WOW -->
+<script src="{{asset('assets/js/plugins/wow.js')}}"></script>
 <!-- bootstrap -->
 <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 <!-- popper -->
@@ -1112,16 +1038,19 @@
 <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
 <!-- swiper -->
 <script src="{{asset('assets/js/swiper.min.js')}}"></script>
-<script src="{{asset('assets/js/swup.min.js')}}"></script>
 <!-- custom -->
 <script src="{{asset('assets/js/custom.js')}}"></script>
-<script src="{{asset('assets/js/plugins/jquery-ui.js')}}"></script>
 <script src="{{asset('assets/js/shop.js')}}"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+<!-- modernizr -->
+<script src="{{asset('assets/js/modernizr-2.8.3.min.js')}}"></script>
+<!-- swup -->
+<script src="{{asset('assets/js/swup.min.js')}}"></script>
 
 @yield('scripts')
 @livewireScripts()
 @stack('scripts')
+
+
 </body>
 </html>

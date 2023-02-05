@@ -37,9 +37,14 @@ Vue.component('global-customer', require('./components/GlobalCustomer').default)
  * or customize the JavaScript scaffolding to fit your unique needs.
  *!/
 */
-import router from './routes/routes'
+import { routes } from './routes/routes.js';
+
+const router = new VueRouter({
+    routes,
+});
+
 new Vue({
-    el: '#app',
     router,
+    el: '#app',
 });
 

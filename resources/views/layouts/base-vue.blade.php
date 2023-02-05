@@ -27,7 +27,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive.css')}}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
     <style>
         input[type="search"] {
             -webkit-appearance: none !important;
@@ -423,22 +422,26 @@
                                                     </a>
                                                 </li>
                                                 <li class="menu-link parent">
-                                                    <a href="{{route('shop')}}" class="link-title">
-                                                        <span class="sp-link-title">Shop</span>
+                                                    <a href="{{route('restaurant.index')}}" class="link-title">
+                                                        <span class="sp-link-title">Restaurants' meals</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
-                                                    <a href="{{route('shop')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
+{{--                                                    <a href="{{route('restaurant.index')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
                                                         <span class="sp-link-title">@lang('messages.Categories')</span>
-                                                        <i class="fa fa-angle-down"></i>
-                                                    </a>
+                                                        @foreach($main_cat->subcats as $subcat)
+                                                            @isset($subcat->name)
+                                                                <i class="fa fa-angle-down"></i>
+                                                            @endisset
+                                                        @endforeach
+                                                    </a>--}}
                                                     <ul class="dropdown-submenu sub-menu collapse" id="blog-style">
                                                         @foreach($main_cats as $main_cat)
                                                             <li class="submenu-li">
                                                                 <a href="{{ route('product.category',['category_slug'=>  $main_cat->slug]) }}" class="g-l-link"><span>{{$main_cat->name}}</span> <i class="fa fa-angle-right"></i></a>
-                                                                <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#blog-style03" data-bs-toggle="collapse" class="sub-link"><span>Blog grid</span> <i class="fa fa-angle-down"></i></a>
+                                                                <a href="#blog-style03" data-bs-toggle="collapse" class="sub-link"><span>Blog grid</span> <i class="fa fa-angle-down"></i></a>
                                                                 <ul class="collapse blog-style-1" id="blog-style03">
+                                                                    @if(isset($main_cat->subcats))
                                                                     @foreach($main_cat->subcats as $subcat)
-                                                                        @isset($subcat->name)
                                                                             <li>
                                                                                 <a href="{{ route('sub-category.index', $subcat->slug) }}" class="sub-style"><span>{{$subcat->name}}</span><i class="fa fa-angle-right"></i></a>
                                                                                 <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#grid1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
@@ -448,8 +451,8 @@
                                                                                     <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-right-3-grid.html">Right blog 3 grid</a></li>
                                                                                 </ul>
                                                                             </li>
-                                                                        @endisset
                                                                     @endforeach
+                                                                    @endif
                                                                 </ul>
                                                             </li>
                                                         @endforeach
