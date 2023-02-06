@@ -170,5 +170,153 @@ class SubCategorySeeder extends Seeder
             'active' => 1,
         ]);
 
+        SubCategory::create([
+            'id' => 15,
+            'category_id' => 11,
+            'parent_id' => 0,
+            'translation_lang' => 'en',
+            'translate_of' => 15,
+            'name' => 'Pastries',
+            'slug' => 'pastries',
+            'photo' => 'images/subcategories/pastries.jpg',
+            'active' => 1,
+        ]);
+
+        SubCategory::create([
+            'id' => 16,
+            'category_id' => 11,
+            'parent_id' => 0,
+            'translation_lang' => 'ar',
+            'translate_of' => 15,
+            'name' => 'حلويات',
+            'slug' => 'pastries',
+            'photo' => 'images/subcategories/pastries.jpg',
+            'active' => 1,
+        ]);
+
+        SubCategory::create([
+            'id' => 17,
+            'category_id' => 11,
+            'parent_id' => 0,
+            'translation_lang' => 'en',
+            'translate_of' => 17,
+            'name' => 'Bread',
+            'slug' => 'bread',
+            'photo' => 'images/subcategories/bread.jpg',
+            'active' => 1,
+        ]);
+
+        SubCategory::create([
+            'id' => 18,
+            'category_id' => 11,
+            'parent_id' => 0,
+            'translation_lang' => 'ar',
+            'translate_of' => 17,
+            'name' => 'خبز',
+            'slug' => 'bread',
+            'photo' => 'images/subcategories/bread.jpg',
+            'active' => 1,
+        ]);
+
+        SubCategory::create([
+            'id' => 19,
+            'category_id' => 13,
+            'parent_id' => 0,
+            'translation_lang' => 'en',
+            'translate_of' => 0,
+            'name' => 'Gluten-Free',
+            'slug' => 'gluten-free',
+            'photo' => 'images/subcategories/gluten-free.jpg',
+            'active' => 1,
+        ]);
+
+        SubCategory::create([
+            'id' => 20,
+            'category_id' => 13,
+            'parent_id' => 0,
+            'translation_lang' => 'ar',
+            'translate_of' => 15,
+            'name' => 'خالي من الغلوتين',
+            'slug' => 'خالي-من-الغلوتين',
+            'photo' => 'images/subcategories/gluten-free.jpg',
+            'active' => 1,
+        ]);
+
+        SubCategory::create([
+            'id' => 21,
+            'category_id' => 13,
+            'parent_id' => 0,
+            'translation_lang' => 'en',
+            'translate_of' => 0,
+            'name' => 'Vegetarian',
+            'slug' => 'vegetarian',
+            'photo' => 'images/subcategories/vegetarian.jpg',
+            'active' => 1,
+        ]);
+
+        SubCategory::create([
+            'id' => 22,
+            'category_id' => 13,
+            'parent_id' => 0,
+            'translation_lang' => 'ar',
+            'translate_of' => 16,
+            'name' => 'نباتي',
+            'slug' => 'نباتي',
+            'photo' => 'images/subcategories/vegetarian.jpg',
+            'active' => 1,
+        ]);
+
+        SubCategory::create([
+            'id' => 23,
+            'category_id' => 13,
+            'parent_id' => 0,
+            'translation_lang' => 'en',
+            'translate_of' => 0,
+            'name' => 'Vegan',
+            'slug' => 'vegan',
+            'photo' => 'images/subcategories/vegan.jpg',
+            'active' => 1,
+        ]);
+
+        SubCategory::create([
+            'id' => 24,
+            'category_id' => 13,
+            'parent_id' => 0,
+            'translation_lang' => 'ar',
+            'translate_of' => 17,
+            'name' => 'نباتي بدون ملح وجوز',
+            'slug' => 'نباتي-بدون-ملح-وجوز',
+            'photo' => 'images/subcategories/vegan.jpg',
+            'active' => 1,
+        ]);
+
+        SubCategory::create([
+            'id' => 25,
+            'category_id' => 13,
+            'parent_id' => 0,
+            'translation_lang' => 'en',
+            'translate_of' => 0,
+            'name' => 'Low-Carb',
+            'slug' => 'low-carb',
+            'photo' => 'images/subcategories/low-carb.jpg',
+            'active' => 1,
+        ]);
+
+
+
+        SubCategory::create([
+            'id' => 26,
+            'category_id' => 13,
+            'parent_id' => 0,
+            'translation_lang' => 'ar',
+            'translate_of' => 18,
+            'name' => 'قليل الكربوهيدرات',
+            'slug' => 'قليل-الكربوهيدرات',
+            'photo' => 'images/subcategories/low-carb.jpg',
+            'active' => 1,
+        ]);
+
+
+
     }
 }
