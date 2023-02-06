@@ -91,8 +91,6 @@ class MainCategorySeeder extends Seeder
         ]);
 
 
-
-        DB::table('main_categories')->delete();
         MainCategory::create([
             'id' => 9,
             'translation_lang'=> 'en',
