@@ -19,7 +19,7 @@ class MainCategorySeeder extends Seeder
         DB::table('main_categories')->delete();
         MainCategory::create([
             'id' => 1,
-            'translation_lang '=> 'en',
+            'translation_lang'=> 'en',
             'translate_of'=> 0,
             'name'=> 'Dessert',
             'slug'=> 'dessert',
@@ -28,7 +28,7 @@ class MainCategorySeeder extends Seeder
         ]);
         MainCategory::create([
             'id' => 2,
-            'translation_lang '=> 'ar',
+            'translation_lang'=> 'ar',
             'translate_of'=> '1',
             'name'=> 'الحلاويات',
             'slug'=> 'dessert',
@@ -95,7 +95,7 @@ class MainCategorySeeder extends Seeder
         DB::table('main_categories')->delete();
         MainCategory::create([
             'id' => 9,
-            'translation_lang '=> 'en',
+            'translation_lang'=> 'en',
             'translate_of'=> 0,
             'name'=> 'Cuisine',
             'slug'=> 'cuisine',
@@ -104,7 +104,7 @@ class MainCategorySeeder extends Seeder
         ]);
         MainCategory::create([
             'id' => 10,
-            'translation_lang '=> 'ar',
+            'translation_lang'=> 'ar',
             'translate_of'=> '9',
             'name'=> 'المطبخ',
             'slug'=> 'cuisine',
