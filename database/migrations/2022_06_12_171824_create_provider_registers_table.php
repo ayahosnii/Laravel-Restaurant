@@ -30,7 +30,7 @@ class CreateProviderRegistersTable extends Migration
             $table->enum('phoneactivated', ['0', '1'])->default('0');
             $table->enum('accountactivated', ['0', '1'])->default('0');
             $table->dateTime("activation_date")->nullable();
-            $table->Integer("activate_phone_hash")->nullable();
+            $table->string("activate_phone_hash")->nullable();
             //subscription
             $table->enum("has_subscriptions", ["1","0"]);
             $table->enum("subscriptions_period", ["1","2"]);

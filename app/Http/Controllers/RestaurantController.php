@@ -32,7 +32,7 @@ class RestaurantController extends Controller
         $rests = \App\Models\providers\ProviderRegister::where('user_name', $user_name)->firstOrFail();
         $rests_user_name = $rests->user_name;
         $rests_id = $rests->id;
-        $meals = Meal::where('providers_id', $rests_id)->get();
+        $meals = Meal::where('provider_id', $rests_id)->get();
         $mealCategories = Meal::select(['meals.*', 'categories.name as category_name'])
             ->join('categories', 'meals.category_id', '=', 'categories.id')
 /*            ->groupBy('categories.name')*/

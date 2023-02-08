@@ -27,7 +27,7 @@ class Meal extends Model implements TranslatableContract
 
     public function provider()
     {
-        return $this->belongsTo(ProviderRegister::class, 'providers_id',  'id');
+        return $this->belongsTo(ProviderRegister::class, 'provider_id',  'id');
     }
 
     public function getImageAttribute($val)
