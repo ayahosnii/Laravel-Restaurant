@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Providers\AuthController;
+use App\Http\Controllers\providers\AuthController;
 use App\Http\Controllers\providers\BranchController;
 use App\Http\Controllers\providers\CategoryController;
 use App\Http\Controllers\providers\DashboardController;
