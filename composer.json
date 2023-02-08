@@ -23,7 +23,7 @@
         "pusher/pusher-php-server": "^7.2",
         "santigarcor/laratrust": "^7.1",
         "spatie/enum": "^3.13",
-        "twilio/sdk": "^6.37"
+        "twilio/sdk": "^6.44"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",
