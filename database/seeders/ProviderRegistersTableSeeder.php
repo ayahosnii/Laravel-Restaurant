@@ -34,19 +34,17 @@ class ProviderRegistersTableSeeder extends Seeder
         ];
 
         $restaurantEmails = [];
-
         $restaurantUsername = [];
-
         $restaurantPhoneNumbers = [];
 
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < count($restaurantNames); $i++) {
             $restaurantEmails[$i] = strtolower(str_replace(' ', '_', $restaurantNames[$i])) . '@email.com';
             $restaurantUsername[$i] = strtolower(str_replace(' ', '_', $restaurantNames[$i]));
 
-            $restaurantPhoneNumbers[$i] = '0' . rand(11, 15) . rand(10000000, 99999999);
-            while (in_array($restaurantPhoneNumbers[$i], $restaurantPhoneNumbers)) {
+            do {
                 $restaurantPhoneNumbers[$i] = '0' . rand(11, 15) . rand(10000000, 99999999);
-            }
+            } while (in_array($restaurantPhoneNumbers[$i], array_slice($restaurantPhoneNumbers, 0, $i)));
+
             DB::table('provider_registers')->insert([
                 'name' => $restaurantNames[$i],
                 'email' => $restaurantEmails[$i],
@@ -62,4 +60,5 @@ class ProviderRegistersTableSeeder extends Seeder
             ]);
         }
     }
+
 }
