@@ -99,7 +99,6 @@ class ProviderRegistersTableSeeder extends Seeder
                 'email' => $restaurantEmails[$i],
                 'password' => bcrypt('12345678'),
                 'phone' => $restaurantPhoneNumbers[$i],
-                'phone_activated' => 1,
                 'user_name' => $restaurantEmails[$i],
                 'ar_details' => Str::random(100),
                 'en_details' => Str::random(100),
