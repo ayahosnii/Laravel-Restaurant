@@ -33,73 +33,27 @@ class ProviderRegistersTableSeeder extends Seeder
             'City of Fish',
         ];
 
-        $restaurantEmails = [
-            'theredkitchen@email.com',
-            'greengardenrestaurant@email.com',
-            'theoceanbistro@email.com',
-            'sunshinecafe@email.com',
-            'purplemountaindiner@email.com',
-            'latmelive@email.com',
-            'steamybeanscoffee@email.com',
-            'huggamugcafe@email.com',
-            'dairygoddess@email.com',
-            'swirlstation@email.com',
-            'backyardbakery@email.com',
-            'appleofmypie@email.com',
-            'plntburger@email.com',
-            'clamchop@email.com',
-            'cityoffish@email.com',
-        ];
+        $restaurantEmails = [];
 
-        $restaurantUsername = [
-            'the_red_kitchen',
-            'greengarden_restaurant',
-            'theocean.bistro',
-            'sunshinecafe',
-            'purplemountain_diner',
-            'latmelive',
-            'steamybeanscoffee',
-            'huggamugcafe',
-            'dairygoddess',
-            'swirlstation',
-            'backyardbakery',
-            'appleofmypie',
-            'plntburger',
-            'clamchop',
-            'cityoffish',
-        ];
+        $restaurantUsername = [];
 
-        $restaurantPhoneNumbers = [
-            '0123456789',
-            '9876543210',
-            '2468013579',
-            '1357902468',
-            '1234567890',
-            '1029384756',
-            '6789054321',
-            '9876543210',
-            '1357902468',
-            '2468013579',
-            '1234567890',
-            '1029384756',
-            '6789054321',
-            '9876543210',
-            '1357902468',
-            '2468013579',
-            '1234567890',
-            '1029384756',
-            '6789054321',
-            '9876543210'
-        ];
+        $restaurantPhoneNumbers = [];
 
         for ($i = 0; $i < 20; $i++) {
+            $restaurantEmails[$i] = strtolower(str_replace(' ', '_', $restaurantNames[$i])) . '@email.com';
+            $restaurantUsername[$i] = strtolower(str_replace(' ', '_', $restaurantNames[$i]));
+
+            $restaurantPhoneNumbers[$i] = '0' . rand(11, 15) . rand(10000000, 99999999);
+            while (in_array($restaurantPhoneNumbers[$i], $restaurantPhoneNumbers)) {
+                $restaurantPhoneNumbers[$i] = '0' . rand(11, 15) . rand(10000000, 99999999);
+            }
             DB::table('provider_registers')->insert([
                 'id' => 9 + $i,
                 'name' => $restaurantNames[$i],
                 'email' => $restaurantEmails[$i],
                 'password' => bcrypt('12345678'),
                 'phone' => $restaurantPhoneNumbers[$i],
-                'user_name' => $restaurantEmails[$i],
+                'user_name' => $restaurantUsername[$i],
                 'ar_details' => Str::random(100),
                 'en_details' => Str::random(100),
                 'rest_img' => 'restaurant_' . ($i + 1) . '.jpg',
