@@ -48,7 +48,6 @@ class ProviderRegistersTableSeeder extends Seeder
                 $restaurantPhoneNumbers[$i] = '0' . rand(11, 15) . rand(10000000, 99999999);
             }
             DB::table('provider_registers')->insert([
-                'id' => 9 + $i,
                 'name' => $restaurantNames[$i],
                 'email' => $restaurantEmails[$i],
                 'password' => bcrypt('12345678'),
