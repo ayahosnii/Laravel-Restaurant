@@ -71,7 +71,8 @@ class MealSeeder extends Seeder
                 'updated_at' => Carbon::now(),
                 'provider_id' => 22,
                 'main_cate_id' => 11,
-                'slug' => 'espresso'
+                'slug' => 'espresso',
+                'branch_id' => NULL,
             ],
             [
                 'id' => 4,
