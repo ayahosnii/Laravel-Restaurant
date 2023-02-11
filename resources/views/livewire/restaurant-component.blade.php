@@ -15,7 +15,7 @@
                             @endforeach
                         </ul>
                     </div>
-                    <div class="categories-page-filter">
+                    <div class="categories-page-filter" style="overflow-y: scroll;">
                         <h4 class="filter-title">Filter by providers</h4>
                         <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html#category-filter" data-bs-toggle="collapse" class="filter-link"><span>Categories </span><i class="fa fa-angle-down"></i></a>
                         <ul class="all-option collapse" id="vendor">

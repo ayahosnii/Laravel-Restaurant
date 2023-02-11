@@ -17,7 +17,7 @@
                             @endforeach
                         </ul>
                     </div>
-                    <div class="categories-page-filter">
+                    <div class="categories-page-filter" style="overflow-y: scroll;">
                         <h4 class="filter-title">Filter by providers</h4>
                         <a href="javascript:void(0)" class="filter-link" data-toggle="collapse" data-target="#providers-filter"><span>Providers</span><i class="fa fa-angle-down"></i></a>
                         <ul class="all-option collapse" id="providers-filter">
