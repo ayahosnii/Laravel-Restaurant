@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\admin\MainCategory;
 use App\Models\admin\Product;
 use App\Models\ProviderBranch;
-use App\Models\ProviderRegister;
 use App\Models\providers\Branch;
 use App\Models\providers\Category;
 use App\Models\providers\Meal;
 use App\Models\providers\MealTranslation;
+use App\Models\providers\ProviderRegister;
 use Illuminate\Http\Request;
 
 class RestaurantController extends Controller

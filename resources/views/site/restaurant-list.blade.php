@@ -9,7 +9,7 @@
                         <div class="blog-start">
                             <div class="blog-image">
                                 <a href="{{route('restaurant.details', $branch->user_name)}}">
-                                    <img src="{{asset($branch->images)}}" class="img-fluid" alt="b-image">
+                                    <img src="{{asset($branch->logo)}}" class="img-fluid" alt="b-image">
                                 </a>
                             </div>
                             <div class="blog-content">

@@ -11963,6 +11963,8 @@ a.scroll:hover span{
 .blog-style-7-right-grid-blog .blog-start .blog-content p.blog-description{
     color: #999;
     margin-top: 16px;
+    width:50%;
+    overflow: hidden;
 }
 .blog-style-7-3-grid .blog-start .blog-content .more-blog,
 .blog-style-7-left-grid-blog .blog-start .blog-content .more-blog,

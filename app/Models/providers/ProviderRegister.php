@@ -11,7 +11,7 @@ class ProviderRegister extends Authenticatable
 {
     use HasFactory;
     protected $table = "provider_registers";
-    protected $fillable = ['id','name','user_name','rest_img','images', 'email','address','phone','password','province_id','city_id','category_id','provider-ar-details', 'provider-en-details','online_list','accept_order','accept_online_payment','device_reg_id','phoneactivated','accountactivated','activation_date','activate_phone_hash','order_app_percentage','has_subscriptions','	subscriptions_period','subscriptions_amount','longitude','latitude'];
+    protected $fillable = ['id','name','logo','user_name','rest_img','images', 'email','address','phone','password','province_id','city_id','category_id','provider-ar-details', 'provider-en-details','online_list','accept_order','accept_online_payment','device_reg_id','phoneactivated','accountactivated','activation_date','activate_phone_hash','order_app_percentage','has_subscriptions','	subscriptions_period','subscriptions_amount','longitude','latitude'];
     //protected $fillable = "provider_registers";
 
     public function getImagesAttribute($val)
@@ -19,6 +19,13 @@ class ProviderRegister extends Authenticatable
         return ($val !== null) ? asset('assets/' . $val) : "";
 
     }
+
+    public function getLogoAttribute($val)
+    {
+        return ($val !== null) ? asset('provider-assets/images/logos/' . $val) : "";
+
+    }
+
     public function getRestImgAttribute($val)
     {
         return ($val !== null) ? asset('assets/' . $val) : "";
