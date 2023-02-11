@@ -32,7 +32,7 @@ class Meal extends Model /*implements TranslatableContract*/
 
     public function getImageAttribute($val)
     {
-        return ($val !== null) ? asset('assets/' . $val) : "";
+        return ($val !== null) ? asset('provider-assets/images/meals/' . $val) : "";
 
     }
 
