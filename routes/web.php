@@ -85,7 +85,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::post('sort-meals', [RestaurantController::class, 'sortMeals'])->name('filter.price');
 
     Route::group(['prefix' => 'restaurant'], function () {
-        //Route::get('/', RestaurantComponent::class)->name('restaurant.index');
+        Route::get('/livewire', RestaurantComponent::class)->name('restaurant.index.livewire');
         Route::get('/', [RestaurantController::class, 'meals'])->name('restaurant.index');
         Route::get('/all', [RestaurantController::class, 'index'])->name('restaurant.all');
         Route::get('/{user_name}', [RestaurantController::class, 'get_rest'])->name('restaurant.details');
