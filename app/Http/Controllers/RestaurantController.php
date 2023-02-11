@@ -2,15 +2,58 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\admin\MainCategory;
+use App\Models\admin\Product;
 use App\Models\ProviderBranch;
 use App\Models\ProviderRegister;
 use App\Models\providers\Branch;
 use App\Models\providers\Category;
 use App\Models\providers\Meal;
+use App\Models\providers\MealTranslation;
 use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
 {
+    public $sorting;
+
+    protected $stringQuery = ['filterProviders'];
+
+    public $product, $filterProviders, $categoryInputs = [];
+    protected $queryString = [
+        'categoryInputs' => ['except' => '', 'as' => 'category'],
+        //'priceInputs' => ['except' => '', 'as' => 'price']
+    ];
+
+
+
+    public $pagesize;
+    public $category_slug;
+
+    public $min_price;
+    public $max_price;
+
+    public $min_alphabet;
+    public $max_alphabet;
+
+    public $min_date;
+    public $max_date;
+    protected $ids;
+
+    public function __construct()
+    {
+        $this->sorting = "default";
+        $this->pagesize = "12";
+
+        $this->min_price=1;
+        $this->max_price=1000;
+
+        $this->min_alphabet='a';
+        $this->max_alphabet='z';
+
+        $this->min_date=1;
+        $this->max_date=10000;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,6 +63,160 @@ class RestaurantController extends Controller
     {
         $branches = ProviderRegister::select()->get();
         return view('site.restaurant-list', compact('branches'));
+    }
+
+    public function filterPrice(Request $request)
+    {
+        $min_price = $request->input('min_price');
+        $max_price = $request->input('max_price');
+
+        $meals = Meal::whereBetween('price', [$min_price, $max_price])->with('provider')->get();
+
+        return response()->json(['meals' => $meals]);
+    }
+
+    public function sortMeals(Request $request)
+    {
+        $sortOption = $request->input('sort');
+        $providerIds = $request->input('providers');
+        $categoryIds = $request->input('categories');
+
+        $query = Meal::query();
+
+        if ($providerIds) {
+            $query->whereIn('provider_id', $providerIds);
+        }
+        if ($categoryIds) {
+            $query->whereIn('category_id', $categoryIds);
+        }
+
+        switch ($sortOption) {
+            case 'alphabet':
+               $query->with('provider')->orderBy('name', 'asc')->get();
+                break;
+            case 'alphabet-desc':
+               $query->with('provider')->orderBy('name', 'desc')->get();
+                break;
+            case 'price':
+               $query->with('provider')->orderBy('price', 'asc')->get();
+                break;
+            case 'price-desc':
+               $query->with('provider')->orderBy('price', 'desc')->get();
+                break;
+            case 'date-desc':
+               $query->with('provider')->orderBy('created_at', 'desc')->get();
+                break;
+            case 'date':
+               $query->with('provider')->orderBy('created_at', 'asc')->get();
+                break;
+            default:
+                $query->with('provider');
+        }
+        $meals = $query->get();
+
+
+        return response()->json([
+            'meals' => $meals
+        ]);
+    }
+
+
+
+    public function meals(Request $request)
+    {
+        $default_lang = get_default_language();
+        $min_price = $this->min_price;
+        $max_price = $this->max_price;
+
+        if($this->sorting=='date')
+        {
+            $meals = Meal::where('published', 1)->whereBetween('id',[$this->min_date,$this->max_date])->orderBy('id', 'ASC')->paginate($this->pagesize);
+        }
+        else if ($this->sorting=="date-desc")
+        {
+            $meals = Meal::where('published', 1)->whereBetween('id',[$this->min_date,$this->max_date])->orderBy('id', 'DESC')->paginate($this->pagesize);
+        }
+        else if ($this->sorting=="price")
+        {
+            $meals = Meal::where('published', 1)->whereBetween('price',[$this->min_price,$this->max_price])->orderBy('price', 'ASC')->paginate($this->pagesize);
+//            if ($default_lang == 'ar') {
+//                $products = Product::when($this->categoryInputs, function ($q) {
+//                    $q->whereIn('category_id', $this->categoryInputs);
+//                    /* })
+//                     ->when($this->priceInputs, function ($q) {
+//                         $q->whereIn('category_id', $this->priceInputs);*/
+//
+//                })->get();
+//            }
+
+        }
+        else if ($this->sorting=="price-desc")
+        {
+            $meals = Meal::where('published', 1)->whereBetween('price',[$this->min_price,$this->max_price])->orderBy('price', 'DESC')->paginate($this->pagesize);
+
+        }
+        else if ($this->categoryInputs)
+        {
+            if ($default_lang == 'en'){
+                $meals = Meal::when($this->categoryInputs, function ($q) {
+                    $q->whereIn('main_cate_id', $this->categoryInputs);
+                    /* })
+                     ->when($this->priceInputs, function ($q) {
+                         $q->whereIn('category_id', $this->priceInputs);*/
+
+                })->get();
+            }else{
+                $meals = MealTranslation::where('main_cate_id', $this->categoryInputs)->get();
+
+
+                $mea = $meals[0]->meal_id;
+
+                $meal = Meal::where('id', $mea)->first();
+                $main_cate_id = $meal->category_id;
+                $meals = Meal::where('main_cate_id', $main_cate_id)->get();
+            }
+        }
+        else if ($this->sorting=="alphabet")
+        {
+            $meals = Meal::where('published', 1)->whereBetween('name', [$this->min_alphabet,$this->max_alphabet])->orderBy('name', 'ASC')->paginate($this->pagesize);
+        }
+        else if ($this->sorting=="alphabet-desc")
+        {
+            $meals = Meal::where('published', 1)->whereBetween('name',[$this->min_alphabet,$this->max_alphabet])->orderBy('name', 'DESC')->paginate($this->pagesize);
+        }
+        else if ($this->filterProviders)
+        {
+            $id = $this->filterProviders;
+
+            if ($default_lang == 'en'){
+                $meals = Meal::where('provider_id',$id)->get();
+            }else {
+                $meals = MealTranslation::where('provider_id', $id)->get();
+                $filter = $meals->filter(function ($value, $key) {
+                    return $value['id'];
+                });
+                $m = array_values($filter->all())[0];
+
+                $me = $m['product_id'];
+
+                $meal = Meal::where('id', $m)->first();
+                $provider_id = $meal->provider_id;
+                $meals = Product::where('provider_id', $provider_id)->get();
+            }
+        }
+        else
+        {
+            $default_lang = get_default_language();
+
+            $meals = Meal::where('published', 1)->get();
+
+        }
+
+
+
+        $categories = MainCategory::where('translation_lang', $default_lang)->get();
+        $providers = \App\Models\providers\ProviderRegister::get();
+        return view('site.restaurant.meals', compact('categories', 'providers', 'meals', 'min_price', 'max_price' ));
     }
 
     /**

@@ -6,7 +6,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Aya's Restaurant</title>
@@ -19,12 +18,16 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/chat.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/font-awesome.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/themify-icons.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/ionicons.min.css')}}">
+
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/owl.theme.default.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/swiper.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/animate.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive.css')}}">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
@@ -1012,9 +1015,37 @@
 
 
 @include('layouts.footer')
-<script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<!-- jquery UI -->
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<!-- imagesLoaded -->
 <script src="{{asset('assets/js/plugins/images-loaded.js')}}"></script>
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{asset('assets/js/plugins/isotope.js')}}"></script>
+<script src="{{asset('assets/js/plugins/slick.js')}}"></script>
+<!-- WOW -->
+<script src="{{asset('assets/js/plugins/wow.js')}}"></script>
+<!-- bootstrap -->
+<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+<!-- popper -->
+<script src="{{asset('assets/js/popper.min.js')}}"></script>
+<!-- fontawesome -->
+<script src="{{asset('assets/js/fontawesome.min.js')}}"></script>
+<!-- owl carousal -->
+<script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+<!-- swiper -->
+<script src="{{asset('assets/js/swiper.min.js')}}"></script>
+<!-- custom -->
+<script src="{{asset('assets/js/custom.js')}}"></script>
+<script src="{{asset('assets/js/shop.js')}}"></script>
+
+<!-- modernizr -->
+<script src="{{asset('assets/js/modernizr-2.8.3.min.js')}}"></script>
+<!-- swup -->
+<script src="{{asset('assets/js/swup.min.js')}}"></script>
+
+
+
 @livewireScripts
 <script>
     $(document).ready(function(){
@@ -1035,6 +1066,7 @@
 <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
 <script src="{{asset('assets/js/swiper.min.js')}}"></script>
 <script src="{{asset('assets/js/custom.js')}}"></script>
+
 
 <script>
     window.trans = <?php
