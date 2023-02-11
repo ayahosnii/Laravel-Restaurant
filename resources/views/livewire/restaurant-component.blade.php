@@ -83,9 +83,8 @@
             <div class="col-lg-9 col-md-8 col-12">
                 <div class="grid-list-banner" style="background-image: url({{asset('assets/img/slider17.jpg')}});">
                     <div class="grid-banner-content">
-                        <h4>Bestseller</h4>
-                        <p>Praesent dapibus, neque id cursus Ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, facilisis luc...</p>
-                    </div>
+                        <h4>this page is using livewire</h4>
+                        <a href="{{route('restaurant.ajax')}}">Go to ajax page <i class="fa-solid fa-link"></i></a></div>
                 </div>
                 <div class="grid-list-area">
                     <div class="grid-list-select">
