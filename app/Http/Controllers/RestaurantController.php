@@ -61,7 +61,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $branches = ProviderRegister::select()->get();
+        $branches = ProviderRegister::select()->where('has_subscriptions', '1')->get();
         return view('site.restaurant-list', compact('branches'));
     }
 
