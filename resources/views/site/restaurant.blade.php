@@ -113,7 +113,7 @@
                             <h6><a href="#">{{$meal->name}}</a></h6>
                             <div class="product__item__price">{{$meal->price}}LE</div>
                             <div class="cart_add">
-                                <a href="#" class="add-to-cart" data-meal-id="{{ $meal_id }}" data-meal-name="{{ $meal_name }}" data-meal-price="{{ $meal_price }}">
+                                <a href="#" class="add-to-cart" data-meal-id="{{ $meal->id }}" data-meal-name="{{ $meal->name }}" data-meal-price="{{ $meal->price }}">
                                     Add to Cart
                                 </a>
                             </div>
