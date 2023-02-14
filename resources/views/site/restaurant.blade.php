@@ -101,13 +101,12 @@
     <section class="product spad">
         <div class="container">
             <div class="row">
-                @foreach ($meals as $categoryName => $categoryMeals)
+                @foreach ($mealItems as $meal)
                 <div class="col-lg-3 col-md-6 col-sm-6">
-                    @foreach ($categoryMeals as $meal)
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="{{asset($meal->image)}}" style="background-image: url({{asset($meal->image)}})">
                             <div class="product__label">
-                                <span>{{$categoryName}}</span>
+                                <span>{{$meal->category->name}}</span>
                             </div>
                         </div>
                         <div class="product__item__text">
@@ -119,7 +118,6 @@
                         </div>
 
                     </div>
-                    @endforeach
                 </div>
                 @endforeach
             </div>

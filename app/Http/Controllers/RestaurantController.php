@@ -229,6 +229,7 @@ class RestaurantController extends Controller
         $rests = \App\Models\providers\ProviderRegister::where('user_name', $user_name)->firstOrFail();
         $rests_user_name = $rests->user_name;
         $rests_id = $rests->id;
+        $mealItems = Meal::select()->get();
         $meals = Meal::join('categories', 'meals.category_id', '=', 'categories.id')
             ->where('meals.provider_id', $rests_id)
             ->select('meals.name as meal_name', 'meals.*', 'categories.name as category_name')
@@ -242,7 +243,7 @@ class RestaurantController extends Controller
             ->get();
         $categories = Category::where('provider_id', $rests_id)->get();
         $branches = Branch::where('provider_id', $rests_id)->get();
-        return view('site.restaurant', compact('rests', 'meals','branches', 'categories', 'mealCategories'));
+        return view('site.restaurant', compact('rests', 'meals','branches', 'categories', 'mealCategories', 'mealItems'));
     }
 
   public function get_branch($b_branch)
