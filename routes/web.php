@@ -83,7 +83,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     });
     Route::post('filter-price', [RestaurantController::class, 'filterPrice'])->name('filter.price');
     Route::post('sort-meals', [RestaurantController::class, 'sortMeals'])->name('filter.price');
-    Route::get('/add-to-cart', [RestaurantController::class, 'addToCart'])->name('restaurant.addToCart');
+    Route::post('/add-to-cart', [RestaurantController::class, 'addToCart'])->name('restaurant.addToCart');
 
     Route::group(['prefix' => 'restaurant'], function () {
         Route::get('/', RestaurantComponent::class)->name('restaurant.index');
