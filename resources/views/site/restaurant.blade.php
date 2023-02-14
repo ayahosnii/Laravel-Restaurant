@@ -618,7 +618,6 @@
 @endsection
 @section('scripts')
     <script>
-        console.log('works')
         $(document).ready(function() {
             $('.add-to-cart').click(function(event) {
                 event.preventDefault();
@@ -629,6 +628,9 @@
                 $.ajax({
                     type: 'POST',
                     url: '/add-to-cart',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
                     data: {
                         meal_id: mealId,
                         meal_name: mealName,
