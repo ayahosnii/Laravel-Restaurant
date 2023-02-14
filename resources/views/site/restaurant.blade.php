@@ -46,7 +46,7 @@
                             Dr. Iyad Sultan and Dr. Sereen Sharabati, supported by a staff of 80 employees.</p>
                     </div>
                 </div>
-<!--                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-6 col-md-6">
                     <div class="about__bar">
                         <div class="about__bar__item">
                             <p>Cake design</p>
@@ -70,7 +70,7 @@
                             </div>
                         </div>
                     </div>
-                </div>-->
+                </div>
             </div>
         </div>
     </section>
@@ -101,12 +101,13 @@
     <section class="product spad">
         <div class="container">
             <div class="row">
- {{--               @foreach($meals as $meal)
+                @foreach ($meals as $categoryName => $categoryMeals)
                 <div class="col-lg-3 col-md-6 col-sm-6">
+                    @foreach ($categoryMeals as $meal)
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="{{asset($meal->image)}}" style="background-image: url({{asset($meal->image)}})">
                             <div class="product__label">
-                                <span>{{substr($meal->category->name, 0, 13)}}</span>
+                                <span>{{$categoryName}}</span>
                             </div>
                         </div>
                         <div class="product__item__text">
@@ -116,9 +117,11 @@
                                 <a href="#">Add to cart</a>
                             </div>
                         </div>
+
                     </div>
+                    @endforeach
                 </div>
-                @endforeach --}}
+                @endforeach
             </div>
         </div>
     </section>
@@ -139,8 +142,8 @@
                         <div class="heading-menu text-center ftco-animate">
                             <h3>{{ $categoryName }}</h3>
                         </div>
-                        @foreach ($categoryMeals as $meal)
-                        <div class="menus d-flex ftco-animate">
+                        @foreach ($categoryMeals as $index => $meal)
+                        <div class="menus {{ $index == count($categoryMeals) - 1 ? ' border-bottom-0' : '' }} d-flex ftco-animate">
                             <div class="menu-img img" style="background-image: url({{$meal->image}});"></div>
                             <div class="text">
                                 <div class="d-flex">
@@ -155,20 +158,6 @@
                             </div>
                         </div>
                             @endforeach
-                        <div class="menus border-bottom-0 d-flex ftco-animate">
-                            <div class="menu-img img" style="background-image: url(images/lunch-8.jpg);"></div>
-                            <div class="text">
-                                <div class="d-flex">
-                                    <div class="one-half">
-                                        <h3>Beef Roast Source</h3>
-                                    </div>
-                                    <div class="one-forth">
-                                        <span class="price">$29</span>
-                                    </div>
-                                </div>
-                                <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-                            </div>
-                        </div>
                         <span class="flat flaticon-pizza" style="left: 0;"></span>
                         <span class="flat flaticon-chicken" style="right: 0;"></span>
                     </div>
