@@ -16,6 +16,7 @@
     <link rel="shortcut icon" type="image/favicon" href="https://spacingtech.com/html/vegist-final/vegist/image/fevicon.png">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/chat.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/flaticon.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/font-awesome.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/themify-icons.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/ionicons.min.css')}}">
@@ -25,8 +26,22 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/swiper.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/animate.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
+
+    <link rel="stylesheet" href="{{asset('assets/css/barfiller.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/css/magnific-popup.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/css/elegant-icons.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/css/nice-select.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/css/slicknav.min.css')}}" type="text/css">
+
+
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/restaurant.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/animate.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/menu.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/restaurant.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsive.css')}}">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -1039,6 +1054,7 @@
 <script src="{{asset('assets/js/custom.js')}}"></script>
 <script src="{{asset('assets/js/shop.js')}}"></script>
 
+
 <!-- modernizr -->
 <script src="{{asset('assets/js/modernizr-2.8.3.min.js')}}"></script>
 <!-- swup -->
@@ -1063,9 +1079,20 @@
 <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('assets/js/popper.min.js')}}"></script>
 <script src="{{asset('assets/js/fontawesome.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.nice-select.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.barfiller.js')}}"></script>
+<script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.slicknav.js')}}"></script>
 <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
 <script src="{{asset('assets/js/swiper.min.js')}}"></script>
 <script src="{{asset('assets/js/custom.js')}}"></script>
+<script src="{{asset('assets/js/jquery-migrate-3.0.1.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.easing.1.3.js')}}"></script>
+<script src="{{asset('assets/js/jquery.waypoints.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.stellar.min.js')}}"></script>
+<script src="{{asset('assets/js/scrollax.min.js')}}"></script>
+<script src="{{asset('assets/js/menu.js')}}"></script>
+<script src="{{asset('assets/js/categories.js')}}"></script>
 
 
 <script>

@@ -1,3 +1,665 @@
+@extends('layouts.base-vue')
+@section('content')
+
+    <!-- Hero Section Begin -->
+    <section class="hero">
+        <div class="hero__slider owl-carousel">
+            <div class="hero__item set-bg" data-setbg="img/hero/hero-1.jpg">
+                <div class="container">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="hero__text">
+                                <h2>Making your life sweeter one bite at a time!</h2>
+                                <a href="#" class="primary-btn">Our cakes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero__item set-bg" data-setbg="img/hero/hero-1.jpg">
+                <div class="container">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="hero__text">
+                                <h2>Making your life sweeter one bite at a time!</h2>
+                                <a href="#" class="primary-btn">Our cakes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- About Section Begin -->
+    <section class="about spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="about__text">
+                        <div class="section-title">
+                            <span>About {{$rests->name}}</span>
+                            <h2>Cakes and bakes from the house of Queens!</h2>
+                        </div>
+                        <p>The "Cake Shop" is a Jordanian Brand that started as a small family business. The owners are
+                            Dr. Iyad Sultan and Dr. Sereen Sharabati, supported by a staff of 80 employees.</p>
+                    </div>
+                </div>
+<!--                <div class="col-lg-6 col-md-6">
+                    <div class="about__bar">
+                        <div class="about__bar__item">
+                            <p>Cake design</p>
+                            <div id="bar1" class="barfiller">
+                                <div class="tipWrap"><span class="tip"></span></div>
+                                <span class="fill" data-percentage="95"></span>
+                            </div>
+                        </div>
+                        <div class="about__bar__item">
+                            <p>Cake Class</p>
+                            <div id="bar2" class="barfiller">
+                                <div class="tipWrap"><span class="tip"></span></div>
+                                <span class="fill" data-percentage="80"></span>
+                            </div>
+                        </div>
+                        <div class="about__bar__item">
+                            <p>Cake Recipes</p>
+                            <div id="bar3" class="barfiller">
+                                <div class="tipWrap"><span class="tip"></span></div>
+                                <span class="fill" data-percentage="90"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </section>
+    <!-- About Section End -->
+
+    <!-- Categories Section Begin -->
+    <div class="categories">
+        <div class="container">
+            <div class="row">
+                <div class="categories__slider owl-carousel">
+                    @foreach($categories as $category)
+                    <div class="categories__item">
+                        <div class="categories__item__icon">
+                            <span class="flaticon-029-cupcake-3"></span>
+                            <h5>{{$category->name}}</h5>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Categories Section End -->
+
+
+
+    <!-- Product Section Begin -->
+    <section class="product spad">
+        <div class="container">
+            <div class="row">
+ {{--               @foreach($meals as $meal)
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="{{asset($meal->image)}}" style="background-image: url({{asset($meal->image)}})">
+                            <div class="product__label">
+                                <span>{{substr($meal->category->name, 0, 13)}}</span>
+                            </div>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="#">{{$meal->name}}</a></h6>
+                            <div class="product__item__price">{{$meal->price}}LE</div>
+                            <div class="cart_add">
+                                <a href="#">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach --}}
+            </div>
+        </div>
+    </section>
+    <!-- Product Section End -->
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-2">
+                <div class="col-md-7 text-center heading-section ftco-animate">
+                    <span class="subheading">Specialties</span>
+                    <h2 class="mb-4">Our Menu</h2>
+                </div>
+            </div>
+            <div class="row">
+                @foreach ($meals as $categoryName => $categoryMeals)
+                <div class="col-md-6 col-lg-4">
+                    <div class="menu-wrap">
+                        <div class="heading-menu text-center ftco-animate">
+                            <h3>{{ $categoryName }}</h3>
+                        </div>
+                        @foreach ($categoryMeals as $meal)
+                        <div class="menus d-flex ftco-animate">
+                            <div class="menu-img img" style="background-image: url({{$meal->image}});"></div>
+                            <div class="text">
+                                <div class="d-flex">
+                                    <div class="one-half">
+                                        <h3>{{$meal->name}}</h3>
+                                    </div>
+                                    <div class="one-forth">
+                                        <span class="price">{{$meal->price}} LE</span>
+                                    </div>
+                                </div>
+                                <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+                            </div>
+                        </div>
+                            @endforeach
+                        <div class="menus border-bottom-0 d-flex ftco-animate">
+                            <div class="menu-img img" style="background-image: url(images/lunch-8.jpg);"></div>
+                            <div class="text">
+                                <div class="d-flex">
+                                    <div class="one-half">
+                                        <h3>Beef Roast Source</h3>
+                                    </div>
+                                    <div class="one-forth">
+                                        <span class="price">$29</span>
+                                    </div>
+                                </div>
+                                <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+                            </div>
+                        </div>
+                        <span class="flat flaticon-pizza" style="left: 0;"></span>
+                        <span class="flat flaticon-chicken" style="right: 0;"></span>
+                    </div>
+                </div>
+                @endforeach
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Class Section Begin -->
+    <section class="class spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="class__form">
+                        <div class="section-title">
+                            <span>Class cakes</span>
+                            <h2>Made from your <br />own hands</h2>
+                        </div>
+                        <form action="#">
+                            <input type="text" placeholder="Name">
+                            <input type="text" placeholder="Phone">
+                            <select>
+                                <option value="">Studying Class</option>
+                                <option value="">Writting Class</option>
+                                <option value="">Reading Class</option>
+                            </select>
+                            <input type="text" placeholder="Type your requirements">
+                            <button type="submit" class="site-btn">registration</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="class__video set-bg" data-setbg="img/class-video.jpg">
+                <a href="https://www.youtube.com/watch?v=8PJ3_p7VqHw&list=RD8PJ3_p7VqHw&start_radio=1"
+                   class="play-btn video-popup"><i class="fa fa-play"></i></a>
+            </div>
+        </div>
+    </section>
+    <!-- Class Section End -->
+
+    <!-- Team Section Begin -->
+    <section class="team spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-7 col-sm-7">
+                    <div class="section-title">
+                        <span>Our team</span>
+                        <h2>Sweet Baker </h2>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                    <div class="team__btn">
+                        <a href="#" class="primary-btn">Join Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="team__item set-bg" data-setbg="img/team/team-1.jpg">
+                        <div class="team__item__text">
+                            <h6>Randy Butler</h6>
+                            <span>Decorater</span>
+                            <div class="team__item__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="team__item set-bg" data-setbg="img/team/team-2.jpg">
+                        <div class="team__item__text">
+                            <h6>Randy Butler</h6>
+                            <span>Decorater</span>
+                            <div class="team__item__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="team__item set-bg" data-setbg="img/team/team-3.jpg">
+                        <div class="team__item__text">
+                            <h6>Randy Butler</h6>
+                            <span>Decorater</span>
+                            <div class="team__item__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="team__item set-bg" data-setbg="img/team/team-4.jpg">
+                        <div class="team__item__text">
+                            <h6>Randy Butler</h6>
+                            <span>Decorater</span>
+                            <div class="team__item__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Team Section End -->
+    <section class="ftco-section ftco-wrap-about bg-primary ftco-no-pb ftco-no-pt">
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-sm-12 p-4 p-md-5 d-flex align-items-center justify-content-center bg-primary">
+                    <form action="#" class="appointment-form">
+                        <h3 class="mb-3">Book your Table</h3>
+                        <div class="row justify-content-center">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="name" class="form-control" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Phone">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <div class="input-wrap">
+                                        <div class="icon"><span class="fa fa-calendar"></span></div>
+                                        <input type="text" class="form-control book_date" placeholder="Check-In">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <div class="input-wrap">
+                                        <div class="icon"><span class="fa fa-clock-o"></span></div>
+                                        <input type="text" class="form-control book_time" placeholder="Time">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <div class="form-field">
+                                        <div class="select-wrap">
+                                            <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                                            <select name="" id="" class="form-control">
+                                                <option value="">Guest</option>
+                                                <option value="">1</option>
+                                                <option value="">2</option>
+                                                <option value="">3</option>
+                                                <option value="">4</option>
+                                                <option value="">5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="submit" value="Book Your Table Now" class="btn btn-white py-3 px-4">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Testimonial Section Begin -->
+    <section class="testimonial spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-title">
+                        <span>Testimonial</span>
+                        <h2>Our client say</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="testimonial__slider owl-carousel">
+                    <div class="col-lg-6">
+                        <div class="testimonial__item">
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__pic">
+                                    <img src="img/testimonial/ta-1.jpg" alt="">
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>Kerry D.Silva</h5>
+                                    <span>New york</span>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <span class="icon_star"></span>
+                                <span class="icon_star"></span>
+                                <span class="icon_star"></span>
+                                <span class="icon_star"></span>
+                                <span class="icon_star-half_alt"></span>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="testimonial__item">
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__pic">
+                                    <img src="img/testimonial/ta-2.jpg" alt="">
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>Kerry D.Silva</h5>
+                                    <span>New york</span>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <span class="icon_star"></span>
+                                <span class="icon_star"></span>
+                                <span class="icon_star"></span>
+                                <span class="icon_star"></span>
+                                <span class="icon_star-half_alt"></span>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="testimonial__item">
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__pic">
+                                    <img src="img/testimonial/ta-1.jpg" alt="">
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>Ophelia Nunez</h5>
+                                    <span>London</span>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <span class="icon_star"></span>
+                                <span class="icon_star"></span>
+                                <span class="icon_star"></span>
+                                <span class="icon_star"></span>
+                                <span class="icon_star-half_alt"></span>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="testimonial__item">
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__pic">
+                                    <img src="img/testimonial/ta-2.jpg" alt="">
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>Kerry D.Silva</h5>
+                                    <span>New york</span>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <span class="icon_star"></span>
+                                <span class="icon_star"></span>
+                                <span class="icon_star"></span>
+                                <span class="icon_star"></span>
+                                <span class="icon_star-half_alt"></span>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="testimonial__item">
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__pic">
+                                    <img src="img/testimonial/ta-1.jpg" alt="">
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>Ophelia Nunez</h5>
+                                    <span>London</span>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <span class="icon_star"></span>
+                                <span class="icon_star"></span>
+                                <span class="icon_star"></span>
+                                <span class="icon_star"></span>
+                                <span class="icon_star-half_alt"></span>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="testimonial__item">
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__pic">
+                                    <img src="img/testimonial/ta-2.jpg" alt="">
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>Kerry D.Silva</h5>
+                                    <span>New york</span>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <span class="icon_star"></span>
+                                <span class="icon_star"></span>
+                                <span class="icon_star"></span>
+                                <span class="icon_star"></span>
+                                <span class="icon_star-half_alt"></span>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonial Section End -->
+
+    <!-- Instagram Section Begin -->
+    <section class="instagram spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 p-0">
+                    <div class="instagram__text">
+                        <div class="section-title">
+                            <span>Follow us on instagram</span>
+                            <h2>Sweet moments are saved as memories.</h2>
+                        </div>
+                        <h5><i class="fa fa-instagram"></i> @sweetcake</h5>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+                            <div class="instagram__pic">
+                                <img src="img/instagram/instagram-1.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+                            <div class="instagram__pic middle__pic">
+                                <img src="img/instagram/instagram-2.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+                            <div class="instagram__pic">
+                                <img src="img/instagram/instagram-3.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+                            <div class="instagram__pic">
+                                <img src="img/instagram/instagram-4.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+                            <div class="instagram__pic middle__pic">
+                                <img src="img/instagram/instagram-5.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+                            <div class="instagram__pic">
+                                <img src="img/instagram/instagram-3.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Instagram Section End -->
+
+    <!-- Map Begin -->
+    <div class="map">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-7">
+                    <div class="map__inner">
+                        <h6>COlorado</h6>
+                        <ul>
+                            <li>1000 Lakepoint Dr, Frisco, CO 80443, USA</li>
+                            <li>Sweetcake@support.com</li>
+                            <li>+1 800-786-1000</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="map__iframe">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10784.188505644011!2d19.053119335158936!3d47.48899529453826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1543907528304" height="300" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+    </div>
+    <!-- Map End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>WORKING HOURS</h6>
+                        <ul>
+                            <li>Monday - Friday: 08:00 am – 08:30 pm</li>
+                            <li>Saturday: 10:00 am – 16:30 pm</li>
+                            <li>Sunday: 10:00 am – 16:30 pm</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="#"><img src="img/footer-logo.png" alt=""></a>
+                        </div>
+                        <p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore dolore magna aliqua.</p>
+                        <div class="footer__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-youtube-play"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__newslatter">
+                        <h6>Subscribe</h6>
+                        <p>Get latest updates and offers.</p>
+                        <form action="#">
+                            <input type="text" placeholder="Email">
+                            <button type="submit"><i class="fa fa-send-o"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <p class="copyright__text text-white"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="copyright__widget">
+                            <ul>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                                <li><a href="#">Site Map</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Search Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search End -->
+@endsection
+
+{{--
 @extends('layouts.base-res')
 @section('content')
 <body class="" style="">
@@ -1417,60 +2079,168 @@
 <!-- product tab end -->
 
 <!-- home deal start -->
-{{--<section class="home-deal-area section-b-padding">--}}
-{{--    <div class="deal-area-main">--}}
-{{--        <div class="deal-banner banner-1">--}}
-{{--            <img src="./restuarantsss_files/deal-banner-1.jpg" class="img-fluid" alt="image">--}}
-{{--            <div class="text">--}}
-{{--                <span class="sub-title">Fresh organic</span>--}}
-{{--                <h1 class="title">Healthy foods</h1>--}}
-{{--                <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="btn-style1 deal-btn">Shop now</a>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="deal-counter">--}}
-{{--            <ul class="contdown_row">--}}
-{{--                <li class="countdown_section">--}}
-{{--                    <span id="days" class="countdown_timer">769</span>--}}
-{{--                    <span class="countdown_title">Day</span>--}}
-{{--                </li>--}}
-{{--                <li class="countdown_section">--}}
-{{--                    <span id="hours" class="countdown_timer">17</span>--}}
-{{--                    <span class="countdown_title">Hrs</span>--}}
-{{--                </li>--}}
-{{--                <li class="countdown_section">--}}
-{{--                    <span id="minutes" class="countdown_timer">18</span>--}}
-{{--                    <span class="countdown_title">Min</span>--}}
-{{--                </li>--}}
-{{--                <li class="countdown_section">--}}
-{{--                    <span id="seconds" class="countdown_timer">21</span>--}}
-{{--                    <span class="countdown_title">Sec</span>--}}
-{{--                </li>--}}
-{{--            </ul>--}}
-{{--        </div>--}}
-{{--        <div class="deal-banner banner-2">--}}
-{{--            <img src="./restuarantsss_files/deal-banner-2.jpg" class="img-fluid" alt="image">--}}
-{{--            <div class="video-btn">--}}
-{{--                <a href="https://spacingtech.com/html/vegist-final/vegist/index8.html#" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" class="banner-video"><i class="fa fa-play"></i></a>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <!-- model video start -->--}}
-{{--    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">--}}
-{{--        <div class="modal-dialog modal-dialog-centered" role="document">--}}
-{{--            <div class="modal-content">--}}
-{{--                <div class="modal-header">--}}
-{{--                    <a href="https://spacingtech.com/html/vegist-final/vegist/index8.html#" class="close" data-bs-dismiss="modal" aria-label="Close">--}}
-{{--                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>--}}
-{{--                    </a>--}}
-{{--                </div>--}}
-{{--                <div class="modal-body">--}}
-{{--                    <iframe src="./restuarantsss_files/0etCKCAsImI.html" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <!-- model video end -->--}}
-{{--</section>--}}
+--}}
+{{--<section class="home-deal-area section-b-padding">--}}{{--
+
+--}}
+{{--    <div class="deal-area-main">--}}{{--
+
+--}}
+{{--        <div class="deal-banner banner-1">--}}{{--
+
+--}}
+{{--            <img src="./restuarantsss_files/deal-banner-1.jpg" class="img-fluid" alt="image">--}}{{--
+
+--}}
+{{--            <div class="text">--}}{{--
+
+--}}
+{{--                <span class="sub-title">Fresh organic</span>--}}{{--
+
+--}}
+{{--                <h1 class="title">Healthy foods</h1>--}}{{--
+
+--}}
+{{--                <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="btn-style1 deal-btn">Shop now</a>--}}{{--
+
+--}}
+{{--            </div>--}}{{--
+
+--}}
+{{--        </div>--}}{{--
+
+--}}
+{{--        <div class="deal-counter">--}}{{--
+
+--}}
+{{--            <ul class="contdown_row">--}}{{--
+
+--}}
+{{--                <li class="countdown_section">--}}{{--
+
+--}}
+{{--                    <span id="days" class="countdown_timer">769</span>--}}{{--
+
+--}}
+{{--                    <span class="countdown_title">Day</span>--}}{{--
+
+--}}
+{{--                </li>--}}{{--
+
+--}}
+{{--                <li class="countdown_section">--}}{{--
+
+--}}
+{{--                    <span id="hours" class="countdown_timer">17</span>--}}{{--
+
+--}}
+{{--                    <span class="countdown_title">Hrs</span>--}}{{--
+
+--}}
+{{--                </li>--}}{{--
+
+--}}
+{{--                <li class="countdown_section">--}}{{--
+
+--}}
+{{--                    <span id="minutes" class="countdown_timer">18</span>--}}{{--
+
+--}}
+{{--                    <span class="countdown_title">Min</span>--}}{{--
+
+--}}
+{{--                </li>--}}{{--
+
+--}}
+{{--                <li class="countdown_section">--}}{{--
+
+--}}
+{{--                    <span id="seconds" class="countdown_timer">21</span>--}}{{--
+
+--}}
+{{--                    <span class="countdown_title">Sec</span>--}}{{--
+
+--}}
+{{--                </li>--}}{{--
+
+--}}
+{{--            </ul>--}}{{--
+
+--}}
+{{--        </div>--}}{{--
+
+--}}
+{{--        <div class="deal-banner banner-2">--}}{{--
+
+--}}
+{{--            <img src="./restuarantsss_files/deal-banner-2.jpg" class="img-fluid" alt="image">--}}{{--
+
+--}}
+{{--            <div class="video-btn">--}}{{--
+
+--}}
+{{--                <a href="https://spacingtech.com/html/vegist-final/vegist/index8.html#" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" class="banner-video"><i class="fa fa-play"></i></a>--}}{{--
+
+--}}
+{{--            </div>--}}{{--
+
+--}}
+{{--        </div>--}}{{--
+
+--}}
+{{--    </div>--}}{{--
+
+--}}
+{{--    <!-- model video start -->--}}{{--
+
+--}}
+{{--    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">--}}{{--
+
+--}}
+{{--        <div class="modal-dialog modal-dialog-centered" role="document">--}}{{--
+
+--}}
+{{--            <div class="modal-content">--}}{{--
+
+--}}
+{{--                <div class="modal-header">--}}{{--
+
+--}}
+{{--                    <a href="https://spacingtech.com/html/vegist-final/vegist/index8.html#" class="close" data-bs-dismiss="modal" aria-label="Close">--}}{{--
+
+--}}
+{{--                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>--}}{{--
+
+--}}
+{{--                    </a>--}}{{--
+
+--}}
+{{--                </div>--}}{{--
+
+--}}
+{{--                <div class="modal-body">--}}{{--
+
+--}}
+{{--                    <iframe src="./restuarantsss_files/0etCKCAsImI.html" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>--}}{{--
+
+--}}
+{{--                </div>--}}{{--
+
+--}}
+{{--            </div>--}}{{--
+
+--}}
+{{--        </div>--}}{{--
+
+--}}
+{{--    </div>--}}{{--
+
+--}}
+{{--    <!-- model video end -->--}}{{--
+
+--}}
+{{--</section>--}}{{--
+
 <!-- home deal end -->
 
 
@@ -2017,3 +2787,4 @@
 
 </body></html>
 @stop
+--}}
