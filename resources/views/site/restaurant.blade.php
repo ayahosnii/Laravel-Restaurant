@@ -46,7 +46,7 @@
                             Dr. Iyad Sultan and Dr. Sereen Sharabati, supported by a staff of 80 employees.</p>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
+      {{--          <div class="col-lg-6 col-md-6">
                     <div class="about__bar">
                         <div class="about__bar__item">
                             <p>Cake design</p>
@@ -70,7 +70,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--}}
             </div>
         </div>
     </section>
