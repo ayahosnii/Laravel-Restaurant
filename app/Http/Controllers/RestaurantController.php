@@ -230,10 +230,11 @@ class RestaurantController extends Controller
         $rests_user_name = $rests->user_name;
         $rests_id = $rests->id;
         $meals = Meal::join('categories', 'meals.category_id', '=', 'categories.id')
-            ->where('provider_id', $rests_id)
+            ->where('meals.provider_id', $rests_id)
             ->select('meals.*', 'categories.name')
             ->get()
             ->groupBy('name');
+
         $mealCategories = Meal::select(['meals.*', 'categories.name as category_name'])
             ->join('categories', 'meals.category_id', '=', 'categories.id')
 /*            ->groupBy('categories.name')*/
