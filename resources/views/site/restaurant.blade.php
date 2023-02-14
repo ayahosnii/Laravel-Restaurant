@@ -113,7 +113,9 @@
                             <h6><a href="#">{{$meal->name}}</a></h6>
                             <div class="product__item__price">{{$meal->price}}LE</div>
                             <div class="cart_add">
-                                <a href="#">Add to cart</a>
+                                <a href="#" class="add-to-cart" data-meal-id="{{ $meal_id }}" data-meal-name="{{ $meal_name }}" data-meal-price="{{ $meal_price }}">
+                                    Add to Cart
+                                </a>
                             </div>
                         </div>
 
@@ -614,6 +616,42 @@
     </div>
     <!-- Search End -->
 @endsection
+@section('scripts')
+    <script>
+        console.log('works')
+        $(document).ready(function() {
+            $('.add-to-cart').click(function(event) {
+                event.preventDefault();
+                var mealId = $(this).data('meal-id');
+                var mealName = $(this).data('meal-name');
+                var mealPrice = $(this).data('meal-price');
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/add-to-cart',
+                    data: {
+                        meal_id: mealId,
+                        meal_name: mealName,
+                        meal_price: mealPrice
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        if (response.success) {
+                            alert('Item added to cart');
+                        } else {
+                            alert('An error occurred');
+                        }
+                    },
+                    error: function(error) {
+                        console.error(error);
+                        alert('An error occurred');
+                    }
+                });
+            });
+        });
+
+    </script>
+@stop
 
 {{--
 @extends('layouts.base-res')

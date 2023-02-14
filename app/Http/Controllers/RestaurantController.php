@@ -10,6 +10,7 @@ use App\Models\providers\Category;
 use App\Models\providers\Meal;
 use App\Models\providers\MealTranslation;
 use App\Models\providers\ProviderRegister;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
@@ -246,7 +247,14 @@ class RestaurantController extends Controller
         return view('site.restaurant', compact('rests', 'meals','branches', 'categories', 'mealCategories', 'mealItems'));
     }
 
-  public function get_branch($b_branch)
+    public function addToCart(Request $request)
+    {
+        Cart::instance('cart')->add($request->meal_id, $request->meal_name, 1, $request->meal_price)->associate('App\Models\providers\Meal');
+        return response()->json(['success' => true]);
+    }
+
+
+    public function get_branch($b_branch)
     {
         $branches = Branch::where('b_username', $b_branch)->firstOrFail();
         //$branches_username= $rests->b_username;
