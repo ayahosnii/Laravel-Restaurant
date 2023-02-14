@@ -148,7 +148,7 @@
                             <div class="text">
                                 <div class="d-flex">
                                     <div class="one-half">
-                                        <h3>{{$meal->name}}</h3>
+                                        <h3>{{$meal->meal_name}}</h3>
                                     </div>
                                     <div class="one-forth">
                                         <span class="price">{{$meal->price}} LE</span>
