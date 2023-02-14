@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\backend\NotificationsController;
+use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\MainCategoryController;
 use App\Http\Controllers\admin\RestaurantController;
 use App\Http\Controllers\admin\RoleController;
@@ -23,7 +24,7 @@ Route::group(
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){
 Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function () {
-    Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
 
     Route::any('/notifications/get', [NotificationsController::class, 'getNotifications']);
     Route::any('/notifications/read', [NotificationsController::class, 'markAsRead']);
