@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\backend\NotificationsController;
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\admin\MainCategoryController;
 use App\Http\Controllers\admin\RestaurantController;
 use App\Http\Controllers\admin\RoleController;
@@ -123,7 +124,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
 });
 
 Route::group(['namespace' => 'Admin', 'middleware' => 'guest:admin'], function(){
-    Route::get('login', [App\Http\Controllers\Admin\LoginController::class, 'getLogin'])->name('get.admin.login');
-    Route::post('login', [App\Http\Controllers\Admin\LoginController::class, 'login'])->name('admin.login');
+    Route::get('login', [LoginController::class, 'getLogin'])->name('get.admin.login');
+    Route::post('login', [LoginController::class, 'login'])->name('admin.login');
 });
     });
