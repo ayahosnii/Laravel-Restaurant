@@ -1,11 +1,17 @@
 <?php
 
+use App\Http\Controllers\admin\AttributeController;
 use App\Http\Controllers\admin\backend\NotificationsController;
+use App\Http\Controllers\admin\CouponController;
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\LanguageController;
 use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\admin\MainCategoryController;
+use App\Http\Controllers\admin\OptionController;
+use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\RestaurantController;
 use App\Http\Controllers\admin\RoleController;
+use App\Http\Controllers\admin\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,12 +37,12 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
     Route::any('/notifications/read', [NotificationsController::class, 'markAsRead']);
     Route::any('/notifications/read/{id}', [NotificationsController::class, 'markAsReadAndRedirect']);
     ########################################## Start Languages Route ##############################################################
-    Route::get('/languages/index', [App\Http\Controllers\Admin\LanguageController::class, 'index'])->name('admin.languages');
-    Route::get('/languages/create', [App\Http\Controllers\Admin\LanguageController::class, 'create'])->name('admin.languages.create');
-    Route::post('/languages/store', [App\Http\Controllers\Admin\LanguageController::class, 'store'])->name('admin.languages.store');
-    Route::get('/languages/edit/{id}', [App\Http\Controllers\Admin\LanguageController::class, 'edit'])->name('admin.languages.edit');
-    Route::post('/languages/update', [App\Http\Controllers\Admin\LanguageController::class, 'update'])->name('admin.languages.update');
-    Route::get('/languages/destroy', [App\Http\Controllers\Admin\LanguageController::class, 'destroy'])->name('admin.languages.delete');
+    Route::get('/languages/index', [LanguageController::class, 'index'])->name('admin.languages');
+    Route::get('/languages/create', [LanguageController::class, 'create'])->name('admin.languages.create');
+    Route::post('/languages/store', [LanguageController::class, 'store'])->name('admin.languages.store');
+    Route::get('/languages/edit/{id}', [LanguageController::class, 'edit'])->name('admin.languages.edit');
+    Route::post('/languages/update', [LanguageController::class, 'update'])->name('admin.languages.update');
+    Route::get('/languages/destroy', [LanguageController::class, 'destroy'])->name('admin.languages.delete');
     ########################################## End  Languages Route ##############################################################
     ########################################## Start MainCategories Route ##############################################################
     Route::group(['prefix' => 'main-categories'], function () {
@@ -50,54 +56,54 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
     });
     ########################################## End  MainCategories Route ######################################################################################################## Start MainCategories Route ##############################################################
     ########################################## Start  SubCategories Route ######################################################################################################## Start MainCategories Route ##############################################################
-    Route::get('/sub-categories/index', [App\Http\Controllers\Admin\SubCategoryController::class, 'index'])->name('admin.subcategories');
-    Route::get('/sub-categories/create', [App\Http\Controllers\Admin\SubCategoryController::class, 'create'])->name('admin.subcategories.create');
-    Route::post('/sub-categories/store', [App\Http\Controllers\Admin\SubCategoryController::class, 'store'])->name('admin.subcategories.store');
-    Route::get('/sub-categories/edit/{id}', [App\Http\Controllers\Admin\SubCategoryController::class, 'edit'])->name('admin.subcategories.edit');
-    Route::post('/sub-categories/update', [App\Http\Controllers\Admin\SubCategoryController::class, 'update'])->name('admin.subcategories.update');
-    Route::get('/sub-categories/destroy', [App\Http\Controllers\Admin\SubCategoryController::class, 'destroy'])->name('admin.subcategories.destroy');
-    Route::get('changeStatus/{id}', [App\Http\Controllers\Admin\SubCategoryController::class, 'changeStatus'])->name('admin.subcategories.status');
+    Route::get('/sub-categories/index', [SubCategoryController::class, 'index'])->name('admin.subcategories');
+    Route::get('/sub-categories/create', [SubCategoryController::class, 'create'])->name('admin.subcategories.create');
+    Route::post('/sub-categories/store', [SubCategoryController::class, 'store'])->name('admin.subcategories.store');
+    Route::get('/sub-categories/edit/{id}', [SubCategoryController::class, 'edit'])->name('admin.subcategories.edit');
+    Route::post('/sub-categories/update', [SubCategoryController::class, 'update'])->name('admin.subcategories.update');
+    Route::get('/sub-categories/destroy', [SubCategoryController::class, 'destroy'])->name('admin.subcategories.destroy');
+    Route::get('changeStatus/{id}', [SubCategoryController::class, 'changeStatus'])->name('admin.subcategories.status');
 
     ########################################## End  SubCategories Route ##############################################################
     ########################################## Start Products Route ##############################################################
-    Route::get('/products', [App\Http\Controllers\Admin\ProductController::class, 'index'])->name('admin.products');
-    Route::get('/products/create', [App\Http\Controllers\Admin\ProductController::class, 'create'])->name('admin.products.create');
-    Route::post('/products/store', [App\Http\Controllers\Admin\ProductController::class, 'store'])->name('admin.products.store');
-    Route::get('/products/edit/{id}', [App\Http\Controllers\Admin\ProductController::class, 'edit'])->name('admin.products.edit');
-    Route::post('/products/update', [App\Http\Controllers\Admin\ProductController::class, 'update'])->name('admin.products.update');
-    Route::get('/products/destroy', [App\Http\Controllers\Admin\ProductController::class, 'destroy'])->name('admin.products.delete');
-    Route::get('/products/change/{id}', [App\Http\Controllers\Admin\ProductController::class, 'changeStatus'])->name('admin.products.status');
+    Route::get('/products', [ProductController::class, 'index'])->name('admin.products');
+    Route::get('/products/create', [ProductController::class, 'create'])->name('admin.products.create');
+    Route::post('/products/store', [ProductController::class, 'store'])->name('admin.products.store');
+    Route::get('/products/edit/{id}', [ProductController::class, 'edit'])->name('admin.products.edit');
+    Route::post('/products/update', [ProductController::class, 'update'])->name('admin.products.update');
+    Route::get('/products/destroy', [ProductController::class, 'destroy'])->name('admin.products.delete');
+    Route::get('/products/change/{id}', [ProductController::class, 'changeStatus'])->name('admin.products.status');
 
     ########################################## End  Products Route ##############################################################
     ########################################## Start Coupons Route ##############################################################
-    Route::get('/coupons', [App\Http\Controllers\Admin\CouponController::class, 'index'])->name('admin.coupons');
-    Route::get('/coupons/create', [App\Http\Controllers\Admin\CouponController::class, 'create'])->name('admin.coupons.create');
-    Route::post('/coupons/store', [App\Http\Controllers\Admin\CouponController::class, 'store'])->name('admin.coupons.store');
-    Route::get('/coupons/edit/{id}', [App\Http\Controllers\Admin\CouponController::class, 'edit'])->name('admin.coupons.edit');
-    Route::post('/coupons/update', [App\Http\Controllers\Admin\CouponController::class, 'update'])->name('admin.coupons.update');
-    Route::get('/coupons/destroy', [App\Http\Controllers\Admin\CouponController::class, 'destroy'])->name('admin.coupons.delete');
-    Route::get('changeStatus/{id}', [App\Http\Controllers\Admin\CouponController::class, 'changeStatus'])->name('admin.coupons.status');
+    Route::get('/coupons', [CouponController::class, 'index'])->name('admin.coupons');
+    Route::get('/coupons/create', [CouponController::class, 'create'])->name('admin.coupons.create');
+    Route::post('/coupons/store', [CouponController::class, 'store'])->name('admin.coupons.store');
+    Route::get('/coupons/edit/{id}', [CouponController::class, 'edit'])->name('admin.coupons.edit');
+    Route::post('/coupons/update', [CouponController::class, 'update'])->name('admin.coupons.update');
+    Route::get('/coupons/destroy', [CouponController::class, 'destroy'])->name('admin.coupons.delete');
+    Route::get('changeStatus/{id}', [CouponController::class, 'changeStatus'])->name('admin.coupons.status');
 
     ########################################## End  Coupons Route ##############################################################
     ################################## attrributes routes ######################################
     Route::group(['prefix' => 'attributes'], function () {
-        Route::get('/', [\App\Http\Controllers\admin\AttributeController::class, 'index'])->name('admin.attributes');
-        Route::get('create', [\App\Http\Controllers\admin\AttributeController::class, 'create'])->name('admin.attributes.create');
-        Route::post('store', [\App\Http\Controllers\admin\AttributeController::class, 'store'])->name('admin.attributes.store');
-        Route::get('delete/{id}', [\App\Http\Controllers\admin\AttributeController::class, 'destroy'])->name('admin.attributes.delete');
-        Route::get('edit/{id}', [\App\Http\Controllers\admin\AttributeController::class, 'edit'])->name('admin.attributes.edit');
-        Route::post('update/{id}', [\App\Http\Controllers\admin\AttributeController::class, 'update'])->name('admin.attributes.update');
+        Route::get('/', [AttributeController::class, 'index'])->name('admin.attributes');
+        Route::get('create', [AttributeController::class, 'create'])->name('admin.attributes.create');
+        Route::post('store', [AttributeController::class, 'store'])->name('admin.attributes.store');
+        Route::get('delete/{id}', [AttributeController::class, 'destroy'])->name('admin.attributes.delete');
+        Route::get('edit/{id}', [AttributeController::class, 'edit'])->name('admin.attributes.edit');
+        Route::post('update/{id}', [AttributeController::class, 'update'])->name('admin.attributes.update');
     });
     ################################## end attributes    #######################################
 
     ################################## start options ######################################
     Route::group(['prefix' => 'options'], function () {
-        Route::get('/', [\App\Http\Controllers\admin\OptionController::class, 'index'])->name('admin.options');
-        Route::get('create', [\App\Http\Controllers\admin\OptionController::class, 'create'])->name('admin.options.create');
-        Route::post('store', [\App\Http\Controllers\admin\OptionController::class, 'store'])->name('admin.options.store');
+        Route::get('/', [OptionController::class, 'index'])->name('admin.options');
+        Route::get('create', [OptionController::class, 'create'])->name('admin.options.create');
+        Route::post('store', [OptionController::class, 'store'])->name('admin.options.store');
         //Route::get('delete/{id}','OptionsController@destroy') -> name('admin.options.delete');
-        Route::get('edit/{id}', [\App\Http\Controllers\admin\OptionController::class, 'edit'])->name('admin.options.edit');
-        Route::post('update/{id}', [\App\Http\Controllers\admin\OptionController::class, 'update'])->name('admin.options.update');
+        Route::get('edit/{id}', [OptionController::class, 'edit'])->name('admin.options.edit');
+        Route::post('update/{id}', [OptionController::class, 'update'])->name('admin.options.update');
     });
     ################################## end options    #######################################
     # ################################## start roles ######################################
