@@ -5,7 +5,7 @@
         <p>
             <span class="cart-count-desc">There are</span>
             <span class="cart-count-item bigcounter">{{Cart::instance('cart')->count()}}</span>
-            <span class="cart-count-desc">Products</span>
+            <span class="cart-count-desc">Meals</span>
         </p>
     </div>
     <ul class="cart-item-loop">
@@ -21,7 +21,7 @@
                 <h6><a href="#">{{$item->model->name}}</a></h6>
                 <div class="cart-pro-info">
                     <div class="cart-qty-price">
-                        <span class="price-box">£{{$item->model->sale_price ?? $item->model->regular_price ?? $item->model->price}}</span>
+                        <span class="price-box">£{{ $item->price}}</span>
                     </div>
                     <div class="delete-item-cart">
                         <a href="https://spacingtech.com/html/vegist-final/vegist/empty-cart.html"><i class="icon-trash icons"></i></a>

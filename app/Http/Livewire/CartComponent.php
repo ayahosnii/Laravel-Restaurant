@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Coupon;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Carbon\Carbon;
 
@@ -19,6 +20,22 @@ class CartComponent extends Component
     public $subtotalAfterDiscount;
     public $taxAfterDiscount;
     public $totalAfterDiscount;
+
+    public function updateCart()
+    {
+        $subtotal = Cart::instance('cart')->subtotal();
+        $tax = Cart::instance('cart')->tax();
+        $discount = $this->discount ?? 0;
+        $total = Cart::instance('cart')->total() - $discount;
+        $savings = $subtotal + $tax - $total;
+
+        $this->subtotal = $subtotal;
+        $this->tax = $tax;
+        $this->discount = $discount;
+        $this->total = $total;
+        $this->savings = $savings;
+    }
+
 
     public function increaseQuantity($rowId)
     {
@@ -53,19 +70,34 @@ class CartComponent extends Component
 
     public function applyCouponCode()
     {
-        $coupon = Coupon::where('code', $this->couponCode)->where('expiry_date', '>=', Carbon::class);
+
+        $coupon = Coupon::where('code', $this->couponCode)->first();
+
         if (!$coupon) {
-            session()->flash('coupon_message','Coupon code is invalid!');
+            $this->addError('couponCode', 'Invalid coupon code.');
             return;
         }
-        session()->put('coupon',[
-            'code' => $coupon->code,
-            'type' => $coupon->type,
-            'value' => $coupon->value,
-            'cart_value' => $coupon->cart_value,
-            'expiry_date'=> $coupon->expiry_date,
-            ]);
+
+        if (!$coupon->isValid(Cart::instance('cart'))) {
+            $this->addError('couponCode', 'This coupon cannot be applied to the current cart.');
+            return;
+        }
+
+        $discount = $coupon->discount(Cart::instance('cart')->subtotal());
+
+        Cart::instance('cart')->content()->each(function ($item) use ($discount) {
+            $item->price -= $discount / Cart::instance('cart')->count();
+        });
+
+        session()->put('coupon', [
+            'name' => $coupon->code,
+            'discount' => $coupon->discount(Cart::instance('cart')->subtotal()),
+        ]);
+
+        $this->emit('couponApplied');
     }
+
+
 
     public function checkout()
     {
@@ -82,6 +114,13 @@ class CartComponent extends Component
 
     public function render()
     {
-        return view('livewire.cart-component')->layout('layouts.base');
+        $subtotal = Cart::instance('cart')->subtotal();
+        $discount = $this->discount;
+        $total = max(0, $subtotal - $discount);
+        return view('livewire.cart-component', [
+            'subtotal' => $subtotal,
+            'discount' => $discount,
+            'total' => $total,
+        ])->layout('layouts.base');
     }
 }

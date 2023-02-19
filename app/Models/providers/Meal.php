@@ -2,6 +2,7 @@
 
 namespace App\Models\providers;
 
+use App\Models\Sale;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
@@ -34,6 +35,11 @@ class Meal extends Model /*implements TranslatableContract*/
     {
         return ($val !== null) ? asset('provider-assets/images/meals/' . $val) : "";
 
+    }
+
+    public function sales()
+    {
+        return $this->belongsToMany(Sale::class);
     }
 
 

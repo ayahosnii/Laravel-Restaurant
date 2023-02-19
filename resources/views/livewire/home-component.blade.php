@@ -1,3 +1,4 @@
+<div>
 <section class="slider">
     <div class="home-slider owl-carousel owl-theme owl-loaded owl-drag">
         <div class="owl-stage-outer">
@@ -169,7 +170,7 @@
                                             <i class="fa fa-star-o"></i>
                                         </div>
                                         <div class="pro-price">
-                                            <span class="new-price">{{$product->regular_price}} LE</span>
+                                            <span class="new-price">{{$product->price}} LE</span>
                                         </div>
                                     </div>
                                 </div>
@@ -200,27 +201,31 @@
             <div class="row">
                 <div class="col">
                     <div class="deal-content">
-                        <h2>Deal Of The Day!</h2>
+                        @if($sale && $ends_at > \Carbon\Carbon::now())
+                        <h2>{{$sale->name}}</h2>
                         <span class="deal-c">We offer a hot deal offer every festival</span>
                         <ul class="contdown_row">
                             <li class="countdown_section">
-                                <span id="days" class="countdown_timer">114</span>
+                                <span id="days" class="countdown_timer" wire:key="days">{{ $days }}</span>
                                 <span class="countdown_title">Days</span>
                             </li>
                             <li class="countdown_section">
-                                <span id="hours" class="countdown_timer">18</span>
+                                <span id="hours" class="countdown_timer" wire:key="hours">{{ $hours }}</span>
                                 <span class="countdown_title">Hours</span>
                             </li>
                             <li class="countdown_section">
-                                <span id="minutes" class="countdown_timer">43</span>
+                                <span id="minutes" class="countdown_timer" wire:key="minutes">{{ $minutes }}</span>
                                 <span class="countdown_title">Minutes</span>
                             </li>
                             <li class="countdown_section">
-                                <span id="seconds" class="countdown_timer">59</span>
+                                <span id="seconds" class="countdown_timer" wire:key="seconds">{{ $seconds }}</span>
                                 <span class="countdown_title">Seconds</span>
                             </li>
                         </ul>
-                        <a href="{{route('shop')}}" class="btn btn-style1">Shop collection</a>
+                        <a href="{{ route('shop') }}" class="btn btn-style1">Shop collection</a>
+                        @else
+                            <h2>Wait for new sale soon</h2>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -287,8 +292,18 @@
                                                 <i class="fa fa-star e-star"></i>
                                             </div>
                                             <div class="pro-price">
-                                                <span class="new-price">{{$product->sale_price}} LE</span>
-                                                <span class="old-price"><del>${{$product->regular_price}} LE</del></span>
+                                                @if ($product->sales && $product->sales->isNotEmpty())
+                                                    @if (\Carbon\Carbon::parse($product->sales->first()->ends_at)->greaterThanOrEqualTo(\Carbon\Carbon::now()))
+                                                        <span class="old-price"><del>{{ number_format($product->price, 2) }} LE</del></span>
+                                                        <span class="new-price">{{ number_format($product->price * (100 - $product->sales->first()->percentage) / 100, 2) }} LE</span>
+
+                                                    @else
+                                                        <span class="old-price">{{ number_format($product->price, 2) }} LE</span>
+
+                                                    @endif
+                                                @else
+                                                    <span class="old-price">{{ number_format($product->price, 2) }} LE</span>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -320,9 +335,11 @@
                                                     <img src="{{$lproduct->image}}" style="height: 300px; width: 500px" alt="{{$lproduct->image}}" class="img-fluid additional-image">
                                                 </a>
                                             </div>
+                                            @if($lproduct->sales->first()->percentage > 0)
                                             <div class="Pro-lable">
-                                                <span class="p-discount">-10%</span>
+                                                <span class="p-discount">%{{number_format($lproduct->sales->first()->percentage)}}</span>
                                             </div>
+                                            @endif
                                             <div class="pro-icn">
                                                 <a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html" class="w-c-q-icn"><i class="fa fa-heart"></i></a>
                                                 <a href="https://spacingtech.com/html/vegist-final/vegist/cart.html" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
@@ -339,8 +356,8 @@
                                                 <i class="fa fa-star e-star"></i>
                                             </div>
                                             <div class="pro-price">
-                                                <span class="new-price">{{$lproduct->sale_price}} LE</span>
-                                                <span class="old-price"><del>{{$lproduct->regular_price}} LE</del></span>
+                                                <span class="new-price">{{ number_format($lproduct->price * (100 - $lproduct->sales->first()->percentage) / 100, 2) }} LE</span>
+                                                <span class="old-price"><del>{{$lproduct->price}} LE</del></span>
                                             </div>
                                         </div>
                                     </div>
@@ -360,14 +377,14 @@
                     <div class="tab-pane fade" id="best">
                         <div class="home-pro-tab swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-multirow">
                             <div class="swiper-wrapper" style="transition-duration: 300ms;">
-                                @foreach($sproducts as $sproduct)
+                                @foreach($smeals as $smeal)
                                     <div class="swiper-slide" style="-webkit-box-ordinal-group: 6; order: 6; margin-top: 30px; width: 271.5px; margin-right: 30px;">
                                         <div class="h-t-pro">
                                             <div class="tred-pro">
                                                 <div class="tr-pro-img">
                                                     <a href="https://spacingtech.com/html/vegist-final/vegist/product.html">
-                                                        <img src="{{$sproduct->image}}" style="height: 300px; width: 500px" alt="pro-img1" class="img-fluid">
-                                                        <img src="{{$sproduct->image}}" style="height: 300px; width: 500px" alt="additional image" class="img-fluid additional-image">
+                                                        <img src="{{$smeal->image}}" style="height: 300px; width: 500px" alt="pro-img1" class="img-fluid">
+                                                        <img src="{{$smeal->image}}" style="height: 300px; width: 500px" alt="additional image" class="img-fluid additional-image">
                                                     </a>
                                                 </div>
                                                 <div class="Pro-lable">
@@ -380,7 +397,7 @@
                                                 </div>
                                             </div>
                                             <div class="caption">
-                                                <h3><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">{{$sproduct->name}} ({{$sproduct->quantity}}Kg)</a></h3>
+                                                <h3><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">{{$smeal->name}} ({{$smeal->quantity}}Kg)</a></h3>
                                                 <div class="rating">
                                                     <i class="fa fa-star b-star"></i>
                                                     <i class="fa fa-star b-star"></i>
@@ -389,8 +406,8 @@
                                                     <i class="fa fa-star-o"></i>
                                                 </div>
                                                 <div class="pro-price">
-                                                    <span class="new-price">{{$sproduct->sale_price}} LE</span>
-                                                    <span class="old-price"><del>{{$sproduct->regular_price}} LE</del></span>
+                                                    <span class="new-price">{{ number_format($smeal->price * (100 - $smeal->sales->first()->percentage) / 100, 2) }} LE</span>
+                                                    <span class="old-price"><del>{{$smeal->price}} LE</del></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -751,4 +768,5 @@
 
 <div id="app">
     <global-customer></global-customer>
+</div>
 </div>

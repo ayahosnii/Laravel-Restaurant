@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\RestaurantController;
 use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\SubCategoryController;
+use App\Http\Controllers\SaleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -83,6 +84,16 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
     Route::post('/coupons/update', [CouponController::class, 'update'])->name('admin.coupons.update');
     Route::get('/coupons/destroy', [CouponController::class, 'destroy'])->name('admin.coupons.delete');
     Route::get('changeStatus/{id}', [CouponController::class, 'changeStatus'])->name('admin.coupons.status');
+
+    ########################################## End  Coupons Route ##############################################################
+    ########################################## Start Coupons Route ##############################################################
+    Route::get('/sales', [SaleController::class, 'index'])->name('admin.sales');
+    Route::get('/sales/create', [SaleController::class, 'create'])->name('admin.sales.create');
+    Route::post('/sales/store', [SaleController::class, 'store'])->name('admin.sales.store');
+    Route::get('/sales/edit/{id}', [SaleController::class, 'edit'])->name('admin.sales.edit');
+    Route::post('/sales/update', [SaleController::class, 'update'])->name('admin.sales.update');
+    Route::get('/sales/destroy', [SaleController::class, 'destroy'])->name('admin.sales.delete');
+    Route::get('changeStatus/{id}', [SaleController::class, 'changeStatus'])->name('admin.sales.status');
 
     ########################################## End  Coupons Route ##############################################################
     ################################## attrributes routes ######################################

@@ -14,6 +14,9 @@ use Livewire\Component;
 class CheckoutComponent extends Component
 {
     public $ship_to_different;
+    public $discount;
+    public $payMethod;
+    public $showInput = false;
 
     public $firstname;
     public $lastname;
@@ -32,6 +35,15 @@ class CheckoutComponent extends Component
     public $d_zipcode;
     public $d_mobile;
     public $d_email;
+
+    public function updatedPayMethod($value)
+    {
+        if ($value === 'cash') {
+            $this->showInput = false;
+        } else {
+            $this->showInput = true;
+        }
+    }
 
     public function placeOrder()
     {
@@ -70,11 +82,7 @@ class CheckoutComponent extends Component
             foreach(Cart::instance('cart')->content() as $item) {
 
                     $orderItem = new OrderItem();
-                    if ($item->associatedModel == 'App\Models\providers\Product'){
-                        $orderItem->product_id = $item->id ?? '';
-                    } elseif ($item->associatedModel == 'App\Models\providers\Meal') {
-                        $orderItem->meal_id = $item->id ?? '';
-                    }
+                    $orderItem->meal_id = $item->id ?? '';
                     $orderItem->order_id = $order->id;
                     $orderItem->price = $item->price;
                     $orderItem->quantity = $item->qty;
@@ -106,6 +114,13 @@ class CheckoutComponent extends Component
     public function render()
     {
         $user = Auth::user();
-        return view('livewire.checkout-component', ['user' => $user])->layout('layouts.base');
+        $subtotal = Cart::instance('cart')->subtotal();
+        $discount = $this->discount;
+        $total = max(0, $subtotal - $discount);
+        return view('livewire.checkout-component', [
+            'subtotal' => $subtotal,
+            'total' => $total,
+            'user' => $user
+        ])->layout('layouts.base');
     }
 }

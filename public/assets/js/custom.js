@@ -63,7 +63,7 @@ $(".mm-fullscreen-bg").on('click', function(){
       sticky.removeClass('is-sticky');
     }
   });
-  
+
 
 
 /*==============================================================
@@ -1655,7 +1655,7 @@ jQuery(function ($) {
 
 // **************************************** cart page********************************************
 
-/* ========================================== 
+/* ==========================================
   Minus and Plus Btn Height
   ========================================== */
 
@@ -1689,11 +1689,11 @@ jQuery(function ($) {
 
 // **************************************** product page ********************************************
 
-    
-  /* ========================================== 
+
+  /* ==========================================
   //additional
   ========================================== */
-  
+
     $('.pro-page-slider').owlCarousel({
         loop: true,
         margin: 15,
@@ -1737,7 +1737,7 @@ jQuery(function ($) {
 
     });
 
-  /* ========================================== 
+  /* ==========================================
    //related product
   ========================================== */
   $('.releted-products').owlCarousel({
@@ -1767,9 +1767,9 @@ jQuery(function ($) {
       items: 4
     }
   }
-});  
+});
 
-   /* ========================================== 
+   /* ==========================================
    // index 7
   ========================================== */
 
@@ -1799,62 +1799,43 @@ jQuery(function ($) {
     }
   });
 
-// **************************************** coming soon ********************************************
+// **************************************** count sale ********************************************
+
+        function countdown() {
+        var daysElement = document.getElementById('days');
+        var hoursElement = document.getElementById('hours');
+        var minutesElement = document.getElementById('minutes');
+        var secondsElement = document.getElementById('seconds');
+
+        var days = parseInt(daysElement.innerHTML);
+        var hours = parseInt(hoursElement.innerHTML);
+        var minutes = parseInt(minutesElement.innerHTML);
+        var seconds = parseInt(secondsElement.innerHTML);
+
+        var totalSeconds = (days * 24 * 60 * 60) + (hours * 60 * 60) + (minutes * 60) + seconds;
+
+        if (totalSeconds <= 0) {
+        // Countdown is finished, do something here
+        return;
+    }
+
+        totalSeconds--;
+        days = Math.floor(totalSeconds / (24 * 60 * 60));
+        hours = Math.floor((totalSeconds % (24 * 60 * 60)) / (60 * 60));
+        minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+        seconds = totalSeconds % 60;
+
+        daysElement.innerHTML = days;
+        hoursElement.innerHTML = hours;
+        minutesElement.innerHTML = minutes;
+        secondsElement.innerHTML = seconds;
+
+        setTimeout(countdown, 1000);
+    }
+
+        countdown();
 
 
-if(document.getElementById('day')){
-    var deadline = new Date("july 30, 2050 15:37:25").getTime();             
-    var x = setInterval(function() {
-       var currentTime = new Date().getTime();                
-       var t = deadline - currentTime; 
-       var days = Math.floor(t / (1000 * 60 * 60 * 24)); 
-       var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60)); 
-       var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60)); 
-       var seconds = Math.floor((t % (1000 * 60)) / 1000); 
-       
-           document.getElementById("day").innerHTML = days ; 
-           document.getElementById("hour").innerHTML =hours; 
-           document.getElementById("minute").innerHTML = minutes; 
-           document.getElementById("second").innerHTML =seconds; 
-           if (t < 0) {
-              clearInterval(x); 
-              document.getElementById("time-up").innerHTML = "TIME UP"; 
-              document.getElementById("day").innerHTML ='0'; 
-              document.getElementById("hour").innerHTML ='0'; 
-              document.getElementById("minute").innerHTML ='0' ; 
-              document.getElementById("second").innerHTML = '0'; 
-           } 
-        
-
-    }, 1000); 
-
-}
-
-if(document.getElementById('days')){
-    //alert('sf');
-    var deadline = new Date("july 30, 2022 15:37:25").getTime();             
-    var x = setInterval(function() {
-       var currentTime = new Date().getTime();                
-       var t = deadline - currentTime; 
-       var days = Math.floor(t / (1000 * 60 * 60 * 24)); 
-       var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60)); 
-       var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60)); 
-       var seconds = Math.floor((t % (1000 * 60)) / 1000); 
-       
-           document.getElementById("days").innerHTML = days ; 
-           document.getElementById("hours").innerHTML =hours; 
-           document.getElementById("minutes").innerHTML = minutes; 
-           document.getElementById("seconds").innerHTML =seconds; 
-           if (t < 0) {
-              clearInterval(x); 
-              document.getElementById("time-up").innerHTML = "TIME UP"; 
-              document.getElementById("days").innerHTML ='0'; 
-              document.getElementById("hours").innerHTML ='0'; 
-              document.getElementById("minutes").innerHTML ='0' ; 
-              document.getElementById("seconds").innerHTML = '0'; 
-           } 
-    }, 1000); 
-}
 
 // **************************************** blog page ********************************************
 
@@ -1887,7 +1868,7 @@ $('.single-image-carousel').owlCarousel({
     }
 });
 
-/* ========================================== 
+/* ==========================================
    //blog
   ========================================== */
 
@@ -2008,7 +1989,7 @@ $( document ).ready(function() {
     },
   });
 });
-    
+
 // masonry
 $('.grid').imagesLoaded(function () {
     $('.grid').isotope({
@@ -2209,8 +2190,8 @@ navigation: {
   }
 },
 });
-    
-// testimonials 
+
+// testimonials
 var swiper = new Swiper('.swiper-container#testimonials', {
   slidesPerColumn: 1,
   slidesPerView: 3,
@@ -2343,7 +2324,7 @@ breakpoints: {
 },
 });
 
-// special product 
+// special product
 var swiper = new Swiper('.swiper-container.healthy-product', {
 slidesPerColumn: 1,
 slidesPerView: 4,
@@ -2470,14 +2451,14 @@ var swiper = new Swiper('.swiper-container.home-pro-tab-slider', {
 });
 
 /*==============================================================
-    home category 
+    home category
 ==============================================================*/
 var swiper = new Swiper('.swiper-container#home-category-slider', {
   slidesPerColumn: 1,
   slidesPerView: 6,
   spaceBetween: 30,
   observer: true,
-  loops: true, 
+  loops: true,
   observeParents: true,
   navigation: {
     nextEl: '.swiper-prev-cat',
