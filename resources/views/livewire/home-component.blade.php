@@ -355,10 +355,16 @@
                                                 <i class="fa fa-star e-star"></i>
                                                 <i class="fa fa-star e-star"></i>
                                             </div>
-                                            <div class="pro-price">
-                                                <span class="new-price">{{ number_format($lproduct->price * (100 - $lproduct->sales->first()->percentage) / 100, 2) }} LE</span>
-                                                <span class="old-price"><del>{{$lproduct->price}} LE</del></span>
-                                            </div>
+                                                <div class="Pro-lable">
+                                                    @if($lproduct->sales->first() && $lproduct->sales->first()->percentage > 0)
+                                                    <span class="p-discount">%{{number_format($lproduct->sales->first()->percentage)}}</span>
+                                                        <span class="old-price"><del>{{$lproduct->price}} LE</del></span>
+                                                    @else
+                                                        <span class="old-price"><del>{{$lproduct->price}} LE</del></span>
+                                                    @endif
+                                                </div>
+
+
                                         </div>
                                     </div>
                                 </div>
