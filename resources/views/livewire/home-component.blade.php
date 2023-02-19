@@ -340,7 +340,8 @@
                                                     <span class="p-discount">%{{number_format($lproduct->sales->first()->percentage)}}</span>
                                                 </div>
                                             @else
-
+                                                <div class="Pro-lable">
+                                                </div>
                                             @endif
                                             <div class="pro-icn">
                                                 <a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html" class="w-c-q-icn"><i class="fa fa-heart"></i></a>
