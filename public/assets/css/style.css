@@ -1836,8 +1836,11 @@ button.navbar-toggler span.line::after{
     max-width: 427px;
 }
 .home-countdown1 .back-img .deal-content h2{
-    color: #fff;
+    color: #040404;
     line-height: 1;
+}
+.home-countdown1 .back-img .deal-content span.deal-c{
+    color: #040404;
 }
 .home-countdown1 .back-img .deal-content span.deal-c{
     color: #fff;

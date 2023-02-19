@@ -196,14 +196,14 @@
 <!-- Trending Products end -->
 <!-- Back-image and countdown star -->
 <section class="home-countdown1">
-    <div class="back-img" style="background-image: url({{asset('assets/img/dealbanner.jpg')}});">
+    <div class="back-img" style="background-image: url({{asset('assets/img/banner-sale.jpg')}});">
         <div class="container">
             <div class="row">
                 <div class="col">
                     <div class="deal-content">
                         @if($sale && $ends_at > \Carbon\Carbon::now())
                         <h2>{{$sale->name}}</h2>
-                        <span class="deal-c">We offer a hot deal offer every festival</span>
+                        <span class="deal-c" style="color: #0a001f">We offer a hot deal offer every festival</span>
                         <ul class="contdown_row">
                             <li class="countdown_section">
                                 <span id="days" class="countdown_timer" wire:key="days">{{ $days }}</span>
