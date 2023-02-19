@@ -335,12 +335,9 @@
                                                     <img src="{{$lproduct->image}}" style="height: 300px; width: 500px" alt="{{$lproduct->image}}" class="img-fluid additional-image">
                                                 </a>
                                             </div>
-                                            @if($lproduct->sales->first()->percentage > 0)
+                                            @if($lproduct->sales->first()?->percentage > 0)
                                                 <div class="Pro-lable">
                                                     <span class="p-discount">%{{number_format($lproduct->sales->first()->percentage)}}</span>
-                                                </div>
-                                            @else
-                                                <div class="Pro-lable">
                                                 </div>
                                             @endif
                                             <div class="pro-icn">
