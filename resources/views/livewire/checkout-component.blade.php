@@ -189,9 +189,16 @@
                                 </li>
                             </ul>
 
+
                             @if ($showInput)
                                 <div class="input-popup"  id="card-element">
-                                    <input type="text" name="payment-method" placeholder="Enter Payment Method" />
+                                    <label for="card-element">Credit or debit card</label>
+                                    <div id="card-element">
+                                        <!-- Stripe.js injects the Card Element -->
+                                    </div>
+                                    <div id="card-errors" role="alert"></div>
+                                </div>
+                            <button wire:loading.attr="disabled" type="submit">Pay</button>
                                 </div>
                             @endif
                         <div class="checkout-btn">
