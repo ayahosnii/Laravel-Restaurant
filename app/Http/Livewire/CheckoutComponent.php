@@ -10,6 +10,13 @@ use App\Notifications\NewOrderForProviderNotify;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Stripe\Charge;
+use Stripe\Exception\ApiConnectionException;
+use Stripe\Exception\ApiErrorException;
+use Stripe\Exception\AuthenticationException;
+use Stripe\Exception\CardException;
+use Stripe\Exception\InvalidRequestException;
+use Stripe\Exception\RateLimitException;
 use Stripe\PaymentIntent;
 use Stripe\Stripe;
 
@@ -51,6 +58,43 @@ class CheckoutComponent extends Component
 
     public function placeOrder()
     {
+        // Set up Stripe
+        Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
+
+        // Create the Stripe charge
+        try {
+            $charge = Charge::create([
+            'amount' => $this->total * 100,
+            'currency' => 'usd',
+            'source' => $this->stripeToken,
+            'description' => 'Example charge',
+        ]);
+        } catch (CardException $e) {
+            // Since it's a decline, CardException will be caught
+            $error = $e->getError();
+            $message = $error['message'];
+        } catch (RateLimitException $e) {
+            // Too many requests made to the API too quickly
+            $message = 'Too many requests. Please try again later.';
+        } catch (InvalidRequestException $e) {
+            // Invalid parameters were supplied to Stripe's API
+            $message = 'Invalid parameters. Please check your input and try again.';
+        } catch (AuthenticationException $e) {
+            // Authentication with Stripe's API failed
+            $message = 'Authentication failed. Please check your credentials and try again.';
+        } catch (ApiConnectionException $e) {
+            // Network communication with Stripe failed
+            $message = 'Network error. Please try again later.';
+        } catch (ApiErrorException $e) {
+            // Catch all other Stripe errors
+            $message = 'Something went wrong. Please try again later.';
+        }
+
+        if (isset($message)) {
+            session()->flash('error', $message);
+            return;
+        }
+
         $this->validate([
             'firstname' => 'required',
             'lastname' => 'required',
@@ -111,14 +155,6 @@ class CheckoutComponent extends Component
             $shipping->email = $this->d_email;
             $shipping->mobile = $this->d_mobile;
         }
-        Stripe::setApiKey(config('services.stripe.secret'));
-
-        $intent = PaymentIntent::create([
-            'amount' => session()->get('checkout')['total'] ?? floatval(Cart::instance('cart')->total()) * 100,
-            'currency' => 'EGP',
-        ]);
-
-        $this->paymentIntentId = $intent->id;
 
         Cart::instance('cart')->destroy();
         session()->forget('checkout');

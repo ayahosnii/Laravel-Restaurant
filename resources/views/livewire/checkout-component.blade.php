@@ -1,5 +1,5 @@
-<section class="section-tb-padding">
-    <div class="container">
+<div wire:id="ENOthHwhOMnvk0ePZkX2" class="section-tb-padding">
+<div class="container">
         <div class="row">
             <div class="col">
                 <div class="checkout-area">
@@ -129,9 +129,6 @@
                                     </div>
                                     @endif
                             </div>
-
-
-                    </div>
                     <div class="order-area">
                         <div class="check-pro">
                             <h2>In your cart ({{Cart::instance('cart')->count()}})</h2>
@@ -261,7 +258,7 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 {{--    <section class="about-breadcrumb">--}}
 {{--        <div class="about-back section-tb-padding" style="background-image: url(image/about-image.jpg)">--}}
 {{--            <div class="container">--}}
