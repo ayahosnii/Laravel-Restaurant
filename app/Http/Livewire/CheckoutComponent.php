@@ -115,7 +115,7 @@ class CheckoutComponent extends Component
 
         $intent = PaymentIntent::create([
             'amount' => session()->get('checkout')['total'] ?? floatval(Cart::instance('cart')->total()) * 100,
-            'currency' => 'usd',
+            'currency' => 'EGP',
         ]);
 
         $this->paymentIntentId = $intent->id;
