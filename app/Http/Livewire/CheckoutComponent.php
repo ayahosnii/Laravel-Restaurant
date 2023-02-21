@@ -10,6 +10,8 @@ use App\Notifications\NewOrderForProviderNotify;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Stripe\PaymentIntent;
+use Stripe\Stripe;
 
 class CheckoutComponent extends Component
 {
@@ -17,6 +19,8 @@ class CheckoutComponent extends Component
     public $discount;
     public $payMethod;
     public $showInput = false;
+    public $paymentIntentId;
+
 
     public $firstname;
     public $lastname;
@@ -107,6 +111,15 @@ class CheckoutComponent extends Component
             $shipping->email = $this->d_email;
             $shipping->mobile = $this->d_mobile;
         }
+        Stripe::setApiKey(config('services.stripe.secret'));
+
+        $intent = PaymentIntent::create([
+            'amount' => session()->get('checkout')['total'] ?? floatval(Cart::instance('cart')->total()) * 100,
+            'currency' => 'usd',
+        ]);
+
+        $this->paymentIntentId = $intent->id;
+
         Cart::instance('cart')->destroy();
         session()->forget('checkout');
         return redirect()->route('thankyou');

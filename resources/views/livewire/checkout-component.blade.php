@@ -168,7 +168,6 @@
                                 <span>£E{{ $total }}</span>
                             </li>
                         </ul>
-                        <form>
                             <ul class="order-form">
                                 <li>
                                     <input type="radio" name="pay-method" value="cash" wire:model="payMethod">
@@ -191,14 +190,14 @@
                             </ul>
 
                             @if ($showInput)
-                                <div class="input-popup">
+                                <div class="input-popup"  id="card-element">
                                     <input type="text" name="payment-method" placeholder="Enter Payment Method" />
                                 </div>
                             @endif
-                        </form>
                         <div class="checkout-btn">
                             <button type="submit" class="btn-style1">Place order</button>
                         </div>
+                        </form>
                         @if(Session::has('checkout'))
                             <p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">${{Session::get('checkout')['total']}}</span></p>
                         @endif
@@ -208,6 +207,47 @@
                                 <i class="fa fa-spinner fa-pulse fa-fw"></i>
                                 <span>Processing...</span>
                             </div>
+                        @endif
+                        <script src="https://js.stripe.com/v3/"></script>
+                        <script>
+                            var stripe = Stripe('{{ config('services.stripe.key') }}');
+                            var elements = stripe.elements();
+                            var cardElement = elements.create('card');
+                            console.log('work')
+
+                            cardElement.mount('#card-element');
+
+                            var cardholderName = document.getElementById('cardholder-name');
+                            var submitButton = document.getElementById('submit-button');
+
+                            submitButton.addEventListener('click', function(ev) {
+                                ev.preventDefault();
+                                stripe.confirmCardPayment('{{ $paymentIntentId }}', {
+                                    payment_method: {
+                                        card: cardElement,
+                                        billing_details: {
+                                            name: cardholderName.value
+                                        }
+                                    }
+                                }).then(function(result) {
+                                    if (result.error) {
+                                        console.error(result.error);
+                                        alert('Payment failed');
+                                    } else {
+                                        Livewire.emit('orderPlaced');
+                                    }
+                                });
+                            });
+                        </script>
+                        @if ($payMethod === 'card' && $showInput)
+                            <script>
+                                document.addEventListener("livewire:load", function() {
+                                    const stripe = Stripe('{{ config('services.stripe.key') }}');
+                                    const elements = stripe.elements();
+                                    const cardElement = elements.create('card');
+                                    cardElement.mount('#card-element');
+                                });
+                            </script>
                         @endif
                     </div>
                 </div>
