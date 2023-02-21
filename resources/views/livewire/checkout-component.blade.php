@@ -194,7 +194,7 @@
                                 <div class="input-popup"  id="card-element">
                                     <label for="card-element">Credit or debit card</label>
                                     <div id="card-element">
-                                        <!-- Stripe.js injects the Card Element -->
+                                        <!--- Stripe.js injects the Card Element -->
                                     </div>
                                     <div id="card-errors" role="alert"></div>
                                 </div>
