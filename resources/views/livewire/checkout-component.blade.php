@@ -1,5 +1,5 @@
-<div wire:id="ENOthHwhOMnvk0ePZkX2" class="section-tb-padding">
-<div class="container">
+<section class="section-tb-padding">
+    <div class="container">
         <div class="row">
             <div class="col">
                 <div class="checkout-area">
@@ -72,6 +72,7 @@
 
                                     </ul>
                                 </div>
+
                                 @if($ship_to_different)
                                     <div class="container">
                                         <div class="row">
@@ -127,84 +128,72 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @endif
-                            </div>
-                    <div class="order-area">
-                        <div class="check-pro">
-                            <h2>In your cart ({{Cart::instance('cart')->count()}})</h2>
-                            <ul class="check-ul">
-                            @foreach(Cart::instance('cart')->content() as $item)
-                                <li>
-                                    <div class="check-pro-img">
-                                        <a href="{{route('product.details', ['slug' => $item -> model ->slug])}}"><img src="{{$item->model->image}}" class="img-fluid" alt="image" style="height: 100px; width: 100px"></a>
-                                        <span><a href="{{route('product.details', ['slug' => $item -> model ->slug])}}">{{ substr($item->model->name,0,5) }}</a> </span>
-                                    </div>
-                                    <div class="check-content">
-                                        <a href="https://spacingtech.com/html/vegist-final/vegist/product.html">{{$item->model->name}}</a>
-                                        <span class="check-code-blod">Product code: <span>x{{$item->qty}}</span></span>
-                                        <span class="check-price">{{$item->price}} LE</span>
-                                    </div>
-                                </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        <h2>Your order</h2>
-                        <ul class="order-history">
-                            <li class="order-details">
-                                <span>Product:</span>
-                                <span>Total</span>
-                            </li>
-                            @foreach(Cart::instance('cart')->content() as $item)
-                            <li class="order-details">
-                                <span>{{$item->model->name}}:</span>
-                                <span>{{$item->price * $item->qty}} LE</span>
-                            </li>
-                            @endforeach
-                            <li class="order-details">
-                                <span>Total after discount:</span>
-                                <span>£E{{ $total }}</span>
-                            </li>
-                        </ul>
-                            <ul class="order-form">
-                                <li>
-                                    <input type="radio" name="pay-method" value="cash" wire:model="payMethod">
-                                    <label>Cash</label>
-                                </li>
-                                <li>
-                                    <input type="radio" name="pay-method" value="card" wire:model="payMethod">
-                                    <label>Debit / Credit Card</label>
-                                </li>
-                                <li>
-                                    <input type="radio" name="pay-method" wire:model="payMethod">
-                                    <label>Paypal</label>
-                                </li>
-                                <li class="pay-icon">
-                                    <a href="javascript:void(0)"><i class="fa fa-credit-card"></i></a>
-                                    <a href="javascript:void(0)"><i class="fa fa-cc-visa"></i></a>
-                                    <a href="javascript:void(0)"><i class="fa fa-cc-paypal"></i></a>
-                                    <a href="javascript:void(0)"><i class="fa fa-cc-mastercard"></i></a>
-                                </li>
-                            </ul>
 
+                                                @endif
 
-                            @if ($showInput)
-                                <div class="input-popup"  id="card-element">
-                                    <label for="card-element">Credit or debit card</label>
-                                    <div id="card-element">
-                                        <!--- Stripe.js injects the Card Element -->
-                                    </div>
-                                    <div id="card-errors" role="alert"></div>
-                                </div>
-                            <button wire:loading.attr="disabled" type="submit">Pay</button>
-                                </div>
-                            @endif
-                        <div class="checkout-btn">
-                            <button type="submit" class="btn-style1">Place order</button>
-                        </div>
+                                        <label for="card-element">Credit or debit card</label>
+                                        <div id="card-element"></div>
+                                        <div id="card-errors" role="alert"></div>
+                                    <button wire:loading.attr="disabled" type="submit">Pay</button>
+                                    <button type="submit">Place order</button>
                         </form>
-                        @if(Session::has('checkout'))
-                            <p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">${{Session::get('checkout')['total']}}</span></p>
-                        @endif
+                                            </div>
+                                        </div>
+                                        <div class="order-area">
+                                            <div class="check-pro">
+                                                <h2>In your cart ({{Cart::instance('cart')->count()}})</h2>
+                                                <ul class="check-ul">
+                                                    @foreach(Cart::instance('cart')->content() as $item)
+                                                        <li>
+                                                            <div class="check-pro-img">
+                                                                <a href="{{route('product.details', ['slug' => $item -> model ->slug])}}"><img src="{{$item->model->image}}" class="img-fluid" alt="image" style="height: 100px; width: 100px"></a>
+                                                                <span><a href="{{route('product.details', ['slug' => $item -> model ->slug])}}">{{ substr($item->model->name,0,5) }}</a> </span>
+                                                            </div>
+                                                            <div class="check-content">
+                                                                <a href="https://spacingtech.com/html/vegist-final/vegist/product.html">{{$item->model->name}}</a>
+                                                                <span class="check-code-blod">Product code: <span>x{{$item->qty}}</span></span>
+                                                                <span class="check-price">{{$item->price}} LE</span>
+                                                            </div>
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                            <h2>Your order</h2>
+                                            <ul class="order-history">
+                                                <li class="order-details">
+                                                    <span>Product:</span>
+                                                    <span>Total</span>
+                                                </li>
+                                                @foreach(Cart::instance('cart')->content() as $item)
+                                                    <li class="order-details">
+                                                    <li class="order-details">
+                                                        <span>{{$item->model->name}}:</span>
+                                                        <span>{{$item->price}} LE</span>
+                                                    </li>
+                                                @endforeach
+                                                <li class="order-details">
+                                                    <span>Subtotal:</span>
+                                                    <span>{{Cart::instance('cart')->subtotal()}} LE</span>
+                                                </li>
+                                                <li class="order-details">
+                                                    <span>Tax ({{config('cart.tax')}}%):</span>
+                                                    <span>{{Cart::instance('cart')->tax()}} LE</span>
+                                                </li>
+                                                <li class="order-details">
+                                                    <span>Total:</span>
+                                                    <span>{{Cart::instance('cart')->total()}} LE</span>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
 
                         @if($errors->isEmpty())
                             <div wire:ignore id="processing" style="font-size:22px; margin-bottom:20px;padding-left:37px;color:green;display:none;">
@@ -212,53 +201,50 @@
                                 <span>Processing...</span>
                             </div>
                         @endif
-                        <script src="https://js.stripe.com/v3/"></script>
-                        <script>
-                            var stripe = Stripe('{{ config('services.stripe.key') }}');
-                            var elements = stripe.elements();
-                            var cardElement = elements.create('card');
-                            console.log('work')
-
-                            cardElement.mount('#card-element');
-
-                            var cardholderName = document.getElementById('cardholder-name');
-                            var submitButton = document.getElementById('submit-button');
-
-                            submitButton.addEventListener('click', function(ev) {
-                                ev.preventDefault();
-                                stripe.confirmCardPayment('{{ $paymentIntentId }}', {
-                                    payment_method: {
-                                        card: cardElement,
-                                        billing_details: {
-                                            name: cardholderName.value
-                                        }
-                                    }
-                                }).then(function(result) {
-                                    if (result.error) {
-                                        console.error(result.error);
-                                        alert('Payment failed');
-                                    } else {
-                                        Livewire.emit('orderPlaced');
-                                    }
-                                });
-                            });
-                        </script>
-                        @if ($payMethod === 'card' && $showInput)
-                            <script>
-                                document.addEventListener("livewire:load", function() {
-                                    const stripe = Stripe('{{ config('services.stripe.key') }}');
-                                    const elements = stripe.elements();
-                                    const cardElement = elements.create('card');
-                                    cardElement.mount('#card-element');
-                                });
-                            </script>
-                        @endif
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        var stripe = Stripe('{{ config('services.stripe.key') }}');
+        var elements = stripe.elements();
+        var cardElement = elements.create('card');
+        console.log('work')
+        cardElement.mount('#card-element');
+        var cardholderName = document.getElementById('cardholder-name');
+        var submitButton = document.getElementById('submit-button');
+        submitButton.addEventListener('click', function(ev) {
+            ev.preventDefault();
+            stripe.confirmCardPayment('{{ $paymentIntentId }}', {
+                payment_method: {
+                    card: cardElement,
+                    billing_details: {
+                        name: cardholderName.value
+                    }
+                }
+            }).then(function(result) {
+                if (result.error) {
+                    console.error(result.error);
+                    alert('Payment failed');
+                } else {
+                    Livewire.emit('orderPlaced');
+                }
+            });
+        });
+    </script>
+    @if ($payMethod === 'card' && $showInput)
+        <script>
+            document.addEventListener("livewire:load", function() {
+                const stripe = Stripe('{{ config('services.stripe.key') }}');
+                const elements = stripe.elements();
+                const cardElement = elements.create('card');
+                cardElement.mount('#card-element');
+            });
+        </script>
+        @endif
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 {{--    <section class="about-breadcrumb">--}}
 {{--        <div class="about-back section-tb-padding" style="background-image: url(image/about-image.jpg)">--}}
 {{--            <div class="container">--}}
