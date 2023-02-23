@@ -132,8 +132,9 @@
                                                 @endif
 
                                         <label for="card-element">Credit or debit card</label>
-                                        <div id="card-element"></div>
-                                        <div id="card-errors" role="alert"></div>
+                                        <div id="card-element">
+                                        </div>
+                                <div id="card-errors" role="alert"></div>
                                     <button wire:loading.attr="disabled" type="submit">Pay</button>
                                     <button type="submit">Place order</button>
                         </form>

@@ -46,6 +46,22 @@ class CheckoutComponent extends Component
     public $d_zipcode;
     public $d_mobile;
     public $d_email;
+    protected $listeners = ['orderPlaced'];
+
+    public function mount()
+    {
+        Stripe::setApiKey(config('services.stripe.secret'));
+        try {
+            $intent = \Stripe\PaymentIntent::create([
+                'amount' => Cart::instance('cart')->total() * 100,
+                'currency' => 'usd',
+            ]);
+            $this->paymentIntentId = $intent->client_secret;
+        } catch (ApiErrorException $e) {
+            session()->flash('stripe_error', $e->getMessage());
+        }
+    }
+
 
     public function updatedPayMethod($value)
     {
@@ -58,41 +74,26 @@ class CheckoutComponent extends Component
 
     public function placeOrder()
     {
-        // Set up Stripe
-        Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
-
-        // Create the Stripe charge
+        Stripe::setApiKey(config('services.stripe.secret'));
         try {
-            $charge = Charge::create([
-            'amount' => $this->total * 100,
-            'currency' => 'usd',
-            'source' => $this->stripeToken,
-            'description' => 'Example charge',
-        ]);
-        } catch (CardException $e) {
-            // Since it's a decline, CardException will be caught
-            $error = $e->getError();
-            $message = $error['message'];
-        } catch (RateLimitException $e) {
-            // Too many requests made to the API too quickly
-            $message = 'Too many requests. Please try again later.';
-        } catch (InvalidRequestException $e) {
-            // Invalid parameters were supplied to Stripe's API
-            $message = 'Invalid parameters. Please check your input and try again.';
-        } catch (AuthenticationException $e) {
-            // Authentication with Stripe's API failed
-            $message = 'Authentication failed. Please check your credentials and try again.';
-        } catch (ApiConnectionException $e) {
-            // Network communication with Stripe failed
-            $message = 'Network error. Please try again later.';
+            $paymentIntent = \Stripe\PaymentIntent::retrieve($this->paymentIntentId);
+            $paymentIntent->confirm([
+                'payment_method' => [
+                    'card' => [
+                        'number' => $this->cardNumber,
+                        'exp_month' => $this->cardExpiryMonth,
+                        'exp_year' => $this->cardExpiryYear,
+                        'cvc' => $this->cardCvc,
+                    ],
+                    'billing_details' => [
+                        'name' => $this->firstname . ' ' . $this->lastname,
+                        'email' => auth()->user()->email,
+                    ],
+                ],
+            ]);
+            Livewire.emit('orderPlaced');
         } catch (ApiErrorException $e) {
-            // Catch all other Stripe errors
-            $message = 'Something went wrong. Please try again later.';
-        }
-
-        if (isset($message)) {
-            session()->flash('error', $message);
-            return;
+            session()->flash('stripe_error', $e->getMessage());
         }
 
         $this->validate([
