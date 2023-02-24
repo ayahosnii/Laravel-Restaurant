@@ -75,7 +75,7 @@
                                                                     <input id="password" class="form__input block mt-1 w-full" type="password" name="password" required autocomplete="current-password" placeholder="Password">
                                                                     <button type="submit" class="btn-style1">Sign in</button>
                                                                     @if (Route::has('password.request'))
-                                                                        <a href=href="{{ route('password.request') }}" class="re-password">Forgot your password?</a>
+                                                                        <a href="{{ route('password.request') }}" class="re-password">Forgot your password?</a>
                                                                     @endif
                                                                 </form>
 <!--                                                                <div class="login-account">
