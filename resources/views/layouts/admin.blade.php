@@ -12,7 +12,7 @@
     <meta name="author" content="PIXINVENT">
     <meta name="adminId" content="{{ auth()->guard('admin') ? auth()->guard('admin')->id() : '' }}">
 
-    <title>  modern </title>
+    <title>  Aya's dashboard </title>
     <link rel="apple-touch-icon" href="http://127.0.0.1:8000/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="http://127.0.0.1:8000/images/ico/favicon.ico">
     <link

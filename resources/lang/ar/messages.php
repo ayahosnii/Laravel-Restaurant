@@ -11,6 +11,8 @@ return [
     "Sub-Categories" => 'الأقسام الفرعية',
     'Categories' => 'الأقسام',
     'Restaurants' => 'المطاعم',
+    'coupons' => 'كوبونات',
+    'all-coupons' => 'كل الكوبونات',
 
     'add' => 'اضف',
     'create' => 'اضافه',
@@ -67,8 +69,8 @@ return [
     'show_products' => 'عرض المنتجات',
     'created_at' => 'تم اضافته',
 
-    'products' => 'المنتجات',
-    'product' => 'المنتج',
+    'meals' => 'المنتجات',
+    'meal' => 'المنتج',
     'quantity' => 'الكميه',
     'total' => 'المجموع',
     'purchase_price' => 'سعر الشراء',

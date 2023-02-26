@@ -11,7 +11,7 @@ class Coupon extends Model
     use HasFactory;
 
     protected $table = 'coupons';
-    protected $fillable = ['id', 'code', 'type', 'value', 'for', 'expiry_date', 'provider_id', 'branch_id', 'start_time', 'end_time'];
+    protected $fillable = ['id', 'code', 'type', 'value', 'for', 'end_time', 'for', 'provider_id', 'branch_id', 'start_time', 'end_time'];
 
     public function scopeSelection($query)
     {

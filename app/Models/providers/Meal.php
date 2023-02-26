@@ -2,6 +2,7 @@
 
 namespace App\Models\providers;
 
+use App\Models\ProviderRegister;
 use App\Models\Sale;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;

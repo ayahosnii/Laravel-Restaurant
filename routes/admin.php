@@ -67,13 +67,13 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
 
     ########################################## End  SubCategories Route ##############################################################
     ########################################## Start Products Route ##############################################################
-    Route::get('/products', [ProductController::class, 'index'])->name('admin.products');
-    Route::get('/products/create', [ProductController::class, 'create'])->name('admin.products.create');
-    Route::post('/products/store', [ProductController::class, 'store'])->name('admin.products.store');
-    Route::get('/products/edit/{id}', [ProductController::class, 'edit'])->name('admin.products.edit');
-    Route::post('/products/update', [ProductController::class, 'update'])->name('admin.products.update');
-    Route::get('/products/destroy', [ProductController::class, 'destroy'])->name('admin.products.delete');
-    Route::get('/products/change/{id}', [ProductController::class, 'changeStatus'])->name('admin.products.status');
+    Route::get('/meals', [ProductController::class, 'index'])->name('admin.meals');
+    Route::get('/meals/create', [ProductController::class, 'create'])->name('admin.meals.create');
+    Route::post('/meals/store', [ProductController::class, 'store'])->name('admin.meals.store');
+    Route::get('/meals/edit/{id}', [ProductController::class, 'edit'])->name('admin.meals.edit');
+    Route::post('/meals/update', [ProductController::class, 'update'])->name('admin.meals.update');
+    Route::get('/meals/destroy', [ProductController::class, 'destroy'])->name('admin.meals.delete');
+    Route::get('/meals/change/{id}', [ProductController::class, 'changeStatus'])->name('admin.meals.status');
 
     ########################################## End  Products Route ##############################################################
     ########################################## Start Coupons Route ##############################################################

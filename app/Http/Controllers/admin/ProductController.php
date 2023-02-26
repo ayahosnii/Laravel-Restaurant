@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\admin\MainCategory;
 use App\Models\admin\Product;
 use App\Models\admin\ProductTranslation;
+use App\Models\providers\Meal;
 use Illuminate\Http\Request;
 use DB;
 
@@ -19,7 +20,7 @@ class ProductController extends Controller
     public function index()
     {
         $default_lang = get_default_language();
-        $products = Product::where('translation_lang', $default_lang)->select()->get();
+        $products = Meal::select()->get();
         return view('admin.products.index', compact('products'));
     }
 

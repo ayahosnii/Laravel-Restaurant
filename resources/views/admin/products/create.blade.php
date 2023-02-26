@@ -9,7 +9,7 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{route('admin.products')}}">المنتجات</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.meals')}}">المنتجات</a>
                                 </li>
                                 <li class="breadcrumb-item active">إضافة منتج
                                 </li>
@@ -41,7 +41,7 @@
                                 @include('admin.includes.alerts.errors')
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                        <form class="form" action="{{route('admin.products.store')}}" method="POST"
+                                        <form class="form" action="{{route('admin.meals.store')}}" method="POST"
                                               enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-body">

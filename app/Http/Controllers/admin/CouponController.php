@@ -12,7 +12,7 @@ class CouponController extends Controller
 {
     public function index()
     {
-        $coupons = Coupon::selection()->get();
+        $coupons = Coupon::get();
         return view('admin.coupon.index', compact('coupons'));
     }
 
@@ -24,12 +24,12 @@ class CouponController extends Controller
     public function store(CouponRequest $request)
     {
         try {
-            $coupon = Coupon::create([
+             \DB::table('coupons')->insert([
                 'code' => $request->code,
                 'type' => $request->type,
                 'value' => $request->value,
-                'cart_value' => $request->cart_value,
-                'expiry_date' => $request->expiry_date,
+                'for' => $request->for,
+                'end_time' => $request->end_time,
 
             ]);
 

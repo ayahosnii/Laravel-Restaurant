@@ -12,7 +12,7 @@ return [
     "Sub-Categories" => 'Sub-Categories',
     'permissions' => 'permissions',
     'Categories' => 'Categories',
-    'Products' => 'Products',
+    'meals' => 'Meals',
     'Restaurants' => 'Restaurants',
 
     'users' => 'المشرفين',
@@ -21,6 +21,10 @@ return [
     'email' => 'Email',
     'image' => 'صوره',
     'action' => 'اكشن',
+    'edit'=>'edit',
+    'show'=>'show',
+    'coupons'=>'Coupons',
+    'all-coupons'=>'All Coupons',
 
 
     'categories' => 'categories',

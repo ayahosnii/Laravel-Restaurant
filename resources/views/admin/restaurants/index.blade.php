@@ -77,6 +77,7 @@
                                                     </tr>
                                                 @endforeach
                                             @endisset
+                                            {{ $restaurants->links() }}
 
 
                                             </tbody>

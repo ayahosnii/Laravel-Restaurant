@@ -54,15 +54,15 @@
             </li>
 
             <li class="nav-item"><a href=""><i class="la la-male"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">@lang('messages.Products')  </span>
+                    <span class="menu-title" data-i18n="nav.dash.main">@lang('messages.meals')  </span>
                     <span
                         class="badge badge badge-success badge-pill float-right mr-2"></span>
                 </a>
                 <ul class="menu-content">
-                    <li class="inactive"><a class="menu-item" href="{{route('admin.products')}}"
+                    <li class="inactive"><a class="menu-item" href="{{route('admin.meals')}}"
                                           data-i18n="nav.dash.ecommerce"> عرض الكل </a>
                     </li>
-                    <li><a class="menu-item" href="{{route('admin.products.create')}}" data-i18n="nav.dash.crypto">أضافة
+                    <li><a class="menu-item" href="{{route('admin.meals.create')}}" data-i18n="nav.dash.crypto">أضافة
                             منتج </a>
                     </li>
                 </ul>
@@ -70,7 +70,7 @@
 
 
             <li class="nav-item"><a href=""><i class="la la-male"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">@lang('messages.Restaurnats')  </span>
+                    <span class="menu-title" data-i18n="nav.dash.main">@lang('messages.Restaurants')  </span>
                     <span
                         class="badge badge badge-warning  badge-pill float-right mr-2"></span>
                 </a>
@@ -86,14 +86,14 @@
 
 
             <li class="nav-item">
-                <a href=""><i class="la la-male"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">تذاكر المراسلات   </span>
+                <a href="{{route('admin.coupons')}}"><i class="la la-male"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">@lang('messages.coupons')   </span>
                     <span
                         class="badge badge badge-danger  badge-pill float-right mr-2">0</span>
                 </a>
                 <ul class="menu-content">
-                    <li class="inactive"><a class="menu-item" href=""
-                                          data-i18n="nav.dash.ecommerce"> تذاكر الطلاب </a>
+                    <li class="inactive"><a class="menu-item" href="{{route('admin.coupons')}}"
+                                          data-i18n="nav.dash.ecommerce"> @lang('messages.all-coupons') </a>
                     </li>
                 </ul>
             </li>
@@ -133,10 +133,11 @@
                 </ul>
             </li>
             <li class=" navigation-header">
-                <span data-i18n="nav.category.layouts">Layouts</span><i class="la la-ellipsis-h ft-minus"
-                                                                        data-toggle="tooltip"
-                                                                        data-placement="right"
-                                                                        data-original-title="Layouts"></i>
+                <span data-i18n="nav.category.layouts">Layouts</span>
+                <i class="la la-ellipsis-h ft-minus"
+                data-toggle="tooltip"
+                data-placement="right"
+                data-original-title="Layouts"></i>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-columns"></i><span class="menu-title"
                                                                                  data-i18n="nav.page_layouts.main">Page layouts</span><span

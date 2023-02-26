@@ -18,7 +18,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurants = ProviderRegister::get();
+        $restaurants = ProviderRegister::paginate(10);
         return view('admin.restaurants.index', compact('restaurants'));
     }
 

@@ -59,19 +59,19 @@
                                             <tr>
                                                 <td> {{$product -> name}}</td>
                                                 <td><img style="width: 150px; height: 100px;" src="{{$product->image}}" alt="{{$product->name}}"></td>
-                                                <td>{{$product -> getActive()}}</td>
+                                                <td>{{--$product -> getActive()--}}</td>
                                                 <td>${{$product->regular_price}}</td>
                                                 <td>
                                                     <div class="btn-group" role="group"
                                                          aria-label="Basic example">
-                                                        <a href="{{route('admin.products.edit', $product-> id)}}"
+                                                        <a href="{{route('admin.meals.edit', $product-> id)}}"
                                                            class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
 
                                                         <div class="btn-group" role="group"
                                                              aria-label="Basic example">
-                                                            <a href="{{route('admin.products.delete', $product-> id)}}"
+                                                            <a href="{{route('admin.meals.delete', $product-> id)}}"
                                                                class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
-                                                            <a href="{{route('admin.products.status', $product-> id)}}"
+                                                            <a href="{{route('admin.meals.status', $product-> id)}}"
                                                                class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-1">
                                                                 @if($product -> active == 0)
                                                                     تفعيل

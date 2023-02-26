@@ -51,7 +51,7 @@
                                                 <th> اسم الكوبون</th>
                                                 <th>نوع الكوبون</th>
                                                 <th>قيمة الكوبون</th>
-                                                <th>قيمة الكارت</th>
+                                                <th>نوع الكارت</th>
                                                 <th>تاريخ الانتهاء</th>
                                                 <th>الإجراءات</th>
                                             </tr>
@@ -69,8 +69,8 @@
                                                 @else
                                                     <td>{{$coupon -> value}}%</td>
                                                 @endif
-                                                <td>{{$coupon -> cart_value}}$</td>
-                                                <td>{{$coupon -> expiry_date}}</td>
+                                                    <td>{{$coupon -> for}}</td>
+                                                <td>{{$coupon -> end_time}}</td>
                                                 <td>
                                                     <div class="btn-group" role="group"
                                                          aria-label="Basic example">

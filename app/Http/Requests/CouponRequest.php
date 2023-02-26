@@ -27,8 +27,8 @@ class CouponRequest extends FormRequest
             'code'=>'required|unique:coupons',
             'type'=>'required',
             'value'=>'required|numeric',
-            'cart_value'=>'required|numeric',
-            'expiry_date'=>'required'
+            'for'=>'required',
+            'end_time'=>'required'
         ];
     }
 

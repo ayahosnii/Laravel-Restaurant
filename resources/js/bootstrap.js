@@ -17,7 +17,7 @@ window.Echo = new Echo({
     broadcaster: 'pusher',
     key: process.env.PUSHER_APP_KEY,
     wsHost: window.location.hostname,
-    wsPort: 3030,
+    wsPort: 8080,
     disableStats: true,
-    forceTLS: false
+    forceTLS: true
 });

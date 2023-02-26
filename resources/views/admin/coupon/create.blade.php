@@ -95,24 +95,33 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> قيمة الكارت</label>
-                                                            <input type="text" value="" id="cart_value"
-                                                                   class="form-control"
-                                                                   placeholder="ادخل قيمة الكارت "
-                                                                   name="cart_value">
-                                                            @error('cart_value')
+                                                            <select name="for" class="select2 form-control">
+                                                                <optgroup label="من فضلك أختر نوع الكوبون ">
+                                                                <option value="general">General</option>
+                                                                <option value="provider">Provider</option>
+                                                                <option value="branch">Branch</option>
+                                                                <option value="items">Items</option>
+                                                            </select>
+                                                            @error('for')
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-6">
-                                                        <div class="form-group" wire:ignore>
-                                                            <label for="projectinput1"> تاريخ انتهاء الكارت</label>
-                                                            <input type="date" value="" id="expiry_date"
-                                                                   class="form-control"
-                                                                   placeholder="ادخل تاريخ انتهاء الكارت "
-                                                                   name="expiry_date">
-                                                            @error('expiry_date')
+                                                        <div class="form-group">
+                                                            <label for="start_time">تاريخ بداية الكارت</label>
+                                                            <input type="datetime-local" id="start_time" name="start_time" class="form-control">
+                                                            @error('start_time')
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="end_time">تاريخ انتهاء الكارت</label>
+                                                            <input type="datetime-local" id="end_time" name="end_time" class="form-control">
+                                                            @error('end_time')
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>

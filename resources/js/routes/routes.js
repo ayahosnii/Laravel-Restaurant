@@ -16,11 +16,20 @@ export const routes = [
     { path: '/en/post/:slug', component: PostDetails, name: 'PostDetails' },
     { path: '/ar/post/:slug', component: PostDetails, name: 'postDetailsAr' },
 
-    { path: '/en/category/:slug/posts', component: CategoryPosts, name: 'CategoryPosts' },
-    { path: '/ar/category/:slug/posts', component: CategoryPosts, name: 'CategoryPosts' },
-/*
-    { path: '/en/customer-server/:uuid', component: CustomerService, name: 'CustomerService' },
-    { path: '/ar/customer-server/:uuid', component: CustomerService, name: 'CustomerService' },*/
+    {
+        path: '/en/category/:slug/posts',
+        component: CategoryPosts,
+        name: 'CategoryPosts'
+    },
+    {
+        path: '/ar/category/:slug/posts',
+        component: CategoryPosts,
+        name: 'CategoryPostsAr'
+    }
+
+    /*
+        { path: '/en/customer-server/:uuid', component: CustomerService, name: 'CustomerService' },
+        { path: '/ar/customer-server/:uuid', component: CustomerService, name: 'CustomerService' },*/
 
  ];
 

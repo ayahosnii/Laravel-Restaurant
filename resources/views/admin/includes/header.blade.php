@@ -9,8 +9,8 @@
                 <li class="nav-item">
                     <a class="navbar-brand" href="index.html">
                         <img class="brand-logo" alt="modern admin logo"
-                             src="{{asset('admin-assets/images/logo/logo.png')}} ">
-           '            <h3 class="brand-text">Modern Admin</h3>
+                             src="{{asset('assets/img/logo2.png')}} ">
+           '            <h3 class="brand-text">Aya's dashboard</h3>
                     </a>
                 </li>
                 <li class="nav-item d-md-none">
