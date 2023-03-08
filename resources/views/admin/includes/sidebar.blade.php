@@ -100,66 +100,28 @@
 
 
             <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
-                                                                                    data-i18n="nav.templates.main">Templates</span></a>
+                                                                                    data-i18n="nav.templates.main">@lang('messages.sales')</span></a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="#" data-i18n="nav.templates.vert.main">Vertical</a>
-                        <ul class="menu-content">
-                            <li><a class="menu-item" href="../vertical-menu-template"
-                                   data-i18n="nav.templates.vert.classic_menu">Classic Menu</a>
-                            </li>
-                            <li><a class="menu-item" href="../vertical-modern-menu-template">Modern Menu</a>
-                            </li>
-                            <li><a class="menu-item" href="../vertical-compact-menu-template"
-                                   data-i18n="nav.templates.vert.compact_menu">Compact Menu</a>
-                            </li>
-                            <li><a class="menu-item" href="../vertical-content-menu-template"
-                                   data-i18n="nav.templates.vert.content_menu">Content Menu</a>
-                            </li>
-                            <li><a class="menu-item" href="../vertical-overlay-menu-template"
-                                   data-i18n="nav.templates.vert.overlay_menu">Overlay Menu</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a class="menu-item" href="#" data-i18n="nav.templates.horz.main">Horizontal</a>
-                        <ul class="menu-content">
-                            <li><a class="menu-item" href="../horizontal-menu-template"
-                                   data-i18n="nav.templates.horz.classic">Classic</a>
-                            </li>
-                            <li><a class="menu-item" href="../horizontal-menu-template-nav"
-                                   data-i18n="nav.templates.horz.top_icon">Full Width</a>
-                            </li>
-                        </ul>
+                    <li class="inactive"><a class="menu-item" href="{{route('admin.sales')}}"
+                                            data-i18n="nav.dash.ecommerce"> @lang('messages.all-sales') </a>
                     </li>
                 </ul>
             </li>
             <li class=" navigation-header">
-                <span data-i18n="nav.category.layouts">Layouts</span>
+                <span data-i18n="nav.category.layouts">Clients</span>
                 <i class="la la-ellipsis-h ft-minus"
                 data-toggle="tooltip"
                 data-placement="right"
                 data-original-title="Layouts"></i>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-columns"></i><span class="menu-title"
-                                                                                 data-i18n="nav.page_layouts.main">Page layouts</span><span
+                                                                                 data-i18n="nav.page_layouts.main">Tracing orders</span><span
                         class="badge badge badge-pill badge-danger float-right mr-2">New</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="layout-1-column.html" data-i18n="nav.page_layouts.1_column">1
                             column</a>
                     </li>
-                    <li><a class="menu-item" href="layout-2-columns.html" data-i18n="nav.page_layouts.2_columns">2
-                            columns</a>
-                    </li>
-                    <li><a class="menu-item" href="#" data-i18n="nav.page_layouts.3_columns.main">Content Sidebar</a>
-                        <ul class="menu-content">
-                            <li><a class="menu-item" href="layout-content-left-sidebar.html"
-                                   data-i18n="nav.page_layouts.3_columns.left_sidebar">Left sidebar</a>
-                            </li>
-                            <li><a class="menu-item" href="layout-content-left-sticky-sidebar.html"
-                                   data-i18n="nav.page_layouts.3_columns.left_sticky_sidebar">Left sticky sidebar</a>
-                            </li>
-                            <li><a class="menu-item" href="layout-content-right-sidebar.html"
-                                   data-i18n="nav.page_layouts.3_columns.right_sidebar">Right sidebar</a>
-                            </li>
+
                             <li><a class="menu-item" href="layout-content-right-sticky-sidebar.html"
                                    data-i18n="nav.page_layouts.3_columns.right_sticky_sidebar">Right sticky sidebar</a>
                             </li>

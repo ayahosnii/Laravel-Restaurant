@@ -9,7 +9,7 @@
                         <ul class="all-option collapse" id="category-filter">
                             @foreach($categories as $category)
                                 <li class="grid-list-option">
-                                    <input type="checkbox" wire:model="categoryInputs{{--.{{$category->id}}--}}" value="{{$category->id}}">
+                                    <input type="checkbox" wire:model="categoryInputs" value="{{$category->id}}">
                                     <a href="javascript:void(0)">{{$category->name}} <span class="grid-items"></span></a>
                                 </li>
                             @endforeach
@@ -21,7 +21,7 @@
                         <ul class="all-option collapse" id="vendor">
                             @foreach($providers as $provider)
                                 <li class="grid-list-option">
-                                    <input type="checkbox"  value="{{$provider->id}}">
+                                    <input type="checkbox" wire:model="filterProviders"  value="{{$provider->id}}">
                                     <a href="javascript:void(0)">{{$provider->name}} <span class="grid-items"></span></a>
                                 </li>
                             @endforeach
@@ -36,7 +36,7 @@
                             </div>
                             <div class="price-filter">
                                 <div class="price-filter-inner">
-                                    <div id="slider-range" wire:ignore></div>
+                                    <div id="slider-range"  wire:model="price_range" wire:change="filterByPrice($event.target.value)" wire:ignore></div>
                                     <div class="price_slider_amount">
                                         <div class="label-input">
                                             <span>Range:</span><span class="text-warning">{{$min_price}} LE</span> - <span class="text-warning">{{$max_price}} LE</span>
@@ -44,22 +44,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="list-group">
-                                <div class="list-group-item mb-10 mt-10">
 
-                                    <label class="fw-900 mt-15">Item Condition</label>
-                                    <div class="custome-checkbox">
-                                        <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox11" wire:model="sorting" value="date-desc">
-                                        <label class="form-check-label" for="exampleCheckbox11"><span>New (1506)</span></label>
-                                        <br>
-                                        <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox21" value="">
-                                        <label class="form-check-label" for="exampleCheckbox21"><span>Refurbished (27)</span></label>
-                                        <br>
-                                        <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox31" value="">
-                                        <label class="form-check-label" for="exampleCheckbox31"><span>Used (45)</span></label>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
@@ -123,9 +108,9 @@
                                             <span class="p-text">New</span>
                                         </div>
                                         <div class="pro-icn">
-                                            <a href="{{route('product.details', ['slug'=>$meal->slug])}}" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
+                                            <a href="{{route('meal.details', ['name'=>$meal->name])}}" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
                                             <a href="#" class="w-c-q-icn" wire:click.prevent="addToWishList('{{ $meal->id}}', '{{$meal->name}}', '{{ $meal->price }}')"><i class="fa fa-heart"></i></a>
-                                            <a href="#" class="w-c-q-icn" wire:click.prevent="addToCart('{{ $meal->id}}', '{{$meal->name}}', {{ $meal->sales->isEmpty() ? $meal->price : $meal->price * (100 - $meal->sales->first()->percentage) / 100 }})">
+                                            <a href="#" class="w-c-q-icn" wire:click.prevent="addToCart('{{ $meal->price * (100 - ($meal->sales ? $meal->sales->first()->percentage : 0)) / 100 ?? $meal->price }})">
                                                 <i class="fa fa-shopping-bag"></i>
                                             </a>
                                         </div>

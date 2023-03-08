@@ -5,15 +5,16 @@
                 <div class="checkout-area">
                     <div class="billing-area">
                         <form wire:submit.prevent="placeOrder" onsubmit="$('#processing').show();">
+
                             <h2>Billing details</h2>
                             <div class="billing-form">
                                 <ul class="billing-ul input-2">
                                     <li class="billing-li">
-                                        <input type="text" name="firstname" placeholder="First name" value="{{ $user->name ?? '' }}" wire:model="firstname">
+                                        <input type="text" name="firstname" placeholder="First name" value="{{ $user->name ?? '' }}" wire:model="firstname" wire:ignore>
                                         @error('firstname') <span class="error">{{ $message }}</span> @enderror
                                     </li>
                                     <li class="billing-li">
-                                        <input type="text" name="lastname" placeholder="Last name" wire:model="lastname">
+                                        <input type="text" name="lastname" placeholder="Last name" wire:model="lastname" wire:ignore>
                                         @error('lastname') <span class="error">{{ $message }}</span> @enderror
 
                                     </li>
@@ -21,8 +22,9 @@
 
                                 <ul class="billing-ul">
                                     <li class="billing-li">
-                                        <select name="province" wire:model="province">
+                                        <select name="province" id="province" wire:model="province" onChange="showMap(event)">
                                             <optgroup label="Select a province">
+                                                <option selected="true" style='display: none'></option>
                                                 <option value="cairo">Cairo</option>
                                                 <option value="alexandria">Alexandria</option>
                                                 <option value="luxor">Luxor</option>
@@ -34,7 +36,7 @@
                                 </ul>
                                 <ul class="billing-ul">
                                     <li class="billing-li">
-                                        <input type="text" name="address" placeholder="Street address" wire:model="address">
+                                        <input type="text" name="address" id="address" onchange="showMap(event)" placeholder="Street address" wire:model="address">
                                         @error('address') <span class="error">{{ $message }}</span> @enderror
                                     </li>
                                 </ul>
@@ -61,6 +63,14 @@
                                         @error('mobile') <span class="error">{{ $message }}</span> @enderror
                                     </li>
                                 </ul>
+                                <ul class="billing-ul" onload="getLocation()">
+                                    <button class="btn btn-outline-warning" onclick="showMap(event)">Show Map</button>
+                                    <div id="map" style="height: 500px; display: none;" wire:ignore></div>
+                                    <input type="text" id="latitude" name="latitude" placeholder="Latitude" readonly>
+                                    <input type="text" class="text-danger" id="longitude" name="longitude" placeholder="Longitude" readonly>
+                                    <p id="address-display"></p>
+                                    <button id="add-address-btn" type="button">Add Address</button>
+                                </ul>
                                 <div class="billing-details">
 
                                     <h2>Shipping details</h2>
@@ -71,6 +81,10 @@
                                         </li>
 
                                     </ul>
+                                </div>
+
+                                <label for="card-element" style="font-size: 30px">Credit or debit card</label>
+                                <div id="card-element" style="margin: 10px" wire:ignore>
                                 </div>
 
                                 @if($ship_to_different)
@@ -90,7 +104,7 @@
 
                                                     <ul class="billing-ul">
                                                         <li class="billing-li">
-                                                            <select wire:model="d_province">
+                                                            <select id="d_province" wire:model="d_province">
                                                                 <optgroup label="Select a province">
                                                                     <option value="cairo">Cairo</option>
                                                                     <option value="alexandria">Alexandria</option>
@@ -102,7 +116,7 @@
                                                     </ul>
                                                     <ul class="billing-ul">
                                                         <li class="billing-li">
-                                                            <input type="text" name="address" placeholder="Street address" wire:model="d_address">
+                                                            <input type="text" name="address" id="d_address" placeholder="Street address" wire:model="d_address">
                                                         </li>
                                                     </ul>
                                                     <ul class="billing-ul">
@@ -131,12 +145,10 @@
 
                                                 @endif
 
-                                        <label for="card-element">Credit or debit card</label>
-                                        <div id="card-element">
-                                        </div>
+
                                 <div id="card-errors" role="alert"></div>
                                     <button wire:loading.attr="disabled" type="submit">Pay</button>
-                                    <button type="submit">Place order</button>
+                                    <button type="submit" class="btn-style1">Place order</button>
                         </form>
                                             </div>
                                         </div>
@@ -230,7 +242,124 @@
             });
         });
     </script>
-    @if ($payMethod === 'card' && $showInput)
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOnrM9ISkivX_c_h82WzlOx-REJHnQLKQ&callback=initMap"async defer></script>
+    <script>
+
+
+        function showMap(event) {
+            event.preventDefault(); // prevent page refresh
+            document.getElementById("map").style.display = "block";
+
+            // Retrieve the user's address and province from input fields
+            var address = document.getElementById('address').value;
+            var province = document.getElementById('province').value;
+
+            console.log(address);
+            console.log(province);
+
+            // Send a geocoding request to Nominatim API
+            var url =
+                "https://nominatim.openstreetmap.org/search?format=json&limit=1&q=" +
+                encodeURIComponent(address + ", " + province) +
+            "&accept-language=ar";
+            fetch(url)
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.length > 0) {
+                        // Parse the response to get the latitude and longitude coordinates
+                        var latitude = parseFloat(data[0].lat);
+                        var longitude = parseFloat(data[0].lon);
+
+
+
+                        // Display the map
+                        var map = new google.maps.Map(document.getElementById("map"), {
+                            center: { lat: latitude, lng: longitude },
+                            zoom: 18,
+                            myLocationButton: true
+                        });
+                        // Add a marker to the map
+                        var marker = new google.maps.Marker({
+                            position: { lat: latitude, lng: longitude },
+                            map: map,
+                            draggable: true, // make the marker draggable
+                        });
+
+                        map.addListener("click", function(event) {
+                            marker.setPosition(event.latLng);
+                        });
+
+                        // Update the latitude and longitude inputs with the initial coordinates
+                        document.getElementById("latitude").value = latitude;
+                        document.getElementById("longitude").value = longitude;
+
+
+                        Livewire.on('placeOrder', ({ latitude, longitude }) => {
+                            // Handle the placeOrder event here
+                            console.log(`Placing order at (${latitude}, ${longitude})`);
+                        });
+
+                        // Reverse geocode the coordinates to get the address
+                        var geocodeUrl = "https://nominatim.openstreetmap.org/reverse?format=json&lat=" + latitude + "&lon=" + longitude + "&accept-language=ar"; // Set the language to Arabic
+
+                        fetch(geocodeUrl)
+                            .then(response => response.json())
+                            .then(data => {
+                                var display_name = data.display_name;
+                                var addressElement = document.getElementById("address-display");
+                                addressElement.innerText = display_name;
+                            })
+
+
+                    .catch(error => {
+                                console.error("Error:", error);
+                                alert("Geocode was not successful for the following reason: " + error.message);
+                            });
+
+                        var addAddressBtn = document.getElementById("add-address-btn");
+                        addAddressBtn.addEventListener("click", function() {
+                            var addressResult = document.getElementById("address-display").innerText;
+                            var addressInput = document.getElementById("address");
+                            addressInput.value = addressResult;
+                        });
+
+
+                        // Add an event listener to the marker to update the displayed address when moved
+                        marker.addListener("dragend", function(event) {
+                            var location = marker.getPosition();
+                            var geocodeUrl = "https://nominatim.openstreetmap.org/reverse?format=json&lat=" + location.lat() + "&lon=" + location.lng() + "&accept-language=ar"; // Set the language to Arabic
+                            fetch(geocodeUrl)
+                                .then(response => response.json())
+                                .then(data => {
+                                    console.log(data)
+                                    var display_name = data.display_name;
+                                    var addressElement = document.getElementById("address-display");
+                                    addressElement.innerText = display_name;
+                                })
+                                .catch(error => {
+                                    console.error("Error:", error);
+                                    alert("Geocode was not successful for the following reason: " + error.message);
+                                });
+                        });
+                    } else {
+                        // Handle error response
+                        alert("Geocode was not successful for the following reason: no result found");
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                    alert("Geocode was not successful for the following reason: " + error.message);
+                });
+        }
+    </script>
+
+
+
+
+
+
+
+@if ($payMethod === 'card' && $showInput)
         <script>
             document.addEventListener("livewire:load", function() {
                 const stripe = Stripe('{{ config('services.stripe.key') }}');

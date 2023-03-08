@@ -10,6 +10,7 @@ use App\Notifications\NewOrderForProviderNotify;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Pusher\Pusher;
 use Stripe\Charge;
 use Stripe\Exception\ApiConnectionException;
 use Stripe\Exception\ApiErrorException;
@@ -34,6 +35,8 @@ class CheckoutComponent extends Component
     public $province;
     public $address;
     public $city;
+    public $latitude;
+    public $longitude;
     public $zipcode;
     public $mobile;
     public $email;
@@ -46,7 +49,8 @@ class CheckoutComponent extends Component
     public $d_zipcode;
     public $d_mobile;
     public $d_email;
-    protected $listeners = ['orderPlaced'];
+    protected $listeners = ['orderPlaced', 'placeOrder'];
+
 
     public function mount()
     {
@@ -60,8 +64,15 @@ class CheckoutComponent extends Component
         } catch (ApiErrorException $e) {
             session()->flash('stripe_error', $e->getMessage());
         }
+
     }
 
+
+    public function myFunction($latitude, $longitude)
+    {
+        $this->latitdue = $latitude;
+        $this->longitude = $longitude;
+    }
 
     public function updatedPayMethod($value)
     {
@@ -103,6 +114,8 @@ class CheckoutComponent extends Component
             'province' => 'required',
             'city' => 'required',
             'zipcode' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required',
             'email' => 'required|email',
             'mobile' => 'required',
         ]);
@@ -121,9 +134,13 @@ class CheckoutComponent extends Component
         $order->zipcode = $this->zipcode;
         $order->email = $this->email;
         $order->mobile = $this->mobile;
+        $this->myFunction($this->latitude);
+        $this->myFunction($this->longitude);
         $order->status = 'ordered';
         $order->is_shipping_different = $this->ship_to_different ? 1:0;
         $order->save();
+        $data = ['order_id' => $order->id];
+        //Pusher::trigger('order-tracking', 'new-order', $data);
 
         $admin = Admin::where('id', 1)->first();
 

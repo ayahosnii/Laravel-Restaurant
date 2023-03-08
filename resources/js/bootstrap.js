@@ -19,5 +19,16 @@ window.Echo = new Echo({
     wsHost: window.location.hostname,
     wsPort: 8080,
     disableStats: true,
-    forceTLS: true
+    forceTLS: true,
+    authEndpoint: '/broadcasting/auth',
+    auth: {
+        headers: {
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        },
+    },
+});
+
+window.Echo.channel('order-status-updates')
+    .listen('.order.status.changed', (event) => {
+        console.log(event);
 });

@@ -30,3 +30,6 @@ Broadcast::channel('conversation.{id}', function ($user, $id) {
 });
 
 
+Broadcast::channel('order-status-updates', function ($user) {
+    return ['id' => $user->id];
+});

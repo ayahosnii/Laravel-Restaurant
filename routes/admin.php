@@ -8,11 +8,12 @@ use App\Http\Controllers\admin\LanguageController;
 use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\admin\MainCategoryController;
 use App\Http\Controllers\admin\OptionController;
+use App\Http\Controllers\admin\OrderController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\RestaurantController;
 use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\SubCategoryController;
-use App\Http\Controllers\SaleController;
+use App\Http\Controllers\admin\SaleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -82,7 +83,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
     Route::post('/coupons/store', [CouponController::class, 'store'])->name('admin.coupons.store');
     Route::get('/coupons/edit/{id}', [CouponController::class, 'edit'])->name('admin.coupons.edit');
     Route::post('/coupons/update', [CouponController::class, 'update'])->name('admin.coupons.update');
-    Route::get('/coupons/destroy', [CouponController::class, 'destroy'])->name('admin.coupons.delete');
+    Route::delete('/coupons/destroy/{id}', [CouponController::class, 'destroy'])->name('admin.coupons.delete');
     Route::get('changeStatus/{id}', [CouponController::class, 'changeStatus'])->name('admin.coupons.status');
 
     ########################################## End  Coupons Route ##############################################################
@@ -92,8 +93,18 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
     Route::post('/sales/store', [SaleController::class, 'store'])->name('admin.sales.store');
     Route::get('/sales/edit/{id}', [SaleController::class, 'edit'])->name('admin.sales.edit');
     Route::post('/sales/update', [SaleController::class, 'update'])->name('admin.sales.update');
-    Route::get('/sales/destroy', [SaleController::class, 'destroy'])->name('admin.sales.delete');
+    Route::delete('/sales/destroy/{id}', [SaleController::class, 'destroy'])->name('admin.sales.delete');
     Route::get('changeStatus/{id}', [SaleController::class, 'changeStatus'])->name('admin.sales.status');
+
+    ########################################## End  Coupons Route ##############################################################
+   ########################################## Start Coupons Route ##############################################################
+    Route::get('/tracking', [OrderController::class, 'index'])->name('admin.tracking');
+    Route::get('/tracking/create', [OrderController::class, 'create'])->name('admin.tracking.create');
+    Route::post('/tracking/store', [OrderController::class, 'store'])->name('admin.tracking.store');
+    Route::get('/tracking/edit/{id}', [OrderController::class, 'edit'])->name('admin.tracking.edit');
+    Route::post('/tracking/update', [OrderController::class, 'update'])->name('admin.tracking.update');
+    Route::delete('/tracking/destroy/{id}', [OrderController::class, 'destroy'])->name('admin.tracking.delete');
+    Route::get('changeStatus/{id}', [OrderController::class, 'changeStatus'])->name('admin.tracking.status');
 
     ########################################## End  Coupons Route ##############################################################
     ################################## attrributes routes ######################################

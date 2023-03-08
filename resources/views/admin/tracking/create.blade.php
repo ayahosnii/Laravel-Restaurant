@@ -67,16 +67,6 @@
                                                     <input type="number" name="percentage" id="percentage" class="form-control" required>
                                                 </div>
 
-                                                <div class="form-group col-md-12">
-                                                    <label for="meal_id">Choose Meals</label>
-                                                    <select name="meal_id[]" class="select2 col-md-12" multiple>
-                                                        @foreach($meals as $meal)
-                                                            <option value="{{ $meal->id }}">{{ $meal->name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-
-
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group mt-1">

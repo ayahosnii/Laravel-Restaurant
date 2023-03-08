@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\providers\Meal;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -28,5 +29,9 @@ class Sale extends Model
     public function sales()
     {
         return $this->belongsToMany(Sale::class)->withPivot('discount_percentage');
+    }
+    public function meals()
+    {
+        return $this->belongsToMany(Meal::class, 'meal_sale', 'sale_id', 'meal_id');
     }
 }

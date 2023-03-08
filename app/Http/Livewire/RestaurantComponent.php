@@ -17,7 +17,7 @@ class RestaurantComponent extends Component
 
     protected $stringQuery = ['filterProviders'];
 
-    public $product, $filterProviders, $categoryInputs = [];
+    public $product, $filterProviders = [], $categoryInputs = [];
     protected $queryString = [
         'categoryInputs' => ['except' => '', 'as' => 'category'],
         //'priceInputs' => ['except' => '', 'as' => 'price']
@@ -92,15 +92,6 @@ class RestaurantComponent extends Component
         else if ($this->sorting=="price")
         {
             $meals = Meal::where('published', 1)->whereBetween('price',[$this->min_price,$this->max_price])->orderBy('price', 'ASC')->paginate($this->pagesize);
-//            if ($default_lang == 'ar') {
-//                $products = Product::when($this->categoryInputs, function ($q) {
-//                    $q->whereIn('category_id', $this->categoryInputs);
-//                    /* })
-//                     ->when($this->priceInputs, function ($q) {
-//                         $q->whereIn('category_id', $this->priceInputs);*/
-//
-//                })->get();
-//            }
 
         }
         else if ($this->sorting=="price-desc")
@@ -108,27 +99,30 @@ class RestaurantComponent extends Component
             $meals = Meal::where('published', 1)->whereBetween('price',[$this->min_price,$this->max_price])->orderBy('price', 'DESC')->paginate($this->pagesize);
 
         }
-        else if ($this->categoryInputs)
-        {
-            if ($default_lang == 'en'){
-                $meals = Meal::when($this->categoryInputs, function ($q) {
-                    $q->whereIn('main_cate_id', $this->categoryInputs);
-                    /* })
-                     ->when($this->priceInputs, function ($q) {
-                         $q->whereIn('category_id', $this->priceInputs);*/
+        else if ($this->categoryInputs) {
+            if ($default_lang == 'en') {
 
-                })->get();
-            }else{
-                $meals = MealTranslation::where('main_cate_id', $this->categoryInputs)->get();
+                $meals = Meal::where('published', 1)->whereIn('main_cate_id', $this->categoryInputs)->get();
+
+            } else {
+                $main = MainCategory::whereIn('id', $this->categoryInputs)->first();
+                $mealTranslation = MealTranslation::where('main_cate_id', $main->translate_of)->first();
+
+                if ($mealTranslation) {
+                    $meal = Meal::find($mealTranslation->meal_id);
 
 
-                $mea = $meals[0]->meal_id;
-
-                $meal = Meal::where('id', $mea)->first();
-                $main_cate_id = $meal->category_id;
-                $meals = Meal::where('main_cate_id', $main_cate_id)->get();
+                    if ($meal) {
+                        $meals = Meal::where('category_id', $meal->category_id)->get();
+                    } else {
+                        $meals = collect();
+                    }
+                } else {
+                    $meals = collect();
+                }
             }
         }
+
         else if ($this->sorting=="alphabet")
         {
             $meals = Meal::where('published', 1)->whereBetween('name', [$this->min_alphabet,$this->max_alphabet])->orderBy('name', 'ASC')->paginate($this->pagesize);
@@ -139,23 +133,7 @@ class RestaurantComponent extends Component
         }
         else if ($this->filterProviders)
         {
-            $id = $this->filterProviders;
-
-            if ($default_lang == 'en'){
-                $meals = Meal::where('provider_id',$id)->get();
-            }else {
-                $meals = MealTranslation::where('provider_id', $id)->get();
-                $filter = $meals->filter(function ($value, $key) {
-                    return $value['id'];
-                });
-                $m = array_values($filter->all())[0];
-
-                $me = $m['product_id'];
-
-                $meal = Meal::where('id', $m)->first();
-                $provider_id = $meal->provider_id;
-                $meals = Product::where('provider_id', $provider_id)->get();
-            }
+            $meals = Meal::whereIn('provider_id', $this->filterProviders)->get();
         }
         else
         {

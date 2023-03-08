@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 @section('content')
+    @extends('layouts.admin')
+@section('content')
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-header row">
@@ -58,52 +60,52 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @isset($sales)
-                                                @foreach($sales as $sale)
-                                            <tr>
-                                                <td> {{$sale -> name}}</td>
+                                            @isset($orders)
+                                                @foreach($orders as $order)
+                                                    <tr>
+                                                        <td> {{$order -> name}}</td>
 
-                                                <td> {{$sale -> starts_at}}  </td>
-                                                <td> {{$sale -> ends_at}}  </td>
+                                                        <td> {{$order -> starts_at}}  </td>
+                                                        <td> {{$order -> ends_at}}  </td>
 
-                                                @if($sale -> meal_id == NULL)
-                                                <td>---</td>
-                                                @else
-                                                    <td>{{$sale -> meal_id}}%</td>
-                                                @endif
-                                                @if($sale -> is_flash_sale == NULL)
-                                                <td>---</td>
-                                                @else
-                                                    <td>{{$sale -> is_flash_sale}}%</td>
-                                                @endif
-                                                <td>{{$sale -> percentage}}</td>
-                                                <td>
-                                                    <div class="btn-group" role="group"
-                                                         aria-label="Basic example">
-                                                        <a href="{{route('admin.sales.edit', $sale-> id)}}"
-                                                           class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
+                                                        @if($order -> meal_id == NULL)
+                                                            <td>---</td>
+                                                        @else
+                                                            <td>{{$order -> meal_id}}%</td>
+                                                        @endif
+                                                        @if($order -> is_flash_sale == NULL)
+                                                            <td>---</td>
+                                                        @else
+                                                            <td>{{$order -> is_flash_sale}}%</td>
+                                                        @endif
+                                                        <td>{{$order -> percentage}}</td>
+                                                        <td>
+                                                            <div class="btn-group" role="group"
+                                                                 aria-label="Basic example">
+                                                                <a href="{{route('admin.sales.edit', $order-> id)}}"
+                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
 
-                                                        <div class="btn-group" role="group"
-                                                             aria-label="Basic example">
-                                                            <a href="{{ route('admin.sales.delete', $sale->id) }}"
-                                                               class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1"
-                                                               onclick="event.preventDefault();
-                                                                   document.getElementById('delete-form-{{ $sale->id }}').submit();">
-                                                                @lang('messages.delete')
-                                                            </a>
+                                                                <div class="btn-group" role="group"
+                                                                     aria-label="Basic example">
+                                                                    <a href="{{ route('admin.sales.delete', $order->id) }}"
+                                                                       class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1"
+                                                                       onclick="event.preventDefault();
+                                                                           document.getElementById('delete-form-{{ $order->id }}').submit();">
+                                                                        @lang('messages.delete')
+                                                                    </a>
 
-                                                            <form id="delete-form-{{ $sale->id }}"
-                                                                  action="{{ route('admin.sales.delete', $sale->id) }}"
-                                                                  method="POST"
-                                                                  style="display: none;">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                            </form>
+                                                                    <form id="delete-form-{{ $order->id }}"
+                                                                          action="{{ route('admin.sales.delete', $order->id) }}"
+                                                                          method="POST"
+                                                                          style="display: none;">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                    </form>
 
 
-                                                        </div>
-                                                </td>
-                                            </tr>
+                                                                </div>
+                                                        </td>
+                                                    </tr>
                                                 @endforeach
                                             @endisset
 
@@ -124,4 +126,6 @@
             </div>
         </div>
     </div>
+@endsection
+
 @endsection

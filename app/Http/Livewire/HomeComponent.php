@@ -44,9 +44,10 @@ class HomeComponent extends Component
 
         $default_lang = get_default_language();
         $categories = MainCategory::where('translation_lang', $default_lang)->get();
-        $products = Meal::get();
+        //The meals
+        $meals = Meal::get();
 
-        $lproducts = Meal::orderBy('created_at','DESC')
+        $lmeals = Meal::orderBy('created_at','DESC')
             ->get()->take(8);
 
         $smeals = Meal::whereHas('sales', function ($query) {
@@ -62,6 +63,6 @@ class HomeComponent extends Component
         $diff = $ends_at->diffInSeconds($now);
 
         $this->updateTimeValues($diff);
-        return view('livewire.home-component', $data, ['categories' => $categories,'main_cats' => $main_cats/*, 'sub_cat' => $sub_cats*/, 'products' => $products, 'lproducts' => $lproducts, 'smeals' => $smeals, 'posts' => $posts, 'sale'=>$sale, 'ends_at' => $ends_at])->layout('layouts.base');
+        return view('livewire.home-component', $data, ['categories' => $categories,'main_cats' => $main_cats/*, 'sub_cat' => $sub_cats*/, 'meals' => $meals, 'lmeals' => $lmeals, 'smeals' => $smeals, 'posts' => $posts, 'sale'=>$sale, 'ends_at' => $ends_at])->layout('layouts.base');
     }
 }

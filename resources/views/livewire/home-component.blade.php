@@ -140,13 +140,13 @@
                     <div class="owl-stage-outer">
                         <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 3618px;">
 
-                            @foreach($products as $product)
+                            @foreach($meals as $meal)
                             <div class="owl-item active" style="width: 271.5px; margin-right: 30px;">
                                 <div class="items">
                                     <div class="tred-pro">
                                         <div class="tr-pro-img">
                                             <a href="https://spacingtech.com/html/vegist-final/vegist/product.html">
-                                                <img class="img-fluid" style="width: 300px; height:300px;" src="{{asset($product->image)}}" alt="pro-img1">
+                                                <img class="img-fluid" style="width: 300px; height:300px;" src="{{asset($meal->image)}}" alt="pro-img1">
                                                 <img class="img-fluid additional-image" src="./Vegist - Multipurpose eCommerce HTML Template_files/pro-img-01.jpg" alt="additional image">
                                             </a>
                                         </div>
@@ -161,7 +161,7 @@
                                     </div>
                                     <div class="caption">
                                         <h3><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">
-                                                {{$product->name}}</a></h3>
+                                                {{$meal->name}}</a></h3>
                                         <div class="rating">
                                             <i class="fa fa-star c-star"></i>
                                             <i class="fa fa-star c-star"></i>
@@ -170,7 +170,8 @@
                                             <i class="fa fa-star-o"></i>
                                         </div>
                                         <div class="pro-price">
-                                            <span class="new-price">{{$product->price}} LE</span>
+                                            <span class="new-price">{{ number_format($meal->price * (100 - $meal->sales->first()->percentage) / 100, 2) }} LE</span>
+                                            <span class="old-price"><del>{{$meal->price}} LEE</del></span>
                                         </div>
                                     </div>
                                 </div>
@@ -263,14 +264,14 @@
                                 @for ($i = 0; $i < 1; $i++)
                                     @for ($x = 0; $x < 6; $x++)
 
-                                @foreach($products as $product)
+                                @foreach($meals as $meal)
                                 <div class="swiper-slide" data-swiper-column="{{$x}}" data-swiper-row="{{$i}}" style="-webkit-box-ordinal-group: 6; order: 6; margin-top: 30px; width: 271.5px; margin-right: 30px;">
                                     <div class="h-t-pro">
                                         <div class="tred-pro">
                                             <div class="tr-pro-img">
                                                 <a href="https://spacingtech.com/html/vegist-final/vegist/product.html">
-                                                    <img src="{{$product->image}}" style="height: 300px; width: 500px" alt="pro-img1" class="img-fluid">
-                                                    <img src="{{$product->image}}" style="height: 300px; width: 500px" alt="additional image" class="img-fluid additional-image">
+                                                    <img src="{{$meal->image}}" style="height: 300px; width: 500px" alt="pro-img1" class="img-fluid">
+                                                    <img src="{{$meal->image}}" style="height: 300px; width: 500px" alt="additional image" class="img-fluid additional-image">
                                                 </a>
                                             </div>
                                             <div class="Pro-lable">
@@ -283,7 +284,7 @@
                                             </div>
                                         </div>
                                         <div class="caption">
-                                            <h3><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">{{$product->name}}</a></h3>
+                                            <h3><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">{{$meal->name}}</a></h3>
                                             <div class="rating">
                                                 <i class="fa fa-star e-star"></i>
                                                 <i class="fa fa-star e-star"></i>
@@ -292,18 +293,8 @@
                                                 <i class="fa fa-star e-star"></i>
                                             </div>
                                             <div class="pro-price">
-                                                @if ($product->sales && $product->sales->isNotEmpty())
-                                                    @if (\Carbon\Carbon::parse($product->sales->first()->ends_at)->greaterThanOrEqualTo(\Carbon\Carbon::now()))
-                                                        <span class="old-price"><del>{{ number_format($product->price, 2) }} LE</del></span>
-                                                        <span class="new-price">{{ number_format($product->price * (100 - $product->sales->first()->percentage) / 100, 2) }} LE</span>
-
-                                                    @else
-                                                        <span class="old-price">{{ number_format($product->price, 2) }} LE</span>
-
-                                                    @endif
-                                                @else
-                                                    <span class="old-price">{{ number_format($product->price, 2) }} LE</span>
-                                                @endif
+                                                <span class="new-price">{{ number_format($meal->price * (100 - $meal->sales->first()->percentage) / 100, 2) }} LE</span>
+                                                <span class="old-price"><del>{{$meal->price}} LE</del></span>
                                             </div>
                                         </div>
                                     </div>
@@ -325,19 +316,19 @@
                     <div class="tab-pane fade" id="new">
                         <div class="home-pro-tab swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-multirow">
                             <div class="swiper-wrapper" style="transition-duration: 300ms;">
-                                @foreach($lproducts as $lproduct)
+                                @foreach($lmeals as $lmeal)
                                 <div class="swiper-slide" style="-webkit-box-ordinal-group: 6; order: 6; margin-top: 30px; width: 271.5px; margin-right: 30px;">
                                     <div class="h-t-pro">
                                         <div class="tred-pro">
                                             <div class="tr-pro-img">
                                                 <a href="https://spacingtech.com/html/vegist-final/vegist/product.html">
-                                                    <img style="height: 300px; width: 500px" src="{{$lproduct->image}}" alt="{{$lproduct->name}}" class="img-fluid">
-                                                    <img src="{{$lproduct->image}}" style="height: 300px; width: 500px" alt="{{$lproduct->image}}" class="img-fluid additional-image">
+                                                    <img style="height: 300px; width: 500px" src="{{$lmeal->image}}" alt="{{$lmeal->name}}" class="img-fluid">
+                                                    <img src="{{$lmeal->image}}" style="height: 300px; width: 500px" alt="{{$lmeal->image}}" class="img-fluid additional-image">
                                                 </a>
                                             </div>
-                                            @if($lproduct->sales->first()?->percentage > 0)
+                                            @if($lmeal->sales->first()?->percentage > 0)
                                                 <div class="Pro-lable">
-                                                    <span class="p-discount">%{{number_format($lproduct->sales->first()->percentage)}}</span>
+                                                    <span class="p-discount">%{{number_format($lmeal->sales->first()->percentage)}}</span>
                                                 </div>
                                             @endif
                                             <div class="pro-icn">
@@ -347,7 +338,7 @@
                                             </div>
                                         </div>
                                         <div class="caption">
-                                            <h3><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">{{$lproduct->name}} ({{$lproduct->quantity}}km)</a></h3>
+                                            <h3><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">{{$lmeal->name}} ({{$lmeal->quantity}}km)</a></h3>
                                             <div class="rating">
                                                 <i class="fa fa-star e-star"></i>
                                                 <i class="fa fa-star e-star"></i>
@@ -356,11 +347,11 @@
                                                 <i class="fa fa-star e-star"></i>
                                             </div>
                                                 <div class="Pro-lable">
-                                                    @if($lproduct->sales->first() && $lproduct->sales->first()->percentage > 0)
-                                                    <span class="p-discount">%{{number_format($lproduct->sales->first()->percentage)}}</span>
-                                                        <span class="old-price"><del>{{$lproduct->price}} LE</del></span>
+                                                    @if($lmeal->sales->first() && $lmeal->sales->first()->percentage > 0)
+                                                    <span class="p-discount">%{{number_format($lmeal->sales->first()->percentage)}}</span>
+                                                        <span class="old-price"><del>{{$lmeal->price}} LE</del></span>
                                                     @else
-                                                        <span class="old-price"><del>{{$lproduct->price}} LE</del></span>
+                                                        <span class="old-price"><del>{{$lmeal->price}} LE</del></span>
                                                     @endif
                                                 </div>
 
@@ -412,8 +403,12 @@
                                                     <i class="fa fa-star-o"></i>
                                                 </div>
                                                 <div class="pro-price">
+                                                    @isset($smeal->sales->first()->percentage)
                                                     <span class="new-price">{{ number_format($smeal->price * (100 - $smeal->sales->first()->percentage) / 100, 2) }} LE</span>
                                                     <span class="old-price"><del>{{$smeal->price}} LE</del></span>
+                                                    @else
+                                                        <span class="old-price">{{$smeal->price}} LE</span>
+                                                    @endisset
                                                 </div>
                                             </div>
                                         </div>
