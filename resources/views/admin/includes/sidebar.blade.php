@@ -114,17 +114,28 @@
                 data-placement="right"
                 data-original-title="Layouts"></i>
             </li>
-            <li class=" nav-item"><a href="#"><i class="la la-columns"></i><span class="menu-title"
-                                                                                 data-i18n="nav.page_layouts.main">Tracing orders</span><span
+            <li class=" nav-item">
+                <a href="{{route('admin.orders.all')}}">
+                    <i class="la la-columns"></i><span class="menu-title"
+                                                                                 data-i18n="nav.page_layouts.main">
+                        The orders</span><span
                         class="badge badge badge-pill badge-danger float-right mr-2">New</span></a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="layout-1-column.html" data-i18n="nav.page_layouts.1_column">1
-                            column</a>
+                    <li>
+                        <a class="menu-item" href="{{route('admin.orders.shipped')}}" data-i18n="nav.page_layouts.1_column">
+                            Shipping
+                        </a>
                     </li>
-
-                            <li><a class="menu-item" href="layout-content-right-sticky-sidebar.html"
-                                   data-i18n="nav.page_layouts.3_columns.right_sticky_sidebar">Right sticky sidebar</a>
-                            </li>
+                    <li>
+                        <a class="menu-item" href="{{route('admin.orders.pended')}}" data-i18n="nav.page_layouts.1_column">
+                            Pended
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{route('admin.orders.delivered')}}" data-i18n="nav.page_layouts.1_column">
+                            Delivered
+                        </a>
+                    </li>
                         </ul>
                     </li>
                     <li><a class="menu-item" href="#" data-i18n="nav.page_layouts.3_columns_detached.main">Content Det.

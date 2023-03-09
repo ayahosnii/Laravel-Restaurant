@@ -25,7 +25,7 @@
  *  1. Default keymap
  *  2. Variable declarations and short basic helpers
  *  3. Instance (External API) implementation
- *  4. Internal state tracking objects (input state, counter) implementation
+ *  4. Internal state orders objects (input state, counter) implementation
  *     and instantiation
  *  5. Key handler (the main command dispatcher) implementation
  *  6. Motion, operator, and action implementations

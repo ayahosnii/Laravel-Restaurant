@@ -28,7 +28,7 @@
                 var pusher = new Pusher('255cc5afb800d9ebca0b', {
                     cluster: 'mt1',
                 });
-                var channel = pusher.subscribe('order-tracking');
+                var channel = pusher.subscribe('order-orders');
                 channel.bind('App\\Events\\OrderStatusChanged', function(data) {
                     var order = data.order;
 

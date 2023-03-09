@@ -41,7 +41,7 @@ $.fn.bootstrapFileInput = function() {
     $elem.wrap('<a class="file-input-wrapper btn btn-default ' + className + '"></a>').parent().prepend($('<span></span>').html(buttonWord));
   })
 
-  // After we have found all of the file inputs let's apply a listener for tracking the mouse movement.
+  // After we have found all of the file inputs let's apply a listener for orders the mouse movement.
   // This is important because the in order to give the illusion that this is a button in FF we actually need to move the button from the file input under the cursor. Ugh.
   .promise().done( function(){
 

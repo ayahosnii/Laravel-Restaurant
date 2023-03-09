@@ -97,16 +97,6 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
     Route::get('changeStatus/{id}', [SaleController::class, 'changeStatus'])->name('admin.sales.status');
 
     ########################################## End  Coupons Route ##############################################################
-   ########################################## Start Coupons Route ##############################################################
-    Route::get('/tracking', [OrderController::class, 'index'])->name('admin.tracking');
-    Route::get('/tracking/create', [OrderController::class, 'create'])->name('admin.tracking.create');
-    Route::post('/tracking/store', [OrderController::class, 'store'])->name('admin.tracking.store');
-    Route::get('/tracking/edit/{id}', [OrderController::class, 'edit'])->name('admin.tracking.edit');
-    Route::post('/tracking/update', [OrderController::class, 'update'])->name('admin.tracking.update');
-    Route::delete('/tracking/destroy/{id}', [OrderController::class, 'destroy'])->name('admin.tracking.delete');
-    Route::get('changeStatus/{id}', [OrderController::class, 'changeStatus'])->name('admin.tracking.status');
-
-    ########################################## End  Coupons Route ##############################################################
     ################################## attrributes routes ######################################
     Route::group(['prefix' => 'attributes'], function () {
         Route::get('/', [AttributeController::class, 'index'])->name('admin.attributes');
@@ -149,6 +139,15 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
         Route::post('update/{id}', [RestaurantController::class, 'update'])->name('admin.restaurants.update');
     });
     ################################## end options    #######################################
+    ########################################## Start Order Route ##############################################################
+    Route::group(['prefix' => 'orders'], function () {
+        Route::get('/all', [OrderController::class, 'all'])->name('admin.orders.all');
+        Route::get('/pended', [OrderController::class, 'pended'])->name('admin.orders.pended');
+        Route::get('/delivered', [OrderController::class, 'delivered'])->name('admin.orders.delivered');
+        Route::get('/shipped', [OrderController::class, 'shipped'])->name('admin.orders.shipped');
+    });
+    ########################################## End  Order Route ######################################################################################################## Start MainCategories Route ##############################################################
+
 });
 
 Route::group(['namespace' => 'Admin', 'middleware' => 'guest:admin'], function(){

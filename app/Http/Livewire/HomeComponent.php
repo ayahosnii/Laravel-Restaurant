@@ -2,13 +2,19 @@
 
 namespace App\Http\Livewire;
 
+use App\Mail\CouponEmail;
 use App\Models\admin\MainCategory;
 use App\Models\admin\Product;
 use App\Models\admin\SubCategory;
+use App\Models\admin\Subscriber;
+use App\Models\Coupon;
 use App\Models\Post;
 use App\Models\providers\Meal;
 use App\Models\Sale;
 use Carbon\Carbon;
+use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class HomeComponent extends Component
@@ -19,6 +25,7 @@ class HomeComponent extends Component
     public $hours;
     public $minutes;
     public $seconds;
+    public $email;
 
     public function updateTimeValues($diff) {
         $this->days = floor($diff / 86400);
@@ -26,6 +33,46 @@ class HomeComponent extends Component
         $this->minutes = floor(($diff % 3600) / 60);
         $this->seconds = $diff % 60;
     }
+
+    public function subscribe()
+    {
+        if ($this->email == Auth::user()->email) {
+            $subscriber = Subscriber::where('email', $this->email)->first();
+            if (!$subscriber) {
+                $subscriber = new Subscriber();
+                    $subscriber->email = $this->email;
+                    $subscriber->user_id = Auth::user()->id;
+            }
+        }
+        $coupon = $subscriber->assignCoupon();
+        Mail::to($subscriber->email)->send(new CouponEmail($coupon));
+
+        session()->flash('success', 'You have successfully subscribed and received a coupon code!');
+        $this->email = '';
+
+    }
+
+    public function assignCoupon()
+    {
+        $coupon = new Coupon();
+        $coupon->code = substr(md5(uniqid(rand(), true)), 0, 8);
+        $coupon->value = 10;
+        $coupon->for = 'general';
+        $coupon->start_time = now();
+        $coupon->end_time = now()->addMonth();
+        $coupon->save();
+        $this->coupons()->attach($coupon->id);
+
+        return $coupon;
+    }
+
+    public function addToCart($meal_id, $meal_name, $meal_price)
+    {
+        Cart::instance('cart')->add($meal_id, $meal_name,1, $meal_price)->associate('App\Models\providers\Meal');
+        Session()->flash('success_message', 'Item added in Cart');
+    }
+
+
 
     public function render()
     {

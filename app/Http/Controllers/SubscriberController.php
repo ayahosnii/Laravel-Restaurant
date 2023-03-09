@@ -14,7 +14,13 @@ class SubscriberController extends Controller
      */
     public function index()
     {
-        //
+//
+//
+//        return (new \Illuminate\Notifications\Messages\MailMessage)
+//            ->subject('Reset Password')
+//            ->line('You are receiving this email because we received a password reset request for your account.')
+//            ->action('Reset Password', $resetUrl)
+//            ->line('If you did not request a password reset, no further action is required.');
     }
 
     /**

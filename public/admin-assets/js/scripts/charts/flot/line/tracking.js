@@ -1,6 +1,6 @@
 /*=========================================================================================
-    File Name: tracking.js
-    Description: Flot tracking chart
+    File Name: orders.js
+    Description: Flot orders chart
     ----------------------------------------------------------------------------------------
     Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
     Version: 1.0
@@ -18,7 +18,7 @@ $(window).on("load", function(){
         cos.push([i, Math.cos(i)]);
     }
 
-    plot = $.plot("#tracking", [
+    plot = $.plot("#orders", [
         { data: sin, label: "sin(x) = -0.00"},
         { data: cos, label: "cos(x) = -0.00" }
     ], {
@@ -55,7 +55,7 @@ $(window).on("load", function(){
         colors: ['#00A5A8', '#FF7D4D']
     });
 
-    var legends = $("#tracking .legendLabel");
+    var legends = $("#orders .legendLabel");
 
     legends.each(function () {
         // fix the widths so they don't jump around
@@ -108,7 +108,7 @@ $(window).on("load", function(){
         }
     }
 
-    $("#tracking").bind("plothover",  function (event, pos, item) {
+    $("#orders").bind("plothover",  function (event, pos, item) {
         latestPosition = pos;
         if (!updateLegendTimeout) {
             updateLegendTimeout = setTimeout(updateLegend, 50);

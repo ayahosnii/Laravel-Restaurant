@@ -1,3 +1,17 @@
+@push('style')
+    <style>
+        .sb-price {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sb-price sub {
+            margin-bottom: 10px;
+        }
+    </style>
+
+        @endpush
 <section class="section-tb-padding">
     <div class="container">
         <div class="row">
@@ -110,9 +124,7 @@
                                         <div class="pro-icn">
                                             <a href="{{route('meal.details', ['name'=>$meal->name])}}" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
                                             <a href="#" class="w-c-q-icn" wire:click.prevent="addToWishList('{{ $meal->id}}', '{{$meal->name}}', '{{ $meal->price }}')"><i class="fa fa-heart"></i></a>
-                                            <a href="#" class="w-c-q-icn" wire:click.prevent="addToCart('{{ $meal->price * (100 - ($meal->sales ? $meal->sales->first()->percentage : 0)) / 100 ?? $meal->price }})">
-                                                <i class="fa fa-shopping-bag"></i>
-                                            </a>
+                                            <a href="#" wire:click.prevent="addToCart('{{ $meal->id }}', '{{ $meal->name }}', {{ ($meal->sale && $meal->sale->count() > 0) ? $meal->price * (100 - ($meal->sales ? $meal->sales->first()->percentage : 0)) / 100 : $meal->price }})" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
                                         </div>
 
                                     </div>
@@ -126,13 +138,20 @@
                                                             <strike>£{{ number_format($meal->price, 2) }}</strike>
 
                                                         </sub>
+                                                        <br>
                                                         <sub class="discounted-price">
-                                                           <strong> £{{ number_format($meal->price * (100 - $meal->sales->first()->percentage) / 100, 2) }}</strong>
+                                                           <strong style="font-size: 13px"> £{{ number_format($meal->price * (100 - $meal->sales->first()->percentage) / 100, 2) }}</strong>
                                                         </sub>
 
                                                     </div>
                                                 @else
-                                                    <div class="sb-price"><sub>£{{ number_format($meal->price, 2) }}</sub></div>
+                                                    <div class="sb-price"><sub>
+                                                            <strong style="font-size: 13px">
+                                                                £{{ number_format($meal->price, 2) }}
+                                                            </strong>
+                                                        </sub>
+                                                    </div>
+
                                                 @endif
                                             </div>
 

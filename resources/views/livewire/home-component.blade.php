@@ -155,7 +155,7 @@
                                         </div>
                                         <div class="pro-icn">
                                             <a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html" class="w-c-q-icn"><i class="fa fa-heart"></i></a>
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/cart.html" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
+                                            <a href="#" wire:click.prevent="addToCart('{{ $meal->id }}', '{{ $meal->name }}', {{ ($meal->sale && $meal->sale->count() > 0) ? $meal->price * (100 - ($meal->sales ? $meal->sales->first()->percentage : 0)) / 100 : $meal->price }})" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
                                             <a href="javascript:void(0)" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
                                         </div>
                                     </div>
@@ -169,10 +169,17 @@
                                             <i class="fa fa-star-o"></i>
                                             <i class="fa fa-star-o"></i>
                                         </div>
-                                        <div class="pro-price">
-                                            <span class="new-price">{{ number_format($meal->price * (100 - $meal->sales->first()->percentage) / 100, 2) }} LE</span>
-                                            <span class="old-price"><del>{{$meal->price}} LEE</del></span>
-                                        </div>
+                                        @if($meal->sales && $meal->sales->count() > 0)
+                                            <div class="pro-price">
+                                                <span class="new-price">{{ number_format($meal->price * (100 - $meal->sales->first()->percentage) / 100, 2) }} LE</span>
+                                                <span class="old-price"><del>{{$meal->price}} LEE</del></span>
+                                            </div>
+                                        @else
+                                            <div class="pro-price">
+                                                <span class="new-price">{{ number_format($meal->price, 2) }} LE</span>
+                                            </div>
+                                        @endif
+
                                     </div>
                                 </div>
                             </div>
@@ -279,7 +286,7 @@
                                             </div>
                                             <div class="pro-icn">
                                                 <a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html" class="w-c-q-icn"><i class="fa fa-heart"></i></a>
-                                                <a href="https://spacingtech.com/html/vegist-final/vegist/cart.html" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
+                                                <a href="#" wire:click.prevent="addToCart('{{ $meal->id }}', '{{ $meal->name }}', {{ ($meal->sale && $meal->sale->count() > 0) ? $meal->price * (100 - ($meal->sales ? $meal->sales->first()->percentage : 0)) / 100 : $meal->price }})" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
                                                 <a href="javascript:void(0)" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
                                             </div>
                                         </div>
@@ -292,10 +299,17 @@
                                                 <i class="fa fa-star e-star"></i>
                                                 <i class="fa fa-star e-star"></i>
                                             </div>
-                                            <div class="pro-price">
-                                                <span class="new-price">{{ number_format($meal->price * (100 - $meal->sales->first()->percentage) / 100, 2) }} LE</span>
-                                                <span class="old-price"><del>{{$meal->price}} LE</del></span>
-                                            </div>
+                                            @if($meal->sales && $meal->sales->count() > 0)
+                                                <div class="pro-price">
+                                                    <span class="new-price">{{ number_format($meal->price * (100 - $meal->sales->first()->percentage) / 100, 2) }} LE</span>
+                                                    <span class="old-price"><del>{{$meal->price}} LEE</del></span>
+                                                </div>
+                                            @else
+                                                <div class="pro-price">
+                                                    <span class="new-price">{{ number_format($meal->price, 2) }} LE</span>
+                                                </div>
+                                            @endif
+
                                         </div>
                                     </div>
                                 </div>
@@ -333,7 +347,7 @@
                                             @endif
                                             <div class="pro-icn">
                                                 <a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html" class="w-c-q-icn"><i class="fa fa-heart"></i></a>
-                                                <a href="https://spacingtech.com/html/vegist-final/vegist/cart.html" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
+                                                <a href="#" wire:click.prevent="addToCart('{{ $meal->id }}', '{{ $meal->name }}', {{ ($meal->sale && $meal->sale->count() > 0) ? $meal->price * (100 - ($meal->sales ? $meal->sales->first()->percentage : 0)) / 100 : $meal->price }})" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
                                                 <a href="javascript:void(0)" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
                                             </div>
                                         </div>
@@ -389,7 +403,7 @@
                                                 </div>
                                                 <div class="pro-icn">
                                                     <a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html" class="w-c-q-icn"><i class="fa fa-heart"></i></a>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/cart.html" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
+                                                    <a href="#" wire:click.prevent="addToCart('{{ $meal->id }}', '{{ $meal->name }}', {{ ($meal->sale && $meal->sale->count() > 0) ? $meal->price * (100 - ($meal->sales ? $meal->sales->first()->percentage : 0)) / 100 : $meal->price }})" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
                                                     <a href="javascript:void(0)" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
@@ -612,7 +626,7 @@
                                         <input type="text" name="name" value="1">
                                         <a href="javascript:void(0)" class="plus-btn text-black">+</a>
                                     </span>
-                            <a href="https://spacingtech.com/html/vegist-final/vegist/cart.html" class="quick-cart"><i class="fa fa-shopping-bag"></i></a>
+                            <a href="#" wire:click.prevent="addToCart('{{ $meal->id }}', '{{ $meal->name }}', {{ ($meal->sale && $meal->sale->count() > 0) ? $meal->price * (100 - ($meal->sales ? $meal->sales->first()->percentage : 0)) / 100 : $meal->price }})" class="w-c-q-icn"><i class="fa fa-shopping-bag"></i></a>
                             <a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html" class="quick-wishlist"><i class="fa fa-heart"></i></a>
                         </div>
                     </div>
@@ -686,10 +700,9 @@
                     <div class="home-news">
                         <h2>Get the latest deals</h2>
                         <p>And receive 20% off coupon for first shopping</p>
-                        <form>
-                            <input type="text" name="search" placeholder="Enter your email address">
+                        <form wire:submit:prevent="subscribe">
+                            <input type="text" wire:model="email" placeholder="Enter your email address">
                             <button class="btn btn-style3">Subscribe</button>
-                            <button class="btn btn-style1 news-sub">Subscribe</button>
                         </form>
                     </div>
                 </div>

@@ -69,7 +69,6 @@ class SaleController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -80,7 +79,11 @@ class SaleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $sale = Sale::find($id);
+        $selected_meals = $sale->meals;
+        $meals = Meal::get();
+        return view('admin.sale.edit-sale', compact('sale', 'meals', 'selected_meals'));
+
     }
 
     /**
@@ -90,10 +93,27 @@ class SaleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SaleRequest $request, Sale $sale)
     {
-        //
+        try {
+            $sale = Sale::find($request->input('sale_id'));
+            $sale->update([
+                'name' => $request->name,
+                'percentage' => $request->percentage,
+                'is_flash_sale' => $request->is_flash_sale ?? 0,
+                'starts_at' => date('Y-m-d H:i:s', strtotime($request->starts_date)),
+                'ends_at' => date('Y-m-d H:i:s', strtotime($request->ends_date)),
+            ]);
+
+            $sale->meals()->sync($request->input('meal_id'));
+
+            return redirect()->route('admin.sales')->with('success', 'Sale has been updated');
+        } catch (\Exception $exception) {
+            return $exception;
+            return redirect()->route('admin.sales')->with(['error' => 'An error occurred. Please try again later.']);
+        }
     }
+
 
     /**
      * Remove the specified resource from storage.

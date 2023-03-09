@@ -140,7 +140,7 @@ class CheckoutComponent extends Component
         $order->is_shipping_different = $this->ship_to_different ? 1:0;
         $order->save();
         $data = ['order_id' => $order->id];
-        //Pusher::trigger('order-tracking', 'new-order', $data);
+        //Pusher::trigger('order-orders', 'new-order', $data);
 
         $admin = Admin::where('id', 1)->first();
 

@@ -1414,6 +1414,10 @@ ipad css
     .grid-list-area .grid-pro ul.grid-product li.grid-items{
         width: calc(50% - 30px);
     }
+    .sb-menu-item.sb-menu-item-sm .sb-card-tp {
+        width: calc(83% - 30px);
+    }
+
     .grid-list-area .grid-pro ul.grid-product li.grid-items .tred-pro:hover .pro-icn a.w-c-q-icn:first-child{
         margin-right: 3px;
     }
@@ -3171,6 +3175,10 @@ iphone css
         width: calc(50% - 15px);
         margin-left: 15px;
     }
+    .sb-menu-item.sb-menu-item-sm .sb-card-tp{
+        width: calc(90% - 15px);
+        margin-left: 15px;
+    }
     .grid-list-area .grid-pro ul.grid-product li.grid-items .tred-pro{
         margin-top: 20px;
     }
@@ -3997,6 +4005,10 @@ iphone css
     }
 }
 @media (max-width: 479px) {
+    .sb-menu-item.sb-menu-item-sm .sb-card-tp{
+        width: calc(70% - 60px);
+        margin-left: 15px;
+    }
     .login-area .login-box{
         width: 400px;
     }
@@ -4530,6 +4542,11 @@ iphone css
     }
 }
 @media (max-width: 320px){
+
+    .sb-menu-item.sb-menu-item-sm .sb-card-tp{
+        width: calc(60% - 60px);
+        margin-left: 15px;
+    }
 
     .login-area .login-box{
         width: 270px;
