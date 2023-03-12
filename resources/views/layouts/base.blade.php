@@ -481,11 +481,7 @@
                                                     <h2 class="sublink-title">Fresh food</h2>
                                                     <a href="{{ route('product.category',['category_slug'=>  $main_cat->slug]) }}#collapse-sub-mega-{{$main_cat->slug}}" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
                                                         <span>{{$main_cat->name}}</span>
-                                                        @foreach($main_cat->subcats as $subcat)
-                                                            @isset($subcat->name)
                                                         <i class="fa fa-angle-down"></i>
-                                                            @endisset
-                                                        @endforeach
                                                     </a>
                                                     <ul class="dropdown-supmenu collapse" id="collapse-sub-mega-{{$main_cat->slug}}">
                                                         @if(isset($main_cat->subcats))

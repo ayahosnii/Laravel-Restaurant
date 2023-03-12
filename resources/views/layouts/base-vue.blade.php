@@ -1014,8 +1014,8 @@
                                 <a href="javascript:void(0)"><img src="{{asset('assets/img/icon_contact.png')}}" class="img-fluid" alt="image-icon"></a>
                             </div>
                             <div class="image-content">
-                                <span class="hot-l">Hotline:</span>
-                                <span>0123 456 789</span>
+                                <span class="hot-l">Aya:</span>
+                                <span>01006215138</span>
                             </div>
                         </div>
                     </div>
@@ -1093,6 +1093,8 @@
 <script src="{{asset('assets/js/scrollax.min.js')}}"></script>
 <script src="{{asset('assets/js/menu.js')}}"></script>
 <script src="{{asset('assets/js/categories.js')}}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
+
 
 
 <script>
