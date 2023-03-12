@@ -145,6 +145,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
         Route::get('/pended', [OrderController::class, 'pended'])->name('admin.orders.pended');
         Route::get('/delivered', [OrderController::class, 'delivered'])->name('admin.orders.delivered');
         Route::get('/shipped', [OrderController::class, 'shipped'])->name('admin.orders.shipped');
+        Route::PUT('/update-status/{id}', [OrderController::class, 'updateStatus'])->name('admin.orders.updateStatus');
     });
     ########################################## End  Order Route ######################################################################################################## Start MainCategories Route ##############################################################
 

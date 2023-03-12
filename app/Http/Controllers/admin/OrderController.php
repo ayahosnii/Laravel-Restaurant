@@ -10,8 +10,8 @@ class OrderController extends Controller
 {
     public function pended()
     {
-        $orders = Order::where('', '')->get();
-        return view('admin.orders.pended');
+        $orders = Order::where('status', 'ordered')->paginate();
+        return view('admin.orders.pended', compact('orders'));
     }
       public function delivered()
     {
@@ -30,5 +30,19 @@ class OrderController extends Controller
     public function show()
     {
         return view('admin.orders.show');
+    }
+
+    public function updateStatus(Request $request, $id)
+    {
+        $order = Order::find($id);
+        if (!$order) {
+            return response()->json(['success' => false, 'message' => 'Order not found']);
+        }
+
+        $status = $request->input('status');
+        $order->status = $status;
+      $order->save();
+
+      return response()->json(['success' => 'true']);
     }
 }

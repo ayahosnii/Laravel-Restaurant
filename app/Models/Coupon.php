@@ -19,13 +19,46 @@ class Coupon extends Model
     }
     public function discount($subtotal)
     {
-        if ($this->type === 'fixed') {
-            return $this->value;
-        } elseif ($this->type === 'percent') {
-            return round(($this->value / 100) * $subtotal, 2);
+        if ($this->subscribers->isEmpty()) {
+            dd('empty');
+            dd($this->subscribers);
+            if ($this->type === 'fixed') {
+                return $this->value;
+            } elseif ($this->type === 'percent') {
+                return round(($this->value / 100) * $subtotal, 2);
+            } else {
+                return 0;
+            }
         } else {
-            return 0;
+            $subscriber = $this->subscribers()->where('user_id', auth()->id())->latest()->first();
+            if ($subscriber && $this->times_used >= 1) {
+                dd('you have already used your coupon');
+            } else {
+                if ($subscriber) {
+                    if ($this->times_used >= 1) {
+                        dd('Coupon usage limit exceeded');
+                    } else {
+                        if ($this->times_used < 1) {
+                            if ($this->type === 'fixed') {
+                                return $this->value;
+                            } elseif ($this->type === 'percent') {
+                                return round(($this->value / 100) * $subtotal, 2);
+                            } else {
+                                return 0;
+                            }
+                        }
+                    }
+                } else {
+                    dd(':(');
+                    return 0;
+                }
+            }
         }
+    }
+
+    public function subscribers()
+    {
+        return $this->belongsToMany(\App\Models\admin\Subscriber::class);
     }
 
     public function isValid($cart)

@@ -34,37 +34,33 @@ class HomeComponent extends Component
         $this->seconds = $diff % 60;
     }
 
+
+
     public function subscribe()
     {
         if ($this->email == Auth::user()->email) {
             $subscriber = Subscriber::where('email', $this->email)->first();
             if (!$subscriber) {
                 $subscriber = new Subscriber();
-                    $subscriber->email = $this->email;
-                    $subscriber->user_id = Auth::user()->id;
+                $subscriber->email = $this->email;
+                $subscriber->user_id = Auth::user()->id;
             }
+
+            $coupon = $subscriber->assignCoupon();
+
+            if ($coupon) {
+                Mail::to($subscriber->email)->send(new CouponEmail($coupon));
+                session()->flash('success', 'You have successfully subscribed and received a coupon code!');
+                $this->email = '';
+            } else {
+                session()->flash('error', 'Sorry, something went wrong while assigning the coupon code. Please try again later.');
+            }
+        } else {
+            session()->flash('error', 'Sorry, you are not allowed to subscribe with this email address.');
         }
-        $coupon = $subscriber->assignCoupon();
-        Mail::to($subscriber->email)->send(new CouponEmail($coupon));
-
-        session()->flash('success', 'You have successfully subscribed and received a coupon code!');
-        $this->email = '';
-
     }
 
-    public function assignCoupon()
-    {
-        $coupon = new Coupon();
-        $coupon->code = substr(md5(uniqid(rand(), true)), 0, 8);
-        $coupon->value = 10;
-        $coupon->for = 'general';
-        $coupon->start_time = now();
-        $coupon->end_time = now()->addMonth();
-        $coupon->save();
-        $this->coupons()->attach($coupon->id);
 
-        return $coupon;
-    }
 
     public function addToCart($meal_id, $meal_name, $meal_price)
     {
@@ -72,6 +68,25 @@ class HomeComponent extends Component
         Session()->flash('success_message', 'Item added in Cart');
     }
 
+
+    public function addToWishList($meal_id, $meal_name, $meal_price)
+    {
+        Cart::instance('wishlist')->add($meal_id, $meal_name,1, $meal_price)->associate('App\Models\providers\Meal');
+        $this->emitTo('wish-list-count-component', 'refreshComponent');
+    }
+
+    public function removeFromWishList($meal_id)
+    {
+        foreach(Cart::instance('wishlist')->content() as $witem)
+        {
+            if ($witem->id == $meal_id)
+            {
+                Cart::instance('wishlist')->remove($witem->rowId);
+                $this->emitTo('wish-list-count-component', 'refreshComponent');
+                return;
+            }
+        }
+    }
 
 
     public function render()

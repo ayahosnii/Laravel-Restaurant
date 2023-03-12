@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\admin\Admin;
+use App\Models\Coupon;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Shipping;
@@ -176,6 +177,13 @@ class CheckoutComponent extends Component
 
         Cart::instance('cart')->destroy();
         session()->forget('checkout');
+        if (session()->has('coupon')) {
+            $coupon = Coupon::where('code', session()->get('coupon')['name'])->first();
+            if ($coupon) {
+                $coupon->times_used = $coupon->times_used + 1;
+                $coupon->save();
+            }
+        }
         return redirect()->route('thankyou');
     }
     public function render()

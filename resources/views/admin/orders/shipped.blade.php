@@ -48,35 +48,40 @@
                                             class="table display nowrap table-striped table-bordered ">
                                             <thead>
                                             <tr>
-                                                <th>Username</th>
-                                                <th>Address</th>
-                                                <th>Total</th>
-                                                <th>Status</th>
+                                                <th> اسم الكوبون</th>
+                                                <th>نوع الكوبون</th>
+                                                <th>قيمة الكوبون</th>
                                                 <th>نوع الكارت</th>
                                                 <th>تاريخ الانتهاء</th>
                                                 <th>الإجراءات</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @isset($orders)
-                                                @foreach($orders as $order)
+                                            @isset($coupons)
+                                                @foreach($coupons as $coupon)
                                             <tr>
-                                                <td> {{$order -> user->name}}</td>
+                                                <td> {{$coupon -> code}}</td>
 
+                                                <td> {{$coupon -> type}}  </td>
 
-                                                <td>{{$order -> address}}</td>
-                                                <td>{{$order -> total}} LE</td>
-                                                <td>{{$order -> status}}</td>
-                                                <td>{{$order -> latitus}}</td>
-                                                <td>{{$order -> longitude}}</td>
+                                                @if($coupon -> type == 'fixed')
+                                                <td>{{$coupon -> value}}$</td>
+                                                @else
+                                                    <td>{{$coupon -> value}}%</td>
+                                                @endif
+                                                    <td>{{$coupon -> for}}</td>
+                                                <td>{{$coupon -> end_time}}</td>
                                                 <td>
-                                                    <div class="order-status" data-id="{{$order->id}}" data-status="{{$order->status}}">
-                                                        <select>
-                                                            <option value="ordered">Pending</option>
-                                                            <option value="shipped">Shipped</option>
-                                                            <option value="canceled">Cancel</option>
-                                                            <option value="delivered">Delivered</option>
-                                                        </select>
+                                                    <div class="btn-group" role="group"
+                                                         aria-label="Basic example">
+                                                        <a href="{{route('admin.coupons.edit', $coupon-> id)}}"
+                                                           class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
+
+                                                        <div class="btn-group" role="group"
+                                                             aria-label="Basic example">
+                                                            <a href="{{--route('admin.coupon.delete', $coupon-> id)--}}"
+                                                               class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
+
                                                     </div>
                                                 </td>
                                             </tr>
@@ -101,39 +106,3 @@
         </div>
     </div>
 @endsection
-@push('scripts-push')
-    <script>
-        console.log('work')
-        $(document).on('change', '.order-status select', function (){
-            console.log('changed')
-            var $this = $(this);
-            var orderId = $this.closest('.order-status').attr('data-id')
-            var statusValue = $this.val()
-            console.log(statusValue)
-
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            $.ajax({
-                url: "{{route('admin.orders.updateStatus', ':id')}}".replace(':id', orderId),
-                type: 'PUT',
-                data: {status: statusValue},
-                success: function (response){
-                    console.log(response)
-                    if(response.success) {
-                        $this.closest('.order-status').attr('data-status', statusValue)
-                        console.log('success')
-                    }
-                },
-                error: function (xhr, status, error) {
-                    console.log(xhr.responseText);
-                }
-            });
-
-        })
-    </script>
-
-@endpush

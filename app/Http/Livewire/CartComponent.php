@@ -83,6 +83,10 @@ class CartComponent extends Component
             return;
         }
 
+        if (session()->get('coupon_applied')) {
+            return;
+        }
+
         $discount = $coupon->discount(Cart::instance('cart')->subtotal());
 
         Cart::instance('cart')->content()->each(function ($item) use ($discount) {
@@ -93,6 +97,8 @@ class CartComponent extends Component
             'name' => $coupon->code,
             'discount' => $coupon->discount(Cart::instance('cart')->subtotal()),
         ]);
+
+        session()->put('coupon_applied', true);
 
         $this->emit('couponApplied');
     }

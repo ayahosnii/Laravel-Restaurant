@@ -23,6 +23,7 @@
         "pusher/pusher-php-server": "^7.2",
         "santigarcor/laratrust": "^7.1",
         "spatie/enum": "^3.13",
+        "spatie/geocoder": "^3.14",
         "twilio/sdk": "^6.44"
     },
     "require-dev": {
