@@ -15,16 +15,24 @@ class OrderController extends Controller
     }
       public function delivered()
     {
-        return view('admin.orders.delivered');
+        $orders = Order::where('status', 'delivered')->paginate();
+        return view('admin.orders.delivered', compact('orders'));
     }
       public function shipped()
     {
-        return view('admin.orders.shipped');
+        $orders = Order::where('status', 'shipped')->paginate();
+        return view('admin.orders.shipped', compact('orders'));
+    }
+    public function canceled()
+    {
+        $orders = Order::where('status', 'canceled')->paginate();
+        return view('admin.orders.canceled', compact('orders'));
     }
 
     public function all()
     {
-        return view('admin.orders.all');
+        $orders = Order::paginate();
+        return view('admin.orders.all', compact('orders'));
     }
 
     public function show()

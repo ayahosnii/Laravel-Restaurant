@@ -60,26 +60,26 @@
                                             <tbody>
                                             @isset($orders)
                                                 @foreach($orders as $order)
-                                            <tr>
-                                                <td> {{$order -> user->name}}</td>
+                                                    <tr>
+                                                        <td> {{$order -> user->name}}</td>
 
 
-                                                <td>{{$order -> address}}</td>
-                                                <td>{{$order -> total}} LE</td>
-                                                <td>{{$order -> status}}</td>
-                                                <td>{{$order -> latitus}}</td>
-                                                <td>{{$order -> longitude}}</td>
-                                                <td>
-                                                    <div class="order-status" data-id="{{$order->id}}" data-status="{{$order->status}}">
-                                                        <select>
-                                                            <option value="ordered" {{ $order->status == 'ordered' ? 'selected' : '' }}>Pending</option>
-                                                            <option value="shipped" {{ $order->status == 'shipped' ? 'selected' : '' }}>Shipped</option>
-                                                            <option value="canceled" {{ $order->status == 'canceled' ? 'selected' : '' }}>Cancel</option>
-                                                            <option value="delivered" {{ $order->status == 'delivered' ? 'selected' : '' }}>Delivered</option>
-                                                        </select>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                                        <td>{{$order -> address}}</td>
+                                                        <td>{{$order -> total}} LE</td>
+                                                        <td>{{$order -> status}}</td>
+                                                        <td>{{$order -> latitus}}</td>
+                                                        <td>{{$order -> longitude}}</td>
+                                                        <td>
+                                                            <div class="order-status" data-id="{{$order->id}}" data-status="{{$order->status}}">
+                                                                <select>
+                                                                    <option value="ordered" {{ $order->status == 'ordered' ? 'selected' : '' }}>Pending</option>
+                                                                    <option value="shipped" {{ $order->status == 'shipped' ? 'selected' : '' }}>Shipped</option>
+                                                                    <option value="canceled" {{ $order->status == 'canceled' ? 'selected' : '' }}>Cancel</option>
+                                                                    <option value="delivered" {{ $order->status == 'delivered' ? 'selected' : '' }}>Delivered</option>
+                                                                </select>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
                                                 @endforeach
                                             @endisset
 

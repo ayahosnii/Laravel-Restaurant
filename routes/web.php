@@ -59,8 +59,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 
     Route::get('/', HomeComponent::class)->name('index');
     //Route::get('/shop', [\App\Http\Controllers\ShopController::class, 'index'])->name('shop');
-    Route::get('/shop/main-category/{category_slug}', CategoryComponent::class)->name('product.category');
-    Route::get('/shop/sub-category/{sub_category_slug}', [SubCategoryController::class, 'index'])->name('sub-category.index');
+    Route::get('/restaurant/main-category/{category_slug}', CategoryComponent::class)->name('product.category');
+    Route::get('/restaurant/sub-category/{sub_category_slug}', [SubCategoryController::class, 'index'])->name('sub-category.index');
     Route::get('/base', [BaseController::class, 'index'])->name('base');
     Route::get('/shop', \App\Http\Livewire\ShopComponent::class)->name('shop');
 //
@@ -154,3 +154,6 @@ Route::get('sendSMS', [\App\Http\Controllers\Site\VerificationCodeController::cl
 
 
 
+Route::get('/{any}', function () {
+    return view('app');
+})->where('any', '.*');
