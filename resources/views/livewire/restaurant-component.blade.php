@@ -259,8 +259,17 @@
                             <div class="quick-caption">
                                 <h4>{{$meal->name}}</h4>
                                 <div class="quick-price">
-                                    <span class="new-price">{{$meal->sale_price}} LE</span>
-                                    <span class="old-price"><del>{{$meal->regular_price}} LE</del></span>
+                                    @if ($meal->sales->isNotEmpty())
+                                    <span class="new-price">
+                                        {{ number_format($meal->price * (100 - $meal->sales->first()->percentage) / 100, 2) }} LE</span>
+                                    <span class="old-price">
+                                        <strike>£{{ number_format($meal->price, 2) }}</strike>
+                                    </span>
+                                    @else
+                                        <span class="new-price">
+                                        {{ number_format($meal->price, 2) }}
+                                        </span>
+                                    @endif
                                 </div>
                                 <div class="quick-rating">
                                     <i class="fa fa-star c-star"></i>
@@ -286,8 +295,8 @@
                                     <input type="text" name="name" value="1">
                                     <a href="javascript:void(0)" class="plus-btn text-black">+</a>
                                 </span>
-                                    <a href=#" class="quick-cart"><i class="fa fa-shopping-bag"></i></a>
-                                    <a href="#" class="quick-wishlist addToWishlist" data-product-id="{{$meal -> id}}"><i class="fa fa-heart"></i></a>
+                                    <a href=#" class="quick-cart" wire:click.prevent="addToCart('{{ $meal->id }}', '{{ $meal->name }}', {{ ($meal->sale && $meal->sale->count() > 0) ? $meal->price * (100 - ($meal->sales ? $meal->sales->first()->percentage : 0)) / 100 : $meal->price }})"><i class="fa fa-shopping-bag"></i></a>
+                                    <a href="#" class="quick-wishlist" wire:click.prevent="addToWishList('{{ $meal->id}}', '{{$meal->name}}', '{{ $meal->price }}')"><i class="fa fa-heart"></i></a>
                                 </div>
                             </div>
                         </div>
