@@ -349,7 +349,7 @@
                                                     <ul class="dropdown-submenu sub-menu collapse" id="blog-style">
                                                         @foreach($main_cats as $main_cat)
                                                             <li class="submenu-li">
-                                                                <a href="{{ route('product.category',['category_slug'=>  $main_cat->slug]) }}" class="g-l-link"><span>{{$main_cat->name}}</span> <i class="fa fa-angle-right"></i></a>
+                                                                <a href="{{ route('main-category.index',['main_category_slug'=>  $main_cat->slug]) }}" class="g-l-link"><span>{{$main_cat->name}}</span> <i class="fa fa-angle-right"></i></a>
                                                                 <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#blog-style03" data-bs-toggle="collapse" class="sub-link"><span>Blog grid</span> <i class="fa fa-angle-down"></i></a>
                                                                 <ul class="collapse blog-style-1" id="blog-style03">
                                                                     @foreach($main_cat->subcats as $subcat)
@@ -479,7 +479,7 @@
                                                 @foreach($main_cats as $main_cat)
                                                 <li class="megamenu-li parent">
                                                     <h2 class="sublink-title">Fresh food</h2>
-                                                    <a href="{{ route('product.category',['category_slug'=>  $main_cat->slug]) }}#collapse-sub-mega-{{$main_cat->slug}}" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                    <a href="{{ route('main-category.index',['main_category_slug'=>  $main_cat->slug]) }}#collapse-sub-mega-{{$main_cat->slug}}" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
                                                         <span>{{$main_cat->name}}</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>

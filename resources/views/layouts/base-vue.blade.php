@@ -455,7 +455,7 @@
                                                     <ul class="dropdown-submenu sub-menu collapse" id="blog-style">
                                                         @foreach($main_cats as $main_cat)
                                                             <li class="submenu-li">
-                                                                <a href="{{ route('product.category',['category_slug'=>  $main_cat->slug]) }}" class="g-l-link"><span>{{$main_cat->name}}</span> <i class="fa fa-angle-right"></i></a>
+                                                                <a href="{{ route('main-category.index',['main_category_slug'=>  $main_cat->slug]) }}" class="g-l-link"><span>{{$main_cat->name}}</span> <i class="fa fa-angle-right"></i></a>
                                                                 <a href="#blog-style03" data-bs-toggle="collapse" class="sub-link"><span>Blog grid</span> <i class="fa fa-angle-down"></i></a>
                                                                 <ul class="collapse blog-style-1" id="blog-style03">
                                                                     @if(isset($main_cat->subcats))

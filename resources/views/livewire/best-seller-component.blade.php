@@ -69,7 +69,7 @@
 
                         <ul class="all-tag collapse" id="tags-filter">
                             @foreach($categories as $category)
-                                <li class="tag"><a href="{{route('product.category',['category_slug'=>$category->slug])}}">{{$category->name}}</a></li>
+                                <li class="tag"><a href="{{route('main-category.index',['main_category_slug'=>$category->slug])}}">{{$category->name}}</a></li>
                             @endforeach
                         </ul>
                     </div>

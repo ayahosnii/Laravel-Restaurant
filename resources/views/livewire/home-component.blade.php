@@ -100,7 +100,7 @@
                             <div class="owl-item cloned" style="width: 171px; margin-right: 30px;"><div class="items">
                                     <div class="h-cate">
                                         <div class="c-img">
-                                            <a href="{{ route('product.category',['category_slug'=>  $category->slug]) }}" class="home-cate-img">
+                                            <a href="{{ route('main-category.index',['main_category_slug'=>  $category->slug]) }}" class="home-cate-img">
                                                 <img class="img-fluid" src="{{asset($category->photo)}}" alt="cate-image" style="height: 90px; width: 90px">
                                                 <span class="cat-title">{{$category->name}}</span>
                                             </a>
