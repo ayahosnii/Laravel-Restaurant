@@ -9,7 +9,7 @@
                             <div class="h-s-content slide-c-l">
                                 <span>Pizza</span>
                                 <h1>Best Pizza Ever<br>&ampWith Cheese</h1>
-                                <a href="{{route('shop')}}" class="btn btn-style1">Shop now</a>
+                                <a href="{{route('restaurant.index')}}" class="btn btn-style1">Shop now</a>
                             </div>
                         </div>
                     </div>
@@ -23,7 +23,7 @@
                             <div class="h-s-content slide-c-r">
                                 <span>we have healthy meal too</span>
                                 <h1>Try Prod of indian<br>100% pacaging</h1>
-                                <a href="{{route('shop')}}" class="btn btn-style1">Shop now</a>
+                                <a href="{{route('restaurant.index')}}" class="btn btn-style1">Shop now</a>
                             </div>
                         </div>
                     </div></div>
@@ -33,7 +33,7 @@
                             <div class="h-s-content slide-c-l">
                                 <span>Cakes</span>
                                 <h1>Cute Cake<br>With Cream</h1>
-                                <a href="{{route('shop')}}" class="btn btn-style1">Shop now</a>
+                                <a href="{{route('restaurant.index')}}" class="btn btn-style1">Shop now</a>
                             </div>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                             <div class="h-s-content slide-c-c">
                                 <span>Top selling!</span>
                                 <h1>Fresh for your health</h1>
-                                <a href="{{route('shop')}}" class="btn btn-style1">Shop now</a>
+                                <a href="{{route('restaurant.index')}}" class="btn btn-style1">Shop now</a>
                             </div>
                         </div>
                     </div>
@@ -230,7 +230,7 @@
                                 <span class="countdown_title">Seconds</span>
                             </li>
                         </ul>
-                        <a href="{{ route('shop') }}" class="btn btn-style1">Shop collection</a>
+                        <a href="{{ route('restaurant.index') }}" class="btn btn-style1">Shop collection</a>
                         @else
                             <h2>Wait for new sale soon</h2>
                         @endif

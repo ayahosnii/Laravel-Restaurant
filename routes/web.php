@@ -59,32 +59,29 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath'/*, 'verifiedUser', 'guest'*/ ]  ], function () {
 
     Route::get('/', HomeComponent::class)->name('index');
-    //Route::get('/shop', [\App\Http\Controllers\ShopController::class, 'index'])->name('shop');
-//    Route::get('/restaurant/main-category/{category_slug}', CategoryComponent::class)
-//    ->name('product.category');
 
 
-    Route::get('/restaurant/main-category/{main_category_slug}', [MainCategoryController::class, 'index'])->name('main-category.index');
-    Route::get('/restaurant/sub-category/{sub_category_slug}', [SubCategoryController::class, 'index'])->name('sub-category.index');
+
+    Route::group(['prefix' => 'restaurant'], function () {
+        Route::get('/', RestaurantComponent::class)->name('restaurant.index');
+        Route::get('/ajax', [RestaurantController::class, 'meals'])->name('restaurant.ajax');
+        Route::get('/main-category/{main_category_slug}', [MainCategoryController::class, 'index'])->name('main-category.index');
+        Route::get('/sub-category/{sub_category_slug}', [SubCategoryController::class, 'index'])->name('sub-category.index');
+        Route::get('/all', [RestaurantController::class, 'index'])->name('restaurant.all');
+        Route::get('/{user_name}', [RestaurantController::class, 'get_rest'])->name('restaurant.details');
+        Route::get('branch/{b_username}', [RestaurantController::class, 'get_branch'])->name('branch.details');
+    });
+
     Route::get('/base', [BaseController::class, 'index'])->name('base');
-//    Route::get('/shop', \App\Http\Livewire\ShopComponent::class)->name('shop');
-//
-//    Route::get('/customer-server', [CustomerServiceChatController::class, 'index'])->name('customer-server.index');
-//    Route::get('/customer-server/{uuid}', [CustomerServiceChatController::class, 'showConversation'])->name('customer-server.index');
-//    Route::get('/customer-server/create', [CustomerServiceChatController::class, 'create'])->name('customer-server.create');
-//    Route::post('/customer-server/store/', [CustomerServiceChatController::class, 'store'])->name('customer-server.store');
 
 
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
-    //Route::get('/post/{slug}', [\App\Http\Controllers\BlogController::class, 'create'])->name('blog');
     Route::get('/reservation/step-one', [ReservationController::class, 'stepOne'])->name('reservations');
     Route::post('/reservation/step-one', [ReservationController::class, 'storeStepOne'])->name('reservations.store.step.one');
     Route::get('/reservation/step-two', [ReservationController::class, 'stepTwo'])->name('reservations.step.two');
     Route::post('/reservation/step-two', [ReservationController::class, 'storeStepTwo'])->name('reservations.store.step.two');
 
-    //Route::get("/reservations/reservation-details/{id}" , [ReservationController::class, "get_reservation"]);
-    //Route::get("/reservations/add-reservation/{id}/{type}" , [ReservationController::class, "add_reservation"])->name('add.reservations');
-    //Route::post("/reservations/add-reservation" , "User\ReservationController@post_add_reservation");
+
     Route::get("/reservations/decline/{id}" , [ReservationController::class, "decline_reservation"]);
     //route::get('shop/details/{slug}', [ProductController::class, 'productsBySlug'])->name('product.details');
     route::get('shop/meal/{name}', [ProductController::class, 'mealsBySlug'])->name('meal.details');
@@ -99,13 +96,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::post('sort-meals', [RestaurantController::class, 'sortMeals'])->name('filter.price');
     Route::post('/add-to-cart', [RestaurantController::class, 'addToCart'])->name('restaurant.addToCart');
 
-    Route::group(['prefix' => 'restaurant'], function () {
-        Route::get('/', RestaurantComponent::class)->name('restaurant.index');
-        Route::get('/ajax', [RestaurantController::class, 'meals'])->name('restaurant.ajax');
-        Route::get('/all', [RestaurantController::class, 'index'])->name('restaurant.all');
-        Route::get('/{user_name}', [RestaurantController::class, 'get_rest'])->name('restaurant.details');
-        Route::get('branch/{b_username}', [RestaurantController::class, 'get_branch'])->name('branch.details');
-    });
+
 
     Route::get('/bestseller', BestSellerComponent::class)->name('bestseller');
 
@@ -145,12 +136,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 
 
 
-/*Route::middleware(['guest:web', 'guest:providers'])->group(function(){
-    Auth::routes();
-});*/
-
-//Route::get('/shop-vue', [\App\Http\Controllers\ShopController::class, 'index'])->name('shop-vue');
-
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -162,3 +147,24 @@ Route::get('sendSMS', [\App\Http\Controllers\Site\VerificationCodeController::cl
 Route::get('/{any}', function () {
     return view('app');
 })->where('any', '.*');
+
+//Route::get('/shop', [\App\Http\Controllers\ShopController::class, 'index'])->name('shop');
+//    Route::get('/restaurant/main-category/{category_slug}', CategoryComponent::class)
+//    ->name('product.category');
+//    Route::get('/shop', \App\Http\Livewire\ShopComponent::class)->name('shop');
+//
+//    Route::get('/customer-server', [CustomerServiceChatController::class, 'index'])->name('customer-server.index');
+//    Route::get('/customer-server/{uuid}', [CustomerServiceChatController::class, 'showConversation'])->name('customer-server.index');
+//    Route::get('/customer-server/create', [CustomerServiceChatController::class, 'create'])->name('customer-server.create');
+//    Route::post('/customer-server/store/', [CustomerServiceChatController::class, 'store'])->name('customer-server.store');
+
+//    Route::get('/post/{slug}', [\App\Http\Controllers\BlogController::class, 'create'])->name('blog');
+//Route::get("/reservations/reservation-details/{id}" , [ReservationController::class, "get_reservation"]);
+//Route::get("/reservations/add-reservation/{id}/{type}" , [ReservationController::class, "add_reservation"])->name('add.reservations');
+//Route::post("/reservations/add-reservation" , "User\ReservationController@post_add_reservation");
+/*Route::middleware(['guest:web', 'guest:providers'])->group(function(){
+Auth::routes();
+});*/
+
+//Route::get('/shop-vue', [\App\Http\Controllers\ShopController::class, 'index'])->name('shop-vue');
+
