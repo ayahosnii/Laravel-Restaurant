@@ -63,10 +63,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 //    Route::get('/restaurant/main-category/{category_slug}', CategoryComponent::class)
 //    ->name('product.category');
 
+
     Route::get('/restaurant/main-category/{main_category_slug}', [MainCategoryController::class, 'index'])->name('main-category.index');
     Route::get('/restaurant/sub-category/{sub_category_slug}', [SubCategoryController::class, 'index'])->name('sub-category.index');
     Route::get('/base', [BaseController::class, 'index'])->name('base');
-    Route::get('/shop', \App\Http\Livewire\ShopComponent::class)->name('shop');
+//    Route::get('/shop', \App\Http\Livewire\ShopComponent::class)->name('shop');
 //
 //    Route::get('/customer-server', [CustomerServiceChatController::class, 'index'])->name('customer-server.index');
 //    Route::get('/customer-server/{uuid}', [CustomerServiceChatController::class, 'showConversation'])->name('customer-server.index');
