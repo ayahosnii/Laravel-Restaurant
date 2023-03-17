@@ -159,8 +159,9 @@
 <script src="{{asset('admin-assets/js/scripts/forms/checkbox-radio.js')}}'" type="text/javascript"></script>
 
 <script src="{{asset('admin-assets/js/scripts/modal/components-modal.js')}}" type="text/javascript"></script>
+<script src="{{asset('admin-assets/js/chart.min.js')}}" type="text/javascript"></script>
 
-<script src="{{ mix('js/app.js') }}" defer></script>
+<script src="{{ asset('js/app.js') }}" defer></script>
 
 
 <script>

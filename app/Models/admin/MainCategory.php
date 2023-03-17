@@ -52,6 +52,6 @@ class MainCategory extends Model
     }
 
     public function subcats(){
-        return $this -> hasMany('App\Models\admin\SubCategory', 'category_id', 'id')->where('translation_lang', get_default_language());
+        return $this -> hasMany(SubCategory::class, 'category_id', 'id')->where('translation_lang', get_default_language());
     }
 }

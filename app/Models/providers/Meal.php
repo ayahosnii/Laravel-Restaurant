@@ -2,6 +2,7 @@
 
 namespace App\Models\providers;
 
+use App\Models\admin\MainCategory;
 use App\Models\ProviderRegister;
 use App\Models\Sale;
 use Illuminate\Database\Eloquent\Model;
@@ -20,6 +21,11 @@ class Meal extends Model /*implements TranslatableContract*/
     public function branch()
     {
         return $this->belongsTo(Branch::class, 'branch_id',  'id');
+    }
+
+    public function mainCategory()
+    {
+        return $this->belongsTo(MainCategory::class,'maincate_id');
     }
 
     public function category()
