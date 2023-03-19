@@ -69,20 +69,15 @@ class SearchComponent extends Component
         }
         else
         {
-            //$products = Product::where('name', 'like', '%'.$this->search .'%')->where('category_id','like','%'. $this->product_cat_id .'%')->paginate($this->pagesize);
-            //$meals = Meal::where('name', 'like', '%'.$this->search .'%')/*->where('meal_id','like','%'. $this->meal_cat_id .'%')*/->paginate($this->pagesize);
-            dd(DB::table('products')
-                ->crossJoin('meals')
-                ->select('*')
-                ->get());
 
+            $meals = Meal::where('name', 'like', '%'.$this->search .'%')/*->where('meal_id','like','%'. $this->meal_cat_id .'%')*/->paginate($this->pagesize);
         }
 
 
         $default_lang = get_default_language();
         $categories = MainCategory::where('translation_lang', $default_lang)->get();
 
-        return view('livewire.search-component', ['categories' => $categories, 'products' => $products])->layout('layouts.base');
+        return view('livewire.search-component', ['categories' => $categories, 'meals' => $meals])->layout('layouts.base');
     }
 }
 

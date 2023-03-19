@@ -233,13 +233,13 @@
                     </div>
                     <div class="grid-pro">
                         <ul class="grid-product">
-                            @foreach($products as $product)
+                            @foreach($meals as $meal)
                                 <li class="grid-items">
                                     <div class="tred-pro">
                                         <div class="tr-pro-img">
                                             <a href="https://spacingtech.com/html/vegist-final/vegist/product.html">
-                                                <img class="img-fluid" style="height: 300px; width: 500px"  src="{{$product->image}}" alt="pro-img1">
-                                                <img class="img-fluid additional-image" style="height: 300px; width: 500px" src="{{$product->image}}" alt="additional image">
+                                                <img class="img-fluid" style="height: 300px; width: 500px"  src="{{$meal->image}}" alt="pro-img1">
+                                                <img class="img-fluid additional-image" style="height: 300px; width: 500px" src="{{$meal->image}}" alt="additional image">
                                             </a>
                                         </div>
                                         <div class="Pro-lable">
@@ -254,8 +254,8 @@
                                     <div class="caption">
                                         <a href="https://elanta.app/nazar/starbelly-demo/product.html" class="sb-menu-item sb-menu-item-sm sb-mb-15">
                                             <div class="sb-card-tp">
-                                                <h4 class="sb-card-title">{{$product->name}}</h4>
-                                                <div class="sb-price"><sub>£</sub> {{$product->sale_price ?? $product->regular_price ?? $product->price}}</div>
+                                                <h4 class="sb-card-title">{{$meal->name}}</h4>
+                                                <div class="sb-price"><sub>£</sub> {{$meal->sale_price ?? $meal->regular_price ?? $meal->price}}</div>
                                             </div>
                                         </a>
                                     </div>
