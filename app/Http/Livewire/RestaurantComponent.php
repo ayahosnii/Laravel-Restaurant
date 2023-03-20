@@ -41,44 +41,14 @@ class RestaurantComponent extends Component
         $this->sorting = "default";
         $this->pagesize = "12";
 
+        $this->min_price=1;
+        $this->max_price=1000;
 
         $this->min_alphabet='a';
         $this->max_alphabet='z';
 
-        $this->price_range = $this->getDefaultPriceRange();
-        $this->min_price = $this->getMinPrice();
-        $this->max_price = $this->getMaxPrice();
-
-
-    }
-
-    public function filterByPrice($value)
-    {
-        $this->price_range = $value;
-
-        $this->loadMeals();
-    }
-
-    private function loadMeals()
-    {
-        // load products data from database based on price range filter
-        $this->meals = Meal::where('price', '>=', $this->price_range[0])
-            ->where('price', '<=', $this->price_range[1])
-            ->get();
-    }
-    private function getDefaultPriceRange()
-    {
-        return [0, $this->getMaxPrice()];
-    }
-
-    private function getMinPrice()
-    {
-        return Meal::min('price');
-    }
-
-    private function getMaxPrice()
-    {
-        return Meal::max('price');
+        $this->min_date=1;
+        $this->max_date=10000;
     }
 
     public function addToCart($meal_id, $meal_name, $meal_price)
@@ -113,33 +83,33 @@ class RestaurantComponent extends Component
 
         if($this->sorting=='date')
         {
-            $mealsQuery->whereBetween('id',[$this->min_date,$this->max_date])->orderBy('id', 'ASC');
+            $meals = $mealsQuery->whereBetween('id',[$this->min_date,$this->max_date])->orderBy('id', 'ASC');
         }
         else if ($this->sorting=="date-desc")
         {
-            $mealsQuery->whereBetween('id',[$this->min_date,$this->max_date])->orderBy('id', 'DESC');
+            $meals = $mealsQuery->whereBetween('id',[$this->min_date,$this->max_date])->orderBy('id', 'DESC');
         }
         else if ($this->sorting=="price")
         {
-            $mealsQuery->whereBetween('price',[$this->min_price,$this->max_price])->orderBy('price', 'ASC');
+            $meals = $mealsQuery->whereBetween('price',[$this->min_price,$this->max_price])->orderBy('price', 'ASC');
 
         }
         else if ($this->sorting=="price-desc")
         {
-            $mealsQuery->whereBetween('price',[$this->min_price,$this->max_price])->orderBy('price', 'DESC');
+            $meals = $mealsQuery->whereBetween('price',[$this->min_price,$this->max_price])->orderBy('price', 'DESC');
         }
         else if ($this->sorting=="alphabet")
         {
-            $mealsQuery->whereBetween('name', [$this->min_alphabet,$this->max_alphabet])->orderBy('name', 'ASC');
+            $meals = $mealsQuery->whereBetween('name', [$this->min_alphabet,$this->max_alphabet])->orderBy('name', 'ASC');
         }
         else if ($this->sorting=="alphabet-desc")
         {
-            $mealsQuery->whereBetween('name',[$this->min_alphabet,$this->max_alphabet])->orderBy('name', 'DESC');
+            $meals = $mealsQuery->whereBetween('name',[$this->min_alphabet,$this->max_alphabet])->orderBy('name', 'DESC');
         }
 
         if ($this->categoryInputs) {
             if ($default_lang == 'en') {
-                $mealsQuery->whereIn('main_cate_id', $this->categoryInputs);
+                $meals = $mealsQuery->whereIn('main_cate_id', $this->categoryInputs);
             } else {
                 $main = MainCategory::whereIn('id', $this->categoryInputs)->first();
                 $mealTranslation = MealTranslation::where('main_cate_id', $main->translate_of)->first();
@@ -148,20 +118,19 @@ class RestaurantComponent extends Component
                     $meal = Meal::find($mealTranslation->meal_id);
 
                     if ($meal) {
-                        $mealsQuery->where('category_id', $meal->category_id);
+                        $meals = $mealsQuery->where('category_id', $meal->category_id);
                     }
                 }
             }
         }
 
         if ($this->filterProviders) {
-            $mealsQuery->whereIn('provider_id', $this->filterProviders);
+            $meals = $mealsQuery->whereIn('provider_id', $this->filterProviders);
         }
 
        if ($this->price_range) {
-           $this->loadMeals();
-
-       }
+            $meals = $mealsQuery->whereIn('provider_id', $this->filterProviders);
+        }
 
         $meals = $mealsQuery->paginate($this->pagesize);
 
