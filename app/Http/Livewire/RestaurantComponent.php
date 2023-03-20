@@ -47,8 +47,18 @@ class RestaurantComponent extends Component
         $this->min_alphabet='a';
         $this->max_alphabet='z';
 
-        $this->min_date=1;
-        $this->max_date=10000;
+        $this->min_price = $this->getMinPrice();
+        $this->max_price = $this->getMaxPrice();
+    }
+
+    private function getMinPrice()
+    {
+        return Meal::min('price');
+    }
+
+    private function getMaxPrice()
+    {
+        return Meal::max('price');
     }
 
     public function addToCart($meal_id, $meal_name, $meal_price)
@@ -129,7 +139,8 @@ class RestaurantComponent extends Component
         }
 
        if ($this->price_range) {
-            $meals = $mealsQuery->whereIn('provider_id', $this->filterProviders);
+            $meals = $mealsQuery->where('price', '>=', $this->price_range[0])
+                ->where('price', '<=', $this->price_range[1]);
         }
 
         $meals = $mealsQuery->paginate($this->pagesize);
