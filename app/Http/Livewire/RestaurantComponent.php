@@ -113,33 +113,33 @@ class RestaurantComponent extends Component
 
         if($this->sorting=='date')
         {
-            $mealsQuery->whereBetween('id',[$this->min_date,$this->max_date])->orderBy('id', 'ASC');
+            $mealsQuery->whereBetween('id',[$this->min_date,$this->max_date])->orderBy('id', 'ASC')->paginate($this->pagesize);
         }
         else if ($this->sorting=="date-desc")
         {
-            $mealsQuery->whereBetween('id',[$this->min_date,$this->max_date])->orderBy('id', 'DESC');
+            $mealsQuery->whereBetween('id',[$this->min_date,$this->max_date])->orderBy('id', 'DESC')->paginate($this->pagesize);
         }
         else if ($this->sorting=="price")
         {
-            $mealsQuery->whereBetween('price',[$this->min_price,$this->max_price])->orderBy('price', 'ASC');
+            $mealsQuery->whereBetween('price',[$this->min_price,$this->max_price])->orderBy('price', 'ASC')->paginate($this->pagesize);
 
         }
         else if ($this->sorting=="price-desc")
         {
-            $mealsQuery->whereBetween('price',[$this->min_price,$this->max_price])->orderBy('price', 'DESC');
+            $mealsQuery->whereBetween('price',[$this->min_price,$this->max_price])->orderBy('price', 'DESC')->paginate($this->pagesize);
         }
         else if ($this->sorting=="alphabet")
         {
-            $mealsQuery->whereBetween('name', [$this->min_alphabet,$this->max_alphabet])->orderBy('name', 'ASC');
+            $mealsQuery->whereBetween('name', [$this->min_alphabet,$this->max_alphabet])->orderBy('name', 'ASC')->paginate($this->pagesize);
         }
         else if ($this->sorting=="alphabet-desc")
         {
-            $mealsQuery->whereBetween('name',[$this->min_alphabet,$this->max_alphabet])->orderBy('name', 'DESC');
+            $mealsQuery->whereBetween('name',[$this->min_alphabet,$this->max_alphabet])->orderBy('name', 'DESC')->paginate($this->pagesize);
         }
 
         if ($this->categoryInputs) {
             if ($default_lang == 'en') {
-                $mealsQuery->whereIn('main_cate_id', $this->categoryInputs);
+                $mealsQuery->whereIn('main_cate_id', $this->categoryInputs)->paginate($this->pagesize);
             } else {
                 $main = MainCategory::whereIn('id', $this->categoryInputs)->first();
                 $mealTranslation = MealTranslation::where('main_cate_id', $main->translate_of)->first();
@@ -148,14 +148,14 @@ class RestaurantComponent extends Component
                     $meal = Meal::find($mealTranslation->meal_id);
 
                     if ($meal) {
-                        $mealsQuery->where('category_id', $meal->category_id);
+                        $mealsQuery->where('category_id', $meal->category_id)->paginate($this->pagesize);
                     }
                 }
             }
         }
 
         if ($this->filterProviders) {
-            $mealsQuery->whereIn('provider_id', $this->filterProviders);
+            $mealsQuery->whereIn('provider_id', $this->filterProviders)->paginate($this->pagesize);
         }
 
        if ($this->price_range) {
