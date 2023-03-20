@@ -23,20 +23,8 @@
                         <ul class="all-option collapse" id="category-filter">
                             @foreach($categories as $category)
                                 <li class="grid-list-option">
-                                    <input type="checkbox" wire:model="selectedCategories" value="{{$category->id}}">
+                                    <input type="checkbox" wire:model="categoryInputs" value="{{$category->id}}">
                                     <a href="javascript:void(0)">{{$category->name}} <span class="grid-items"></span></a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    <div class="categories-page-filter" style="overflow-y: scroll;">
-                        <h4 class="filter-title">Filter by providers</h4>
-                        <a href="javascript:void(0)" data-bs-toggle="collapse" class="filter-link"><span>Providers</span><i class="fa fa-angle-down"></i></a>
-                        <ul class="all-option collapse" id="provider-filter">
-                            @foreach($providers as $provider)
-                                <li class="grid-list-option">
-                                    <input type="checkbox" wire:model="selectedProviders" value="{{$provider->id}}">
-                                    <a href="javascript:void(0)">{{$provider->name}} <span class="grid-items"></span></a>
                                 </li>
                             @endforeach
                         </ul>

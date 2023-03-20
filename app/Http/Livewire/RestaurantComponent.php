@@ -14,14 +14,12 @@ use Livewire\Component;
 class RestaurantComponent extends Component
 {
     public $sorting;
+    public $price_range;
+
 
     protected $stringQuery = ['filterProviders'];
 
     public $product, $filterProviders = [], $categoryInputs = [];
-    protected $queryString = [
-        'categoryInputs' => ['except' => '', 'as' => 'category'],
-        //'priceInputs' => ['except' => '', 'as' => 'price']
-    ];
 
 
 
@@ -43,14 +41,44 @@ class RestaurantComponent extends Component
         $this->sorting = "default";
         $this->pagesize = "12";
 
-        $this->min_price=1;
-        $this->max_price=1000;
 
         $this->min_alphabet='a';
         $this->max_alphabet='z';
 
-        $this->min_date=1;
-        $this->max_date=10000;
+        $this->price_range = $this->getDefaultPriceRange();
+        $this->min_price = $this->getMinPrice();
+        $this->max_price = $this->getMaxPrice();
+
+
+    }
+
+    public function filterByPrice($value)
+    {
+        $this->price_range = $value;
+
+        $this->loadMeals();
+    }
+
+    private function loadMeals()
+    {
+        // load products data from database based on price range filter
+        $this->meals = Meal::where('price', '>=', $this->price_range[0])
+            ->where('price', '<=', $this->price_range[1])
+            ->get();
+    }
+    private function getDefaultPriceRange()
+    {
+        return [0, $this->getMaxPrice()];
+    }
+
+    private function getMinPrice()
+    {
+        return Meal::min('price');
+    }
+
+    private function getMaxPrice()
+    {
+        return Meal::max('price');
     }
 
     public function addToCart($meal_id, $meal_name, $meal_price)
@@ -81,29 +109,37 @@ class RestaurantComponent extends Component
     public function render()
     {
         $default_lang = get_default_language();
+        $mealsQuery = Meal::where('published', 1);
+
         if($this->sorting=='date')
         {
-            $meals = Meal::where('published', 1)->whereBetween('id',[$this->min_date,$this->max_date])->orderBy('id', 'ASC')->paginate($this->pagesize);
+            $mealsQuery->whereBetween('id',[$this->min_date,$this->max_date])->orderBy('id', 'ASC');
         }
         else if ($this->sorting=="date-desc")
         {
-            $meals = Meal::where('published', 1)->whereBetween('id',[$this->min_date,$this->max_date])->orderBy('id', 'DESC')->paginate($this->pagesize);
+            $mealsQuery->whereBetween('id',[$this->min_date,$this->max_date])->orderBy('id', 'DESC');
         }
         else if ($this->sorting=="price")
         {
-            $meals = Meal::where('published', 1)->whereBetween('price',[$this->min_price,$this->max_price])->orderBy('price', 'ASC')->paginate($this->pagesize);
+            $mealsQuery->whereBetween('price',[$this->min_price,$this->max_price])->orderBy('price', 'ASC');
 
         }
         else if ($this->sorting=="price-desc")
         {
-            $meals = Meal::where('published', 1)->whereBetween('price',[$this->min_price,$this->max_price])->orderBy('price', 'DESC')->paginate($this->pagesize);
-
+            $mealsQuery->whereBetween('price',[$this->min_price,$this->max_price])->orderBy('price', 'DESC');
         }
-        else if ($this->categoryInputs) {
+        else if ($this->sorting=="alphabet")
+        {
+            $mealsQuery->whereBetween('name', [$this->min_alphabet,$this->max_alphabet])->orderBy('name', 'ASC');
+        }
+        else if ($this->sorting=="alphabet-desc")
+        {
+            $mealsQuery->whereBetween('name',[$this->min_alphabet,$this->max_alphabet])->orderBy('name', 'DESC');
+        }
+
+        if ($this->categoryInputs) {
             if ($default_lang == 'en') {
-
-                $meals = Meal::where('published', 1)->whereIn('main_cate_id', $this->categoryInputs)->get();
-
+                $mealsQuery->whereIn('main_cate_id', $this->categoryInputs);
             } else {
                 $main = MainCategory::whereIn('id', $this->categoryInputs)->first();
                 $mealTranslation = MealTranslation::where('main_cate_id', $main->translate_of)->first();
@@ -111,39 +147,23 @@ class RestaurantComponent extends Component
                 if ($mealTranslation) {
                     $meal = Meal::find($mealTranslation->meal_id);
 
-
                     if ($meal) {
-                        $meals = Meal::where('category_id', $meal->category_id)->get();
-                    } else {
-                        $meals = collect();
+                        $mealsQuery->where('category_id', $meal->category_id);
                     }
-                } else {
-                    $meals = collect();
                 }
             }
         }
 
-        else if ($this->sorting=="alphabet")
-        {
-            $meals = Meal::where('published', 1)->whereBetween('name', [$this->min_alphabet,$this->max_alphabet])->orderBy('name', 'ASC')->paginate($this->pagesize);
-        }
-        else if ($this->sorting=="alphabet-desc")
-        {
-            $meals = Meal::where('published', 1)->whereBetween('name',[$this->min_alphabet,$this->max_alphabet])->orderBy('name', 'DESC')->paginate($this->pagesize);
-        }
-        else if ($this->filterProviders)
-        {
-            $meals = Meal::whereIn('provider_id', $this->filterProviders)->get();
-        }
-        else
-        {
-            $default_lang = get_default_language();
-
-            $meals = Meal::where('published', 1)->get();
-
+        if ($this->filterProviders) {
+            $mealsQuery->whereIn('provider_id', $this->filterProviders);
         }
 
+       if ($this->price_range) {
+           $this->loadMeals();
 
+       }
+
+        $meals = $mealsQuery->paginate($this->pagesize);
 
         $categories = MainCategory::where('translation_lang', $default_lang)->get();
         $providers = ProviderRegister::get();
