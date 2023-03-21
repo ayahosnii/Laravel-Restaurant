@@ -75,20 +75,17 @@
     @livewireStyles()
 </head>
 <body class="home-1" style="">
-
-<!-- top notificationbar start -->
 <section class="top1">
     <div class="container">
         <div class="row">
             <div class="col">
                 <ul class="top-home">
                     <li class="top-home-li">
-                        <!-- currency start -->
                         <div class="currency">
                             <span class="currency-head">currency:</span>
                             <div class="currency-drop">
                                 <div class="eur">
-                                    <img class="img-fluid" src="{{asset('assets/img/c-icon1.png')}}" alt="">
+                                    <img class="img-fluid" src="" alt="">
                                     <span class="cur-name">EUR</span>
                                 </div>
                                 <ul class="all-currency">
@@ -142,9 +139,35 @@
                                     </li>
                                 </ul>
                             </div>
+                            <span class="currency-head" style="margin-left: 15px">Language:</span>
+                            <div class="currency-drop">
+                                <div class="eur">
+                                    <img class="img-fluid" src="" alt="">
+                                    <span class="cur-name">En</span>
+                                </div>
+                                <ul class="all-currency">
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                            <img class="img-fluid" src="{{asset('assets/img/c-icon4.png')}}" alt="">
+                                            <span class="cur-name">AFN</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                            <img class="img-fluid" src="{{asset('assets/img/c-icon2.png')}}" alt="">
+                                            <span class="cur-name">BDT</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                            <img class="img-fluid" src="{{asset('assets/img/c-icon3.png')}}" alt="">
+                                            <span class="cur-name">CAD</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <!-- currency end -->
-                        <!-- mobile search start -->
+
                         <div class="r-search">
                             <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#r-search-modal" class="search-popuup" data-bs-toggle="modal"><i class="fa fa-search"></i></a>
                             <div class="modal fade" id="r-search-modal">
@@ -161,40 +184,31 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- mobile search end -->
                     </li>
                     <li class="top-home-li t-content">
-                        <!-- offer text start -->
                         <div class="top-content">
                             <p class="top-slogn"><span class="top-c">free shipping</span> orders from all item</p>
                         </div>
-                        <!-- offer text end -->
                     </li>
                 </ul>
             </div>
         </div>
     </div>
 </section>
-<!-- top notificationbar end -->
 
-<!-- header start -->
 <header class="header-area">
     <div class="header-main-area is-sticky">
         <div class="container">
             <div class="row">
                 <div class="col">
                     <div class="header-main">
-                        <!-- logo start -->
+
                         <div class="header-element logo">
                             <a href="/">
                                 <img src="{{asset('assets/img/logo2.png')}}" alt="logo-image" class="img-fluid">
                             </a>
                         </div>
-                        <!-- logo end -->
-                        <!-- search start -->
                         @livewire("header-search-component")
-                        <!-- search end -->
-                        <!-- header-icon start -->
                         <div class="header-element right-block-box">
                             <ul class="shop-element">
                                 <li class="side-wrap nav-toggler">
@@ -298,7 +312,6 @@
                                     </div>
                                 </li>
                                 @livewire('wish-list-count-component')
-                                <!--cart-count-component-->
 
                                 <li class="side-wrap cart-wrap">
                                     <div class="shopping-widget">
@@ -306,19 +319,17 @@
                                             <a href="javascript:void(0)" class="cart-count">
                                                               <span class="cart-icon-wrap">
                          <span class="cart-icon"><i class="fa-solid fa-bag-shopping"></i></span>
-                          <span id="cart-total" class="bigcounter">{{Cart::instance('cart')->count()}}</span>
+                          <span id="cart-total" class="bigcounter">{{--$basket  -> itemCount()--}}</span>
                    </span>
                                             </a>
                                         </div>
                                     </div>
                                 </li>
-                                <!--cart-count-component end-->
 
 
 
                             </ul>
                         </div>
-                        <!-- header-icon end -->
                     </div>
                 </div>
             </div>
@@ -332,7 +343,7 @@
                                 <div class="box-header menu-close">
                                     <button class="close-box" type="button"><i class="ion-close-round"></i></button>
                                 </div>
-                                <!-- menu start -->
+
                                 <div class="navbar-collapse" id="navbarContent">
                                     <div class="megamenu-content">
                                         <div class="mainwrap">
@@ -347,22 +358,26 @@
                                                     </a>
                                                 </li>
                                                 <li class="menu-link parent">
-                                                    <a href="{{route('shop')}}" class="link-title">
-                                                        <span class="sp-link-title">Shop</span>
+                                                    <a href="{{route('restaurant.index')}}" class="link-title">
+                                                        <span class="sp-link-title">Restaurants' meals</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
-                                                    <a href="{{route('shop')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
-                                                        <span class="sp-link-title">@lang('messages.Categories')</span>
-                                                        <i class="fa fa-angle-down"></i>
-                                                    </a>
+                                                    {{--                                                    <a href="{{route('restaurant.index')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                                                                            <span class="sp-link-title">@lang('messages.Categories')</span>
+                                                                                                            @foreach($main_cat->subcats as $subcat)
+                                                                                                                @isset($subcat->name)
+                                                                                                                    <i class="fa fa-angle-down"></i>
+                                                                                                                @endisset
+                                                                                                            @endforeach
+                                                                                                        </a>--}}
                                                     <ul class="dropdown-submenu sub-menu collapse" id="blog-style">
                                                         @foreach($main_cats as $main_cat)
                                                             <li class="submenu-li">
                                                                 <a href="{{ route('main-category.index',['main_category_slug'=>  $main_cat->slug]) }}" class="g-l-link"><span>{{$main_cat->name}}</span> <i class="fa fa-angle-right"></i></a>
-                                                                <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#blog-style03" data-bs-toggle="collapse" class="sub-link"><span>Blog grid</span> <i class="fa fa-angle-down"></i></a>
+                                                                <a href="#blog-style03" data-bs-toggle="collapse" class="sub-link"><span>Blog grid</span> <i class="fa fa-angle-down"></i></a>
                                                                 <ul class="collapse blog-style-1" id="blog-style03">
-                                                                    @foreach($main_cat->subcats as $subcat)
-                                                                        @isset($subcat->name)
+                                                                    @if(isset($main_cat->subcats))
+                                                                        @foreach($main_cat->subcats as $subcat)
                                                                             <li>
                                                                                 <a href="{{ route('sub-category.index', $subcat->slug) }}" class="sub-style"><span>{{$subcat->name}}</span><i class="fa fa-angle-right"></i></a>
                                                                                 <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#grid1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
@@ -372,8 +387,8 @@
                                                                                     <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-right-3-grid.html">Right blog 3 grid</a></li>
                                                                                 </ul>
                                                                             </li>
-                                                                        @endisset
-                                                                    @endforeach
+                                                                        @endforeach
+                                                                    @endif
                                                                 </ul>
                                                             </li>
                                                         @endforeach
@@ -390,39 +405,31 @@
                                                     </a>
                                                     <ul class="dropdown-submenu banner-menu collapse" id="collapse-banner-menu">
                                                         <li class="menu-banner">
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner01.jpg')}}" alt="menu-image" class="img-fluid"></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-title"><span>Bestseller</span></a>
+                                                            <a href="{{route('bestseller')}}" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner04.jpg')}}" alt="menu-image" class="img-fluid"></a>
+                                                            <a href="{{route('bestseller')}}" class="menu-banner-title"><span>Bestseller</span></a>
                                                         </li>
                                                         <li class="menu-banner">
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner02.jpg')}}" alt="menu-image" class="img-fluid"></a>
+                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner02.jpg')}}" style="height: 100px" alt="menu-image" class="img-fluid"></a>
                                                             <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-title"><span>Special product</span></a>
                                                         </li>
                                                         <li class="menu-banner">
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner03.jpg')}}" alt="mneu image" class="img-fluid"></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-title"><span>Featured product</span></a>
+                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner01.jpg')}}" alt="mneu image" class="img-fluid"></a>
+                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-title"><span>Sale</span></a>
                                                         </li>
                                                     </ul>
                                                 </li>
 
                                                 <li class="menu-link parent">
-                                                    <a href="{{url('/post')}}" class="link-title">
+                                                    <a href="javascript:void(0)" class="link-title">
                                                         <span class="sp-link-title">Blog</span>
                                                     </a>
-                                                    <a href="{{url('/post')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#feature1" data-bs-toggle="collapse" class="link-title link-title-lg">
                                                         <span class="sp-link-title">Blog</span>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-link parent">
-                                                    <a href="{{url('/reservation')}}" class="link-title">
-                                                        <span class="sp-link-title">Reservation</span>
-                                                    </a>
-                                                    <a href="{{url('/post')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
-                                                        <span class="sp-link-title">Reservation</span>
                                                     </a>
                                                 </li>
                                                 <li class="menu-link">
                                                     <a href="{{route('restaurant.index')}}" class="link-title">
-                                                        <span class="sp-link-title">Restaurants <span class="hot">Hot</span></span>
+                                                        <span class="sp-link-title">Restaurants</span>
                                                     </a>
                                                 </li>
                                                 <li class="menu-link">
@@ -434,7 +441,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- menu end -->
                                 <div class="img-hotline">
                                     <div class="image-line">
                                         <a href="javascript:void(0)"><img src="{{asset('assets/img/icon_contact.png')}}" class="img-fluid" alt="image-icon"></a>
@@ -451,11 +457,10 @@
             </div>
         </div>
     </div>
-    @include('site.includes.mini-cart')
+    @livewire('mini-cart-component')
 
 </header>
-<!-- header end -->
-<!-- mobile menu start -->
+
 <div class="header-bottom-area mobile">
     <div class="container">
         <div class="row">
@@ -465,7 +470,7 @@
                         <div class="box-header menu-close">
                             <button class="close-box" type="button"><i class="ion-close-round"></i></button>
                         </div>
-                        <!-- menu start -->
+
                         <div class="navbar-collapse" id="navbarContent01">
                             <div class="megamenu-content">
                                 <div class="mainwrap">
@@ -599,16 +604,16 @@
                                             </a>
                                             <ul class="dropdown-submenu banner-menu collapse" id="collapse-banner-menu1">
                                                 <li class="menu-banner">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner01.jpg')}}" alt="menu-image" class="img-fluid"></a>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-title"><span>Bestseller</span></a>
+                                                    <a href="{{route('bestseller')}}" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner04.jpg')}}" alt="menu-image" class="img-fluid"></a>
+                                                    <a href="{{route('bestseller')}}" class="menu-banner-title"><span>Bestseller</span></a>
                                                 </li>
                                                 <li class="menu-banner">
                                                     <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner02.jpg')}}" alt="menu-image" class="img-fluid"></a>
                                                     <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-title"><span>Special product</span></a>
                                                 </li>
                                                 <li class="menu-banner">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner03.jpg')}}" alt="mneu image" class="img-fluid"></a>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-title"><span>Featured product</span></a>
+                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner01.jpg')}}" alt="mneu image" class="img-fluid"></a>
+                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-title"><span>Sale</span></a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -670,9 +675,7 @@
                                                 <li class="submenu-li">
                                                     <a href="https://spacingtech.com/html/vegist-final/vegist/contact.html" class="submenu-link">Contact us</a>
                                                 </li>
-                                                <li class="submenu-li">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/payment-policy.html" class="submenu-link">Payment policy</a>
-                                                </li>
+
                                                 <li class="submenu-li">
                                                     <a href="https://spacingtech.com/html/vegist-final/vegist/privacy-policy.html" class="submenu-link">privacy policy</a>
                                                 </li>
@@ -816,9 +819,9 @@
                                                             <a href="javascript:void(0)" class="sub-style"><span>Blog style 6</span><i class="fa fa-angle-right"></i></a>
                                                             <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#list-66a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 6</span><i class="fa fa-angle-right"></i></a>
                                                             <ul class="grid-style collapse" id="list-66a">
-                                                                <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-7-list-blog.html">Blog list</a></li><!--list-->
-                                                                <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-7-left-list-blog.html">Left blog list</a></li><!--list-->
-                                                                <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-7-right-list-blog.html">Right blog list</a></li><!--list-->
+                                                                <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-7-list-blog.html">Blog list</a></li>
+                                                                <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-7-left-list-blog.html">Left blog list</a></li>
+                                                                <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-7-right-list-blog.html">Right blog list</a></li>
                                                             </ul>
                                                         </li>
                                                     </ul>
@@ -906,15 +909,14 @@
                                             </ul>
                                         </li>
                                         <li class="menu-link parent">
-                                            <a href="javascript:void(0)" class="link-title">
-                                                <span class="sp-link-title">Feature</span>
-                                                <i class="fa fa-angle-down"></i>
+                                            <a href="{{url('/reservation/step-one')}}" class="link-title">
+                                                <span class="sp-link-title">Reservation</span>
                                             </a>
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#feature-1" data-bs-toggle="collapse" class="link-title link-title-lg">
-                                                <span class="sp-link-title">Feature</span>
-                                                <i class="fa fa-angle-down"></i>
+                                            <a href="{{url('/reservation/step-one')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                <span class="sp-link-title">Reservation</span>
                                             </a>
                                         </li>
+
                                         <li class="menu-link">
                                             <a href="javascript:void(0)" class="link-title">
                                                 <span class="sp-link-title">Buy vegist <span class="hot">Hot</span></span>
@@ -924,14 +926,14 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- menu end -->
+
                         <div class="img-hotline">
                             <div class="image-line">
                                 <a href="javascript:void(0)"><img src="{{asset('assets/img/icon_contact.png')}}" class="img-fluid" alt="image-icon"></a>
                             </div>
                             <div class="image-content">
-                                <span class="hot-l">Hotline:</span>
-                                <span>0123 456 789</span>
+                                <span class="hot-l">Aya:</span>
+                                <span>01006215138</span>
                             </div>
                         </div>
                     </div>

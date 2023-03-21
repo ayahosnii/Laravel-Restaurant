@@ -360,8 +360,8 @@
                                                     </a>
                                                     <ul class="dropdown-submenu banner-menu collapse" id="collapse-banner-menu">
                                                         <li class="menu-banner">
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner01.jpg')}}" alt="menu-image" class="img-fluid"></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-title"><span>Bestseller</span></a>
+                                                            <a href="{{route('bestseller')}}" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner01.jpg')}}" alt="menu-image" class="img-fluid"></a>
+                                                            <a href="{{route('bestseller')}}" class="menu-banner-title"><span>Bestseller</span></a>
                                                         </li>
                                                         <li class="menu-banner">
                                                             <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner02.jpg')}}" alt="menu-image" class="img-fluid"></a>
@@ -648,8 +648,8 @@
                                             </a>
                                             <ul class="dropdown-submenu banner-menu collapse" id="collapse-banner-menu1">
                                                 <li class="menu-banner">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner01.jpg')}}" alt="menu-image" class="img-fluid"></a>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-title"><span>Bestseller</span></a>
+                                                    <a href="{{route('bestseller')}}" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner01.jpg')}}" alt="menu-image" class="img-fluid"></a>
+                                                    <a href="{{route('bestseller')}}" class="menu-banner-title"><span>Bestseller</span></a>
                                                 </li>
                                                 <li class="menu-banner">
                                                     <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner02.jpg')}}" alt="menu-image" class="img-fluid"></a>
@@ -1141,7 +1141,7 @@
                                 <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html">Fast foods</a></li>
                                 <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html">Vegetable</a></li>
                                 <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html">Salads</a></li>
-                                <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html">Bestseller</a></li>
+                                <li class="f-link-ul-li"><a href="{{route('bestseller')}}">Bestseller</a></li>
                             </ul>
                         </div>
                         <div class="f-link">

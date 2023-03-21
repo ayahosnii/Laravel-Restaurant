@@ -14,7 +14,7 @@ use Livewire\Component;
 class RestaurantComponent extends Component
 {
     public $sorting;
-    public $price_range;
+    public $price_range = [];
 
 
     protected $stringQuery = ['filterProviders'];
@@ -47,19 +47,8 @@ class RestaurantComponent extends Component
         $this->min_alphabet='a';
         $this->max_alphabet='z';
 
-        $this->min_price = $this->getMinPrice();
-        $this->max_price = $this->getMaxPrice();
     }
 
-    private function getMinPrice()
-    {
-        return Meal::min('price');
-    }
-
-    private function getMaxPrice()
-    {
-        return Meal::max('price');
-    }
 
     public function addToCart($meal_id, $meal_name, $meal_price)
     {
@@ -138,12 +127,9 @@ class RestaurantComponent extends Component
             $meals = $mealsQuery->whereIn('provider_id', $this->filterProviders);
         }
 
-       if ($this->price_range) {
-            $meals = $mealsQuery->where('price', '>=', $this->price_range[0])
-                ->where('price', '<=', $this->price_range[1]);
-        }
 
-        $meals = $mealsQuery->paginate($this->pagesize);
+
+        $meals = $mealsQuery->whereBetween('price',[$this->min_price,$this->max_price])->paginate($this->pagesize);
 
         $categories = MainCategory::where('translation_lang', $default_lang)->get();
         $providers = ProviderRegister::get();

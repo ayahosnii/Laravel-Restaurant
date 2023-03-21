@@ -145,13 +145,9 @@
                     </div>
                 </div>
                 <div class="list-all-page">
-                    <span class="page-title">Showing 1 - 17 of 17 result</span>
+                    <span class="page-title">Showing {{ $meals->firstItem() }} - {{ $meals->lastItem() }} of {{ $meals->total() }} results</span>
                     <div class="page-number">
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="active">1</a>
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-2.html">2</a>
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-3.html">3</a>
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-4.html">4</a>
-                        <a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i></a>
+                        {{ $meals->links() }}
                     </div>
                 </div>
             </div>

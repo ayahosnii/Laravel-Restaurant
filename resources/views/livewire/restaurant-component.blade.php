@@ -50,7 +50,7 @@
                             </div>
                             <div class="price-filter">
                                 <div class="price-filter-inner">
-                                    <div id="slider-range"  wire:model="price_range" wire:change="filterByPrice($event.target.value)" wire:ignore></div>
+                                    <div id="slider-range" wire:model="price_range" wire:change="filterByPrice($event.target.value)" wire:ignore></div>
                                     <div class="price_slider_amount">
                                         <div class="label-input">
                                             <span>Range:</span><span class="text-warning">{{$min_price}} LE</span> - <span class="text-warning">{{$max_price}} LE</span>
@@ -164,13 +164,9 @@
                     </div>
                 </div>
                 <div class="list-all-page">
-                    <span class="page-title">Showing 1 - 17 of 17 result</span>
+                    <span class="page-title">Showing {{ $meals->firstItem() }} - {{ $meals->lastItem() }} of {{ $meals->total() }} results</span>
                     <div class="page-number">
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="active">1</a>
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-2.html">2</a>
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-3.html">3</a>
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-4.html">4</a>
-                        <a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i></a>
+                        {{ $meals->links() }}
                     </div>
                 </div>
             </div>
@@ -315,13 +311,13 @@
         $(function() {
             sliderrange.slider({
                 range: true,
-                min: {{$min_price}},
-                max: {{$max_price}},
-                values: [{{$min_price}}, {{$max_price}}],
+                min: 0,
+                max: 1000,
+                values: [0, 1000],
                 slide: function(event, ui) {
-                    amountprice.val("$" + ui.values[0] + " - $" + ui.values[1]);
-                    @this.set('min_price',ui.values[0]);
-                    @this.set('max_price',ui.values[1]);
+                    //amountprice.val("$" + ui.values[0] + " - $" + ui.values[1]);
+                @this.set('min_price', ui.values[0]);
+                @this.set('max_price', ui.values[1]);
                 }
             });
         });

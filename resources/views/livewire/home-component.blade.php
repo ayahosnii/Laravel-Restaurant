@@ -256,7 +256,7 @@
                             <a class="nav-link" data-bs-toggle="tab" href="{{route('index')}}#new">NEW PRODUCTS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="{{route('index')}}#best">BESTSELLER</a>
+                            <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="{{route('bestseller')}}#best">BESTSELLER</a>
                         </li>
                     </ul>
                 </div>
