@@ -10,7 +10,8 @@
         "astrotomic/laravel-translatable": "^11.11",
         "beyondcode/laravel-websockets": "^1.13",
         "fruitcake/laravel-cors": "^2.0",
-        "guzzlehttp/guzzle": "^7.0.1",
+        "guzzlehttp/guzzle": "*",
+        "openai-php/client": "*",
         "hardevine/shoppingcart": "^3.1",
         "laravel/framework": "^8.75",
         "laravel/jetstream": "^2.7",
@@ -75,6 +76,18 @@
         "preferred-install": "dist",
         "sort-packages": true
     },
+
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packagist.org"
+        },
+        {
+            "type": "composer",
+            "url": "https://repo-eu-uk-1.packagist.com"
+        }
+    ],
+
     "minimum-stability": "dev",
     "prefer-stable": true
 }

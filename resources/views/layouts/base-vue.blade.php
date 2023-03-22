@@ -491,12 +491,12 @@
                                                             <a href="{{route('bestseller')}}" class="menu-banner-title"><span>Bestseller</span></a>
                                                         </li>
                                                         <li class="menu-banner">
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner02.jpg')}}" style="height: 100px" alt="menu-image" class="img-fluid"></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-title"><span>Special product</span></a>
+                                                            <a href="{{route('special.meal')}}" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner02.jpg')}}" style="height: 100px" alt="menu-image" class="img-fluid"></a>
+                                                            <a href="{{route('special.meal')}}" class="menu-banner-title"><span>Special product</span></a>
                                                         </li>
                                                         <li class="menu-banner">
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner01.jpg')}}" alt="mneu image" class="img-fluid"></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-title"><span>Sale</span></a>
+                                                            <a href="{{route('sales')}}" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner01.jpg')}}" alt="mneu image" class="img-fluid"></a>
+                                                            <a href="{{route('sales')}}" class="menu-banner-title"><span>Sale</span></a>
                                                         </li>
                                                     </ul>
                                                 </li>
@@ -690,12 +690,12 @@
                                                     <a href="{{route('bestseller')}}" class="menu-banner-title"><span>Bestseller</span></a>
                                                 </li>
                                                 <li class="menu-banner">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner02.jpg')}}" alt="menu-image" class="img-fluid"></a>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-title"><span>Special product</span></a>
+                                                    <a href="{{route('special.meal')}}" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner02.jpg')}}" alt="menu-image" class="img-fluid"></a>
+                                                    <a href="{{route('special.meal')}}" class="menu-banner-title"><span>Special product</span></a>
                                                 </li>
                                                 <li class="menu-banner">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner01.jpg')}}" alt="mneu image" class="img-fluid"></a>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-title"><span>Sale</span></a>
+                                                    <a href="{{route('sales')}}" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner01.jpg')}}" alt="mneu image" class="img-fluid"></a>
+                                                    <a href="{{route('sales')}}" class="menu-banner-title"><span>Sale</span></a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -1111,6 +1111,18 @@
 
 @yield('scripts')
 
-
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/641a7df031ebfa0fe7f3f5a6/1gs3nnt21';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
 </body>
 </html>

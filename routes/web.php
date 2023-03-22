@@ -6,6 +6,7 @@ use App\Http\Controllers\BaseController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ConversationController;
 use App\Http\Controllers\CustomerServiceChatController;
+use App\Http\Controllers\GenerateIdeaController;
 use App\Http\Controllers\MainCategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RestaurantController;
@@ -21,7 +22,9 @@ use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\OrderHistoryComponent;
 use App\Http\Livewire\RestaurantComponent;
+use App\Http\Livewire\SaleComponent;
 use App\Http\Livewire\SearchComponent;
+use App\Http\Livewire\SpecialMealComponent;
 use App\Http\Livewire\ThankyouComponent;
 use App\Http\Livewire\WishListComponent;
 use Illuminate\Support\Facades\Route;
@@ -43,11 +46,11 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 });*/
 
 
-
+/*
 Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
 Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
-Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
+Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');*/
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::get('/dashboard', function () {
@@ -72,6 +75,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get('branch/{b_username}', [RestaurantController::class, 'get_branch'])->name('branch.details');
     });
 
+    Route::get('/generate-ideas', [GenerateIdeaController::class, 'index'])->name('generate');
+    Route::post('/generate-ideas/create', [GenerateIdeaController::class, 'generate'])->name('generate-ideas.create');
     Route::get('/base', [BaseController::class, 'index'])->name('base');
 
 
@@ -93,12 +98,14 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::post('/update-all', [CartController::class, 'postUpdateAll'])->name('site.cart.update-all');
     });
     Route::post('filter-price', [RestaurantController::class, 'filterPrice'])->name('filter.price');
-    Route::post('sort-meals', [RestaurantController::class, 'sortMeals'])->name('filter.price');
+    Route::post('sort-meals', [RestaurantController::class, 'sortMeals'])->name('sort.meal');
     Route::post('/add-to-cart', [RestaurantController::class, 'addToCart'])->name('restaurant.addToCart');
 
 
 
     Route::get('/bestseller', BestSellerComponent::class)->name('bestseller');
+    Route::get('/sales', SaleComponent::class)->name('sales');
+    Route::get('/special-meal', SpecialMealComponent::class)->name('special.meal');
 
     Route::get('/search', SearchComponent::class)->name('search');
     //Route::get('/cart', \App\Http\Livewire\CartComponent::class)->name('cart');

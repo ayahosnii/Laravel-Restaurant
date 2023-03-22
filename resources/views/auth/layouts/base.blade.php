@@ -645,16 +645,16 @@
                                             </a>
                                             <ul class="dropdown-submenu banner-menu collapse" id="collapse-banner-menu1">
                                                 <li class="menu-banner">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner01.jpg')}}" alt="menu-image" class="img-fluid"></a>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-title"><span>Bestseller</span></a>
+                                                    <a href="{{route('bestseller')}}" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner01.jpg')}}" alt="menu-image" class="img-fluid"></a>
+                                                    <a href="{{route('bestseller')}}" class="menu-banner-title"><span>Bestseller</span></a>
                                                 </li>
                                                 <li class="menu-banner">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner02.jpg')}}" alt="menu-image" class="img-fluid"></a>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-title"><span>Special product</span></a>
+                                                    <a href="{{route('special.meal')}}" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner02.jpg')}}" alt="menu-image" class="img-fluid"></a>
+                                                    <a href="{{route('special.meal')}}" class="menu-banner-title"><span>Special product</span></a>
                                                 </li>
                                                 <li class="menu-banner">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner03.jpg')}}" alt="mneu image" class="img-fluid"></a>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="menu-banner-title"><span>Featured product</span></a>
+                                                    <a href="{{route('sales')}}" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner03.jpg')}}" alt="mneu image" class="img-fluid"></a>
+                                                    <a href="{{route('sales')}}" class="menu-banner-title"><span>Featured product</span></a>
                                                 </li>
                                             </ul>
                                         </li>
