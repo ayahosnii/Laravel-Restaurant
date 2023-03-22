@@ -116,7 +116,7 @@
                         <!-- currency end -->
                         <!-- mobile search start -->
                         <div class="r-search">
-                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#r-search-modal" class="search-popuup" data-bs-toggle="modal"><i class="fa fa-search"></i></a>
+                            <a href="#r-search-modal" class="search-popuup" data-bs-toggle="modal"><i class="fa fa-search"></i></a>
                             <div class="modal fade" id="r-search-modal">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -188,7 +188,7 @@
                                                             <ul class="main-menu">
 
                                                                 <li class="menu-link parent">
-                                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-page-menu" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                                    <a href="#collapse-page-menu" data-bs-toggle="collapse" class="link-title link-title-lg">
                                                                         <span class="sp-link-title">Action</span>
                                                                         <i class="fa fa-angle-down"></i>
                                                                     </a>
@@ -209,7 +209,7 @@
                                                                         <ul class="collapse blog-style-1" id="blog-style03">
                                                                             <li>
                                                                                 <a href="javascript:void(0)" class="sub-style"><span></span><i class="fa fa-angle-right"></i></a>
-                                                                                <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#grid1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                                <a href="#grid1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
                                                                             </li>
 
                                                                         </ul>
@@ -222,7 +222,7 @@
                                                             <ul class="main-menu">
 
                                                                 <li class="menu-link parent">
-                                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-page-menu" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                                    <a href="#collapse-page-menu" data-bs-toggle="collapse" class="link-title link-title-lg">
                                                                         <span class="sp-link-title">Action</span>
                                                                         <i class="fa fa-angle-down"></i>
                                                                     </a>
@@ -238,7 +238,7 @@
                                                                         <ul class="collapse blog-style-1" id="blog-style03">
                                                                             <li>
                                                                                 <a href="javascript:void(0)" class="sub-style"><span></span><i class="fa fa-angle-right"></i></a>
-                                                                                <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#grid1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                                <a href="#grid1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
                                                                             </li>
 
                                                                         </ul>
@@ -329,18 +329,11 @@
                                                         @foreach($main_cats as $main_cat)
                                                             <li class="submenu-li">
                                                                 <a href="{{ route('main-category.index',['main_category_slug'=>  $main_cat->slug]) }}" class="g-l-link"><span>{{$main_cat->name}}</span> <i class="fa fa-angle-right"></i></a>
-                                                                <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#blog-style03" data-bs-toggle="collapse" class="sub-link"><span>Blog grid</span> <i class="fa fa-angle-down"></i></a>
                                                                 <ul class="collapse blog-style-1" id="blog-style03">
                                                                     @foreach($main_cat->subcats as $subcat)
                                                                         @isset($subcat->name)
                                                                             <li>
-                                                                                <a href="{{ route('sub-category.index', $subcat->slug) }}" class="sub-style"><span>{{$subcat->name}}</span><i class="fa fa-angle-right"></i></a>
-                                                                                <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#grid1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
-                                                                                <ul class="grid-style collapse" id="grid1">
-                                                                                    <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-3-grid.html">Blog 3 grid</a></li>
-                                                                                    <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-left-3-grid.html">Left blog 3 grid</a></li>
-                                                                                    <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-right-3-grid.html">Right blog 3 grid</a></li>
-                                                                                </ul>
+                                                                                <a href="{{ route('sub-category.index', $subcat->slug) }}" class="sub-style"><span>{{$subcat->name}}</span></a>
                                                                             </li>
                                                                         @endisset
                                                                     @endforeach
@@ -350,11 +343,11 @@
                                                     </ul>
                                                 </li>
                                                 <li class="menu-link parent">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="link-title">
+                                                    <a href="#" class="link-title">
                                                         <span class="sp-link-title">Collection</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-banner-menu" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                    <a href="#collapse-banner-menu" data-bs-toggle="collapse" class="link-title link-title-lg">
                                                         <span class="sp-link-title">Collection</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
@@ -378,7 +371,7 @@
                                                         <span class="sp-link-title">Pages</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-page-menu" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                    <a href="#collapse-page-menu" data-bs-toggle="collapse" class="link-title link-title-lg">
                                                         <span class="sp-link-title">Pages</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
@@ -391,7 +384,7 @@
                                                         <ul class="collapse blog-style-1" id="blog-style03">
                                                             <li>
                                                                 <a href="javascript:void(0)" class="sub-style"><span></span><i class="fa fa-angle-right"></i></a>
-                                                                <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#grid1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
+                                                                <a href="#grid1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
                                                             </li>
 
                                                         </ul>
@@ -404,14 +397,14 @@
                                                         <span class="sp-link-title">Feature</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#feature1" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                    <a href="#feature1" data-bs-toggle="collapse" class="link-title link-title-lg">
                                                         <span class="sp-link-title">Feature</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
                                                     <ul class="dropdown-submenu mega-menu collapse" id="feature1">
                                                         <li class="megamenu-li parent">
                                                             <h2 class="sublink-title">Header style</h2>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#feature01" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                            <a href="#feature01" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
                                                                 <span>Header style</span>
                                                                 <i class="fa fa-angle-down"></i>
                                                             </a>
@@ -427,7 +420,7 @@
                                                         </li>
                                                         <li class="megamenu-li parent">
                                                             <h2 class="sublink-title">Footer style</h2>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#feature02" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                            <a href="#feature02" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
                                                                 <span>Footer style</span>
                                                                 <i class="fa fa-angle-down"></i>
                                                             </a>
@@ -443,7 +436,7 @@
                                                         </li>
                                                         <li class="megamenu-li parent">
                                                             <h2 class="sublink-title">Product details</h2>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#feature03" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                            <a href="#feature03" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
                                                                 <span>Product details</span>
                                                                 <i class="fa fa-angle-down"></i>
                                                             </a>
@@ -459,7 +452,7 @@
                                                         </li>
                                                         <li class="megamenu-li parent">
                                                             <h2 class="sublink-title">Other style</h2>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#feature04" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                            <a href="#feature04" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
                                                                 <span>Other style</span>
                                                                 <i class="fa fa-angle-down"></i>
                                                             </a>
@@ -520,17 +513,17 @@
                                 <div class="mainwrap">
                                     <ul class="main-menu">
                                         <li class="menu-link parent">
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html" class="link-title">
+                                            <a href="" class="link-title">
                                                 <span class="sp-link-title">Home</span>
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-home1" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                            <a href="#collapse-home1" data-bs-toggle="collapse" class="link-title link-title-lg">
                                                 <span class="sp-link-title">Home</span>
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
                                             <ul class="dropdown-submenu sub-menu collapse" id="collapse-home1">
                                                 <li class="submenu-li">
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html" class="submenu-link">Vegist home 01</a>
+                                                    <a href="" class="submenu-link">Vegist home 01</a>
                                                 </li>
                                                 <li class="submenu-li">
                                                     <a href="https://spacingtech.com/html/vegist-final/vegist-rtl/index1.html" class="submenu-link">Vegist home 01 (RTL)</a>
@@ -575,14 +568,14 @@
                                                 <span class="sp-link-title">Shop</span>
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-mega-menu1" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                            <a href="#collapse-mega-menu1" data-bs-toggle="collapse" class="link-title link-title-lg">
                                                 <span class="sp-link-title">Shop</span>
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
                                             <ul class="dropdown-submenu mega-menu collapse" id="collapse-mega-menu1">
                                                 <li class="megamenu-li parent">
                                                     <h2 class="sublink-title">Fresh food</h2>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-sub-mega-menu1" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                    <a href="#collapse-sub-mega-menu1" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
                                                         <span>Fresh food</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
@@ -592,7 +585,7 @@
                                                 </li>
                                                 <li class="megamenu-li parent">
                                                     <h2 class="sublink-title">Mixedfruits</h2>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-fruits-menu1" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                    <a href="#collapse-fruits-menu1" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
                                                         <span>Mixedfruits</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
@@ -607,7 +600,7 @@
                                                 </li>
                                                 <li class="megamenu-li parent">
                                                     <h2 class="sublink-title">Bananas &amp; plantains</h2>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-banana-menu1" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                    <a href="#collapse-banana-menu1" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
                                                         <span>Bananas &amp; plantains</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
@@ -622,7 +615,7 @@
                                                 </li>
                                                 <li class="megamenu-li parent">
                                                     <h2 class="sublink-title">Apples berries</h2>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-apple-menu1" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                    <a href="#collapse-apple-menu1" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
                                                         <span>Apples berries</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
@@ -642,7 +635,7 @@
                                                 <span class="sp-link-title">Collection</span>
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-banner-menu1" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                            <a href="#collapse-banner-menu1" data-bs-toggle="collapse" class="link-title link-title-lg">
                                                 <span class="sp-link-title">Collection</span>
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
@@ -666,7 +659,7 @@
                                                 <span class="sp-link-title">Pages</span>
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#collapse-page-menu1" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                            <a href="#collapse-page-menu1" data-bs-toggle="collapse" class="link-title link-title-lg">
                                                 <span class="sp-link-title">Pages</span>
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
@@ -676,7 +669,7 @@
                                                 </li>
                                                 <li class="submenu-li">
                                                     <a href="javascript:void(0)" class="g-l-link"><span>Account</span> <i class="fa fa-angle-right"></i></a>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#account-menu1" data-bs-toggle="collapse" class="sub-link"><span>Account</span> <i class="fa fa-angle-down"></i></a>
+                                                    <a href="#account-menu1" data-bs-toggle="collapse" class="sub-link"><span>Account</span> <i class="fa fa-angle-down"></i></a>
                                                     <ul class="collapse blog-style-1" id="account-menu1">
                                                         <li>
                                                             <a href="https://spacingtech.com/html/vegist-final/vegist/order-history.html" class="sub-style"><span>Order</span></a>
@@ -747,18 +740,18 @@
                                                 <span class="sp-link-title">Blogs</span>
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#blog-style1" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                            <a href="#blog-style1" data-bs-toggle="collapse" class="link-title link-title-lg">
                                                 <span class="sp-link-title">Blogs</span>
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
                                             <ul class="dropdown-submenu sub-menu collapse" id="blog-style1">
                                                 <li class="submenu-li">
                                                     <a href="javascript:void(0)" class="g-l-link"><span>Blog grid</span> <i class="fa fa-angle-right"></i></a>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#blog-style031" data-bs-toggle="collapse" class="sub-link"><span>Blog grid</span> <i class="fa fa-angle-down"></i></a>
+                                                    <a href="#blog-style031" data-bs-toggle="collapse" class="sub-link"><span>Blog grid</span> <i class="fa fa-angle-down"></i></a>
                                                     <ul class="collapse blog-style-1" id="blog-style031">
                                                         <li>
                                                             <a href="javascript:void(0)" class="sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#grid-1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
+                                                            <a href="#grid-1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
                                                             <ul class="grid-style collapse" id="grid-1">
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-3-grid.html">Blog 3 grid</a></li>
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-left-3-grid.html">Left blog 3 grid</a></li>
@@ -767,7 +760,7 @@
                                                         </li>
                                                         <li>
                                                             <a href="javascript:void(0)" class="sub-style"><span>Blog style 2</span><i class="fa fa-angle-right"></i></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#grid-2" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 2</span><i class="fa fa-angle-right"></i></a>
+                                                            <a href="#grid-2" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 2</span><i class="fa fa-angle-right"></i></a>
                                                             <ul class="grid-style collapse" id="grid-2">
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-2-3-grid.html">Blog 3 grid</a></li>
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-2-left-3-grid.html">Left blog 3 grid</a></li>
@@ -776,7 +769,7 @@
                                                         </li>
                                                         <li>
                                                             <a href="javascript:void(0)" class="sub-style"><span>Blog style 3</span><i class="fa fa-angle-right"></i></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#grid-3" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 3</span><i class="fa fa-angle-right"></i></a>
+                                                            <a href="#grid-3" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 3</span><i class="fa fa-angle-right"></i></a>
                                                             <ul class="grid-style collapse" id="grid-3">
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-3-grid.html">Blog 3 grid</a></li>
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-3-left-grid-blog.html">Left blog 3 grid</a></li>
@@ -785,7 +778,7 @@
                                                         </li>
                                                         <li>
                                                             <a href="javascript:void(0)" class="sub-style"><span>Blog style 4</span><i class="fa fa-angle-right"></i></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#grid-4" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 4</span><i class="fa fa-angle-right"></i></a>
+                                                            <a href="#grid-4" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 4</span><i class="fa fa-angle-right"></i></a>
                                                             <ul class="grid-style collapse" id="grid-4">
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-5-3-grid.html">Blog 3 grid</a></li>
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-5-left-3-grid.html">Left blog 3 grid</a></li>
@@ -794,7 +787,7 @@
                                                         </li>
                                                         <li>
                                                             <a href="javascript:void(0)" class="sub-style"><span>Blog style 5</span><i class="fa fa-angle-right"></i></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#grid-5" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 5</span><i class="fa fa-angle-right"></i></a>
+                                                            <a href="#grid-5" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 5</span><i class="fa fa-angle-right"></i></a>
                                                             <ul class="grid-style collapse" id="grid-5">
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-6-3-grid.html">Blog 3 grid</a></li>
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-6-left-3-grid.html">Left blog 3 grid</a></li>
@@ -803,7 +796,7 @@
                                                         </li>
                                                         <li>
                                                             <a href="javascript:void(0)" class="sub-style"><span>Blog style 6</span><i class="fa fa-angle-right"></i></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#grid-6" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 6</span><i class="fa fa-angle-right"></i></a>
+                                                            <a href="#grid-6" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 6</span><i class="fa fa-angle-right"></i></a>
                                                             <ul class="grid-style collapse" id="grid-6">
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-7-3-grid.html">Blog 3 grid</a></li>
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-7-left-grid-blog.html">Left blog 3 grid</a></li>
@@ -814,11 +807,11 @@
                                                 </li>
                                                 <li class="submenu-li">
                                                     <a href="javascript:void(0)" class="g-l-link"><span>Blog list</span> <i class="fa fa-angle-right"></i></a>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#blog-style-01" data-bs-toggle="collapse" class="sub-link"><span>Blog list</span> <i class="fa fa-angle-down"></i></a>
+                                                    <a href="#blog-style-01" data-bs-toggle="collapse" class="sub-link"><span>Blog list</span> <i class="fa fa-angle-down"></i></a>
                                                     <ul class="collapse blog-style-1" id="blog-style-01">
                                                         <li>
                                                             <a href="javascript:void(0)" class="sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#list-1a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
+                                                            <a href="#list-1a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
                                                             <ul class="grid-style collapse" id="list-1a">
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-list.html">Blog list</a></li>
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-left-list.html">Left blog list</a></li>
@@ -827,7 +820,7 @@
                                                         </li>
                                                         <li>
                                                             <a href="javascript:void(0)" class="sub-style"><span>Blog style 2</span><i class="fa fa-angle-right"></i></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#list-22a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 2</span><i class="fa fa-angle-right"></i></a>
+                                                            <a href="#list-22a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 2</span><i class="fa fa-angle-right"></i></a>
                                                             <ul class="grid-style collapse" id="list-22a">
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-2-list.html">Blog list</a></li>
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-2-left-list.html">Left blog list</a></li>
@@ -836,7 +829,7 @@
                                                         </li>
                                                         <li>
                                                             <a href="javascript:void(0)" class="sub-style"><span>Blog style 3</span><i class="fa fa-angle-right"></i></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#list-33a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 3</span><i class="fa fa-angle-right"></i></a>
+                                                            <a href="#list-33a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 3</span><i class="fa fa-angle-right"></i></a>
                                                             <ul class="grid-style collapse" id="list-33a">
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-3-list.html">Blog list</a></li>
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-3-left-list-blog.html">Left blog list</a></li>
@@ -845,7 +838,7 @@
                                                         </li>
                                                         <li>
                                                             <a href="javascript:void(0)" class="sub-style"><span>Blog style 4</span><i class="fa fa-angle-right"></i></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#list-44a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 4</span><i class="fa fa-angle-right"></i></a>
+                                                            <a href="#list-44a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 4</span><i class="fa fa-angle-right"></i></a>
                                                             <ul class="grid-style collapse" id="list-44a">
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-5-list-blog.html">Blog list</a></li>
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-5-left-list.html">Left blog list</a></li>
@@ -854,7 +847,7 @@
                                                         </li>
                                                         <li>
                                                             <a href="javascript:void(0)" class="sub-style"><span>Blog style 5</span><i class="fa fa-angle-right"></i></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#list-55a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 5</span><i class="fa fa-angle-right"></i></a>
+                                                            <a href="#list-55a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 5</span><i class="fa fa-angle-right"></i></a>
                                                             <ul class="grid-style collapse" id="list-55a">
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-6-list-blog.html">Blog list</a></li>
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-6-left-list-blog.html">Left blog list</a></li>
@@ -863,7 +856,7 @@
                                                         </li>
                                                         <li>
                                                             <a href="javascript:void(0)" class="sub-style"><span>Blog style 6</span><i class="fa fa-angle-right"></i></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#list-66a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 6</span><i class="fa fa-angle-right"></i></a>
+                                                            <a href="#list-66a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 6</span><i class="fa fa-angle-right"></i></a>
                                                             <ul class="grid-style collapse" id="list-66a">
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-7-list-blog.html">Blog list</a></li><!--list-->
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-7-left-list-blog.html">Left blog list</a></li><!--list-->
@@ -874,11 +867,11 @@
                                                 </li>
                                                 <li class="submenu-li">
                                                     <a href="javascript:void(0)" class="g-l-link"><span>Blog details</span> <i class="fa fa-angle-right"></i></a>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#blog-style-02" data-bs-toggle="collapse" class="sub-link"><span>Blog Details</span> <i class="fa fa-angle-down"></i></a>
+                                                    <a href="#blog-style-02" data-bs-toggle="collapse" class="sub-link"><span>Blog Details</span> <i class="fa fa-angle-down"></i></a>
                                                     <ul class="collapse blog-style-1 ex-width" id="blog-style-02">
                                                         <li>
                                                             <a href="javascript:void(0)" class="sub-style"><span>Blog details style 1</span><i class="fa fa-angle-right"></i></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#list-11a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 1</span><i class="fa fa-angle-right"></i></a>
+                                                            <a href="#list-11a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 1</span><i class="fa fa-angle-right"></i></a>
                                                             <ul class="grid-style collapse" id="list-11a">
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">Blog details</a></li>
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-left-details.html">Left blog details</a></li>
@@ -887,7 +880,7 @@
                                                         </li>
                                                         <li>
                                                             <a href="javascript:void(0)" class="sub-style"><span>Blog details style 2</span><i class="fa fa-angle-right"></i></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#list2a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 2</span><i class="fa fa-angle-right"></i></a>
+                                                            <a href="#list2a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 2</span><i class="fa fa-angle-right"></i></a>
                                                             <ul class="grid-style collapse" id="list2a">
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-2-details.html">Blog details</a></li>
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-2-left-details.html">Left blog details</a></li>
@@ -896,7 +889,7 @@
                                                         </li>
                                                         <li>
                                                             <a href="javascript:void(0)" class="sub-style"><span>Blog details style 3</span><i class="fa fa-angle-right"></i></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#list3a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 3</span><i class="fa fa-angle-right"></i></a>
+                                                            <a href="#list3a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 3</span><i class="fa fa-angle-right"></i></a>
                                                             <ul class="grid-style collapse" id="list3a">
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-3-details.html">Blog details</a></li>
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-3-left-blog-details.html">Left blog details</a></li>
@@ -905,7 +898,7 @@
                                                         </li>
                                                         <li>
                                                             <a href="javascript:void(0)" class="sub-style"><span>Blog details style 4</span><i class="fa fa-angle-right"></i></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#list4a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 4</span><i class="fa fa-angle-right"></i></a>
+                                                            <a href="#list4a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 4</span><i class="fa fa-angle-right"></i></a>
                                                             <ul class="grid-style collapse" id="list4a">
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-5-details.html">Blog details</a></li>
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-5-left-details.html">Left blog details</a></li>
@@ -914,7 +907,7 @@
                                                         </li>
                                                         <li>
                                                             <a href="javascript:void(0)" class="sub-style"><span>Blog details style 5</span><i class="fa fa-angle-right"></i></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#list5a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 5</span><i class="fa fa-angle-right"></i></a>
+                                                            <a href="#list5a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 5</span><i class="fa fa-angle-right"></i></a>
                                                             <ul class="grid-style collapse" id="list5a">
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-6-details.html">Blog details</a></li>
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-6-left-details-blog.html">Left blog details</a></li>
@@ -923,7 +916,7 @@
                                                         </li>
                                                         <li>
                                                             <a href="javascript:void(0)" class="sub-style"><span>Blog details style 6</span><i class="fa fa-angle-right"></i></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#list6a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 6</span><i class="fa fa-angle-right"></i></a>
+                                                            <a href="#list6a" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog details style 6</span><i class="fa fa-angle-right"></i></a>
                                                             <ul class="grid-style collapse" id="list6a">
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-7-details.html">Blog details</a></li>
                                                                 <li><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-7-left-details.html">Left blog details</a></li>
@@ -934,7 +927,7 @@
                                                 </li>
                                                 <li class="submenu-li">
                                                     <a href="javascript:void(0)" class="g-l-link"><span>Center blog</span> <i class="fa fa-angle-right"></i></a>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#center-blog-1" data-bs-toggle="collapse" class="sub-link"><span>Center blog</span> <i class="fa fa-angle-down"></i></a>
+                                                    <a href="#center-blog-1" data-bs-toggle="collapse" class="sub-link"><span>Center blog</span> <i class="fa fa-angle-down"></i></a>
                                                     <ul class="collapse blog-style-1" id="center-blog-1">
                                                         <li>
                                                             <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-center-blog.html" class="sub-style"><span>Blog style 1</span></a>
@@ -959,14 +952,14 @@
                                                 <span class="sp-link-title">Feature</span>
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#feature-1" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                            <a href="#feature-1" data-bs-toggle="collapse" class="link-title link-title-lg">
                                                 <span class="sp-link-title">Feature</span>
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
                                             <ul class="dropdown-submenu mega-menu collapse" id="feature-1">
                                                 <li class="megamenu-li parent">
                                                     <h2 class="sublink-title">Header style</h2>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#feature-01" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                    <a href="#feature-01" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
                                                         <span>Header style</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
@@ -982,7 +975,7 @@
                                                 </li>
                                                 <li class="megamenu-li parent">
                                                     <h2 class="sublink-title">Footer style</h2>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#feature-02" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                    <a href="#feature-02" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
                                                         <span>Footer style</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
@@ -998,7 +991,7 @@
                                                 </li>
                                                 <li class="megamenu-li parent">
                                                     <h2 class="sublink-title">Product details</h2>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#feature-03" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                    <a href="#feature-03" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
                                                         <span>Product details</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
@@ -1014,7 +1007,7 @@
                                                 </li>
                                                 <li class="megamenu-li parent">
                                                     <h2 class="sublink-title">Other style</h2>
-                                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#feature-04" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                    <a href="#feature-04" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
                                                         <span>Other style</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
@@ -1086,7 +1079,7 @@
                 <div class="f-logo">
                     <ul class="footer-ul">
                         <li class="footer-li footer-logo">
-                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html">
+                            <a href="">
                                 <img class="img-fluid" src="{{asset('assets/img/c-icon1.png')}}logo1.png" alt="">
                             </a>
                         </li>
@@ -1109,7 +1102,7 @@
                                 </li>
                                 <li class="footer-info">
                                     <h6>Contact</h6>
-                                    <a href="tel:1-800-222-000">Phone: 1-800-222-000</a>
+                                    <a href="tel: 0100-621-5138">Phone:  0100-621-5138</a>
                                     <a href="mailto:demo@demo.com">Email: demo@demo.com</a>
                                 </li>
                             </ul>
@@ -1127,66 +1120,6 @@
                             </ul>
                         </li>
                     </ul>
-                </div>
-                <div class="footer-bottom section-t-padding">
-                    <div class="footer-link" id="footer-accordian">
-                        <div class="f-link">
-                            <h2 class="h-footer">Top categories</h2>
-                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#t-cate" data-bs-toggle="collapse" class="h-footer">
-                                <span>Top categories</span>
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                            <ul class="f-link-ul collapse" id="t-cate" data-bs-parent="#footer-accordian">
-                                <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html">Fruits</a></li>
-                                <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html">Fast foods</a></li>
-                                <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html">Vegetable</a></li>
-                                <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html">Salads</a></li>
-                                <li class="f-link-ul-li"><a href="{{route('bestseller')}}">Bestseller</a></li>
-                            </ul>
-                        </div>
-                        <div class="f-link">
-                            <h2 class="h-footer">Services</h2>
-                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#services" data-bs-toggle="collapse" class="h-footer">
-                                <span>Services</span>
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                            <ul class="f-link-ul collapse" id="services" data-bs-parent="#footer-accordian">
-                                <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/about-us.html">About vegist</a></li>
-                                <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/faq&#39;s.html">Faq's</a></li>
-                                <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/contact.html">Contact us</a></li>
-                                <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-3-grid.html">News</a></li>
-                                <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/sitemap.html">Sitemap</a></li>
-                            </ul>
-                        </div>
-                        <div class="f-link">
-                            <h2 class="h-footer">Privacy &amp; terms</h2>
-                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#privacy" data-bs-toggle="collapse" class="h-footer">
-                                <span>Privacy &amp; terms</span>
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                            <ul class="f-link-ul collapse" id="privacy" data-bs-parent="#footer-accordian">
-                                <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/payment-policy.html">Payment policy</a></li>
-                                <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/privacy-policy.html">Privacy policy</a></li>
-                                <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/return-policy.html">Return policy</a></li>
-                                <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/shipping-policy.html">Shipping policy</a></li>
-                                <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/terms-conditions.html">Terms &amp; conditions</a></li>
-                            </ul>
-                        </div>
-                        <div class="f-link">
-                            <h2 class="h-footer">My account</h2>
-                            <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#account" data-bs-toggle="collapse" class="h-footer">
-                                <span>My account</span>
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                            <ul class="f-link-ul collapse" id="account" data-bs-parent="#footer-accordian">
-                                <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/account.html">My account</a></li>
-                                <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/cart.html">My cart</a></li>
-                                <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/tracking.html">Order history</a></li>
-                                <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html">My wishlist</a></li>
-                                <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/addresses.html">My address</a></li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

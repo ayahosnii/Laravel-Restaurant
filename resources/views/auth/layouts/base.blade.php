@@ -1103,7 +1103,7 @@
                                 </li>
                                 <li class="footer-info">
                                     <h6>Contact</h6>
-                                    <a href="tel:1-800-222-000">Phone: 1-800-222-000</a>
+                                    <a href="tel: 0100-621-5138">Phone:  0100-621-5138</a>
                                     <a href="mailto:demo@demo.com">Email: demo@demo.com</a>
                                 </li>
                             </ul>
