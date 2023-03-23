@@ -107,7 +107,7 @@
                                             <h1>Your cart is empty!!</h1>
                                             <p style="padding-bottom: 50px">Add items to it now</p>
                                             <div style="padding-bottom: 50px">
-                                                <a href="/shop" class="btn btn-outline-secondary" style="color: #F5C332">Shop Now</a>
+                                                <a href="{{route('restaurant.index')}}" class="btn btn-outline-secondary" style="color: #F5C332">Shop Now</a>
                                             </div>
 
                                         </div>
@@ -209,7 +209,7 @@
                                 <button type="submit" class="btn btn-sm" wire:loading.attr="disabled">Apply</button>
                         </div>
                         <div class="sb-cart-btns-frame text-right">
-                        <a href="{{route('shop')}}" class="sb-btn sb-btn-2 sb-btn-gray">
+                        <a href="{{route('restaurant.index')}}" class="sb-btn sb-btn-2 sb-btn-gray">
                     <span class="sb-icon">
                       <img src="{{asset('assets/img/arrow-2.svg')}}" alt="icon">
                     </span>
