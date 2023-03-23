@@ -491,7 +491,7 @@
                                                             <a href="{{route('bestseller')}}" class="menu-banner-title"><span>Bestseller</span></a>
                                                         </li>
                                                         <li class="menu-banner">
-                                                            <a href="{{route('special.meal')}}" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner02.jpg')}}" style="height: 100px" alt="menu-image" class="img-fluid"></a>
+                                                            <a href="{{route('special.meal')}}" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner02.jpg')}}" alt="menu-image" class="img-fluid"></a>
                                                             <a href="{{route('special.meal')}}" class="menu-banner-title"><span>Special product</span></a>
                                                         </li>
                                                         <li class="menu-banner">

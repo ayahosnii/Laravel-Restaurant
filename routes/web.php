@@ -65,7 +65,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 
 
 
-    Route::group(['prefix' => 'restaurant'], function () {
+    Route::group(['prefix' => 'restaurant-meals'], function () {
         Route::get('/', RestaurantComponent::class)->name('restaurant.index');
         Route::get('/ajax', [RestaurantController::class, 'meals'])->name('restaurant.ajax');
         Route::get('/main-category/{main_category_slug}', [MainCategoryController::class, 'index'])->name('main-category.index');
