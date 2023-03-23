@@ -31,13 +31,20 @@ class GenerateIdeaController extends Controller
 
     public function generate(Request $request)
     {
+        // Get the input ingredients
         $vegetables = $request->input('vegetables');
-        $prompt = "With these ingredients: " . implode(", ", $vegetables) . ", return array of meal names";
+
+        // Create the prompt to send to OpenAI
+        $prompt = "write list of meals contain " . implode(", ", $vegetables);
+
+        // Create a Guzzle client to send the request to OpenAI
         $client = new Client();
+
         try {
-            $response = $client->request('POST', 'https://api.openai.com/v1/engines/davinci-codex/completions', [
+            // Send the request to OpenAI
+            $response = $client->request('POST', 'https://api.openai.com/v1/engines/davinci/completions', [
                 'headers' => [
-                    'Authorization' => 'Bearer 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',
+                    'Authorization' => 'Bearer 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',
                     'Content-Type' => 'application/json',
                 ],
                 'json' => [
@@ -45,11 +52,17 @@ class GenerateIdeaController extends Controller
                     'max_tokens' => 50,
                 ],
             ]);
+
+            // Decode the response from OpenAI
             $result = json_decode($response->getBody()->getContents());
-            dd($result);
+
+            // Get the suggested meal from the response
             $meal = $result->choices[0]->text;
+
+            // Render the view with the suggested meal
             return view('site.generate', compact('meal'));
         } catch (RequestException $e) {
+            // Handle any errors from OpenAI
             if ($e->hasResponse()) {
                 $error = json_decode($e->getResponse()->getBody()->getContents());
                 return response()->json(['error' => $error->error->message], $e->getResponse()->getStatusCode());
@@ -58,6 +71,7 @@ class GenerateIdeaController extends Controller
             }
         }
     }
+
 
 
     /**
