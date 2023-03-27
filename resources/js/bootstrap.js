@@ -16,10 +16,13 @@ window.Pusher = require('pusher-js');
 window.Echo = new Echo({
     broadcaster: 'pusher',
     key: process.env.PUSHER_APP_KEY,
-    wsHost: window.location.hostname,
-    wsPort: 8080,
+    encrypted: true,
+    wsHost: 'restaurant.ayahosni.workers.dev',
+    wsPort: 443,
+    wssPort: 443,
     disableStats: true,
     forceTLS: true,
+    enabledTransports: ['ws', 'wss'],
     authEndpoint: '/broadcasting/auth',
     auth: {
         headers: {
