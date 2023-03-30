@@ -44,7 +44,7 @@ class GenerateIdeaController extends Controller
             // Send the request to OpenAI
             $response = $client->request('POST', 'https://api.openai.com/v1/engines/davinci/completions', [
                 'headers' => [
-                    'Authorization' => 'Bearer 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',
+                    'Authorization' => 'Bearer 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',
                     'Content-Type' => 'application/json',
                 ],
                 'json' => [
