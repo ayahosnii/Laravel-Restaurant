@@ -5,7 +5,7 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^7.3|^8.2",
         "ext-json": "*",
         "astrotomic/laravel-translatable": "^11.11",
         "beyondcode/laravel-websockets": "^1.13",
@@ -74,19 +74,20 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
     },
 
     "repositories": [
         {
             "type": "composer",
             "url": "https://packagist.org"
-        },
-        {
-            "type": "composer",
-            "url": "https://repo-eu-uk-1.packagist.com"
         }
     ],
+
+
 
     "minimum-stability": "dev",
     "prefer-stable": true

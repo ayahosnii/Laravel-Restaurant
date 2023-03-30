@@ -150,10 +150,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('sendSMS', [\App\Http\Controllers\Site\VerificationCodeController::class, 'index']);
 
 
-
-Route::get('/{any}', function () {
-    return view('app');
-})->where('any', '.*');
+//
+//Route::get('/{any}', function () {
+//    return view('app');
+//})->where('any', '.*');
 
 //Route::get('/shop', [\App\Http\Controllers\ShopController::class, 'index'])->name('shop');
 //    Route::get('/restaurant/main-category/{category_slug}', CategoryComponent::class)
