@@ -293,7 +293,7 @@
                                                         <span class="sp-link-title">Categories</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
-                                                    <a href="{{route('shop')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                    <a href="{{route('restaurant.index')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
                                                         <span class="sp-link-title">@lang('messages.Categories')</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>

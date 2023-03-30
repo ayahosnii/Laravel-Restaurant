@@ -83,6 +83,6 @@ class ReservationController extends Controller
         $request->session()->forget('reservation');
 
         //$reservation->notify(new ReservationNotification($invoice));
-        return redirect()->route('shop');
+        return redirect()->route('restaurant.index');
     }
 }

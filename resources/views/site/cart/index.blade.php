@@ -257,7 +257,7 @@
         </div>
     </div>
     <div class="sb-cart-btns-frame text-right">
-        <a href="{{route('shop')}}" class="sb-btn sb-btn-2 sb-btn-gray">
+        <a href="{{route('restaurant.index')}}" class="sb-btn sb-btn-2 sb-btn-gray">
                     <span class="sb-icon">
                       <img src="{{asset('assets/img/arrow-2.svg')}}" alt="icon">
                     </span>
