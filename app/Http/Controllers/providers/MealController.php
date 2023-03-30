@@ -20,7 +20,7 @@ class MealController extends Controller
      */
     public function index()
     {
-        $meals = Meal::where('providers_id', Auth::guard('providers')->user()->id)->get();
+        $meals = Meal::where('provider_id', Auth::guard('providers')->user()->id)->get();
         return view('providers.meal.index', compact('meals'));
     }
 
