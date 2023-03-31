@@ -8,6 +8,7 @@ use DB;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
+use OpenAI;
 
 
 class GenerateIdeaController extends Controller
@@ -41,20 +42,29 @@ class GenerateIdeaController extends Controller
         $client = new Client();
 
         try {
-            // Send the request to OpenAI
-            $response = $client->request('POST', 'https://api.openai.com/v1/engines/davinci/completions', [
-                'headers' => [
-                    'Authorization' => 'Bearer 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',
-                    'Content-Type' => 'application/json',
-                ],
-                'json' => [
-                    'prompt' => $prompt,
-                    'max_tokens' => 50,
-                ],
+//            // Send the request to OpenAI
+//            $response = $client->request('POST', 'https://api.openai.com/v1/engines/davinci/completions', [
+//                'headers' => [
+//                    'Authorization' => 'Bearer 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',
+//                    'Content-Type' => 'application/json',
+//                ],
+//                'json' => [
+//                    'prompt' => $prompt,
+//                    'max_tokens' => 50,
+//                ],
+//            ]);
+
+            $yourApiKey = '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';
+            $client = OpenAI::client($yourApiKey);
+
+            $result = $client->completions()->create([
+                'model' => 'text-davinci-003',
+                'prompt' => $prompt,
             ]);
 
+
             // Decode the response from OpenAI
-            $result = json_decode($response->getBody()->getContents());
+            //$result = json_decode($response->getBody()->getContents());
 
             // Get the suggested meal from the response
             $meal = $result->choices[0]->text;
