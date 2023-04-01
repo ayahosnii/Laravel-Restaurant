@@ -13,7 +13,7 @@ class ProductController extends Controller
     public function productsBySlug($slug)
     {
         $data=[];
-        $data['product'] = Product::where('slug',$slug) -> first();
+        $data['product'] = Meal::where('slug',$slug) -> first();
         if (!$data['product']){ ///  redirect to previous page with message
         }
 

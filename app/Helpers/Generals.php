@@ -30,7 +30,7 @@ function    uploadImage($folder, $image)
     $image->store('/', $folder);
     $filename = $image->hashName();
     $path = 'images/' . $folder . '/' . $filename;
-    return $path;
+    return $filename;
 }
 
     function uploadImages($folder, $image)
@@ -38,5 +38,5 @@ function    uploadImage($folder, $image)
         $image->store('/', $folder);
         $filename = $image->hashName();
         $path = 'images/' . $folder . '/' .$filename;
-        return $filename;
+        return $path;
     }

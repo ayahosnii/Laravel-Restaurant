@@ -192,7 +192,7 @@
                         <div class="pro-btn">
                             <a id="addToWishlist" class="addToWishlist w-c-q-icn wishlistProd_22 btn btn-style1" data-product-id="{{$meal -> id}}"><i class="fa fa-heart"></i></a>
                             <a href="#" class="btn btn-style1" wire:click.prevent="store('{{ $meal->id}}', '{{$meal->name}}', '{{ $meal->regular_price }}')"><i class="fa fa-shopping-bag"></i> Add to cart</a>
-                            <a href="https://spacingtech.com/html/vegist-final/vegist/checkout-1.html" class="btn btn-style1">Buy now</a>
+                            <a href="{{route('checkout')}}" class="btn btn-style1">Buy now</a>
                         </div>
 
                         <div class="share">
