@@ -46,8 +46,10 @@ class Meal extends Model /*implements TranslatableContract*/
 
     public function sales()
     {
-        return $this->belongsToMany(Sale::class);
+        return $this->belongsToMany(Sale::class)
+            ->where('ends_at', '>=', now());
     }
+
 
 
 }

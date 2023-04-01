@@ -31,17 +31,19 @@
                                 </ul>
                                     <ul class="pro-input-label">
                                         <li>
+                                            @if($branches && $branches -> count() > 0)
+
                                             <label>Meal's Branch</label>
                                             <select class="custom-select text-gray font-body-md"  name="branch_id" id="branch_id" required>
                                                 <optgroup label="Please choose the branch">
-                                                    @if($branches && $branches -> count() > 0)
                                                         @foreach($branches as $branch)
                                                             <option
                                                                 value="{{$branch -> id }}">{{$branch -> name }}</option>
                                                         @endforeach
-                                                    @endif
                                                 </optgroup>
                                             </select>
+                                            @endif
+
                                         </li>
                                         <li>
                                             <label>Meal's Category [of your restaurant]</label>

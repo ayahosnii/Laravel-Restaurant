@@ -31,7 +31,7 @@ class MealController extends Controller
      */
     public function create()
     {
-        $categories = Category::select('id','parent_id')->get();
+        $categories = Category::where('provider_id',Auth::guard('providers')->user()->id)->get();
         $main_categories = MainCategory::where('translate_of', 0)->where('translation_lang', get_default_language())->active()->get();
         $branches = Branch::select()->get();
         return view('providers.meal.create-meal', compact('categories', 'branches', 'main_categories'));
@@ -63,10 +63,10 @@ class MealController extends Controller
             'description' => $request->en_details,
             'calories' => $request->calories,
             'category_id' =>$request->category_id,
-            'maincate_id' =>$request->maincate_id,
-            'subcate_id' =>$request->sub_cat,
-            'providers_id ' =>$request->Auth::guard('providers')->user()->id,
-            'branch_id' =>$request->branch_id,
+            'main_cate_id' =>$request->maincate_id,
+            //'subcate_id' =>$request->sub_cat,
+            'provider_id ' =>Auth::guard('providers')->user()->id,
+            'branch_id' =>$request->branch_id ?? NULL,
             'published' => $request -> published
         ]);
      MealTranslation::create([

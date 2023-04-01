@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\GenerateIdea;
 use App\Models\User;
 use DB;
+use Google\Service\PhotosLibrary;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use OpenAI;
+use Google_Client;
+
 
 
 class GenerateIdeaController extends Controller
@@ -32,47 +35,30 @@ class GenerateIdeaController extends Controller
 
     public function generate(Request $request)
     {
-        // Get the input ingredients
         $vegetables = $request->input('vegetables');
 
-        // Create the prompt to send to OpenAI
-        $prompt = "write list of meals contain " . implode(", ", $vegetables);
+        $prompt = "write only the name of a popular meal contain " . implode(", ", $vegetables);
 
-        // Create a Guzzle client to send the request to OpenAI
-        $client = new Client();
+
 
         try {
-//            // Send the request to OpenAI
-//            $response = $client->request('POST', 'https://api.openai.com/v1/engines/davinci/completions', [
-//                'headers' => [
-//                    'Authorization' => 'Bearer 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',
-//                    'Content-Type' => 'application/json',
-//                ],
-//                'json' => [
-//                    'prompt' => $prompt,
-//                    'max_tokens' => 50,
-//                ],
-//            ]);
 
-            $yourApiKey = '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';
-            $client = OpenAI::client($yourApiKey);
+            $gptApiKey = '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';
+            $client = OpenAI::client($gptApiKey);
 
             $result = $client->completions()->create([
                 'model' => 'text-davinci-003',
                 'prompt' => $prompt,
+                'temperature' => 0.5,
+                'max_tokens' => 50,
             ]);
 
-
-            // Decode the response from OpenAI
-            //$result = json_decode($response->getBody()->getContents());
-
-            // Get the suggested meal from the response
             $meal = $result->choices[0]->text;
+            $photo_url = $this->getMealPhotoUnsplash($meal);
 
-            // Render the view with the suggested meal
-            return view('site.generate', compact('meal'));
+            return response()->json(['meal' => $meal, 'photo_url'=>$photo_url]);
         } catch (RequestException $e) {
-            // Handle any errors from OpenAI
+
             if ($e->hasResponse()) {
                 $error = json_decode($e->getResponse()->getBody()->getContents());
                 return response()->json(['error' => $error->error->message], $e->getResponse()->getStatusCode());
@@ -83,17 +69,32 @@ class GenerateIdeaController extends Controller
     }
 
 
-
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+
+//    private function getMealPhotoGooglePhotos(string $meal): ?string
+//    {
+//
+//    }
+
+     private function getMealPhotoUnsplash(string $meal): ?string
+     {
+         $meal_url = str_replace(' ', '-', strtolower(trim($meal)));
+
+         $access_key = 'HuErFYq0HYQEy8Jze8Yif_ZvwtYtAUAxRFg_V7Zh_2w';
+         $url = "https://api.unsplash.com/search/photos?query={$meal_url}&client_id={$access_key}&per_page=1";
+
+         $client = new \GuzzleHttp\Client();
+         $response = $client->request('GET', $url);
+
+         $data = json_decode($response->getBody(), true);
+
+         return $data['results'][0]['urls']['regular'] ?? null;
+     }
 
     /**
      * Display the specified resource.
