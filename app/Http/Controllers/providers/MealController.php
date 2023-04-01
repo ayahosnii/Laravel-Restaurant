@@ -53,7 +53,7 @@ class MealController extends Controller
 
         $filePath = "";
         if ($request->has('image')) {
-            $filePath = uploadImage('products', $request->image);
+            $filePath = uploadImage('providers-meals', $request->image);
         }
 
 

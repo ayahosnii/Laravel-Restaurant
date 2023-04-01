@@ -77,6 +77,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'providers-meals' => [
+            'driver' => 'local',
+            'root' => public_path('/provider-assets/images/meals/'),
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+        ],
+
         'providers-branch' => [
             'driver' => 'local',
             'root' => public_path('/assets/images/providers-branch/'),
