@@ -73,6 +73,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get('/all', [RestaurantController::class, 'index'])->name('restaurant.all');
         Route::get('/{user_name}', [RestaurantController::class, 'get_rest'])->name('restaurant.details');
         Route::get('branch/{b_username}', [RestaurantController::class, 'get_branch'])->name('branch.details');
+        route::get('meal/{name}', [ProductController::class, 'mealsBySlug'])->name('meal.details');
     });
 
     Route::get('/generate-ideas', [GenerateIdeaController::class, 'index'])->name('generate');
@@ -89,7 +90,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 
     Route::get("/reservations/decline/{id}" , [ReservationController::class, "decline_reservation"]);
     //route::get('shop/details/{slug}', [ProductController::class, 'productsBySlug'])->name('product.details');
-    route::get('shop/meal/{name}', [ProductController::class, 'mealsBySlug'])->name('meal.details');
     route::get('/findprice', [ProductController::class, 'findprice'])->name('findprice');
     Route::group(['prefix' => 'cart'], function () {
         Route::get('/', CartComponent::class)->name('site.cart.index');
