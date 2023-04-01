@@ -53,8 +53,9 @@ class MealController extends Controller
 
         $filePath = "";
         if ($request->has('image')) {
-            $filePath = uploadImage('maincategories', $request->image);
+            $filePath = uploadImage('products', $request->image);
         }
+
 
         $meal = Meal::create([
             'image' => $filePath,
@@ -63,9 +64,9 @@ class MealController extends Controller
             'description' => $request->en_details,
             'calories' => $request->calories,
             'category_id' =>$request->category_id,
-            'main_cate_id' =>$request->maincate_id,
+            'main_cate_id' => $request->maincate_id,
             //'subcate_id' =>$request->sub_cat,
-            'provider_id ' =>Auth::guard('providers')->user()->id,
+            'provider_id' => Auth::guard('providers')->user()->id,
             'branch_id' =>$request->branch_id ?? NULL,
             'published' => $request -> published
         ]);
@@ -75,12 +76,10 @@ class MealController extends Controller
             'locale' => 'ar',
             'meal_id' => $meal->id
         ]);
+
+     return redirect()->route('meals');
     }
 
-    /*
-     * 'id','name',	'description',	'calories',	'category_id',	'branch_id',
-        'price',	'published',
-     * */
 
     /**
      * Display the specified resource.
