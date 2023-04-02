@@ -163,6 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Laratrust\LaratrustServiceProvider::class,
         PulkitJalan\Google\GoogleServiceProvider::class,
+        Berkayk\OneSignal\OneSignalServiceProvider::class,
 
 
 
@@ -239,6 +240,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Laratrust'   => Laratrust\LaratrustFacade::class,
+        'OneSignal' => Berkayk\OneSignal\OneSignalFacade::class
 
 
 

@@ -217,7 +217,19 @@
 <script src="{{asset('js/datetimepicker.js')}}"></script>
 <script src="https://cdn.tiny.cloud/1/2hiuvs7pfrjea2zdpl7ldavojp466ihbpx4p57jxkzrr6osc/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOnrM9ISkivX_c_h82WzlOx-REJHnQLKQ"></script>
-
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" defer></script>
+<script>
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+        OneSignal.init({
+            appId: "fa2f23dc-d4c3-465f-91b1-6f972529114d",
+            safari_web_id: "web.onesignal.auto.5ccade99-0f35-4775-9ae0-5e2c3bfd110b",
+            notifyButton: {
+                enable: true,
+            },
+        });
+    });
+</script>
 @yield('script')
 @stack('scripts-push')
 

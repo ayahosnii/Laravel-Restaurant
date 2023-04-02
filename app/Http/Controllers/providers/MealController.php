@@ -3,14 +3,16 @@
 namespace App\Http\Controllers\providers;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\Admin;
 use App\Models\admin\MainCategory;
 use App\Models\providers\Branch;
 use App\Models\providers\Category;
 use App\Models\providers\Meal;
 use App\Models\providers\MealTranslation;
+use Berkayk\OneSignal\OneSignalFacade;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Berkayk\OneSignal;
 class MealController extends Controller
 {
     /**
@@ -68,7 +70,7 @@ class MealController extends Controller
             //'subcate_id' =>$request->sub_cat,
             'provider_id' => Auth::guard('providers')->user()->id,
             'branch_id' =>$request->branch_id ?? NULL,
-            'published' => $request -> published
+            'published' => 0
         ]);
      MealTranslation::create([
             'name' => $request->input('ar_name'),
@@ -76,6 +78,18 @@ class MealController extends Controller
             'locale' => 'ar',
             'meal_id' => $meal->id
         ]);
+
+     $admins = Admin::get();
+     foreach ($admins as $admin){
+         OneSignalFacade::sendNotificationToUser(
+             "A new meal has been added by a provider.",
+             $admin->onesignal_id,
+             $url = null,
+             $data = null,
+             $buttons = null,
+             $schedule = null
+         );
+     }
 
      return redirect()->route('meals');
     }

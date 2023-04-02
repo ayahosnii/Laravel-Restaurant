@@ -8,6 +8,7 @@
         "php": "^7.3|^8.2",
         "ext-json": "*",
         "astrotomic/laravel-translatable": "^11.11",
+        "berkayk/onesignal-laravel": "^2.0",
         "beyondcode/laravel-websockets": "^1.13",
         "fruitcake/laravel-cors": "^2.0",
         "google/apiclient": "^2.10",
@@ -22,6 +23,7 @@
         "laravelcollective/html": "^6.0",
         "livewire/livewire": "^2.10",
         "mcamara/laravel-localization": "^1.7",
+        "onesignal/onesignal-php-api": "*@dev",
         "openai-php/client": "*",
         "pusher/pusher-php-server": "^7.2",
         "revolution/laravel-google-photos": "^4.0",
@@ -85,10 +87,11 @@
 
     "repositories": [
         {
-            "type": "composer",
-            "url": "https://packagist.org"
+            "type": "vcs",
+            "url": "https://github.com/OneSignal/onesignal-php-api.git"
         }
     ],
+
 
 
 
