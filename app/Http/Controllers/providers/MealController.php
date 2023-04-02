@@ -81,7 +81,7 @@ class MealController extends Controller
 
      $admins = Admin::get();
      foreach ($admins as $admin){
-         OneSignalFacade::sendNotificationToUser(
+         OneSignalFacade::sendNotificationToAll(
              "A new meal has been added by a provider.",
              $admin->onesignal_id,
              $url = null,
