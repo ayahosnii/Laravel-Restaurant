@@ -14,7 +14,7 @@ class Meal extends Model /*implements TranslatableContract*/
     public $table = "meals";
     use Translatable;
 
-    public $translatedAttributes = ['ar_name',	'description'];
+    public $translatedAttributes = ['ar_name',	'ar_details'];
     public $fillable = ['id','name','slug','image','subcate_id',	'description',	'calories',	'category_id', 'main_cate_id',	'branch_id',
         'price',	'published','providers_id ','provider_id',	'created_at',	'updated_at'];
 
