@@ -70,7 +70,7 @@ class MealController extends Controller
 //$meal->subcate_id = $request->sub_cat;
         $meal->provider_id = Auth::guard('providers')->user()->id;
         $meal->branch_id = $request->branch_id ?? null;
-        $meal->published = 0;
+        $meal->published = '0';
         $meal->save();
 
         $mealArabicTranslation = new MealTranslation();
