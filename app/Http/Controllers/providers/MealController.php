@@ -59,26 +59,26 @@ class MealController extends Controller
         }
 
 
-        $meal = Meal::create([
-            'image' => $filePath,
-            'name' => $request->input('en_name'),
-            'price' => $request->price,
-            'description' => $request->en_details,
-            'calories' => $request->calories,
-            'category_id' =>$request->category_id,
-            'main_cate_id' => $request->maincate_id,
-            //'subcate_id' =>$request->sub_cat,
-            'provider_id' => Auth::guard('providers')->user()->id,
-            'branch_id' =>$request->branch_id ?? NULL,
-            'published' => 0
-        ]);
+        $meal = new Meal();
+        $meal->image = $filePath;
+        $meal->name = $request->en_name;
+        $meal->price = $request->price;
+        $meal->description = $request->en_details;
+        $meal->calories = $request->calories;
+        $meal->category_id = $request->category_id;
+        $meal->main_cate_id = $request->maincate_id;
+        $meal->provider_id = Auth::guard('providers')->user()->id;
+        $meal->branch_id = $request->branch_id ?? null;
+        $meal->published = 0;
+        $meal->save();
+
         $meal->branches()->attach($request->branch_id);
-        MealTranslation::create([
-            'name' => $request->input('ar_name'),
-            'description' => $request->ar_details,
-            'locale' => 'ar',
-            'meal_id' => $meal->id
-        ]);
+
+        $meal->translate('ar')->name = $request->name_ar;
+        $meal->translate('ar')->description = $request->description_ar;
+        $meal->save();
+
+
 
      $admins = Admin::get();
      foreach ($admins as $admin){
