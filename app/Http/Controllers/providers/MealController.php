@@ -67,20 +67,27 @@ class MealController extends Controller
         $meal->calories = $request->calories;
         $meal->category_id = $request->category_id;
         $meal->main_cate_id = $request->maincate_id;
+//$meal->subcate_id = $request->sub_cat;
         $meal->provider_id = Auth::guard('providers')->user()->id;
         $meal->branch_id = $request->branch_id ?? null;
         $meal->published = 0;
         $meal->save();
 
+        $mealArabicTranslation = new MealTranslation();
+        $mealArabicTranslation->meal_id = $meal->id;
+        $mealArabicTranslation->locale = 'ar';
+        $mealArabicTranslation->name = $request->ar_name;
+        $mealArabicTranslation->description = $request->ar_details;
+        $mealArabicTranslation->save();
+
+        $meal->translations()->saveMany([$mealArabicTranslation]);
+
         $meal->branches()->attach($request->branch_id);
 
-        $meal->translate('ar')->name = $request->name_ar;
-        $meal->translate('ar')->description = $request->description_ar;
-        $meal->save();
 
 
 
-     $admins = Admin::get();
+        $admins = Admin::get();
      foreach ($admins as $admin){
          OneSignalFacade::sendNotificationToAll(
              "A new meal has been added by a provider.",
