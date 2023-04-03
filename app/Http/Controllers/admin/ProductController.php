@@ -177,4 +177,10 @@ class ProductController extends Controller
             return redirect()->route('admin.products')->with(['error' => 'حدث خطأ برجاء المحاولة لاحقا']);
         }
     }
+
+    public function acceptMeals()
+    {
+        $meals = Meal::where('published', '0')->get();
+        return view('admin.products.accept', compact('meals'));
+    }
 }

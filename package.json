@@ -48,6 +48,7 @@
         "@deveodk/vue-toastr": "^1.1.0",
         "autoprefixer": "10.4.5",
         "laravel-vue-pagination": "^2.3.1",
+        "select2": "^4.1.0-rc.0",
         "vue-router": "^3.1.6",
         "vue-toastr": "^2.1.2",
         "vuex": "^3.4.0"

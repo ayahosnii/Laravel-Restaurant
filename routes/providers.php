@@ -38,7 +38,8 @@ Route::group(
     Route::middleware(['providers'])->group(function(){
 
         Route::get("/dashboard" , [DashboardController::class, 'index'])->name('provider.dashboard');
-        Route::get("/sub-categories" , [DashboardController::class, 'get_cities'])->name('provider.get_cities');
+        Route::get("/sub-categories" , [DashboardController::class, 'get_sub_categories'])->name('provider.getSubCategories');
+        Route::get("/get-cities/{id}" , [DashboardController::class, 'get_cities'])->name('provider.cities');
 
 
 #################################################### Start Categories ####################################################3

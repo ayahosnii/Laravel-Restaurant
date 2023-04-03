@@ -34,7 +34,7 @@
                                             @if($branches && $branches -> count() > 0)
 
                                             <label>Meal's Branch</label>
-                                            <select class="custom-select text-gray font-body-md"  name="branch_id" id="branch_id" required>
+                                            <select class="custom-select text-gray font-body-md select2"  name="branch_id" id="branch_id" multiple required>
                                                 <optgroup label="Please choose the branch">
                                                         @foreach($branches as $branch)
                                                             <option
@@ -134,6 +134,14 @@
     <!-- order history end -->
     @stop
 @section('meal-script')
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
+
+    </script>
     <script>
         $(document).ready(function() {
 
@@ -167,5 +175,8 @@
                 });
             });
         });
+
+
+
     </script>
 @stop

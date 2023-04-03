@@ -13,12 +13,12 @@
         @foreach(Cart::instance('cart')->content() as $item)
         <li class="cart-item">
             <div class="cart-img">
-                <a href="{{route('product.details', $item->model->slug)}}">
-                    <img src="{{$item->model->image}}" alt="{{$item->name}}" class="img-fluid">
+                <a href="{{route('meal.details', $item->name)}}">
+                    <img src="{{$item->image}}" alt="{{$item->name}}" class="img-fluid">
                 </a>
             </div>
             <div class="cart-title">
-                <h6><a href="#">{{$item->model->name}}</a></h6>
+                <h6><a href="#">{{$item->name}}</a></h6>
                 <div class="cart-pro-info">
                     <div class="cart-qty-price">
                         <span class="price-box">£{{ $item->price}}</span>

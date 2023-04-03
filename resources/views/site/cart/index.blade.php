@@ -61,7 +61,7 @@
                                                                         <div class="sb-prod-description">
                                                                             <h5 class="sb-mb-10">
                                                                                 <a class="label"
-                                                                                   href="{{route('product.details',$product -> slug)}}"
+                                                                                   href="{{route('meal.details',$product -> slug)}}"
                                                                                    data-id_customization="0">{{$product -> name}}</a>
                                                                                 <p class="sb-text sb-text-sm">{{$product->short_description}}</p>
                                                                             </h5>

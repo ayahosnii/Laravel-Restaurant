@@ -72,7 +72,8 @@ class MealController extends Controller
             'branch_id' =>$request->branch_id ?? NULL,
             'published' => 0
         ]);
-     MealTranslation::create([
+        $meal->branches()->attach($request->branch_id);
+        MealTranslation::create([
             'name' => $request->input('ar_name'),
             'description' => $request->ar_details,
             'locale' => 'ar',

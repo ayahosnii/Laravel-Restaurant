@@ -84,12 +84,14 @@ return [
             'visibility' => 'public',
         ],
 
-        'providers-branch' => [
+         'providers-branch' => [
             'driver' => 'local',
-            'root' => public_path('/assets/images/providers-branch/'),
+            'root' => public_path('/provider-assets/images/providers/'),
             'url' => env('APP_URL').'/public',
             'visibility' => 'public',
         ],
+
+
 
         's3' => [
             'driver' => 's3',

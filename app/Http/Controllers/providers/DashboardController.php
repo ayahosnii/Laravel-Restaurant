@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\providers;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\City;
 use App\Models\providers\Branch;
 use App\Models\providers\Dashboard;
 use Illuminate\Http\Request;
@@ -24,7 +25,7 @@ class DashboardController extends Controller
         return view('providers.dashboard', compact('branches'));
     }
 
-    public function get_cities(Request $request)
+    public function get_sub_categories(Request $request)
     {
 
         $validator = Validator::make($request->all());
@@ -46,9 +47,11 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function get_cities($id)
     {
-        //
+        $cities = City::where('governorate_id', $id)
+            ->select('id', 'city_name_en')->get();
+        return response()->json($cities);
     }
 
     /**

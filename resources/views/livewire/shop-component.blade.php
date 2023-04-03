@@ -128,7 +128,7 @@
                                 <li class="grid-items">
                                     <div class="tred-pro">
                                         <div class="tr-pro-img">
-                                            <a href="{{route('product.details', ['slug'=>$product->slug])}}">
+                                            <a href="{{route('meal.details', ['slug'=>$product->slug])}}">
                                                 <img class="img-fluid" style="height: 300px; width: 500px"  src="{{$product->image}}" alt="pro-img1">
                                                 <img class="img-fluid additional-image" style="height: 300px; width: 500px" src="{{$product->image}}" alt="additional image">
                                             </a>

@@ -30,6 +30,7 @@
         "santigarcor/laratrust": "^7.1",
         "spatie/enum": "^3.13",
         "spatie/geocoder": "^3.14",
+        "stripe/stripe-php": "^10.12",
         "twilio/sdk": "^6.44"
     },
     "require-dev": {

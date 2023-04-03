@@ -40,7 +40,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- title -->
-    <title>Vegist - Multipurpose eCommerce HTML Template</title>
+    <title>Providers's Dashboard</title>
     <meta name="description" content="A best clean, modern, stylish, creative, responsive theme for different eCommerce business or industries.">
     <meta name="keywords" content="organic food theme, vegetables, foof store, eCommerce html template, responsive, electronics store, furniture wood, fashion, furniture, mobile, watches, electronics, computers accessories, toys, jewellery, restaurant accessories">
     <meta name="author" content="spacingtech_webify">
@@ -84,6 +84,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
 --}}
     <link rel="stylesheet" type="text/css" href="{{asset('provider-assets/css/responsive.css')}}">
+
+
 
     <style>
         .form__input {
@@ -2025,6 +2027,9 @@
 
 <script src="{{asset('assets/js/branches.js')}}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
+
+
 
 <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -2038,5 +2043,6 @@
     })();
 </script>
 @yield('meal-script')
+@stack('scripts')
 </body>
 </html>

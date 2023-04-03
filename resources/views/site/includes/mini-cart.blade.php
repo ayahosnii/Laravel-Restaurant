@@ -12,7 +12,7 @@
         @foreach(Cart::instance('cart')->content() as $item)
             <li class="cart-item">
                 <div class="cart-img">
-                    <a href="{{route('product.details', $item->model->slug)}}">
+                    <a href="{{route('meal.details', $item->model->name)}}">
                         <img src="{{$item->model->image}}" alt="{{$item->name}}" class="img-fluid">
                     </a>
                 </div>

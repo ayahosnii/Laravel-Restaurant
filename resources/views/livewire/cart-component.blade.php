@@ -52,7 +52,7 @@
                                                         <div class="sb-cart-item">
                                                             <div class="row align-items-center">
                                                                 <div class="col-lg-6">
-                                                                    <a class="sb-product" href="route('product.details', $item->slug)">
+                                                                    <a class="sb-product" href="route('meal.details', $item->slug)">
                                                                         <div class="sb-cover-frame">
                                                                             <img src="{{$item->model->image}}" alt="{{$item->name}}">
                                                                         </div>

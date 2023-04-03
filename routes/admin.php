@@ -75,6 +75,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
     Route::post('/meals/update', [ProductController::class, 'update'])->name('admin.meals.update');
     Route::get('/meals/destroy', [ProductController::class, 'destroy'])->name('admin.meals.delete');
     Route::get('/meals/change/{id}', [ProductController::class, 'changeStatus'])->name('admin.meals.status');
+    Route::get('/meals/accept', [ProductController::class, 'acceptMeals'])->name('admin.meals.accept');
 
     ########################################## End  Products Route ##############################################################
     ########################################## Start Coupons Route ##############################################################

@@ -159,11 +159,11 @@
                                                     @foreach(Cart::instance('cart')->content() as $item)
                                                         <li>
                                                             <div class="check-pro-img">
-                                                                <a href="{{route('product.details', ['slug' => $item -> model ->slug])}}"><img src="{{$item->model->image}}" class="img-fluid" alt="image" style="height: 100px; width: 100px"></a>
-                                                                <span><a href="{{route('product.details', ['slug' => $item -> model ->slug])}}">{{ substr($item->model->name,0,5) }}</a> </span>
+                                                                <a href="{{route('meal.details', ['name' => $item ->name])}}"><img src="{{$item->image}}" class="img-fluid" alt="image" style="height: 100px; width: 100px"></a>
+                                                                <span><a href="{{route('meal.details', ['name' => $item ->name])}}">{{ substr($item->name,0,5) }}</a> </span>
                                                             </div>
                                                             <div class="check-content">
-                                                                <a href="https://spacingtech.com/html/vegist-final/vegist/product.html">{{$item->model->name}}</a>
+                                                                <a href="https://spacingtech.com/html/vegist-final/vegist/product.html">{{$item->name}}</a>
                                                                 <span class="check-code-blod">Product code: <span>x{{$item->qty}}</span></span>
                                                                 <span class="check-price">{{$item->price}} LE</span>
                                                             </div>
@@ -180,7 +180,7 @@
                                                 @foreach(Cart::instance('cart')->content() as $item)
                                                     <li class="order-details">
                                                     <li class="order-details">
-                                                        <span>{{$item->model->name}}:</span>
+                                                        <span>{{$item->name}}:</span>
                                                         <span>{{$item->price}} LE</span>
                                                     </li>
                                                 @endforeach
@@ -559,8 +559,8 @@
 {{--                                    <li class="order-details">--}}
 {{--                                        <div class="col-md-2" style="display: inline-block">--}}
 {{--                                            <div class="check-pro-img">--}}
-{{--                                                <a href="{{route('product.details', ['slug' => $item -> model ->slug])}}"><img src="{{$item->model->image}}" class="img-fluid" alt="image" style="height: 100px; width: 100px"></a>--}}
-{{--                                                <span><a href="{{route('product.details', ['slug' => $item -> model ->slug])}}">{{ substr($item->model->name,0,5) }}</a> </span>--}}
+{{--                                                <a href="{{route('meal.details', ['name' => $item ->name])}}"><img src="{{$item->image}}" class="img-fluid" alt="image" style="height: 100px; width: 100px"></a>--}}
+{{--                                                <span><a href="{{route('meal.details', ['name' => $item ->name])}}">{{ substr($item->name,0,5) }}</a> </span>--}}
 {{--                                            </div>--}}
 {{--                                        </div>--}}
 {{--                                        <div class="col-md-2" style="display: inline-block">--}}
@@ -568,7 +568,7 @@
 {{--                                        </div>--}}
 {{--                                        <div class="col-md-2" style="display: inline-block">--}}
 {{--                                            <div class="check-content">--}}
-{{--                                                <span class="check-price">{{$item->model->regular_price}} LE</span>--}}
+{{--                                                <span class="check-price">{{$item->regular_price}} LE</span>--}}
 {{--                                            </div>--}}
 {{--                                        </div>--}}
 {{--                                    </li>--}}

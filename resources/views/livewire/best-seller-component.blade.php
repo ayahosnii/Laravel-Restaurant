@@ -125,7 +125,7 @@
                                                 <span class="p-text">New</span>
                                             </div>
                                             <div class="pro-icn">
-                                                <a href="{{route('product.details', ['slug'=>$product->product->slug])}}" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
+                                                <a href="{{route('meal.details', ['slug'=>$product->product->slug])}}" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
                                                 <a href="#" class="w-c-q-icn" wire:click.prevent="addToWishList('{{ $product->product->id}}', '{{$product->product->name}}', '{{ $product->product->price }}')"><i class="fa fa-heart"></i></a>
                                                 <a href="#" class="w-c-q-icn" wire:click.prevent="store('{{ $product->product->id}}', '{{$product->product->name}}', '{{ $product->product->price }}')"><i class="fa fa-shopping-bag"></i></a>
                                             </div>

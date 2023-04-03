@@ -18,9 +18,9 @@ class Meal extends Model /*implements TranslatableContract*/
     public $fillable = ['id','name','slug','image','subcate_id',	'description',	'calories',	'category_id', 'main_cate_id',	'branch_id',
         'price',	'published','providers_id ','provider_id',	'created_at',	'updated_at'];
 
-    public function branch()
+    public function branches()
     {
-        return $this->belongsTo(Branch::class, 'branch_id',  'id');
+        return $this->belongsToMany(Branch::class);
     }
 
     public function mainCategory()
