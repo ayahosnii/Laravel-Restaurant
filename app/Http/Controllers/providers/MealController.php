@@ -76,8 +76,8 @@ class MealController extends Controller
         $mealArabicTranslation = new MealTranslation();
         $mealArabicTranslation->meal_id = $meal->id;
         $mealArabicTranslation->locale = 'ar';
-        $mealArabicTranslation->name = $request->ar_name;
-        $mealArabicTranslation->description = $request->ar_details;
+        $mealArabicTranslation->ar_name = $request->ar_name;
+        $mealArabicTranslation->ar_details = $request->ar_details;
         $mealArabicTranslation->save();
 
         $meal->translations()->saveMany([$mealArabicTranslation]);
