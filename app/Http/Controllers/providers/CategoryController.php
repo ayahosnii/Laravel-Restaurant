@@ -66,7 +66,7 @@ class CategoryController extends Controller
                 'slug' => $request->slug,
                 'parent_id' =>$request->request->add(['parent_id' => null]),
                 'is_active' => $request -> is_active,
-                'provider_id' => $request->$id
+                'provider_id' => $id
 
             ]);
             } else {
@@ -76,7 +76,7 @@ class CategoryController extends Controller
                     'slug' => $request->slug,
                     'parent_id' =>$request->parent_id,
                     'is_active' => $request -> is_active,
-                    'provider_id' => $request->Auth::guard('providers')->user()->id,
+                    'provider_id' => Auth::guard('providers')->user()->id,
                 ]);
             }
 
