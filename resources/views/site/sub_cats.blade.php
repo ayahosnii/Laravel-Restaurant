@@ -107,7 +107,7 @@
                                                 <span class="p-text">New</span>
                                             </div>
                                             <div class="pro-icn">
-                                                <a href="{{route('meal.details', ['slug'=>$meal->slug])}}" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
+                                                <a href="{{route('meal.details', ['name'=>$meal->name])}}" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-eye"></i></a>
                                                 <a href="#" class="w-c-q-icn"><i class="fa fa-heart"></i></a>
                                                 <a href="#" class="w-c-q-icn" ><i class="fa fa-shopping-bag"></i></a>
                                             </div>
