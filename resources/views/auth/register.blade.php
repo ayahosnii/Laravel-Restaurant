@@ -114,7 +114,7 @@
                             </div>
                             <div class="col-md-6">
                                 <a href="{{ url('auth/google') }}" class="btn btn-primary">
-                                    Login with Facebook
+                                    Login with Google
                                 </a>
                             </div>
                         </div>
