@@ -75,37 +75,40 @@
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
                             <label for="name" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.05rem; margin-top: 1rem;  font-size: 20px">Name</label>
-                            <input class="form__input"  type="text" name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="Name" />
+                            <input class="form__input"  type="text" name="name" :value="old('name')" autofocus autocomplete="name" placeholder="Name" />
                             @error('name')
                             <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                             <label for="email" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; margin-top: 1rem; font-size: 20px">Email</label>
-                            <input class="form__input" id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" placeholder="Email" required />
+                            <input class="form__input" id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" placeholder="Email" />
                             @error('email')
                             <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                             <label for="mobile" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">Mobile</label>
-                            <input class="form__input" id="mobile" class="block mt-1 w-full" type="text" name="mobile" :value="old('mobile')" placeholder="Mobile" required />
+                            <input class="form__input" id="mobile" class="block mt-1 w-full" type="text" name="mobile" :value="old('mobile')" placeholder="Mobile" />
                             @error('mobile')
                             <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                             <label for="password" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">Password</label>
-                            <input class="form__input"  id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" placeholder="Password">
+                            <input class="form__input"  id="password" class="block mt-1 w-full" type="password" name="password" autocomplete="new-password" placeholder="Password">
                             @error('password')
                             <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                             <label for="password_confirmation" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">Password Confirmation</label>
-                            <input class="form__input" id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" placeholder="Password Confirmation">
+                            <input class="form__input" id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" autocomplete="new-password" placeholder="Password Confirmation">
                             <button type="submit" class="btn-style1">Create</button>
                         </form>
+                        <a href="{{ url('auth/facebook') }}" class="btn btn-primary">
+                            Login with Facebook
+                        </a>
                     </div>
                 </div>
             </div>
@@ -146,28 +149,28 @@
                             </div><!-- .form-group logo -->
 
                             <label for="name" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">Name</label>
-                            <input class="form__input"  type="text" name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="Name" />
+                            <input class="form__input"  type="text" name="name" :value="old('name')" autofocus autocomplete="name" placeholder="Name" />
                             @error('name')
                             <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                             <label for="name" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">User Name</label>
-                            <input class="form__input"  type="text" name="user_name" :value="old('name')" required autofocus autocomplete="name" placeholder="User Name" />
+                            <input class="form__input"  type="text" name="user_name" :value="old('name')" autofocus autocomplete="name" placeholder="User Name" />
                             @error('user_name')
                             <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                             <label for="email" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">Email</label>
-                            <input class="form__input" id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" placeholder="Email" required />
+                            <input class="form__input" id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" placeholder="Email" />
                             @error('email')
                             <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                             <label for="mobile" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">Mobile</label>
-                            <input class="form__input" id="mobile" class="block mt-1 w-full" type="text" name="mobile" :value="old('mobile')" placeholder="Mobile" required />
+                            <input class="form__input" id="mobile" class="block mt-1 w-full" type="text" name="mobile" :value="old('mobile')" placeholder="Mobile" />
                             @error('mobile')
                             <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -209,7 +212,7 @@
 
                             <div class="form-group">
                             <label for="address" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">Address</label>
-                            <input class="form__input"  id="address" class="block mt-1 w-full" type="text" name="address" required autocomplete="address" placeholder="Address">
+                            <input class="form__input"  id="address" class="block mt-1 w-full" type="text" name="address" autocomplete="address" placeholder="Address">
                             @error('address')
                             <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -219,7 +222,7 @@
 
                             <div class="form-group">
                                 <label for="password" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">Password</label>
-                                <input class="form__input"  id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" placeholder="Password">
+                                <input class="form__input"  id="password" class="block mt-1 w-full" type="password" name="password" autocomplete="new-password" placeholder="Password">
                                 @error('password')
                                 <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -229,14 +232,14 @@
 
 
                             <label for="password_confirmation" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">Password Confirmation</label>
-                            <input class="form__input" id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" placeholder="Password Confirmation">
+                            <input class="form__input" id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" autocomplete="new-password" placeholder="Password Confirmation">
 
                             <div class="form-group">
                                 <label for="ar_details" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">{{trans('site.abbrev_services_ar')}}</label>
                                 <textarea class="form__input form-control font-body-md"
                                           id="provider-ar-details"
                                           name="ar_details"
-                                          rows="6" required></textarea>
+                                          rows="6"></textarea>
                                 <span id="provider-ar-details_error" style="color:red" class="help-block"></span>
                             </div><!-- .form-group ar details -->
 
@@ -245,7 +248,7 @@
                                 <textarea class="form__input form-control font-body-md"
                                           id="provider-en-details"
                                           name="en_details"
-                                          rows="6" required></textarea>
+                                          rows="6"></textarea>
 
                                 <span id="provider-en-details_error" style="color:red" class="help-block"></span>
                             </div><!-- .form-group en details -->
@@ -286,22 +289,22 @@
 
             <div>
                 <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" autocomplete="new-password" />
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())

@@ -9,6 +9,7 @@ use App\Http\Controllers\CustomerServiceChatController;
 use App\Http\Controllers\GenerateIdeaController;
 use App\Http\Controllers\MainCategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\providers\AuthController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\Site\CartController;
 use App\Http\Controllers\ReservationController;
@@ -57,6 +58,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('auth/facebook', [AuthController::class, 'redirectToFacebook']);
+Route::get('auth/facebook/callback', [AuthController::class, 'handleFacebookCallback']);
+
 
 Route::group(['prefix' => LaravelLocalization::setLocale(),
     'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath'/*, 'verifiedUser', 'guest'*/ ]  ], function () {

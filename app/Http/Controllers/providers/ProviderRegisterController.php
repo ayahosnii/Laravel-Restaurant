@@ -43,60 +43,9 @@ class ProviderRegisterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Request $request)
+    public function store(ProviderRegisterRequest $request)
     {
-        $rules = [
-            'name'                      => 'required',
-            'user_name'                      => 'required',
-            'email'                     => 'required|email',
-            'mobile'                    => 'required|numeric',
-            /*   'province'                  => 'required',
-               'city'                      => 'required',*/
-            'address'                   => 'required',
-            'password'                  => 'required',
-            "ar_details"                => "required",
-            "en_details"                => "required",
-            "rest_img"                     => "required"
-        ];
 
-        $msg = [
-            1  => trans("messages.required"),
-            2  => trans("messages.success"),
-            7  => trans("messages.phone_numeric"),
-            8  => trans("messages.email"),
-            10 => trans("messages.email_unique"),
-            11 => trans("messages.phone_unique"),
-            12 => trans("messages.success"),
-        ];
-
-
-        $messages = [
-            "name.required"                      =>  $msg[1],
-            "province.required"                                 =>  $msg[1],
-            "city.required"                                    =>  $msg[1],
-            "phone.required"                            =>  $msg[1],
-            "email.required"                                   =>  $msg[1],
-            "password.required"                                =>  $msg[1],
-            "ar_details.required"                     =>  $msg[1],
-            "en_details.required"                     =>  $msg[1],
-            "rest_img.required"                                   =>  $msg[1],
-            "service-provider.exists"                          =>  $msg[1],
-            "automatic-list.in"             => ' لابد من اختيار الخدمات المطلوبة ',
-            "accept-online-payment.in"      => $msg[1],
-            "accept-order.in"               => $msg[1],
-            "province.exists"                =>$msg[1],
-            "city.exists"                   => $msg[1],
-            "phone.numeric"          => trans("messages.phone_numeric"),
-            "email.email"                   => trans("messages.email_r"),
-            "password.min"                  =>'كلمة المرور اقل من 6 احرف',
-            "email.unique"                  => trans("messages.email_unique"),
-            "phone.unique"           => trans("messages.phone_unique"),
-        ];
-
-        $validator = Validator::make($request->all(), $rules, $messages);
-        if ($validator->fails()){
-            return response()->json($validator->errors(),422);
-        }
 //
 //        $code = (new GeneralController())->generate_random_number(4);
 //        $token = (new GeneralController())->get_token(128);

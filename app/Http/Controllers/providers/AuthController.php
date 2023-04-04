@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\providers\ProviderRegister;
 use Illuminate\Http\Request;
 use DB;
+use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
@@ -67,5 +68,20 @@ class AuthController extends Controller
         return redirect()->back();
 
     }
+
+    public function redirectToFacebook()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    public function handleFacebookCallback()
+    {
+        $user = Socialite::driver('facebook')->user();
+
+        // Do something with the user's information, such as creating a new user or logging them in.
+
+        return redirect('/home');
+    }
+
 
 }
