@@ -24,7 +24,7 @@ class MainCategoryController extends Controller
         $mainCategory = MainCategory::where('slug', $main_category_slug)->first();
         $categories = SubCategory::where('category_id', $mainCategory->id)
             ->where('translation_lang', $default_lang)->get();
-        $meals = Meal::where('main_cate_id', $mainCategory->id)->get();
+        $meals = Meal::where('main_cate_id', $mainCategory->id)->where('published', '1')->get();
 
 
 
