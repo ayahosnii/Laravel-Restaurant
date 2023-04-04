@@ -60,6 +60,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 });
 
 Route::get('auth/facebook', [AuthController::class, 'redirectToFacebook']);
+Route::get('auth/google', [AuthController::class, 'redirectToGoogle']);
 Route::get('auth/facebook/callback', [AuthController::class, 'handleFacebookCallback']);
 Route::get('/auth/google/callback', [AuthController::class, 'handleGoogleCallback']);
 

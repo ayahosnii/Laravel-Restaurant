@@ -106,9 +106,19 @@
                             <input class="form__input" id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" autocomplete="new-password" placeholder="Password Confirmation">
                             <button type="submit" class="btn-style1">Create</button>
                         </form>
-                        <a href="{{ url('auth/facebook') }}" class="btn btn-primary">
-                            Login with Facebook
-                        </a>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="{{ url('auth/facebook') }}" class="btn btn-primary">
+                                    Login with Facebook
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="{{ url('auth/google') }}" class="btn btn-primary">
+                                    Login with Facebook
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
