@@ -27,7 +27,7 @@ class SubCategoryController extends Controller
         $meals = Meal::join('main_categories', 'meals.main_cate_id', '=', 'main_categories.id')
             ->join('sub_categories', 'main_categories.id', '=', 'sub_categories.category_id')
             ->where('sub_categories.slug', $sub_category_slug)
-            ->where('published', 1)
+            ->where('published', '1')
             ->get();
 
 

@@ -107,14 +107,15 @@ class HomeComponent extends Component
         $default_lang = get_default_language();
         $categories = MainCategory::where('translation_lang', $default_lang)->get();
         //The meals
-        $meals = Meal::get();
+        $meals = Meal::where('published', '1')->get();
 
-        $lmeals = Meal::orderBy('created_at','DESC')
+        $lmeals = Meal::orderBy('created_at','DESC')->where('published', '1')
             ->get()->take(8);
 
         $smeals = Meal::whereHas('sales', function ($query) {
             $query->where('percentage', '>', 0)
-            ->where('ends_at', '>', now());
+            ->where('ends_at', '>', now())
+            ->where('published', '1');
         })->inRandomOrder()->take(8)->get();
 
         $posts = Post::latest()->with('user')->get();
