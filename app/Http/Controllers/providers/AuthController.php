@@ -4,8 +4,10 @@ namespace App\Http\Controllers\providers;
 
 use App\Http\Controllers\Controller;
 use App\Models\providers\ProviderRegister;
+use App\Models\User;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
@@ -78,9 +80,54 @@ class AuthController extends Controller
     {
         $user = Socialite::driver('facebook')->user();
 
-        // Do something with the user's information, such as creating a new user or logging them in.
+        // Check if the user already exists in your application's database
+        $existingUser = User::where('email', $user->getEmail())->first();
 
-        return redirect('/home');
+        if ($existingUser) {
+            // If the user already exists, log them in and redirect them to the dashboard
+            Auth::login($existingUser);
+
+            return redirect('/dashboard');
+        }
+
+        // If the user does not exist, create a new user record in your application's database
+        $newUser = new User;
+        $newUser->name = $user->getName();
+        $newUser->email = $user->getEmail();
+        $newUser->password = bcrypt(str_random(16)); // or any other default password
+        $newUser->save();
+
+        // Log in the new user and redirect them to the dashboard
+        Auth::login($newUser);
+
+        return redirect('/');
+    }
+
+    public function handleGoogleCallback()
+    {
+        $user = Socialite::driver('google')->user();
+
+        // Check if the user already exists in your application's database
+        $existingUser = User::where('email', $user->getEmail())->first();
+
+        if ($existingUser) {
+            // If the user already exists, log them in and redirect them to the dashboard
+            Auth::login($existingUser);
+
+            return redirect('/dashboard');
+        }
+
+        // If the user does not exist, create a new user record in your application's database
+        $newUser = new User;
+        $newUser->name = $user->getName();
+        $newUser->email = $user->getEmail();
+        $newUser->password = bcrypt(str_random(16)); // or any other default password
+        $newUser->save();
+
+        // Log in the new user and redirect them to the dashboard
+        Auth::login($newUser);
+
+        return redirect('/');
     }
 
 
