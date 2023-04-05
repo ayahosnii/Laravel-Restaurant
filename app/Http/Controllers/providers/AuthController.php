@@ -78,7 +78,7 @@ class AuthController extends Controller
 
     public function redirectToGoogle()
     {
-        return Socialite::driver('google')->redirect();
+        return Socialite::driver('google')->redirectUrl('https://restaurant.ayahosni.com/')->redirect();
     }
 
     public function handleFacebookCallback()
