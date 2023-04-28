@@ -40,7 +40,7 @@
         <li class="mini-cart-btns">
             <div class="cart-btns">
                 <a href="/cart" class="btn btn-style2">View cart</a>
-                <a href="https://spacingtech.com/html/vegist-final/vegist/checkout-1.html" class="btn btn-style2">checkout</a>
+                <a href="{{route('checkout')}}" class="btn btn-style2">checkout</a>
             </div>
         </li>
     </ul>
@@ -72,7 +72,7 @@
         <li class="mini-cart-btns">
             <div class="cart-btns">
                 <a href="/cart" class="btn btn-style2">View cart</a>
-                <a href="https://spacingtech.com/html/vegist-final/vegist/checkout-1.html" class="btn btn-style2">checkout</a>
+                <a href="{{route('checkout')}} class="btn btn-style2">checkout</a>
             </div>
         </li>
     </ul>

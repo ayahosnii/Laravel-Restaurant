@@ -70,18 +70,31 @@
                                                                 <form method="POST" action="{{ route('login') }}">
                                                                     @csrf
                                                                     <label  style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">Email</label>
-                                                                    <input id="email" class="form__input block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus placeholder="Email">
+                                                                    <input id="email" class="form__input block mt-1 w-full @error('email') is-invalid @enderror" type="email" name="email" :value="old('email')" required autofocus placeholder="Email">
+                                                                    @error('email')
+                                                                    <span class="invalid-feedback text-danger" role="alert">
+                                                                        <strong>{{ $message }}</strong>
+                                                                    </span>
+                                                                    @enderror
+
                                                                     <label  style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">Password</label>
-                                                                    <input id="password" class="form__input block mt-1 w-full" type="password" name="password" required autocomplete="current-password" placeholder="Password">
+                                                                    <input id="password" class="form__input block mt-1 w-full @error('password') is-invalid @enderror" type="password" name="password" required autocomplete="current-password" placeholder="Password">
+
+                                                                    @error('password')
+                                                                    <span class="invalid-feedback text-danger" role="alert">
+                                                                        <strong>{{ $message }}</strong>
+                                                                    </span>
+                                                                    @enderror
+
                                                                     <button type="submit" class="btn-style1">Sign in</button>
                                                                     @if (Route::has('password.request'))
                                                                         <a href="{{ route('password.request') }}" class="re-password">Forgot your password?</a>
                                                                     @endif
                                                                 </form>
-<!--                                                                <div class="login-account">
+                                                               <div class="login-account">
                                                                     <h4>Don't have an account?</h4>
                                                                     <a href="{{route('register')}}" class="ceate-a">Create account</a>
-                                                                </div>-->
+                                                                </div>
                                                             </div>
                                                     </div>
                                                     </div>
@@ -105,18 +118,33 @@
                                                                                     <form method="POST" action="{{ route('login.store') }}">
                                                                                         @csrf
                                                                                         <label  style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">Email</label>
-                                                                                        <input id="email" class="form__input block mt-1 w-full" type="email" name="provider-email" :value="old('email')" required autofocus placeholder="Email">
+                                                                                        <input id="email" class="form__input block mt-1 w-full @error('email') is-invalid @enderror" type="email" name="provider-email" :value="old('email')" required autofocus placeholder="Email">
+
+                                                                                        @error('email')
+                                                                                        <span class="invalid-feedback text-danger" role="alert">
+                                                                                            <strong>{{ $message }}</strong>
+                                                                                        </span>
+                                                                                        @enderror
+
                                                                                         <label  style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">Password</label>
-                                                                                        <input id="password" class="form__input block mt-1 w-full" type="password" name="provider-password" required autocomplete="current-password" placeholder="Password">
+                                                                                        <input id="password" class="form__input block mt-1 w-full @error('password') is-invalid @enderror" type="password" name="provider-password" required autocomplete="current-password" placeholder="Password">
+
+                                                                                        @error('password')
+                                                                                        <span class="invalid-feedback text-danger" role="alert">
+                                                                                        <strong>{{ $message }}</strong>
+                                                                                    </span>
+                                                                                        @enderror
+
+
                                                                                         <button type="submit" class="btn-style1">Sign in</button>
                                                                                         @if (Route::has('password.request'))
                                                                                             <a href=href="{{ route('password.request') }}" class="re-password">Forgot your password?</a>
                                                                                         @endif
                                                                                     </form>
-<!--                                                                                    <div class="login-account">
+                                                                                    <div class="login-account">
                                                                                         <h4>Don't have an account?</h4>
-                                                                                        <a href="https://spacingtech.com/html/vegist-final/vegist/register.html" class="ceate-a">Create account</a>
-                                                                                    </div>-->
+                                                                                        <a href="{{route('register')}}" class="ceate-a">Create account</a>
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -136,7 +164,7 @@
                         <h4>Already an account holder?</h4>
                         <a href="{{route('login')}}" class="ceate-a">Log in</a>
                         <div class="register-info">
-                            <a href="https://spacingtech.com/html/vegist-final/vegist/terms-conditions.html" class="terms-link"><span>*</span> Terms &amp; conditions.</a>
+                            <a href="#" class="terms-link"><span>*</span> Terms &amp; conditions.</a>
                             <p>Your privacy and security are important to us. For more information on how we use your data read our <a href="https://spacingtech.com/html/vegist-final/vegist/privacy-policy.html">privacy policy</a></p>
                         </div>
                     </div>-->

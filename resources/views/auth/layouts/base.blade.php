@@ -43,7 +43,7 @@
     <meta name="keywords" content="organic food theme, vegetables, foof store, eCommerce html template, responsive, electronics store, furniture wood, fashion, furniture, mobile, watches, electronics, computers accessories, toys, jewellery, restaurant accessories">
     <meta name="author" content="spacingtech_webify">
     <!-- favicon -->
-    <link rel="shortcut icon" type="image/favicon" href="https://spacingtech.com/html/vegist-final/vegist/image/fevicon.png">
+    <link rel="shortcut icon" type="image/favicon" href="{{asset('asstes/images/waiter.png')}}">
     <!-- bootstrap -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">
     <!-- simple-line icon -->
@@ -200,7 +200,7 @@
                                 <li class="side-wrap user-wrap">
                                     <div class="acc-desk">
                                         <div class="user-icon">
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/account.html" class="user-icon-desk">
+                                            <a href="{{route('order-details')}}" class="user-icon-desk">
                                                 <span><i class="fa-regular fa-user"></i></span>
                                             </a>
                                         </div>
@@ -251,7 +251,7 @@
                                         @endif
                                     </div>
                                     <div class="acc-mob">
-                                        <a href="https://spacingtech.com/html/vegist-final/vegist/account.html" class="user-icon">
+                                        <a href="{{route('order-details')}}" class="user-icon">
                                             <span><i class="fa-light fa-user"></i></span>
                                         </a>
                                     </div>
@@ -461,12 +461,8 @@
                                                                 <i class="fa fa-angle-down"></i>
                                                             </a>
                                                             <ul class="dropdown-supmenu collapse" id="feature04">
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/checkout-1.html">Checkout style 1</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/checkout-2.html">Checkout style 2</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/checkout-3.html">Checkout style 3</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/cart.html">Cart style 1</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/cart-2.html">Cart style 2</a></li>
-                                                                <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/cart-3.html">Cart style 3</a></li>
+                                                                <li class="supmenu-li"><a href="{{route('checkout')}}">Checkout</a></li>
+                                                                <li class="supmenu-li"><a href="{{route('cart')}}">Cart</a></li>
                                                             </ul>
                                                         </li>
                                                     </ul>
@@ -1016,12 +1012,8 @@
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
                                                     <ul class="dropdown-supmenu collapse" id="feature-04">
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/checkout-1.html">Checkout style 1</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/checkout-2.html">Checkout style 2</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/checkout-3.html">Checkout style 3</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/cart.html">Cart style 1</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/cart-2.html">Cart style 2</a></li>
-                                                        <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/cart-3.html">Cart style 3</a></li>
+                                                        <li class="supmenu-li"><a href="{{route('checkout')}}">Checkout</a></li>
+                                                        <li class="supmenu-li"><a href="{{route('cart')}}">Cart</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>
@@ -1173,7 +1165,7 @@
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="f-link-ul collapse" id="account" data-bs-parent="#footer-accordian">
-                                <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/account.html">My account</a></li>
+                                <li class="f-link-ul-li"><a href="{{route('order-details')}}">My account</a></li>
                                 <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/cart.html">My cart</a></li>
                                 <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/tracking.html">Order history</a></li>
                                 <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html">My wishlist</a></li>
@@ -1205,7 +1197,7 @@
                         <a href="https://www.youtube.com/" class="f-icn-link"><i class="fa fa-youtube"></i></a>
                     </li>
                     <li class="f-c f-payment">
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/checkout-1.html"><img src="{{asset('assets/img/c-icon1.png')}}payment.png" class="img-fluid" alt="payment image"></a>
+                        <a href="{{route('checkout')}}"><img src="{{asset('assets/img/c-icon1.png')}}payment.png" class="img-fluid" alt="payment image"></a>
                     </li>
                 </ul>
             </div>

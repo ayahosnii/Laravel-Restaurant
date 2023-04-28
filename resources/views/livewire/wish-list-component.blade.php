@@ -6,7 +6,7 @@
                     <div class="col">
                         <div class="about-l">
                             <ul class="about-link">
-                                <li class="go-home"><a href="https://spacingtech.com/html/vegist-final/vegist/index1.html">Home</a></li>
+                                <li class="go-home"><a href="#">Home</a></li>
                                 <li class="about-p"><span>Wishlist</span></li>
                             </ul>
                         </div>
@@ -34,11 +34,11 @@
                             </div>
                             <div class="order-his-page">
                                 <ul class="profile-ul">
-                                    <li class="profile-li"><a href="https://spacingtech.com/html/vegist-final/vegist/order-history.html"><span>Orders</span> <span class="pro-count">5</span></a></li>
-                                    <li class="profile-li"><a href="https://spacingtech.com/html/vegist-final/vegist/profile.html">Profile</a></li>
-                                    <li class="profile-li"><a href="https://spacingtech.com/html/vegist-final/vegist/pro-addresses.html">Address</a></li>
-                                    <li class="profile-li"><a href="https://spacingtech.com/html/vegist-final/vegist/pro-wishlist.html" class="active"><span>Wishlist</span> <span class="pro-count">{{Cart::instance('wishlist')->count()}}</span></a></li>
-                                    <li class="profile-li"><a href="https://spacingtech.com/html/vegist-final/vegist/pro-tickets.html"><span>My tickets</span> <span class="pro-count">4</span></a></li>
+                                    <li class="profile-li"><a href="{{route('order-history')}}"><span>Orders</span> <span class="pro-count">5</span></a></li>
+                                    <li class="profile-li"><a href="#profile.html">Profile</a></li>
+                                    <li class="profile-li"><a href="#pro-addresses.html">Address</a></li>
+                                    <li class="profile-li"><a href="#pro-wishlist.html" class="active"><span>Wishlist</span> <span class="pro-count">{{Cart::instance('wishlist')->count()}}</span></a></li>
+                                    <li class="profile-li"><a href="#pro-tickets.html"><span>My tickets</span> <span class="pro-count">4</span></a></li>
                                 </ul>
                             </div>
                         </div>

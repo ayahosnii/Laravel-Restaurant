@@ -6,7 +6,7 @@
                     <div class="col">
                         <div class="blog-style-1-details">
                             <div class="single-image">
-                                <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-details.html">
+                                <a href="#">
                                     <img :src="post.image" class="img-fluid" alt="image">
                                 </a>
                             </div>
@@ -105,7 +105,7 @@
                                         <label>Comment*</label>
                                         <textarea placeholder="Message" v-model="body"></textarea>
                                     </form>
-                                    <a href="https://spacingtech.com/html/vegist-final/vegist/blog-style-1-3-grid.html" class="btn-style1">Post comment</a>
+                                    <a href="#" class="btn-style1">Post comment</a>
                                     <button type="submit" class="btn btn-primary" @click.prevent="addComment">Submit</button>
                                 </div>
                             </div>

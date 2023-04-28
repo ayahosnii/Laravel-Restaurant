@@ -75,35 +75,35 @@
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
                             <label for="name" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.05rem; margin-top: 1rem;  font-size: 20px">Name</label>
-                            <input class="form__input"  type="text" name="name" :value="old('name')" autofocus autocomplete="name" placeholder="Name" />
+                            <input class="form__input  @error('name') is-invalid @enderror"  type="text" name="name" :value="old('name')" autofocus autocomplete="name" placeholder="Name" />
                             @error('name')
                             <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                             <label for="email" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; margin-top: 1rem; font-size: 20px">Email</label>
-                            <input class="form__input" id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" placeholder="Email" />
+                            <input class="form__input  @error('email') is-invalid @enderror" id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" placeholder="Email" />
                             @error('email')
                             <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                             <label for="mobile" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">Mobile</label>
-                            <input class="form__input" id="mobile" class="block mt-1 w-full" type="text" name="mobile" :value="old('mobile')" placeholder="Mobile" />
+                            <input class="form__input  @error('mobile') is-invalid @enderror" id="mobile" class="block mt-1 w-full" type="text" name="mobile" :value="old('mobile')" placeholder="Mobile" />
                             @error('mobile')
                             <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                             <label for="password" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">Password</label>
-                            <input class="form__input"  id="password" class="block mt-1 w-full" type="password" name="password" autocomplete="new-password" placeholder="Password">
+                            <input class="form__input  @error('password') is-invalid @enderror"  id="password" class="block mt-1 w-full" type="password" name="password" autocomplete="new-password" placeholder="Password">
                             @error('password')
                             <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                             <label for="password_confirmation" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">Password Confirmation</label>
-                            <input class="form__input" id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" autocomplete="new-password" placeholder="Password Confirmation">
+                            <input class="form__input  @error('password_confirmation') is-invalid @enderror" id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" autocomplete="new-password" placeholder="Password Confirmation">
                             <button type="submit" class="btn-style1">Create</button>
                         </form>
                         <div class="row">
@@ -138,7 +138,7 @@
                             <div class="form-group">
                                 <label for="name" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.7rem; font-size: 20px">{{trans('site.restaurant_logo')}}</label>
                                 <div class="custom-file h-auto">
-                                    <input type="file" name="rest_img" class="custom-file-input" id="restaurant-logo" hidden>
+                                    <input type="file" name="rest_img" class="custom-file-input  @error('rest_img') is-invalid @enderror" id="restaurant-logo" hidden>
                                     <label class="border-0 mb-0 cursor" for="restaurant-logo">
                                         <img class="provider-uploaded-logo d-none" src="" />
                                         <span id="provider-logo-content" class="d-inline-block border border-gray rounded-circle p-4">
@@ -155,18 +155,24 @@
                                         <p id="provider-logo-error" class="alert alert-danger d-none top-margin logo-error">{{trans('site.add_restaurant_logo')}}</p>
 
                                     </label>
+
+                                    @error('rest_img')
+                                    <span class="invalid-feedback text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                                    @enderror
                                 </div>
                             </div><!-- .form-group logo -->
 
                             <label for="name" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">Name</label>
-                            <input class="form__input"  type="text" name="name" :value="old('name')" autofocus autocomplete="name" placeholder="Name" />
+                            <input class="form__input @error('name') is-invalid @enderror"  type="text" name="name" :value="old('name')" autofocus autocomplete="name" placeholder="Name" />
                             @error('name')
                             <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                             <label for="name" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">User Name</label>
-                            <input class="form__input"  type="text" name="user_name" :value="old('name')" autofocus autocomplete="name" placeholder="User Name" />
+                            <input class="form__input  @error('user_name') is-invalid @enderror"  type="text" name="user_name" :value="old('name')" autofocus autocomplete="name" placeholder="User Name" />
                             @error('user_name')
                             <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -222,7 +228,7 @@
 
                             <div class="form-group">
                             <label for="address" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">Address</label>
-                            <input class="form__input"  id="address" class="block mt-1 w-full" type="text" name="address" autocomplete="address" placeholder="Address">
+                            <input class="form__input  @error('address') is-invalid @enderror"  id="address" class="block mt-1 w-full" type="text" name="address" autocomplete="address" placeholder="Address">
                             @error('address')
                             <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -232,7 +238,7 @@
 
                             <div class="form-group">
                                 <label for="password" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">Password</label>
-                                <input class="form__input"  id="password" class="block mt-1 w-full" type="password" name="password" autocomplete="new-password" placeholder="Password">
+                                <input class="form__input  @error('password') is-invalid @enderror"  id="password" class="block mt-1 w-full" type="password" name="password" autocomplete="new-password" placeholder="Password">
                                 @error('password')
                                 <span class="invalid-feedback text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -242,25 +248,41 @@
 
 
                             <label for="password_confirmation" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">Password Confirmation</label>
-                            <input class="form__input" id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" autocomplete="new-password" placeholder="Password Confirmation">
+                            <input class="form__input  @error('password_confirmation') is-invalid @enderror" id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" autocomplete="new-password" placeholder="Password Confirmation">
+
+                            @error('address')
+                            <span class="invalid-feedback text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
 
                             <div class="form-group">
                                 <label for="ar_details" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">{{trans('site.abbrev_services_ar')}}</label>
-                                <textarea class="form__input form-control font-body-md"
+                                <textarea class="form__input form-control font-body-md  @error('ar_details') is-invalid @enderror"
                                           id="provider-ar-details"
                                           name="ar_details"
                                           rows="6"></textarea>
                                 <span id="provider-ar-details_error" style="color:red" class="help-block"></span>
+                                @error('ar_details')
+                                <span class="invalid-feedback text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                                @enderror
                             </div><!-- .form-group ar details -->
 
                             <div class="form-group">
                                 <label for="en_details" style="font-family: 'Kdam Thmor Pro', sans-serif; margin-bottom: 0.1rem; font-size: 20px">{{trans('site.abbrev_services_en')}}</label>
-                                <textarea class="form__input form-control font-body-md"
+                                <textarea class="form__input form-control font-body-md  @error('en_details') is-invalid @enderror"
                                           id="provider-en-details"
                                           name="en_details"
                                           rows="6"></textarea>
 
                                 <span id="provider-en-details_error" style="color:red" class="help-block"></span>
+                                @error('en_details')
+                                <span class="invalid-feedback text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                                @enderror
                             </div><!-- .form-group en details -->
                             <button type="submit" class="btn-style1">Create</button>
                         </form>

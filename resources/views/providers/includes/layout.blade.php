@@ -45,7 +45,7 @@
     <meta name="keywords" content="organic food theme, vegetables, foof store, eCommerce html template, responsive, electronics store, furniture wood, fashion, furniture, mobile, watches, electronics, computers accessories, toys, jewellery, restaurant accessories">
     <meta name="author" content="spacingtech_webify">
     <!-- favicon -->
-    <link rel="shortcut icon" type="image/favicon" href="https://spacingtech.com/html/vegist-final/vegist/image/fevicon.png">
+    <link rel="shortcut icon" type="image/favicon" href="{{asset('asstes/images/waiter.png')}}">
 
 
 
@@ -60,7 +60,7 @@
     <link rel="stylesheet" type="text/css" href="./Vegist - dashboard_files/style2.css">
     <link rel="stylesheet" type="text/css" href="./Vegist - dashboard_files/responsive2.css">
     <!-- favicon -->
-    <link rel="shortcut icon" type="image/favicon" href="https://spacingtech.com/html/vegist-final/vegist/image/fevicon.png">
+    <link rel="shortcut icon" type="image/favicon" href="{{asset('asstes/images/waiter.png')}}">
     <!-- bootstrap -->
     <link rel="stylesheet" type="text/css" href="{{asset('provider-assets/css/bootstrap.min.css')}}">
     <!-- simple-line icon -->
@@ -881,12 +881,8 @@
                                                     <i class="fa fa-angle-down"></i>
                                                 </a>
                                                 <ul class="dropdown-supmenu collapse" id="feature04">
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/checkout-1.html">Checkout style 1</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/checkout-2.html">Checkout style 2</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/checkout-3.html">Checkout style 3</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/cart.html">Cart style 1</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/cart-2.html">Cart style 2</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/cart-3.html">Cart style 3</a></li>
+                                                    <li class="supmenu-li"><a href="{{route('checkout')}}">Checkout</a></li>
+                                                    <li class="supmenu-li"><a href="{{route('cart')}}">Cart</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -1475,12 +1471,8 @@
                                                             <i class="fa fa-angle-down"></i>
                                                         </a>
                                                         <ul class="dropdown-supmenu collapse" id="feature05">
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/checkout-1.html">Checkout style 1</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/checkout-2.html">Checkout style 2</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/checkout-3.html">Checkout style 3</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/cart.html">Cart style 1</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/cart-2.html">Cart style 2</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/cart-3.html">Cart style 3</a></li>
+                                                            <li class="supmenu-li"><a href="{{route('checkout')}}">Checkout</a></li>
+                                                            <li class="supmenu-li"><a href="{{route('cart')}}">Cart</a></li>
                                                         </ul>
                                                     </li>
                                                 </ul>
