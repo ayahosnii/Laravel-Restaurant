@@ -638,7 +638,7 @@
             </div>
         </div>
     </div>
-</section>--}}
+</section>
 <!-- footer copyright end -->
 <!-- back to top start -->
 <a href="javascript:void(0)" class="scroll show" id="top">
