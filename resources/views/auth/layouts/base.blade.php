@@ -462,7 +462,7 @@
                                                             </a>
                                                             <ul class="dropdown-supmenu collapse" id="feature04">
                                                                 <li class="supmenu-li"><a href="{{route('checkout')}}">Checkout</a></li>
-                                                                <li class="supmenu-li"><a href="{{route('cart')}}">Cart</a></li>
+                                                                <li class="supmenu-li"><a href="{{route('site.cart.index')}}">Cart</a></li>
                                                             </ul>
                                                         </li>
                                                     </ul>
@@ -672,14 +672,14 @@
                                                     <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html#account-menu1" data-bs-toggle="collapse" class="sub-link"><span>Account</span> <i class="fa fa-angle-down"></i></a>
                                                     <ul class="collapse blog-style-1" id="account-menu1">
                                                         <li>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/order-history.html" class="sub-style"><span>Order</span></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/order-history.html" class="blog-sub-style"><span>Order</span></a>
+                                                            <a href="{{route('order-history')}}" class="sub-style"><span>Order</span></a>
+                                                            <a href="{{route('order-history')}}" class="blog-sub-style"><span>Order</span></a>
                                                             <a href="https://spacingtech.com/html/vegist-final/vegist/profile.html" class="sub-style"><span>Profile</span></a>
                                                             <a href="https://spacingtech.com/html/vegist-final/vegist/profile.html" class="blog-sub-style"><span>Profile</span></a>
                                                             <a href="https://spacingtech.com/html/vegist-final/vegist/pro-addresses.html" class="sub-style"><span>Address</span></a>
                                                             <a href="https://spacingtech.com/html/vegist-final/vegist/pro-addresses.html" class="blog-sub-style"><span>Address</span></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/pro-wishlist.html" class="sub-style"><span>Wishlist</span></a>
-                                                            <a href="https://spacingtech.com/html/vegist-final/vegist/pro-wishlist.html" class="blog-sub-style"><span>Wishlist</span></a>
+                                                            <a href="{{route('wishlist')}}" class="sub-style"><span>Wishlist</span></a>
+                                                            <a href="{{route('wishlist')}}" class="blog-sub-style"><span>Wishlist</span></a>
                                                             <a href="https://spacingtech.com/html/vegist-final/vegist/pro-tickets.html" class="sub-style"><span>My tickets</span></a>
                                                             <a href="https://spacingtech.com/html/vegist-final/vegist/pro-tickets.html" class="blog-sub-style"><span>My tickets</span></a>
                                                         </li>
@@ -1013,7 +1013,7 @@
                                                     </a>
                                                     <ul class="dropdown-supmenu collapse" id="feature-04">
                                                         <li class="supmenu-li"><a href="{{route('checkout')}}">Checkout</a></li>
-                                                        <li class="supmenu-li"><a href="{{route('cart')}}">Cart</a></li>
+                                                        <li class="supmenu-li"><a href="{{route('site.cart.index')}}">Cart</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>

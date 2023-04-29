@@ -76,6 +76,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get('/', RestaurantComponent::class)->name('restaurant.index');
         Route::get('/ajax', [RestaurantController::class, 'meals'])->name('restaurant.ajax');
         Route::get('/main-category/{main_category_slug}', [MainCategoryController::class, 'index'])->name('main-category.index');
+        //Route::get('/main-category/{category_slug}', CategoryComponent::class)->name('main-category.index');
+
+
         Route::get('/sub-category/{sub_category_slug}', [SubCategoryController::class, 'index'])->name('sub-category.index');
         Route::get('/all', [RestaurantController::class, 'index'])->name('restaurant.all');
         Route::get('/{user_name}', [RestaurantController::class, 'get_rest'])->name('restaurant.details');
@@ -162,9 +165,7 @@ Route::get('sendSMS', [\App\Http\Controllers\Site\VerificationCodeController::cl
 //    return view('app');
 //})->where('any', '.*');
 
-//Route::get('/shop', [\App\Http\Controllers\ShopController::class, 'index'])->name('shop');
-//    Route::get('/restaurant/main-category/{category_slug}', CategoryComponent::class)
-//    ->name('product.category');
+//Route::get('/shop', [\App\Http\Controllers\ShopController::class, 'index']) ->name('product.category');
 //    Route::get('/shop', \App\Http\Livewire\ShopComponent::class)->name('shop');
 //
 //    Route::get('/customer-server', [CustomerServiceChatController::class, 'index'])->name('customer-server.index');

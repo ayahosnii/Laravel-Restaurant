@@ -22,10 +22,10 @@
                             </div>
                             <div class="order-his-page">
                                 <ul class="profile-ul">
-                                    <li class="profile-li"><a href="https://spacingtech.com/html/vegist-final/vegist/order-history.html"><span>Orders</span> <span class="pro-count">5</span></a></li>
+                                    <li class="profile-li"><a href="{{route('order-history')}}"><span>Orders</span> <span class="pro-count">5</span></a></li>
                                     <li class="profile-li"><a href="https://spacingtech.com/html/vegist-final/vegist/profile.html" class="active">Profile</a></li>
                                     <li class="profile-li"><a href="https://spacingtech.com/html/vegist-final/vegist/pro-addresses.html">Address</a></li>
-                                    <li class="profile-li"><a href="https://spacingtech.com/html/vegist-final/vegist/pro-wishlist.html"><span>Wishlist</span> <span class="pro-count">3</span></a></li>
+                                    <li class="profile-li"><a href="{{route('wishlist')}}"><span>Wishlist</span> <span class="pro-count">3</span></a></li>
                                     <li class="profile-li"><a href="https://spacingtech.com/html/vegist-final/vegist/pro-tickets.html"><span>My tickets</span> <span class="pro-count">4</span></a></li>
                                 </ul>
                             </div>

@@ -209,7 +209,7 @@ class RestaurantController extends Controller
         {
             $default_lang = get_default_language();
 
-            $meals = Meal::where('published', 1)->get();
+            $meals = Meal::where('published', 1)->paginate($this->pagesize);
 
         }
 

@@ -152,6 +152,7 @@ class CategoryComponent extends Component
 
         $categories = MainCategory::where('translation_lang', $default_lang)->get();
         $providers = ProviderRegister::get();
+
         return view('livewire.category-component', ['categories' => $categories, 'providers' => $providers,'meals' => $meals]
         )->layout('layouts.base');
     }

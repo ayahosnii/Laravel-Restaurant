@@ -13,29 +13,24 @@
     <meta name="keywords" content="organic food theme, vegetables, foof store, eCommerce html template, responsive, electronics store, furniture wood, fashion, furniture, mobile, watches, electronics, computers accessories, toys, jewellery, restaurant accessories">
     <meta name="author" content="spacingtech_webify">
 
-    <link rel="shortcut icon" type="image/favicon" href="{{asset('asstes/images/waiter.png')}}">
+    <link rel="shortcut icon" type="image/favicon" href="{{asset('assets/images/waiter.png')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/chat.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/flaticon.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/font-awesome.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/themify-icons.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/ionicons.min.css')}}">
-
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/owl.theme.default.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/swiper.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/animate.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
-
     <link rel="stylesheet" href="{{asset('assets/css/barfiller.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('assets/css/magnific-popup.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('assets/css/elegant-icons.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset('assets/css/nice-select.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('assets/css/slicknav.min.css')}}" type="text/css">
-
-
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/restaurant.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/animate.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/menu.css')}}">
@@ -44,7 +39,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
         input[type="search"] {
             -webkit-appearance: none !important;
@@ -652,8 +647,8 @@
 
 
 @include('layouts.footer')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- jquery -->
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <!-- jquery UI -->
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <!-- imagesLoaded -->
@@ -701,10 +696,13 @@
 <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('assets/js/popper.min.js')}}"></script>
 <script src="{{asset('assets/js/fontawesome.min.js')}}"></script>
+{{--
 <script src="{{asset('assets/js/jquery.nice-select.min.js')}}"></script>
+--}}
 <script src="{{asset('assets/js/jquery.barfiller.js')}}"></script>
 <script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery.slicknav.js')}}"></script>
+
 <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
 <script src="{{asset('assets/js/swiper.min.js')}}"></script>
 <script src="{{asset('assets/js/custom.js')}}"></script>
@@ -731,7 +729,6 @@
     ?>;
 </script>
 
-@yield('scripts')
 
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
@@ -756,5 +753,7 @@
 </script>
 
 <!--End of Tawk.to Script-->
+@yield('scripts')
+@stack('scripts')
 </body>
 </html>

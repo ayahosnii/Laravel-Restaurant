@@ -1854,7 +1854,7 @@
                                 <a href="https://spacingtech.com/html/vegist-final/vegist/cart.html">My cart</a>
                             </li>
                             <li class="menu-li">
-                                <a href="https://spacingtech.com/html/vegist-final/vegist/order-history.html">Order history</a>
+                                <a href="{{route('order-history')}}">Order history</a>
                             </li>
                             <li class="menu-li">
                                 <a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html">My wishlist</a>
