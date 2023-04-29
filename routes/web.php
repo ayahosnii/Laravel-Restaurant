@@ -77,6 +77,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get('/ajax', [RestaurantController::class, 'meals'])->name('restaurant.ajax');
         Route::get('/main-category/{main_category_slug}', [MainCategoryController::class, 'index'])->name('main-category.index');
         //Route::get('/main-category/{category_slug}', CategoryComponent::class)->name('main-category.index');
+        Route::post('sort-meals-main/{main_category_slug}', [MainCategoryController::class, 'sortMeals'])->name('sort.meal.main');
 
 
         Route::get('/sub-category/{sub_category_slug}', [SubCategoryController::class, 'index'])->name('sub-category.index');

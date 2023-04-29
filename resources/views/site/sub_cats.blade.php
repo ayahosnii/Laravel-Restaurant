@@ -53,7 +53,7 @@
 
                             <ul class="all-tag collapse" id="tags-filter">
                                 @foreach($categories as $category)
-                                    <li class="tag"><a href="{{route('main-category.index',['main_category_slug'=>$category->slug])}}">{{$category->name}}</a></li>
+                                    <li class="tag"><a href="{{route('restaurant.index',['category_slug'=>$category->slug])}}">{{$category->name}}</a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -75,6 +75,8 @@
                         <div class="grid-list-select">
                             <ul class="grid-list">
                                 <a href="{{route('restaurant.all')}}" class="btn btn-warning">All restaurant</a>
+                                {{$main_category_slug}}
+
                             </ul>
                             <ul class="grid-list-selector">
                                 <li>
@@ -126,13 +128,9 @@
                         </div>
                     </div>
                     <div class="list-all-page">
-                        <span class="page-title">Showing 1 - 17 of 17 result</span>
+                        <span class="page-title">Showing {{-- $meals->firstItem() --}} - {{-- $meals->lastItem() --}} of {{-- $meals->total() --}} results</span>
                         <div class="page-number">
-                            <a href="" class="active">1</a>
-                            <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-2.html">2</a>
-                            <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-3.html">3</a>
-                            <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-4.html">4</a>
-                            <a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i></a>
+                            {{ $meals->links() }}
                         </div>
                     </div>
                 </div>
@@ -259,8 +257,8 @@
                                     <input type="text" name="name" value="1">
                                     <a href="javascript:void(0)" class="plus-btn text-black">+</a>
                                 </span>
-                                    <a href="https://spacingtech.com/html/vegist-final/vegist/cart.html" class="quick-cart"><i class="fa fa-shopping-bag"></i></a>
-                                    <a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html" class="quick-wishlist"><i class="fa fa-heart"></i></a>
+                                    <a href="{{route('site.cart.index')}}" class="quick-cart"><i class="fa fa-shopping-bag"></i></a>
+                                    <a href="{{route('wishlist')}}" class="quick-wishlist"><i class="fa fa-heart"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -269,14 +267,109 @@
             </div>
         </section>
     @endforeach
-@endsection
-
 @section('scripts')
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
+
+
     <script>
+        console.log('{{$main_category_slug}}')
+        /************************Sorting using list ************************/
+
+        $(document).ready(function() {
+            console.log('document ready');
+            $('#sorting, #providers-filter input, #category-filter input').change(function() {
+                sortMeals();
+            });
+        });
+
+
+        function sortMeals() {
+
+            console.log('sortMeal')
+            var sort = $('#sorting').val();
+            var providerIds = $('#providers-filter input:checked').map(function (){
+                return $(this).val();
+            }).get();
+
+            var categoryIds = $('#category-filter input:checked').map(function (){
+                return $(this).val();
+            }).get();
+
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'post',
+                url: '/sort-meals-main/'  + '{{ $main_category_slug }}',
+                data: {
+                    sort: sort,
+                    providers: providerIds,
+                    categories: categoryIds
+                },
+                success: function(response) {
+                    console.log('successful')
+                    console.log(response.meals)
+                    if (response.meals) {
+                        console.log(response)
+                        const meals = response.meals;
+                        const mealList = $('.grid-product');
+
+                        mealList.empty();
+
+                        meals.forEach(meal => {
+                            const mealItem = $(`
+      <li class="grid-items">
+        <div class="tred-pro">
+          <div class="tr-pro-img">
+            <a href="">
+              <img class="img-fluid" style="height: 300px; width: 500px" src="${(meal.image)}" alt="pro-img1">
+              <img class="img-fluid additional-image" style="height: 300px; width: 500px" src="${(meal.image)}" alt="additional image">
+            </a>
+          </div>
+          <div class="Pro-lable">
+            <span class="p-text">New</span>
+          </div>
+          <div class="pro-icn">
+            <a href="" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <i class="fa fa-eye"></i>
+            </a>
+            <a href="#" class="w-c-q-icn">
+              <i class="fa fa-heart"></i>
+            </a>
+
+            <a href="#" class="w-c-q-icn" ><i class="fa fa-shopping-bag"></i></a>
+                                            </div>
+                                        </div>
+
+            <div class="caption">
+<a href="" class="sb-menu-item sb-menu-item-sm sb-mb-15">
+                                                <div class="sb-card-tp">
+                                                    <h4 class="sb-card-title">${meal.name} / ${meal.provider.name}</h4>
+                                                    <div class="sb-price"><sub>£${meal.price}</sub> </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+`
+                            );
+                            mealList.append(mealItem);
+                        });
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.log('Error:', error);
+                },
+                complete: function() {
+                    console.log('Request complete.');
+                }
+            });
+        }
+        /************************Sorting using checkbox ************************/
+
+
         $(function() {
             const slider = $('#slider-range');
             const price = $('#amount');
-            const csrfToken = $('meta[name="csrf-token"]').attr('content');
 
 
             slider.slider({
@@ -295,7 +388,7 @@
             function filterMeals(minPrice, maxPrice) {
                 $.ajax({
                     headers: {
-                        'X-CSRF-TOKEN': csrfToken
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     type: 'post',
                     url: '/filter-price',
@@ -356,90 +449,6 @@
                 });
             }
 
-            /************************Sorting using list ************************/
-            $(document).ready(function() {
-                sortMeals();
-                $('#sorting, #providers-filter input, #category-filter input').change(function() {
-                    sortMeals();
-                });
-            });
-
-
-            function sortMeals() {
-
-                var sort = $('#sorting').val();
-                var providerIds = $('#providers-filter input:checked').map(function (){
-                    return $(this).val();
-                }).get();
-
-                var categoryIds = $('#category-filter input:checked').map(function (){
-                    return $(this).val();
-                }).get();
-
-                $.ajax({
-                    headers: {
-                        'X-CSRF-TOKEN': csrfToken
-                    },
-                    type: 'post',
-                    url: '/sort-meals',
-                    data: {
-                        sort: sort,
-                        providers: providerIds,
-                        categories: categoryIds
-                    },
-                    success: function(response) {
-                        console.log(response.meals)
-                        if (response.meals) {
-                            console.log(response)
-                            const meals = response.meals;
-                            const mealList = $('.grid-product');
-
-                            mealList.empty();
-
-                            meals.forEach(meal => {
-                                const mealItem = $(`
-      <li class="grid-items">
-        <div class="tred-pro">
-          <div class="tr-pro-img">
-            <a href="">
-              <img class="img-fluid" style="height: 300px; width: 500px" src="${(meal.image)}" alt="pro-img1">
-              <img class="img-fluid additional-image" style="height: 300px; width: 500px" src="${(meal.image)}" alt="additional image">
-            </a>
-          </div>
-          <div class="Pro-lable">
-            <span class="p-text">New</span>
-          </div>
-          <div class="pro-icn">
-            <a href="" class="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              <i class="fa fa-eye"></i>
-            </a>
-            <a href="#" class="w-c-q-icn">
-              <i class="fa fa-heart"></i>
-            </a>
-
-            <a href="#" class="w-c-q-icn" ><i class="fa fa-shopping-bag"></i></a>
-                                            </div>
-                                        </div>
-
-            <div class="caption">
-<a href="" class="sb-menu-item sb-menu-item-sm sb-mb-15">
-                                                <div class="sb-card-tp">
-                                                    <h4 class="sb-card-title">${meal.name} / ${meal.provider.name}</h4>
-                                                    <div class="sb-price"><sub>£${meal.price}</sub> </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </li>
-`
-                                );
-                                mealList.append(mealItem);
-                            });
-                        }
-                    }
-                });
-            }
-
-            /************************Sorting using checkbox ************************/
         })
 
 
@@ -450,3 +459,5 @@
 
 
 @endsection
+@endsection
+
