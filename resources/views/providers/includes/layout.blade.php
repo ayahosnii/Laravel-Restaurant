@@ -43,7 +43,6 @@
     <title>Providers's Dashboard</title>
     <meta name="description" content="A best clean, modern, stylish, creative, responsive theme for different eCommerce business or industries.">
     <meta name="keywords" content="organic food theme, vegetables, foof store, eCommerce html template, responsive, electronics store, furniture wood, fashion, furniture, mobile, watches, electronics, computers accessories, toys, jewellery, restaurant accessories">
-    <meta name="author" content="spacingtech_webify">
     <!-- favicon -->
     <link rel="shortcut icon" type="image/favicon" href="{{asset('asstes/images/waiter.png')}}">
 
@@ -321,7 +320,7 @@
                                     <li class="eur-head">
                                         <span class="eur">account <i class="fa fa-angle-down"></i></span>
                                         <ul class="all-currency account-details">
-                                            <li><a href="https://spacingtech.com/html/vegist-final/vegist/register.html">register / log in</a></li>
+                                            <li><a href="">register / log in</a></li>
                                             <li><a href="https://spacingtech.com/html/vegist-final/vegist/checkout-2.html">checkout</a></li>
                                             <li><a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html">my wishlist</a></li>
                                             <li><a href="https://spacingtech.com/html/vegist-final/vegist/tracking.html">order history</a></li>
@@ -444,12 +443,12 @@
                                                     <i class="fa fa-angle-down"></i>
                                                 </a>
                                                 <ul class="dropdown-supmenu collapse" id="collapse-top-sub-mega-menu">
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Fruit &amp; nut</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Snack food</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Organics nut gifts</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Non-dairy</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Mayonnaise</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Milk almond</a></li>
+                                                    <li class="supmenu-li"><a href="">Fruit &amp; nut</a></li>
+                                                    <li class="supmenu-li"><a href="">Snack food</a></li>
+                                                    <li class="supmenu-li"><a href="">Organics nut gifts</a></li>
+                                                    <li class="supmenu-li"><a href="">Non-dairy</a></li>
+                                                    <li class="supmenu-li"><a href="">Mayonnaise</a></li>
+                                                    <li class="supmenu-li"><a href="">Milk almond</a></li>
                                                 </ul>
                                             </li>
                                             <li class="megamenu-li parent">
@@ -459,12 +458,12 @@
                                                     <i class="fa fa-angle-down"></i>
                                                 </a>
                                                 <ul class="dropdown-supmenu collapse" id="collapse-top-fruits-menu">
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Oranges</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Coffee creamers</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Ghee beverages</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Ranch salad</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Hemp milk</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Nuts &amp; seeds</a></li>
+                                                    <li class="supmenu-li"><a href="">Oranges</a></li>
+                                                    <li class="supmenu-li"><a href="">Coffee creamers</a></li>
+                                                    <li class="supmenu-li"><a href="">Ghee beverages</a></li>
+                                                    <li class="supmenu-li"><a href="">Ranch salad</a></li>
+                                                    <li class="supmenu-li"><a href="">Hemp milk</a></li>
+                                                    <li class="supmenu-li"><a href="">Nuts &amp; seeds</a></li>
                                                 </ul>
                                             </li>
                                             <li class="megamenu-li parent">
@@ -474,12 +473,12 @@
                                                     <i class="fa fa-angle-down"></i>
                                                 </a>
                                                 <ul class="dropdown-supmenu collapse" id="collapse-top-banana-menu">
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Fresh gala</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Fresh berries</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Fruit &amp; nut</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Fifts mixed fruits</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Oranges</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Oranges</a></li>
+                                                    <li class="supmenu-li"><a href="">Fresh gala</a></li>
+                                                    <li class="supmenu-li"><a href="">Fresh berries</a></li>
+                                                    <li class="supmenu-li"><a href="">Fruit &amp; nut</a></li>
+                                                    <li class="supmenu-li"><a href="">Fifts mixed fruits</a></li>
+                                                    <li class="supmenu-li"><a href="">Oranges</a></li>
+                                                    <li class="supmenu-li"><a href="">Oranges</a></li>
                                                 </ul>
                                             </li>
                                             <li class="megamenu-li parent">
@@ -489,12 +488,12 @@
                                                     <i class="fa fa-angle-down"></i>
                                                 </a>
                                                 <ul class="dropdown-supmenu collapse" id="collapse-top-apple-menu">
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Pears produce</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Bananas</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Natural grassbeab</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Fresh green orange</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Fresh organic reachter</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Balckberry 100%organic</a></li>
+                                                    <li class="supmenu-li"><a href="">Pears produce</a></li>
+                                                    <li class="supmenu-li"><a href="">Bananas</a></li>
+                                                    <li class="supmenu-li"><a href="">Natural grassbeab</a></li>
+                                                    <li class="supmenu-li"><a href="">Fresh green orange</a></li>
+                                                    <li class="supmenu-li"><a href="">Fresh organic reachter</a></li>
+                                                    <li class="supmenu-li"><a href="">Balckberry 100%organic</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -870,7 +869,7 @@
                                                     <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-3.html">Product details style 3</a></li>
                                                     <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-4.html">Product details style 4</a></li>
                                                     <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-5.html">Product details style 5</a></li>
-                                                    <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Product details style 6</a></li>
+                                                    <li class="supmenu-li"><a href="">Product details style 6</a></li>
                                                     <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-7.html">Product details style 7</a></li>
                                                 </ul>
                                             </li>
@@ -1020,12 +1019,12 @@
                                                             <i class="fa fa-angle-down"></i>
                                                         </a>
                                                         <ul class="dropdown-supmenu collapse" id="collapse-sub-mega-menu">
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Fruit &amp; nut</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Snack food</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Organics nut gifts</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Non-dairy</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Mayonnaise</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Milk almond</a></li>
+                                                            <li class="supmenu-li"><a href="">Fruit &amp; nut</a></li>
+                                                            <li class="supmenu-li"><a href="">Snack food</a></li>
+                                                            <li class="supmenu-li"><a href="">Organics nut gifts</a></li>
+                                                            <li class="supmenu-li"><a href="">Non-dairy</a></li>
+                                                            <li class="supmenu-li"><a href="">Mayonnaise</a></li>
+                                                            <li class="supmenu-li"><a href="">Milk almond</a></li>
                                                         </ul>
                                                     </li>
                                                     <li class="megamenu-li parent">
@@ -1035,12 +1034,12 @@
                                                             <i class="fa fa-angle-down"></i>
                                                         </a>
                                                         <ul class="dropdown-supmenu collapse" id="collapse-fruits-menu">
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Oranges</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Coffee creamers</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Ghee beverages</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Ranch salad</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Hemp milk</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Nuts &amp; seeds</a></li>
+                                                            <li class="supmenu-li"><a href="">Oranges</a></li>
+                                                            <li class="supmenu-li"><a href="">Coffee creamers</a></li>
+                                                            <li class="supmenu-li"><a href="">Ghee beverages</a></li>
+                                                            <li class="supmenu-li"><a href="">Ranch salad</a></li>
+                                                            <li class="supmenu-li"><a href="">Hemp milk</a></li>
+                                                            <li class="supmenu-li"><a href="">Nuts &amp; seeds</a></li>
                                                         </ul>
                                                     </li>
                                                     <li class="megamenu-li parent">
@@ -1050,12 +1049,12 @@
                                                             <i class="fa fa-angle-down"></i>
                                                         </a>
                                                         <ul class="dropdown-supmenu collapse" id="collapse-banana-menu">
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Fresh gala</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Fresh berries</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Fruit &amp; nut</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Fifts mixed fruits</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Oranges</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Oranges</a></li>
+                                                            <li class="supmenu-li"><a href="">Fresh gala</a></li>
+                                                            <li class="supmenu-li"><a href="">Fresh berries</a></li>
+                                                            <li class="supmenu-li"><a href="">Fruit &amp; nut</a></li>
+                                                            <li class="supmenu-li"><a href="">Fifts mixed fruits</a></li>
+                                                            <li class="supmenu-li"><a href="">Oranges</a></li>
+                                                            <li class="supmenu-li"><a href="">Oranges</a></li>
                                                         </ul>
                                                     </li>
                                                     <li class="megamenu-li parent">
@@ -1065,12 +1064,12 @@
                                                             <i class="fa fa-angle-down"></i>
                                                         </a>
                                                         <ul class="dropdown-supmenu collapse" id="collapse-apple-menu">
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Pears produce</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Bananas</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Natural grassbeab</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Fresh green orange</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Fresh organic reachter</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Balckberry 100%organic</a></li>
+                                                            <li class="supmenu-li"><a href="">Pears produce</a></li>
+                                                            <li class="supmenu-li"><a href="">Bananas</a></li>
+                                                            <li class="supmenu-li"><a href="">Natural grassbeab</a></li>
+                                                            <li class="supmenu-li"><a href="">Fresh green orange</a></li>
+                                                            <li class="supmenu-li"><a href="">Fresh organic reachter</a></li>
+                                                            <li class="supmenu-li"><a href="">Balckberry 100%organic</a></li>
                                                         </ul>
                                                     </li>
                                                 </ul>
@@ -1460,7 +1459,7 @@
                                                             <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-3.html">Product details style 3</a></li>
                                                             <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-4.html">Product details style 4</a></li>
                                                             <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-5.html">Product details style 5</a></li>
-                                                            <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-6.html">Product details style 6</a></li>
+                                                            <li class="supmenu-li"><a href="">Product details style 6</a></li>
                                                             <li class="supmenu-li"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-7.html">Product details style 7</a></li>
                                                         </ul>
                                                     </li>

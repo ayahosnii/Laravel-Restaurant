@@ -92,37 +92,37 @@
 
 
                             <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-441px, 0px, 0px); transition: all 0s ease 0s; width: 1764px;"><div class="owl-item cloned" style="width: 95.25px; margin-right: 15px;"><li class="nav-item items">
-                                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-55"><img src="./details-Vegist_files/image5.jpg" class="img-fluid" alt="image"></a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#image-55"><img src="./details-Vegist_files/image5.jpg" class="img-fluid" alt="image"></a>
                                         </li></div><div class="owl-item cloned" style="width: 95.25px; margin-right: 15px;"><li class="nav-item items">
-                                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-66"><img src="./details-Vegist_files/image6.jpg" class="img-fluid" alt="image"></a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#image-66"><img src="./details-Vegist_files/image6.jpg" class="img-fluid" alt="image"></a>
                                         </li></div><div class="owl-item cloned" style="width: 95.25px; margin-right: 15px;"><li class="nav-item items">
-                                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-77"><img src="./details-Vegist_files/image8.jpg" class="img-fluid" alt="image"></a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#image-77"><img src="./details-Vegist_files/image8.jpg" class="img-fluid" alt="image"></a>
                                         </li></div><div class="owl-item cloned" style="width: 95.25px; margin-right: 15px;"><li class="nav-item items">
-                                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-88"><img src="./details-Vegist_files/image7.jpg" class="img-fluid" alt="image"></a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#image-88"><img src="./details-Vegist_files/image7.jpg" class="img-fluid" alt="image"></a>
                                         </li></div><div class="owl-item active" style="width: 95.25px; margin-right: 15px;"><li class="nav-item items">
-                                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-11"><img src="./details-Vegist_files/image1.jpg" class="img-fluid" alt="image"></a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#image-11"><img src="./details-Vegist_files/image1.jpg" class="img-fluid" alt="image"></a>
                                         </li></div><div class="owl-item active" style="width: 95.25px; margin-right: 15px;"><li class="nav-item items">
-                                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-22"><img src="./details-Vegist_files/image2.jpg" class="img-fluid" alt="iamge"></a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#image-22"><img src="./details-Vegist_files/image2.jpg" class="img-fluid" alt="iamge"></a>
                                         </li></div><div class="owl-item active" style="width: 95.25px; margin-right: 15px;"><li class="nav-item items">
-                                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-33"><img src="./details-Vegist_files/image3.jpg" class="img-fluid" alt="image"></a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#image-33"><img src="./details-Vegist_files/image3.jpg" class="img-fluid" alt="image"></a>
                                         </li></div><div class="owl-item active" style="width: 95.25px; margin-right: 15px;"><li class="nav-item items">
-                                            <a class="nav-link active" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-44"><img src="./details-Vegist_files/image4.jpg" class="img-fluid" alt="image"></a>
+                                            <a class="nav-link active" data-bs-toggle="tab" href="#image-44"><img src="./details-Vegist_files/image4.jpg" class="img-fluid" alt="image"></a>
                                         </li></div><div class="owl-item" style="width: 95.25px; margin-right: 15px;"><li class="nav-item items">
-                                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-55"><img src="./details-Vegist_files/image5.jpg" class="img-fluid" alt="image"></a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#image-55"><img src="./details-Vegist_files/image5.jpg" class="img-fluid" alt="image"></a>
                                         </li></div><div class="owl-item" style="width: 95.25px; margin-right: 15px;"><li class="nav-item items">
-                                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-66"><img src="./details-Vegist_files/image6.jpg" class="img-fluid" alt="image"></a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#image-66"><img src="./details-Vegist_files/image6.jpg" class="img-fluid" alt="image"></a>
                                         </li></div><div class="owl-item" style="width: 95.25px; margin-right: 15px;"><li class="nav-item items">
-                                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-77"><img src="./details-Vegist_files/image8.jpg" class="img-fluid" alt="image"></a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#image-77"><img src="./details-Vegist_files/image8.jpg" class="img-fluid" alt="image"></a>
                                         </li></div><div class="owl-item" style="width: 95.25px; margin-right: 15px;"><li class="nav-item items">
-                                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-88"><img src="./details-Vegist_files/image7.jpg" class="img-fluid" alt="image"></a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#image-88"><img src="./details-Vegist_files/image7.jpg" class="img-fluid" alt="image"></a>
                                         </li></div><div class="owl-item cloned" style="width: 95.25px; margin-right: 15px;"><li class="nav-item items">
-                                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-11"><img src="./details-Vegist_files/image1.jpg" class="img-fluid" alt="image"></a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#image-11"><img src="./details-Vegist_files/image1.jpg" class="img-fluid" alt="image"></a>
                                         </li></div><div class="owl-item cloned" style="width: 95.25px; margin-right: 15px;"><li class="nav-item items">
-                                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-22"><img src="./details-Vegist_files/image2.jpg" class="img-fluid" alt="iamge"></a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#image-22"><img src="./details-Vegist_files/image2.jpg" class="img-fluid" alt="iamge"></a>
                                         </li></div><div class="owl-item cloned" style="width: 95.25px; margin-right: 15px;"><li class="nav-item items">
-                                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-33"><img src="./details-Vegist_files/image3.jpg" class="img-fluid" alt="image"></a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#image-33"><img src="./details-Vegist_files/image3.jpg" class="img-fluid" alt="image"></a>
                                         </li></div><div class="owl-item cloned" style="width: 95.25px; margin-right: 15px;"><li class="nav-item items">
-                                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-44"><img src="./details-Vegist_files/image4.jpg" class="img-fluid" alt="image"></a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#image-44"><img src="./details-Vegist_files/image4.jpg" class="img-fluid" alt="image"></a>
                                         </li></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div></ul>
                     </div>
                     <div class="col-lg-6 col-xl-6 col-md-6 col-12 col-xs-12 pro-info">
@@ -247,16 +247,16 @@
                 <div class="pro-page-tab">
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
-                            <a class="nav-link active" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#tab-1">Description</a>
+                            <a class="nav-link active" data-bs-toggle="tab" href="#tab-1">Description</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#tab-2">Reviews</a>
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Reviews</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Calories</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#tab-5">Size chart</a>
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Size chart</a>
                         </li>
                     </ul>
                     <div class="tab-content">
@@ -285,7 +285,7 @@
                                             <i class="fa fa-star e-star"></i>
                                         </span>
                                 <p class="review-desck">Based on 2 reviews</p>
-                                <a href="https://spacingtech.com/html/vegist-final/vegist/product.html#add-review" data-bs-toggle="collapse">Write a review</a>
+                                <a href="#add-review" data-bs-toggle="collapse">Write a review</a>
                             </div>
                             <div class="review-form collapse" id="add-review">
                                 <h4>Write a review</h4>
@@ -825,7 +825,7 @@
                                 <div class="items">
                                     <div class="tred-pro">
                                         <div class="tr-pro-img">
-                                            <a href="https://spacingtech.com/html/vegist-final/vegist/product.html">
+                                            <a href="">
                                                 <img class="img-fluid" src="{{$related_product->image}}" alt="pro-img1">
                                                 <img class="img-fluid additional-image" src="{{$related_product->image}}" alt="additional image">
                                             </a>
@@ -841,7 +841,7 @@
                                         </div>
                                     </div>
                                     <div class="caption">
-                                        <h3><a href="https://spacingtech.com/html/vegist-final/vegist/product.html">{{$related_product->name}}</a></h3>
+                                        <h3><a href="">{{$related_product->name}}</a></h3>
                                         <div class="rating">
                                             <i class="fa fa-star c-star"></i>
                                             <i class="fa fa-star c-star"></i>
@@ -934,21 +934,21 @@
 
 
                             <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s;"><div class="owl-item"><li class="nav-item items">
-                                            <a class="nav-link active" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-1"><img src="./details-Vegist_files/image1.jpg" class="img-fluid" alt="image"></a>
+                                            <a class="nav-link active" data-bs-toggle="tab" href="#image-1"><img src="./details-Vegist_files/image1.jpg" class="img-fluid" alt="image"></a>
                                         </li></div><div class="owl-item"><li class="nav-item items">
-                                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-2"><img src="./details-Vegist_files/image2.jpg" class="img-fluid" alt="iamge"></a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#image-2"><img src="./details-Vegist_files/image2.jpg" class="img-fluid" alt="iamge"></a>
                                         </li></div><div class="owl-item"><li class="nav-item items">
-                                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-3"><img src="./details-Vegist_files/image3.jpg" class="img-fluid" alt="image"></a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#image-3"><img src="./details-Vegist_files/image3.jpg" class="img-fluid" alt="image"></a>
                                         </li></div><div class="owl-item"><li class="nav-item items">
-                                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-4"><img src="./details-Vegist_files/image4.jpg" class="img-fluid" alt="image"></a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#image-4"><img src="./details-Vegist_files/image4.jpg" class="img-fluid" alt="image"></a>
                                         </li></div><div class="owl-item"><li class="nav-item items">
-                                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-5"><img src="./details-Vegist_files/image5.jpg" class="img-fluid" alt="image"></a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#image-5"><img src="./details-Vegist_files/image5.jpg" class="img-fluid" alt="image"></a>
                                         </li></div><div class="owl-item"><li class="nav-item items">
-                                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-6"><img src="./details-Vegist_files/image6.jpg" class="img-fluid" alt="image"></a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#image-6"><img src="./details-Vegist_files/image6.jpg" class="img-fluid" alt="image"></a>
                                         </li></div><div class="owl-item"><li class="nav-item items">
-                                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-7"><img src="./details-Vegist_files/image8.jpg" class="img-fluid" alt="image"></a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#image-7"><img src="./details-Vegist_files/image8.jpg" class="img-fluid" alt="image"></a>
                                         </li></div><div class="owl-item"><li class="nav-item items">
-                                            <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/product.html#image-8"><img src="./details-Vegist_files/image7.jpg" class="img-fluid" alt="image"></a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#image-8"><img src="./details-Vegist_files/image7.jpg" class="img-fluid" alt="image"></a>
                                         </li></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div></ul>
                     </div>
                     <div class="quick-caption">
@@ -981,8 +981,8 @@
                                         <input type="text" name="name" value="1">
                                         <a href="javascript:void(0)" class="plus-btn text-black">+</a>
                                     </span>
-                            <a href="https://spacingtech.com/html/vegist-final/vegist/cart.html" class="quick-cart"><i class="fa fa-shopping-bag"></i></a>
-                            <a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html" class="quick-wishlist"><i class="fa fa-heart"></i></a>
+                            <a href="{{route('site.cart.index')}}" class="quick-cart"><i class="fa fa-shopping-bag"></i></a>
+                            <a href="{{route('wishlist')}}" class="quick-wishlist"><i class="fa fa-heart"></i></a>
                         </div>
                     </div>
                 </div>

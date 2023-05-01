@@ -24,7 +24,7 @@
                         <span class="price-box">£{{ $item->price}}</span>
                     </div>
                     <div class="delete-item-cart">
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/empty-cart.html"><i class="icon-trash icons"></i></a>
+                        <a href="{{route('site.cart.index')}}"><i class="icon-trash icons"></i></a>
                     </div>
                 </div>
             </div>

@@ -19,7 +19,7 @@
                 <div class="all-filter">
                     <div class="categories-page-filter">
                         <h4 class="filter-title">Categories</h4>
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html#category-filter" data-bs-toggle="collapse" class="filter-link"><span>Categories </span><i class="fa fa-angle-down"></i></a>
+                        <a href="#category-filter" data-bs-toggle="collapse" class="filter-link"><span>Categories </span><i class="fa fa-angle-down"></i></a>
                         <ul class="all-option collapse" id="category-filter">
                             @foreach($categories as $category)
                                 <li class="grid-list-option">
@@ -31,7 +31,7 @@
                     </div>
                     <div class="categories-page-filter" style="overflow-y: scroll;">
                         <h4 class="filter-title">Filter by providers</h4>
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html#category-filter" data-bs-toggle="collapse" class="filter-link"><span>Categories </span><i class="fa fa-angle-down"></i></a>
+                        <a href="#category-filter" data-bs-toggle="collapse" class="filter-link"><span>Categories </span><i class="fa fa-angle-down"></i></a>
                         <ul class="all-option collapse" id="vendor">
                             @foreach($providers as $provider)
                                 <li class="grid-list-option">
@@ -73,7 +73,7 @@
                         </ul>
                     </div>
                     <div class="filter-banner">
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="grid-banner">
+                        <a href="" class="grid-banner">
                             <img src="./grid-list_files/grid-banner.jpg" class="img-fluid" alt="image">
                         </a>
                     </div>
@@ -166,7 +166,7 @@
                 <div class="list-all-page">
                     <span class="page-title">Showing 1 - 17 of 17 result</span>
                     <div class="page-number">
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html" class="active">1</a>
+                        <a href="" class="active">1</a>
                         <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-2.html">2</a>
                         <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-3.html">3</a>
                         <a href="https://spacingtech.com/html/vegist-final/vegist/grid-list-4.html">4</a>
@@ -239,21 +239,21 @@
 
 
                                     <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s;"><div class="owl-item"><li class="nav-item items">
-                                                    <a class="nav-link active" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html#image-1"><img src="./products_files/image1.jpg" class="img-fluid" alt="image"></a>
+                                                    <a class="nav-link active" data-bs-toggle="tab" href="#image-1"><img src="./products_files/image1.jpg" class="img-fluid" alt="image"></a>
                                                 </li></div><div class="owl-item"><li class="nav-item items">
-                                                    <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html#image-2"><img src="./products_files/image2.jpg" class="img-fluid" alt="iamge"></a>
+                                                    <a class="nav-link" data-bs-toggle="tab" href="#image-2"><img src="./products_files/image2.jpg" class="img-fluid" alt="iamge"></a>
                                                 </li></div><div class="owl-item"><li class="nav-item items">
-                                                    <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html#image-3"><img src="./products_files/image3.jpg" class="img-fluid" alt="image"></a>
+                                                    <a class="nav-link" data-bs-toggle="tab" href="#image-3"><img src="./products_files/image3.jpg" class="img-fluid" alt="image"></a>
                                                 </li></div><div class="owl-item"><li class="nav-item items">
-                                                    <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html#image-4"><img src="./products_files/image4.jpg" class="img-fluid" alt="image"></a>
+                                                    <a class="nav-link" data-bs-toggle="tab" href="#image-4"><img src="./products_files/image4.jpg" class="img-fluid" alt="image"></a>
                                                 </li></div><div class="owl-item"><li class="nav-item items">
-                                                    <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html#image-5"><img src="./products_files/image5.jpg" class="img-fluid" alt="image"></a>
+                                                    <a class="nav-link" data-bs-toggle="tab" href="#image-5"><img src="./products_files/image5.jpg" class="img-fluid" alt="image"></a>
                                                 </li></div><div class="owl-item"><li class="nav-item items">
-                                                    <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html#image-6"><img src="./products_files/image6.jpg" class="img-fluid" alt="image"></a>
+                                                    <a class="nav-link" data-bs-toggle="tab" href="#image-6"><img src="./products_files/image6.jpg" class="img-fluid" alt="image"></a>
                                                 </li></div><div class="owl-item"><li class="nav-item items">
-                                                    <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html#image-7"><img src="./products_files/image8.jpg" class="img-fluid" alt="image"></a>
+                                                    <a class="nav-link" data-bs-toggle="tab" href="#image-7"><img src="./products_files/image8.jpg" class="img-fluid" alt="image"></a>
                                                 </li></div><div class="owl-item"><li class="nav-item items">
-                                                    <a class="nav-link" data-bs-toggle="tab" href="https://spacingtech.com/html/vegist-final/vegist/grid-list.html#image-8"><img src="./products_files/image7.jpg" class="img-fluid" alt="image"></a>
+                                                    <a class="nav-link" data-bs-toggle="tab" href="#image-8"><img src="./products_files/image7.jpg" class="img-fluid" alt="image"></a>
                                                 </li></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div></ul>
                             </div>
                             <div class="quick-caption">

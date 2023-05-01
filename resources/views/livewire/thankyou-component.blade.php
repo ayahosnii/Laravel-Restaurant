@@ -4,7 +4,7 @@
             <div class="col">
                 <div class="comingsoon-main">
                     <div class="comingsoon-logo">
-                        <a href="https://spacingtech.com/html/vegist-final/vegist/index1.html" class="logo-image">
+                        <a href="{{url('/')}}" class="logo-image">
                             <img src="{{asset('assets/img/logo2.png')}}" class="img-fluid" align="image">
                         </a>
                     </div>

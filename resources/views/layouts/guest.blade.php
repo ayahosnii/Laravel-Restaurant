@@ -38,7 +38,6 @@
     <title>Aya's Restuarant</title>
     <meta name="description" content="A best clean, modern, stylish, creative, responsive theme for different eCommerce business or industries.">
     <meta name="keywords" content="organic food theme, vegetables, foof store, eCommerce html template, responsive, electronics store, furniture wood, fashion, furniture, mobile, watches, electronics, computers accessories, toys, jewellery, restaurant accessories">
-    <meta name="author" content="spacingtech_webify">
     <!-- favicon -->
     <link rel="shortcut icon" type="image/favicon" href="{{asset('assts/images/waiter.png')}}">
     <!-- bootstrap -->
@@ -619,7 +618,7 @@
             <div class="col">
                 <ul class="f-bottom">
                     <li class="f-c f-copyright">
-                        <p>Copyright <i class="fa fa-copyright"></i> 2021 spacingtech</p>
+                        <p>Copyright <i class="fa fa-copyright"></i> Aya Hosny, spacingtech(template)</p>
                     </li>
                     <li class="f-c f-social">
                         <a href="https://www.whatsapp.com/" class="f-icn-link"><i class="fa fa-whatsapp"></i></a>
