@@ -28,7 +28,7 @@ class SubCategoryController extends Controller
             ->join('sub_categories', 'main_categories.id', '=', 'sub_categories.category_id')
             ->where('sub_categories.slug', $sub_category_slug)
             ->where('published', '1')
-            ->get();
+            ->paginate(15);
 
 
         return view('site.sub_cats', [
