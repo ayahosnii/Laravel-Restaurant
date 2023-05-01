@@ -62,7 +62,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $branches = ProviderRegister::select()->where('has_subscriptions', '1')->get();
+        $branches = ProviderRegister::select()->where('accountactivated', '1')->get();
         return view('site.restaurant-list', compact('branches'));
     }
 
@@ -219,7 +219,7 @@ class RestaurantController extends Controller
 
 
         $categories = MainCategory::where('translation_lang', $default_lang)->get();
-        $providers = \App\Models\providers\ProviderRegister::get();
+        $providers = \App\Models\providers\ProviderRegister::where('accountactivated', '1')->get();
         return view('site.restaurant.meals', compact('categories', 'providers', 'meals', 'min_price', 'max_price' ));
     }
 

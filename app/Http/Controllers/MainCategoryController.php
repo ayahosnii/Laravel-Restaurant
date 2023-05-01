@@ -17,7 +17,7 @@ class MainCategoryController extends Controller
 
 
 
-        $providers = ProviderRegister::get();
+        $providers = ProviderRegister::where('accountactivated', '1')->get();
 
 
 
