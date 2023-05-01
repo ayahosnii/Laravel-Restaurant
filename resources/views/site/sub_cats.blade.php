@@ -7,7 +7,7 @@
                     <div class="all-filter">
                         <div class="categories-page-filter">
                             <h4 class="filter-title">Categories</h4>
-                            <a href="javascript:void(0)" data-bs-toggle="collapse" data-target="#category-filter" class="filter-link"><span>Categories </span><i class="fa fa-angle-down"></i></a>
+                            <a href="javascript:void(0)" data-bs-toggle="collapse" data-target="#category-filter" class="filter-link"><span>Sub-Categories </span><i class="fa fa-angle-down"></i></a>
                             <ul class="all-option collapse" id="category-filter">
                                 @foreach($categories as $category)
                                     <li class="grid-list-option">
@@ -48,8 +48,8 @@
                         </div>
 
                         <div class="filter-tag">
-                            <h4 class="filter-title">Filter by tags</h4>
-                            <a href="" data-bs-toggle="collapse" class="filter-link"><span>Filter by tags </span><i class="fa fa-angle-down"></i></a>
+                            <h4 class="filter-title">Tags</h4>
+                            <a href="" data-bs-toggle="collapse" class="filter-link"><span>Filter by tags</span><i class="fa fa-angle-down"></i></a>
 
                             <ul class="all-tag collapse" id="tags-filter">
                                 @foreach($categories as $category)
