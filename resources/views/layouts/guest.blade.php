@@ -384,6 +384,14 @@
                                                     </a>
                                                 </li>
                                                 <li class="menu-link parent">
+                                                    <a href="{{route('restaurant.all')}}" class="link-title">
+                                                        <span class="sp-link-title">All Restaurant</span>
+                                                    </a>
+                                                    <a href="{{route('restaurant.all')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                        <span class="sp-link-title">All Restaurant</span>
+                                                    </a>
+                                                </li>
+                                                <li class="menu-link parent">
                                                     <a href="{{url('/reservation/step-one')}}" class="link-title">
                                                         <span class="sp-link-title">Reservation</span>
                                                     </a>
