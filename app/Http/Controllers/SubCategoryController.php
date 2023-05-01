@@ -31,6 +31,11 @@ class SubCategoryController extends Controller
             ->get();
 
 
-        return view('site.sub_cats', compact('meals', 'providers', 'categories'));
+        return view('site.sub_cats', [
+            'meals' => $meals,
+            'providers' => $providers,
+            'categories' => $categories,
+            'sub_category_slug' => $sub_category_slug,
+        ]);
     }
 }

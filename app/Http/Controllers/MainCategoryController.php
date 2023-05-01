@@ -28,7 +28,7 @@ class MainCategoryController extends Controller
 
 
 
-        return view('site.sub_cats', [
+        return view('site.main_cats', [
             'meals' => $meals,
             'providers' => $providers,
             'categories' => $categories,
