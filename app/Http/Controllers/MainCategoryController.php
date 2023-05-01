@@ -48,7 +48,7 @@ class MainCategoryController extends Controller
             $query->whereIn('provider_id', $providerIds);
         }
         if ($categoryIds) {
-            $query->whereIn('category_id', $categoryIds);
+            $query->whereIn('subcate_id', $categoryIds);
         }
 
         switch ($sortOption) {
