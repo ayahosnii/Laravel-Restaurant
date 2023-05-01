@@ -75,8 +75,6 @@
                         <div class="grid-list-select">
                             <ul class="grid-list">
                                 <a href="{{route('restaurant.all')}}" class="btn btn-warning">All restaurant</a>
-                                {{$main_category_slug}}
-
                             </ul>
                             <ul class="grid-list-selector">
                                 <li>
@@ -96,7 +94,8 @@
                         </div>
                         <div class="grid-pro">
                             <ul class="grid-product" id="grid-product">
-                                @foreach($meals as $meal)
+                                <input type="text" id="main-category-slug" value="{{ $main_category_slug }}">
+                            @foreach($meals as $meal)
                                     <li class="grid-items">
                                         <div class="tred-pro">
                                             <div class="tr-pro-img">
@@ -272,7 +271,6 @@
 
 
     <script>
-        console.log('{{$main_category_slug}}')
         /************************Sorting using list ************************/
 
         $(document).ready(function() {
@@ -295,16 +293,20 @@
                 return $(this).val();
             }).get();
 
+             var mainCategorySlug =$('#main-category-slug').val();
+
+
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 type: 'post',
-                url: '/sort-meals-main/'  + '{{ $main_category_slug }}',
+                url: '/sort-meals-main',
                 data: {
                     sort: sort,
                     providers: providerIds,
-                    categories: categoryIds
+                    categories: categoryIds,
+                    mainCategorySlug: mainCategorySlug,
                 },
                 success: function(response) {
                     console.log('successful')
