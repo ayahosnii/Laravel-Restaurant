@@ -15,20 +15,11 @@ window.Pusher = require('pusher-js');
 
 window.Echo = new Echo({
     broadcaster: 'pusher',
-    key: process.env.PUSHER_APP_KEY,
-    encrypted: true,
-    wsHost: 'restaurant.ayahosni.workers.dev',
-    wsPort: 443,
-    wssPort: 443,
+    key: '255cc5afb800d9ebca0b',
+    wsHost: window.location.hostname,
+    wsPort: 6001,
+    forceTLS: false,
     disableStats: true,
-    forceTLS: true,
-    enabledTransports: ['ws', 'wss'],
-    authEndpoint: '/broadcasting/auth',
-    auth: {
-        headers: {
-            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-        },
-    },
 });
 
 window.Echo.channel('order-status-updates')

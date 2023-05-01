@@ -147,9 +147,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get('/thankyou', ThankyouComponent::class)->name('thankyou');
 
     });
-    //    Route::get('{any}', function ($any){
-//        return view('site.home');
-//    })->where('any','.*');
+        Route::get('{any}', function ($any){
+        return view('site.home');
+    })->where('any','.*');
 
 });
 
