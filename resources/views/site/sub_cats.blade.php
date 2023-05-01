@@ -74,6 +74,7 @@
                     <div class="grid-list-area">
                         <div class="grid-list-select">
                             <ul class="grid-list">
+                                <input type="text" id="main-category-slug" value="{{ $main_category_slug }}">
                                 <a href="{{route('restaurant.all')}}" class="btn btn-warning">All restaurant</a>
                             </ul>
                             <ul class="grid-list-selector">
@@ -94,7 +95,6 @@
                         </div>
                         <div class="grid-pro">
                             <ul class="grid-product" id="grid-product">
-                                <input type="text" id="main-category-slug" value="{{ $main_category_slug }}">
                             @foreach($meals as $meal)
                                     <li class="grid-items">
                                         <div class="tred-pro">
