@@ -94,7 +94,7 @@ class ProductsComponent extends Component
         }
 
         $categories = MainCategory::where('translation_lang', $default_lang)->get();
-        $providers = ProviderRegister::get();
+        $providers = ProviderRegister::where('accountactivated', '1')->get();
 
         return view('livewire.products-component', ['categories' => $categories, 'providers' => $providers, 'products' => $products]);
     }

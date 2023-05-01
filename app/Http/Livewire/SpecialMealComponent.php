@@ -130,7 +130,7 @@ class SpecialMealComponent extends Component
         $meals = $mealsQuery->whereBetween('price',[$this->min_price,$this->max_price])->paginate($this->pagesize);
 
         $categories = MainCategory::where('translation_lang', $default_lang)->get();
-        $providers = ProviderRegister::get();
+        $providers = ProviderRegister::where('accountactivated', '1')->get();
         return view('livewire.special-meal-component', ['categories' => $categories, 'providers' => $providers,'meals' => $meals]
         )->layout('layouts.base');
     }

@@ -19,7 +19,7 @@ class SubCategoryController extends Controller
             ->first();
         $meals = $subCategory->meals;
 
-        $providers = ProviderRegister::get();
+        $providers = ProviderRegister::where('accountactivated', '1')->get();
 
 
         $categories = MainCategory::where('translation_lang', $default_lang)->get();

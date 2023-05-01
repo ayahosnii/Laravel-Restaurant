@@ -23,7 +23,7 @@ class ReservationController extends Controller
 
         $min_date = Carbon::today();
         $max_date = Carbon::now()->addWeek();
-        $providers = ProviderRegister::get();
+        $providers = ProviderRegister::where('accountactivated', '1')->get();
         return view('site.step-one', compact('reservation', 'min_date', 'max_date', 'providers', 'user'));
     }
 

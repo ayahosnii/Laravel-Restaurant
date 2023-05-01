@@ -172,7 +172,7 @@ class ShopComponent extends Component
 
 
         $categories = MainCategory::where('translation_lang', $default_lang)->get();
-        $providers = ProviderRegister::get();
+        $providers = ProviderRegister::where('accountactivated', '1')->get();
         return view('livewire.shop-component', ['categories' => $categories, 'products' => $products, 'providers' => $providers])->layout('layouts.base');
 
     }

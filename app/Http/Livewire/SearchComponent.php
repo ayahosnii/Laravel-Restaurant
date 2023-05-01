@@ -120,7 +120,7 @@ class SearchComponent extends Component
 
         $default_lang = get_default_language();
         $categories = MainCategory::where('translation_lang', $default_lang)->get();
-        $providers = ProviderRegister::get();
+        $providers = ProviderRegister::where('accountactivated', '1')->get();
 
 
         return view('livewire.search-component', ['categories' => $categories, 'meals' => $meals, 'providers' => $providers])->layout('layouts.base');
