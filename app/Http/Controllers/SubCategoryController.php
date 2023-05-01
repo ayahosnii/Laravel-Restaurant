@@ -24,7 +24,7 @@ class SubCategoryController extends Controller
 
         $categories = MainCategory::where('translation_lang', $default_lang)->get();
 
-        $meals = Meal::where('subcate_id', $sub_category_slug)
+        $meals = Meal::where('subcate_id', $subCategory->id)
             ->where('published', '1')
             ->paginate(15);
 
