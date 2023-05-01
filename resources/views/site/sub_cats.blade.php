@@ -74,7 +74,7 @@
                     <div class="grid-list-area">
                         <div class="grid-list-select">
                             <ul class="grid-list">
-                                <input type="hidden" id="main-category-slug" value="{{ $main_category_slug }}">
+                                <input type="hidden" id="main-category-slug" value="{{ $sub_category_slug }}">
                                 <a href="{{route('restaurant.all')}}" class="btn btn-warning">All restaurant</a>
                             </ul>
                             <ul class="grid-list-selector">
