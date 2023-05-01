@@ -278,7 +278,7 @@
                                         @endif
                                     </div>
                                     <div class="acc-mob">
-                                        <a href="{{route('order-details')}}" class="user-icon">
+                                        <a href="{{--route('order-details')--}}" class="user-icon">
                                             <span><i class="fa-light fa-user"></i></span>
                                         </a>
                                     </div>
