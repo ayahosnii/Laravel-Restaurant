@@ -92,7 +92,10 @@ class RestaurantController extends Controller
         }
 
         switch ($sortOption) {
-            case 'alphabet':
+            case 'featured':
+               $query->with('provider')->get();
+                break;
+                case 'alphabet':
                $query->with('provider')->orderBy('name', 'asc')->get();
                 break;
             case 'alphabet-desc':

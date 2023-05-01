@@ -42,7 +42,7 @@ class MainCategoryController extends Controller
         $categoryIds = $request->input('categories');
         $mainCategorySlug = $request->input('mainCategorySlug');
 
-        $query = Meal::query();
+        $query = Meal::query()->with('provider');
 
         if ($providerIds) {
             $query->whereIn('provider_id', $providerIds);
@@ -52,38 +52,41 @@ class MainCategoryController extends Controller
         }
 
         switch ($sortOption) {
+            case 'featured':
+                $query->get();
+                break;
             case 'alphabet':
-                $query->with(['provider', 'category' => function($query) use ($mainCategorySlug){
+                $query->with(['category' => function($query) use ($mainCategorySlug){
                     $query->where('slug', $mainCategorySlug);
                 }])->orderBy('name', 'asc')->get();
                 break;
             case 'alphabet-desc':
-                $query->with(['provider', 'category' => function($query) use($mainCategorySlug) {
+                $query->with(['category' => function($query) use($mainCategorySlug) {
                     $query->where('slug', $mainCategorySlug);
                 }])->orderBy('name', 'desc')->get();
                 break;
             case 'price':
-                $query->with(['provider', 'category' => function ($query) use ($mainCategorySlug) {
+                $query->with(['category' => function ($query) use ($mainCategorySlug) {
                     $query->where('slug', $mainCategorySlug);
                 }])->orderBy('price', 'asc')->get();
                 break;
             case 'price-desc':
-                $query->with(['provider', 'category' => function ($query) use ($mainCategorySlug) {
+                $query->with(['category' => function ($query) use ($mainCategorySlug) {
                     $query->where('slug', $mainCategorySlug);
                 }])->orderBy('price', 'desc')->get();
                 break;
             case 'date-desc':
-                $query->with(['provider', 'categoty' => function($query) use($mainCategorySlug){
+                $query->with(['category' => function($query) use($mainCategorySlug){
                     $query->where('slug', $mainCategorySlug);
                 }])->orderBy('created_at', 'desc')->get();
                 break;
             case 'date':
-                $query->with(['provider', 'categoty' => function($query) use($mainCategorySlug){
+                $query->with(['category' => function($query) use($mainCategorySlug){
                     $query->where('slug', $mainCategorySlug);
                 }])->orderBy('created_at', 'asc')->get();
                 break;
             default:
-                $query->with(['provider', 'categoty' => function($query) use($mainCategorySlug){
+                $query->with(['category' => function($query) use($mainCategorySlug){
                     $query->where('slug', $mainCategorySlug);
                 }]);
         }
@@ -92,7 +95,7 @@ class MainCategoryController extends Controller
 
         return response()->json([
             'meals' => $meals,
-            'mainCategorySlug' => $mainCategorySlug,
+            'providerIds' => $providerIds,
         ]);
     }
 }

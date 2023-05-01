@@ -82,8 +82,10 @@
                             <li>
                                 <label>Sort by</label>
                                 <select id="sorting">
-                                    <option>Featured</option>
+                                    <option value="featured">Featured</option>
+<!--
                                     <option>Best selling</option>
+-->
                                     <option value="alphabet">Alphabetically,A-Z</option>
                                     <option value="alphabet-desc">Alphabetically,Z-A</option>
                                     <option value="price">Price, low to high</option>
