@@ -1165,7 +1165,7 @@
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="f-link-ul collapse" id="account" data-bs-parent="#footer-accordian">
-                                <li class="f-link-ul-li"><a href="{{route('order-details')}}">My account</a></li>
+                                <li class="f-link-ul-li"><a href="{{--route('order-details')--}}">My account</a></li>
                                 <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/cart.html">My cart</a></li>
                                 <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/tracking.html">Order history</a></li>
                                 <li class="f-link-ul-li"><a href="https://spacingtech.com/html/vegist-final/vegist/wishlist.html">My wishlist</a></li>
