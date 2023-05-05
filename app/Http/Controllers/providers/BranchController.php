@@ -76,6 +76,7 @@ class BranchController extends Controller
                     'image' => $filePath,
                 ]);
 
+            return redirect()->back();
         }catch (\Exception $ex){
             return $ex;
         }

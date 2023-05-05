@@ -67,7 +67,7 @@ class MealController extends Controller
         $meal->calories = $request->calories;
         $meal->category_id = $request->category_id;
         $meal->main_cate_id = $request->maincate_id;
-//$meal->subcate_id = $request->sub_cat;
+        $meal->subcate_id = $request->sub_cat;
         $meal->provider_id = Auth::guard('providers')->user()->id;
         $meal->branch_id = $request->branch_id ?? null;
         $meal->published = '0';
