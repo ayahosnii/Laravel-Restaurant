@@ -43,7 +43,7 @@ class GenerateIdeaController extends Controller
 
         try {
 
-            $gptApiKey = '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';
+            $gptApiKey = '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';
             $client = OpenAI::client($gptApiKey);
 
             $result = $client->completions()->create([

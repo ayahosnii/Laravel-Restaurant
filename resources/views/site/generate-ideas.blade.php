@@ -7,7 +7,7 @@
                     <div class="all-filter">
                         <div class="categories-page-filter">
                             <h4 class="filter-title">Categories</h4>
-                            <form method="post" id="generate-ideas-form">
+                            <form method="post" id="generate-ideas-form" action="{{route('generate-ideas.create')}}">
                                 @csrf
                                 <div class="form-group">
                                     <select id="vegetables" name="vegetables[]" multiple class="form-control select2">
@@ -17,7 +17,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <button id="generate-btn" type="button" class="btn btn-primary">Generate Meal Ideas</button>
+                                <button type="submit" id="generate-btn" type="button" class="btn btn-primary">Generate Meal Ideas</button>
                             </form>
 
                             <div id="meal-ideas"></div>
@@ -30,6 +30,7 @@
     </section>
 @endsection
 
+{{--
 @section('scripts')
     <script>
         $(document).ready(function () {
@@ -47,6 +48,7 @@
                     dataType: "json",
 
                     success: function (response) {
+                        console.log(response)
                         $('#meal-ideas').html(response.meal);
                         $('#meal-photo').attr('src', response.photo_url);
                     },
@@ -62,3 +64,4 @@
         });
     </script>
 @endsection
+--}}
