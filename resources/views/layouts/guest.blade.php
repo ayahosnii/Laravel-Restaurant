@@ -459,22 +459,23 @@
                                                 <span class="sp-link-title">Shop</span>
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
+                                            <a href="{{route('restaurant.index')}}" class="sp-link-title">Restaurants' meal</a>
                                             <a href="#collapse-mega-menu1" data-bs-toggle="collapse" class="link-title link-title-lg">
-                                                <span class="sp-link-title">Restaurants' meal</span>
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
                                             <ul class="dropdown-submenu mega-menu collapse" id="collapse-mega-menu1">
                                                 @foreach($main_cats as $main_cat)
                                                     <li class="megamenu-li parent">
-                                                        <h2 class="sublink-title">Fresh food</h2>
+                                                        <a href="{{ route('main-category.index',['main_category_slug'=>  $main_cat->slug]) }}">{{$main_cat->name}}</a>
                                                         <a href="{{ route('main-category.index',['main_category_slug'=>  $main_cat->slug]) }}#collapse-sub-mega-{{$main_cat->slug}}" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
-                                                            <span>{{$main_cat->name}}</span>
                                                             <i class="fa fa-angle-down"></i>
                                                         </a>
                                                         <ul class="dropdown-supmenu collapse" id="collapse-sub-mega-{{$main_cat->slug}}">
                                                             @if(isset($main_cat->subcats))
                                                                 @foreach($main_cat->subcats as $subcat)
-                                                                    <li class="supmenu-li"><a href="{{ route('sub-category.index', $subcat->slug) }}">{{$subcat->name}}</a></li>
+                                                                    <li class="supmenu-li">
+                                                                        <a href="{{ route('sub-category.index', $subcat->slug) }}">{{$subcat->name}}</a>
+                                                                    </li>
                                                                 @endforeach
                                                             @endif
                                                         </ul>
@@ -512,6 +513,16 @@
                                             </a>
                                             <a href="{{url('/post')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
                                                 <span class="sp-link-title">Blog</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-link">
+                                            <a href="{{route('restaurant.all')}}" class="link-title">
+                                                <span class="sp-link-title">All Restaurants</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-link">
+                                            <a href="{{route('reservations')}}" class="link-title">
+                                                <span class="sp-link-title">Reservations</span>
                                             </a>
                                         </li>
                                         <li class="menu-link">

@@ -68,6 +68,23 @@ class CheckoutComponent extends Component
 
     }
 
+    public function rules()
+    {
+        return [
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'address' => 'required',
+            'province' => 'required',
+            'city' => 'required',
+            'zipcode' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required',
+            'email' => 'required|email',
+            'mobile' => 'required',
+        ];
+    }
+
+
 
     public function myFunction($latitude, $longitude)
     {

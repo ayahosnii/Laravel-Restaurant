@@ -10,11 +10,11 @@
                             <div class="billing-form">
                                 <ul class="billing-ul input-2">
                                     <li class="billing-li">
-                                        <input type="text" name="firstname" placeholder="First name" value="{{ $user->name ?? '' }}" wire:model="firstname" wire:ignore>
+                                        <input type="text" name="firstname" placeholder="First name" value="{{ $user->name ?? '' }}" wire:model="firstname" >
                                         @error('firstname') <span class="error">{{ $message }}</span> @enderror
                                     </li>
                                     <li class="billing-li">
-                                        <input type="text" name="lastname" placeholder="Last name" wire:model="lastname" wire:ignore>
+                                        <input type="text" name="lastname" placeholder="Last name" wire:model="lastname" >
                                         @error('lastname') <span class="error">{{ $message }}</span> @enderror
 
                                     </li>
@@ -66,8 +66,10 @@
                                 <ul class="billing-ul" onload="getLocation()">
                                     <button class="btn btn-outline-warning" onclick="showMap(event)">Show Map</button>
                                     <div id="map" style="height: 500px; display: none;" wire:ignore></div>
-                                    <input type="text" id="latitude" name="latitude" placeholder="Latitude" readonly>
-                                    <input type="text" class="text-danger" id="longitude" name="longitude" placeholder="Longitude" readonly>
+                                    <input type="text" id="latitude" name="latitude" placeholder="Latitude">
+                                    @error('latitude') <span class="error">{{ $message }}</span> @enderror
+                                    <input type="text" class="text-danger" id="longitude" name="longitude" placeholder="Longitude">
+                                    @error('longitude') <span class="error">{{ $message }}</span> @enderror
                                     <p id="address-display"></p>
                                     <button id="add-address-btn" type="button">Add Address</button>
                                 </ul>

@@ -263,11 +263,6 @@
                                         @endif
                                         @endif
                                     </div>
-                                    <div class="acc-mob">
-                                        <a href="https://spacingtech.com/html/vegist-final/vegist/account.html" class="user-icon">
-                                            <span><i class="fa-light fa-user"></i></span>
-                                        </a>
-                                    </div>
                                 </li>
                                 @livewire('wish-list-count-component')
                                 <!--cart-count-component-->
@@ -305,57 +300,59 @@
                                     <button class="close-box" type="button"><i class="ion-close-round"></i></button>
                                 </div>
                                 <!-- menu start -->
-                                <div class="navbar-collapse" id="navbarContent">
+                                <div class="navbar-collapse" id="navbarContent01">
                                     <div class="megamenu-content">
                                         <div class="mainwrap">
                                             <ul class="main-menu">
                                                 <li class="menu-link parent">
                                                     <a href="{{route('index')}}" class="link-title">
                                                         <span class="sp-link-title">Home</span>
+                                                        <i class="fa fa-angle-down"></i>
                                                     </a>
-                                                    <a href="{{route('index')}}" class="link-title link-title-lg">
+                                                    <a href="{{route('index')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
                                                         <span class="sp-link-title">Home</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
                                                 </li>
                                                 <li class="menu-link parent">
                                                     <a href="{{route('restaurant.index')}}" class="link-title">
-                                                        <span class="sp-link-title">Restaurants' meals</span>
+                                                        <span class="sp-link-title">Shop</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
-                                                    <a href="{{route('restaurant.index')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
-                                                        <span class="sp-link-title">@lang('messages.Categories')</span>
+                                                    <a href="{{route('restaurant.index')}}" class="sp-link-title">Restaurants' meal</a>
+                                                    <a href="#collapse-mega-menu1" data-bs-toggle="collapse" class="link-title link-title-lg">
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
-                                                    <ul class="dropdown-submenu sub-menu collapse" id="blog-style">
+                                                    <ul class="dropdown-submenu mega-menu collapse" id="collapse-mega-menu1">
                                                         @foreach($main_cats as $main_cat)
-                                                            <li class="submenu-li">
-                                                                <a href="{{ route('main-category.index',['main_category_slug'=>  $main_cat->slug]) }}" class="g-l-link"><span>{{$main_cat->name}}</span> <i class="fa fa-angle-right"></i></a>
-                                                                <a href="#blog-style03" data-bs-toggle="collapse" class="sub-link"><span>Blog grid</span> <i class="fa fa-angle-down"></i></a>
-                                                                <ul class="collapse blog-style-1" id="blog-style03">
-                                                                    @foreach($main_cat->subcats as $subcat)
-                                                                        @isset($subcat->name)
-                                                                            <li>
-                                                                                <a href="{{ route('sub-category.index', $subcat->slug) }}" class="sub-style"><span>{{$subcat->name}}</span><i class="fa fa-angle-right"></i></a>
-                                                                                <a href="#grid1" data-bs-toggle="collapse" class="blog-sub-style"><span>Blog style 1</span><i class="fa fa-angle-right"></i></a>
+                                                            <li class="megamenu-li parent">
+                                                                <a href="{{ route('main-category.index',['main_category_slug'=>  $main_cat->slug]) }}">{{$main_cat->name}}</a>
+                                                                <a href="{{ route('main-category.index',['main_category_slug'=>  $main_cat->slug]) }}#collapse-sub-mega-{{$main_cat->slug}}" data-bs-toggle="collapse" class="sublink-title sublink-title-lg">
+                                                                    <i class="fa fa-angle-down"></i>
+                                                                </a>
+                                                                <ul class="dropdown-supmenu collapse" id="collapse-sub-mega-{{$main_cat->slug}}">
+                                                                    @if(isset($main_cat->subcats))
+                                                                        @foreach($main_cat->subcats as $subcat)
+                                                                            <li class="supmenu-li">
+                                                                                <a href="{{ route('sub-category.index', $subcat->slug) }}">{{$subcat->name}}</a>
                                                                             </li>
-                                                                        @endisset
-                                                                    @endforeach
+                                                                        @endforeach
+                                                                    @endif
                                                                 </ul>
                                                             </li>
                                                         @endforeach
                                                     </ul>
                                                 </li>
                                                 <li class="menu-link parent">
-                                                    <a href="/" class="link-title">
+                                                    <a href="#" class="link-title">
                                                         <span class="sp-link-title">Collection</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
-                                                    <a href="#collapse-banner-menu" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                    <a href="#collapse-banner-menu1" data-bs-toggle="collapse" class="link-title link-title-lg">
                                                         <span class="sp-link-title">Collection</span>
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
-                                                    <ul class="dropdown-submenu banner-menu collapse" id="collapse-banner-menu">
+                                                    <ul class="dropdown-submenu banner-menu collapse" id="collapse-banner-menu1">
                                                         <li class="menu-banner">
                                                             <a href="{{route('bestseller')}}" class="menu-banner-img"><img src="{{asset('assets/img/menu-banner04.jpg')}}" alt="menu-image" class="img-fluid"></a>
                                                             <a href="{{route('bestseller')}}" class="menu-banner-title"><span>Bestseller</span></a>
@@ -370,29 +367,22 @@
                                                         </li>
                                                     </ul>
                                                 </li>
-
                                                 <li class="menu-link parent">
-                                                    <a href="{{url('/post')}}" class="link-title">
+                                                    <a href="javascript:void(0)" class="link-title">
                                                         <span class="sp-link-title">Blog</span>
                                                     </a>
                                                     <a href="{{url('/post')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
                                                         <span class="sp-link-title">Blog</span>
                                                     </a>
                                                 </li>
-                                                <li class="menu-link parent">
+                                                <li class="menu-link">
                                                     <a href="{{route('restaurant.all')}}" class="link-title">
                                                         <span class="sp-link-title">All Restaurants</span>
                                                     </a>
-                                                    <a href="{{route('restaurant.all')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
-                                                        <span class="sp-link-title">All Restaurants</span>
-                                                    </a>
                                                 </li>
-                                                <li class="menu-link parent">
-                                                    <a href="{{url('/reservation/step-one')}}" class="link-title">
-                                                        <span class="sp-link-title">Reservation</span>
-                                                    </a>
-                                                    <a href="{{url('/reservation/step-one')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
-                                                        <span class="sp-link-title">Reservation</span>
+                                                <li class="menu-link">
+                                                    <a href="{{route('reservations')}}" class="link-title">
+                                                        <span class="sp-link-title">Reservations</span>
                                                     </a>
                                                 </li>
                                                 <li class="menu-link">
