@@ -23,9 +23,10 @@ class ConversationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $chats = $request->user()->conversations;
+        return view('site.conversations.create', compact('chats'));
     }
 
     /**

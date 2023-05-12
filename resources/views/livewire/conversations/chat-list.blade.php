@@ -1,7 +1,7 @@
 <div>
     @foreach($conversations as $conversation)
         <a href="{{route('conversations.show', $conversation)}}" class="list-group-item list-group-item-action warning text-white rounded-0 {{ \Str::contains(request()->path(), $conversation->uuid) ? 'active text-white' : 'list-group-item-light' }}">
-            <div class="media"><img src="{{ asset('assets/img/conversations/beautiful-housewife-is-cooking.webp') }}" alt="{{$conversation->name != '' ? $conversation->name : $conversation->users->pluck('name')->join(', ')}}" width="50" class="rounded-circle">
+            <div class="media"><img src="{{ asset('assets/img/chats/beautiful-housewife-is-cooking.webp') }}" alt="{{$conversation->name != '' ? $conversation->name : $conversation->users->pluck('name')->join(', ')}}" width="50" class="rounded-circle">
                 <div class="media-body ml-4">
                     <div class="d-flex align-items-center justify-content-between mb-1">
                         <h6 class="mb-0">{{$conversation->name != '' ? $conversation->name : $conversation->users->pluck('name')->join(', ')}}</h6><small class="small font-weight-bold">25 Dec</small>

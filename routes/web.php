@@ -135,6 +135,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     //Verification [SMS]
     Route::group( ['middleware' => 'auth' ], function() {
         Route::get('/conversations', [ConversationController::class, 'index'])->name('conversations.index');
+        Route::get('/conversations/create', [ConversationController::class, 'create'])->name('conversations.create');
         Route::get('/conversations/{conversation}', [ConversationController::class, 'show'])->name('conversations.show');
 
         Route::get('verify', [\App\Http\Controllers\Site\VerificationCodeController::class, 'getVerifyPage'])->name('get.verification.form');

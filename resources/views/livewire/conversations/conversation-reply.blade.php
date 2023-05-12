@@ -35,9 +35,11 @@
         >
 
         <div class="input-group-append">
-            <button id="button-addon1" type="button" class="btn btn-link" x-on:click="attach"> <i class="fa fa-paperclip file-browser"></i></button>
+            <button id="button-addon1" type="button" class="btn btn-warning" x-on:click="attach">
+                <i class="fa fa-paperclip file-browser"></i>
+            </button>
             <input type="file" id="file_upload_id" wire:model="attachment" name="attachment" style="display: none;">
-            <button id="button-addon2" type="submit" class="btn btn-link" x-ref="submit"> <i class="fa fa-paper-plane"></i></button>
+            <button id="button-addon2" type="submit" class="btn btn-warning" x-ref="submit"> <i class="fa fa-paper-plane"></i></button>
         </div>
     </div>
 </form>

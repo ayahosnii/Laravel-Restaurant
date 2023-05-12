@@ -4,7 +4,7 @@
      <div class="container py-5 px-4">
 
                 <div class="row rounded-lg overflow-hidden shadow">
-                @include('site.conversations.partials.header')
+                    @include('site.conversations.partials.header')
                     <!-- Users box-->
                     <div class="col-5 px-0">
                         <div class="bg-white">
@@ -24,7 +24,7 @@
                     <!-- Chat Box-->
                     <div class="col-7 px-0">
                         <div class="px-4 py-2 chat-box bg-white">
-
+                            <livewire:conversations.conversation-create />
                         </div>
                     </div>
                 </div>
