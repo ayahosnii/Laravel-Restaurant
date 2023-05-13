@@ -3,19 +3,22 @@
 
         <div class="mb-2 text-muted">
             Send to
-            {{--            @foreach($users as $user)
-                <a href="#" class="font-weight-bold"> {{ $user['name'] }}</a>{{ !$loop->last ? ', ' : null }}
-            @endforeach--}}
+            @foreach($users as $user)
+                <a href="#" class="font-weight-bold">
+                    {{ $user['name'] }}
+                </a>
+                {{ !$loop->last ? ', ' : null }}
+            @endforeach
         </div>
 
         <div x-data="{ ...conversationCreateState(), ...userSearchState() }">
-            {{--            <x-conversations.user-search>
+          <x-conversations.user-search>
                 <x-slot name="suggestions">
                     <template x-for="user in suggestions" :key="user.id">
                         <a href="#" class="d-block" x-on:click="addUser(user)" x-text="user.name"></a>
                     </template>
                 </x-slot>
-            </x-conversations.user-search>--}}
+            </x-conversations.user-search>-
         </div>
 
         <div class="p-4 border-bottom">
@@ -33,7 +36,7 @@
         <button type="submit" class="btn btn-primary btn-block">Start conversation</button>
     </div>
 </form>
-@section('script')
+@section('scripts')
     <script>
         function conversationCreateState() {
             return {

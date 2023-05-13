@@ -693,7 +693,6 @@
 
 
 
-@livewireScripts
 <script>
     $(document).ready(function(){
         $('.switch-tologin-modal').on('click',function(){
@@ -766,7 +765,7 @@
     FB.Event.subscribe('xfbml.render', finished_rendering);
 </script>
 
-<!--End of Tawk.to Script-->
+@livewireScripts
 @yield('scripts')
 @stack('scripts')
 </body>

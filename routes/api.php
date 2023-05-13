@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Conversations\UserSearchController;
 use App\Http\Controllers\Api\CustomerServerChatController;
 use App\Http\Controllers\Api\CustomerServerMessageController;
 use App\Http\Controllers\Apis\FetchBranchController;
@@ -40,3 +41,4 @@ Route::middleware('auth:api')->group(function () {
     Route::get('user', [\App\Http\Controllers\UserController::class, 'details']);
     //Route::post('comment/create', 'CommentController@store');
 });
+Route::get('/search/users', [UserSearchController::class, 'index']);
