@@ -8,11 +8,10 @@ use Illuminate\Database\Eloquent\Builder;
 
 class MealSorterForControllers implements MealSorter
 {
-    public function sortMeals(Builder $query, string $sortOption): Builder
+    public function sortMeals($query, $sortOption)
     {
         switch ($sortOption) {
             case 'featured':
-                // No additional sorting needed for 'featured' option
                 break;
             case 'alphabet':
                 $query->orderBy('name', 'asc');

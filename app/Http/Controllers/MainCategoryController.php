@@ -61,7 +61,6 @@ class MainCategoryController extends Controller
             ->where('published', '1')
             ->get();
 
-
         return response()->json([
             'meals' => $meals,
             'providerIds' => $providerIds,
