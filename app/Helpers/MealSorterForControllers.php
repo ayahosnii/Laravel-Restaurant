@@ -11,10 +11,10 @@ class MealSorterForControllers
     public static function sortMeals($query, $providerIds, $categoryIds, $sortOption, $mainCategorySlug)
     {
         if ($providerIds) {
-            $query->whereIn('provider_id', $providerIds);
+           return $query->whereIn('provider_id', $providerIds);
         }
         if ($categoryIds) {
-            $query->whereIn('subcate_id', $categoryIds);
+           return $query->whereIn('subcate_id', $categoryIds);
         }
 
         switch ($sortOption) {
@@ -57,6 +57,6 @@ class MealSorterForControllers
                 }]);
         }
 
-        return $query;
+        return $query->get();
     }
 }
