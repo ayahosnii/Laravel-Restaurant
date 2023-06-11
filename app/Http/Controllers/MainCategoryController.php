@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Contracts\MealSorter;
 use App\Helpers\MealSorterForControllers;
 use App\Models\admin\MainCategory;
 use App\Models\admin\Product;
@@ -37,7 +36,7 @@ class MainCategoryController extends Controller
             'main_category_slug' => $main_category_slug,
         ]);
     }
-    public function sortMealsMain(Request $request, MealSorter $mealSorter)
+    public function sortMealsMain(Request $request)
     {
         $sortOption = $request->input('sort');
         $providerIds = $request->input('providers');
@@ -46,20 +45,10 @@ class MainCategoryController extends Controller
 
         $query = Meal::query()->with('provider');
 
-        if ($providerIds) {
-            $query->whereIn('provider_id', $providerIds);
-        }
-        if ($categoryIds) {
-            $query->whereIn('subcate_id', $categoryIds);
-        }
 
-        $mealSorter = new MealSorterForControllers();
-        $meals = $mealSorter->sortMeals($query, $sortOption)
-            ->with(['category' => function ($query) use ($mainCategorySlug) {
-                $query->where('slug', $mainCategorySlug);
-            }])
-            ->where('published', '1')
-            ->get();
+        MealSorterForControllers::sortMeals($providerIds, $categoryIds, $sortOption, $query, $mainCategorySlug);
+        $meals = $query->where('published', '1')->get();
+
 
         return response()->json([
             'meals' => $meals,

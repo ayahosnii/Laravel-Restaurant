@@ -6,31 +6,55 @@ use App\Contracts\MealSorter;
 use App\Models\providers\Meal;
 use Illuminate\Database\Eloquent\Builder;
 
-class MealSorterForControllers implements MealSorter
+class MealSorterForControllers
 {
-    public function sortMeals($query, $sortOption)
+    public static function sortMeals($query, $providerIds, $categoryIds, $sortOption, $mainCategorySlug)
     {
+        if ($providerIds) {
+            $query->whereIn('provider_id', $providerIds);
+        }
+        if ($categoryIds) {
+            $query->whereIn('subcate_id', $categoryIds);
+        }
+
         switch ($sortOption) {
             case 'featured':
+                $query->get();
                 break;
             case 'alphabet':
-                $query->orderBy('name', 'asc');
+                $query->with(['category' => function($query) use ($mainCategorySlug){
+                    $query->where('slug', $mainCategorySlug);
+                }])->orderBy('name', 'asc')->get();
                 break;
             case 'alphabet-desc':
-                $query->orderBy('name', 'desc');
+                $query->with(['category' => function($query) use($mainCategorySlug) {
+                    $query->where('slug', $mainCategorySlug);
+                }])->orderBy('name', 'desc')->get();
                 break;
             case 'price':
-                $query->orderBy('price', 'asc');
+                $query->with(['category' => function ($query) use ($mainCategorySlug) {
+                    $query->where('slug', $mainCategorySlug);
+                }])->orderBy('price', 'asc')->get();
                 break;
             case 'price-desc':
-                $query->orderBy('price', 'desc');
+                $query->with(['category' => function ($query) use ($mainCategorySlug) {
+                    $query->where('slug', $mainCategorySlug);
+                }])->orderBy('price', 'desc')->get();
                 break;
             case 'date-desc':
-                $query->orderBy('created_at', 'desc');
+                $query->with(['category' => function($query) use($mainCategorySlug){
+                    $query->where('slug', $mainCategorySlug);
+                }])->orderBy('created_at', 'desc')->get();
                 break;
             case 'date':
-                $query->orderBy('created_at', 'asc');
+                $query->with(['category' => function($query) use($mainCategorySlug){
+                    $query->where('slug', $mainCategorySlug);
+                }])->orderBy('created_at', 'asc')->get();
                 break;
+            default:
+                $query->with(['category' => function($query) use($mainCategorySlug){
+                    $query->where('slug', $mainCategorySlug);
+                }]);
         }
 
         return $query;
