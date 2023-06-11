@@ -32,6 +32,7 @@ Route::group(
         'prefix' => 'admin',
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){
+
 Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
 
