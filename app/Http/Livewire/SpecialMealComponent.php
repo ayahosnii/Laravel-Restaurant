@@ -14,7 +14,6 @@ class SpecialMealComponent extends BaseLivewireComponent
 
     public function render()
     {
-        $default_lang = get_default_language();
         $mealsQuery = Meal::where('published', 1)->where('special', 1);
 
         $mealsQuery = $this->getFilteredMeals($mealsQuery);

@@ -15,8 +15,6 @@ class SaleComponent extends BaseLivewireComponent
 {
     public function render()
     {
-        $default_lang = get_default_language();
-
         $mealsQuery = Meal::where('published', 1)
             ->whereHas('sales', function ($query) {
                 $query->where('percentage', '>', 0)
@@ -27,17 +25,13 @@ class SaleComponent extends BaseLivewireComponent
 
         $data = $this->getData($mealsQuery);
 
-        $meals = $data['meals'];
-        $categories = $data['categories'];
-        $providers = $data['providers'];
-
-        $meals = $meals->whereBetween('price', [$this->min_price, $this->max_price])
+        $meals = $mealsQuery->whereBetween('price', [$this->min_price, $this->max_price])
             ->paginate($this->pagesize);
 
         return view('livewire.sale-component', [
-            'categories' => $categories,
+            'categories' => $data['categories'],
             'meals' => $meals,
-            'providers' => $providers,
+            'providers' => $data['providers'],
         ])->layout('layouts.base');
     }
 }
