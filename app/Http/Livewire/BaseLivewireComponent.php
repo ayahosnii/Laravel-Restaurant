@@ -6,7 +6,7 @@ use App\Contracts\CartContract;
 use App\Contracts\MealCategorySorterContract;
 use App\Contracts\MealSorterContract;
 use App\Helpers\MealCategorySorter;
-use App\Helpers\MealSorter;
+use App\Helpers\MealSorterForLivewire;
 use App\Models\admin\MainCategory;
 use App\Models\providers\Meal;
 use App\Models\providers\ProviderRegister;
@@ -74,7 +74,7 @@ class BaseLivewireComponent extends Component implements CartContract
     //Filter The Meals
     public function getFilteredMeals($mealsQuery)
     {
-        $mealsQuery = MealSorter::sortMeals(
+        $mealsQuery = MealSorterForLivewire::sortMeals(
             $mealsQuery,
             $this->sorting,
             $this->min_date,

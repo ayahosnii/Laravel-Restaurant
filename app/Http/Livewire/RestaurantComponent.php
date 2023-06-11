@@ -4,7 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Contracts\CartContract;
 use App\Helpers\MealCategorySorter;
-use App\Helpers\MealSorter;
+use App\Helpers\MealSorterForLivewire;
 use App\Models\admin\MainCategory;
 use App\Models\providers\Meal;
 use App\Models\providers\ProviderRegister;

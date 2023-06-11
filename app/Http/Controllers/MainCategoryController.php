@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts\MealSorter;
+use App\Helpers\MealSorterForControllers;
 use App\Models\admin\MainCategory;
 use App\Models\admin\Product;
 use App\Models\admin\SubCategory;
@@ -35,7 +37,7 @@ class MainCategoryController extends Controller
             'main_category_slug' => $main_category_slug,
         ]);
     }
-    public function sortMealsMain(Request $request)
+    public function sortMealsMain(Request $request, MealSorter $mealSorter)
     {
         $sortOption = $request->input('sort');
         $providerIds = $request->input('providers');
@@ -51,46 +53,13 @@ class MainCategoryController extends Controller
             $query->whereIn('subcate_id', $categoryIds);
         }
 
-        switch ($sortOption) {
-            case 'featured':
-                $query->get();
-                break;
-            case 'alphabet':
-                $query->with(['category' => function($query) use ($mainCategorySlug){
-                    $query->where('slug', $mainCategorySlug);
-                }])->orderBy('name', 'asc')->get();
-                break;
-            case 'alphabet-desc':
-                $query->with(['category' => function($query) use($mainCategorySlug) {
-                    $query->where('slug', $mainCategorySlug);
-                }])->orderBy('name', 'desc')->get();
-                break;
-            case 'price':
-                $query->with(['category' => function ($query) use ($mainCategorySlug) {
-                    $query->where('slug', $mainCategorySlug);
-                }])->orderBy('price', 'asc')->get();
-                break;
-            case 'price-desc':
-                $query->with(['category' => function ($query) use ($mainCategorySlug) {
-                    $query->where('slug', $mainCategorySlug);
-                }])->orderBy('price', 'desc')->get();
-                break;
-            case 'date-desc':
-                $query->with(['category' => function($query) use($mainCategorySlug){
-                    $query->where('slug', $mainCategorySlug);
-                }])->orderBy('created_at', 'desc')->get();
-                break;
-            case 'date':
-                $query->with(['category' => function($query) use($mainCategorySlug){
-                    $query->where('slug', $mainCategorySlug);
-                }])->orderBy('created_at', 'asc')->get();
-                break;
-            default:
-                $query->with(['category' => function($query) use($mainCategorySlug){
-                    $query->where('slug', $mainCategorySlug);
-                }]);
-        }
-        $meals = $query->where('published', '1')->get();
+        $mealSorter = new MealSorterForControllers();
+        $meals = $mealSorter->sortMeals($query, $sortOption)
+            ->with(['category' => function ($query) use ($mainCategorySlug) {
+                $query->where('slug', $mainCategorySlug);
+            }])
+            ->where('published', '1')
+            ->get();
 
 
         return response()->json([

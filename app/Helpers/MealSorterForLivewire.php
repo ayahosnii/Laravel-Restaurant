@@ -4,7 +4,7 @@ namespace App\Helpers;
 
 use App\Models\providers\Meal;
 
-class MealSorter
+class MealSorterForLivewire
 {
     public static function sortMeals($mealsQuery, $sorting, $minDate, $maxDate, $minPrice, $maxPrice, $minAlphabet, $maxAlphabet)
     {
