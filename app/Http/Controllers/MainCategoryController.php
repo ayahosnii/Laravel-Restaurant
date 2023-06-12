@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\CategoryFilter;
+use App\Filters\ProviderFilter;
+use App\Filters\SortingOption;
 use App\Models\admin\MainCategory;
 use App\Models\admin\Product;
 use App\Models\admin\SubCategory;
@@ -49,10 +52,14 @@ class MainCategoryController extends Controller
         $query = Meal::query()->with('provider');
 
         //Filters Functions
-        $this->filterByProviderIds($query, $providerIds);
-        $this->filterByCategoryIds($query, $categoryIds);
+        $providerFilter = new ProviderFilter();
+        $providerFilter->filter($query, $providerIds);
 
-        $this->getSortingOption($sortOption, $mainCategorySlug, $query);
+        $categoryFilter = new CategoryFilter();
+        $categoryFilter->filter($query, $categoryIds);
+
+        $sortingOption = new SortingOption();
+        $sortingOption->filter($sortOption, $mainCategorySlug, $query);
 
         $meals = $query->where('published', '1')->get();
 
@@ -62,4 +69,5 @@ class MainCategoryController extends Controller
             'providerIds' => $providerIds,
         ]);
     }
+
 }
