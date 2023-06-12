@@ -35,27 +35,24 @@ class MainCategoryController extends Controller
             'main_category_slug' => $main_category_slug,
         ]);
     }
-    public function sortMealsMain(Request $request)
-    {
+    public function sortMealsMain(Request $request) {
         $sortOption = $request->input('sort');
         $providerIds = $request->input('providers');
         $categoryIds = $request->input('categories');
         $mainCategorySlug = $request->input('mainCategorySlug');
 
-        $query = Meal::query()->with('provider');
+        $sortingOption = $this->getSortingOption($sortOption);
 
-        if ($providerIds) {
-            $query->whereIn('provider_id', $providerIds);
-        }
-        //Filter By Category
+        $query = Meal::query()->whereIn('provider_id', $providerIds);
+        $this->eagerLoadCategory($query, $mainCategorySlug);
+
         if ($categoryIds) {
             $query->whereIn('subcate_id', $categoryIds);
         }
 
-        $this->getSortingOption($sortOption, $mainCategorySlug, $query);
-
-        $meals = $query->where('published', '1')->get();
-
+        $meals = $query->where('published', '1')
+            ->orderBy($sortingOption)
+            ->get();
 
         return response()->json([
             'meals' => $meals,
@@ -63,48 +60,30 @@ class MainCategoryController extends Controller
         ]);
     }
 
-    private function getSortingOption($sortOption, $mainCategorySlug, $query)
-    {
-        //Filter using "<select>" tag
+    private function getSortingOption($sortOption) {
         switch ($sortOption) {
             case 'featured':
-                $query->get();
-                break;
+                return 'featured';
             case 'alphabet':
-                $meals = $query->with(['category' => function($query) use ($mainCategorySlug){
-                    $query->where('slug', $mainCategorySlug);
-                }])->orderBy('name', 'asc')->get();
-                break;
+                return 'name';
             case 'alphabet-desc':
-                $meals = $query->with(['category' => function($query) use($mainCategorySlug) {
-                    $query->where('slug', $mainCategorySlug);
-                }])->orderBy('name', 'desc')->get();
-                break;
+                return 'name desc';
             case 'price':
-                $meals = $query->with(['category' => function ($query) use ($mainCategorySlug) {
-                    $query->where('slug', $mainCategorySlug);
-                }])->orderBy('price', 'asc')->get();
-                break;
+                return 'price';
             case 'price-desc':
-                $meals = $query->with(['category' => function ($query) use ($mainCategorySlug) {
-                    $query->where('slug', $mainCategorySlug);
-                }])->orderBy('price', 'desc')->get();
-                break;
+                return 'price desc';
             case 'date-desc':
-                $meals = $query->with(['category' => function($query) use($mainCategorySlug){
-                    $query->where('slug', $mainCategorySlug);
-                }])->orderBy('created_at', 'desc')->get();
-                break;
+                return 'created_at desc';
             case 'date':
-                $meals = $query->with(['category' => function($query) use($mainCategorySlug){
-                    $query->where('slug', $mainCategorySlug);
-                }])->orderBy('created_at', 'asc')->get();
-                break;
+                return 'created_at';
             default:
-                $meals = $query->with(['category' => function($query) use($mainCategorySlug){
-                    $query->where('slug', $mainCategorySlug);
-                }]);
+                return null;
         }
-        return $meals;
+    }
+
+    private function eagerLoadCategory($query, $mainCategorySlug) {
+        $query->with(['category' => function($query) use ($mainCategorySlug){
+            $query->where('slug', $mainCategorySlug);
+        }]);
     }
 }
