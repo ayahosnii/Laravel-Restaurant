@@ -2,9 +2,11 @@
 
 namespace App\Http\Livewire;
 
+use App\Cart\CartManager;
 use App\Contracts\CartContract;
 use App\Contracts\MealCategorySorterContract;
 use App\Contracts\MealSorterContract;
+use App\Filters\ProviderFilter;
 use App\Helpers\MealCategorySorter;
 use App\Helpers\MealSorterForLivewire;
 use App\Models\admin\MainCategory;
@@ -55,20 +57,25 @@ class BaseLivewireComponent extends Component implements CartContract
 
 
     //Cart Management
-
     public function addToCart($meal_id, $meal_name, $meal_price)
     {
-        $this->addToCartTrait($meal_id, $meal_name, $meal_price);
+        $cartManager = new CartManager();
+        $cartManager->addToCart($meal_id, $meal_name, $meal_price);
+        Session()->flash('success_message', 'Item added to Cart');
     }
 
     public function addToWishList($meal_id, $meal_name, $meal_price)
     {
-        $this->addToWishListTrait($meal_id, $meal_name, $meal_price);
+        $cartManager = new CartManager();
+        $cartManager->addToWishList($meal_id, $meal_name, $meal_price);
+        $this->emitTo('wish-list-count-component', 'refreshComponent');
     }
 
     public function removeFromWishList($meal_id)
     {
-        $this->removeFromWishListTrait($meal_id);
+        $cartManager = new CartManager();
+        $cartManager->removeFromWishList($meal_id);
+        $this->emitTo('wish-list-count-component', 'refreshComponent');
     }
 
     //Filter The Meals
@@ -87,9 +94,9 @@ class BaseLivewireComponent extends Component implements CartContract
 
         $mealsQuery = MealCategorySorter::filterByCategory($mealsQuery, $this->categoryInputs);
 
-        if ($this->filterProviders) {
-            $mealsQuery->whereIn('provider_id', $this->filterProviders);
-        }
+        $providerIds = $this->filterProviders;
+        $providerFilter = new ProviderFilter();
+        $providerFilter->filter($mealsQuery, $providerIds);
 
         return $mealsQuery;
     }

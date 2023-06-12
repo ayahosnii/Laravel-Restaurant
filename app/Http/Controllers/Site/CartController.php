@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Site;
 
 use App\Models\admin\Product;
 use App\Http\Requests;
-use App\Basket\Basket;
+use App\Cart\Basket;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Exceptions\QuantityExceededException;

@@ -10,7 +10,6 @@ use App\Models\admin\Product;
 use App\Models\admin\SubCategory;
 use App\Models\providers\Meal;
 use App\Models\providers\ProviderRegister;
-use App\Traits\MainCatFilter;
 use Illuminate\Http\Request;
 
 class MainCategoryController extends Controller

@@ -2,7 +2,7 @@
 
 namespace App\View\Composers;
 
-use App\Basket\Basket;
+use App\Cart\Basket;
 use App\Models\admin\Product;
 use App\Models\providers\ProviderRegister;
 use Gloudemans\Shoppingcart\Facades\Cart;

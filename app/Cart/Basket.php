@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Basket;
+namespace App\Cart;
 
 use App\Exceptions\QuantityExceededException;
 use App\Models\admin\Product;
