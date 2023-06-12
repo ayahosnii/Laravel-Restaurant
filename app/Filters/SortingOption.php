@@ -26,10 +26,10 @@ class SortingOption implements SortingOptionContract
                 $meals = $this->sort($query, $mainCategorySlug)->orderBy('price', 'desc')->get();
                 break;
             case 'date':
-                $meals = $this->sort($query, $mainCategorySlug)->orderBy('date', 'asc')->get();
+                $meals = $this->sort($query, $mainCategorySlug)->orderBy('created_at', 'asc')->get();
                 break;
             case 'date-desc':
-                $meals = $this->sort($query, $mainCategorySlug)->orderBy('date', 'desc')->get();
+                $meals = $this->sort($query, $mainCategorySlug)->orderBy('created_at', 'desc')->get();
                 break;
             default:
                 $meals =  $this->sort($query, $mainCategorySlug)->get();
