@@ -4,14 +4,11 @@ namespace App\Http\Livewire;
 
 use App\Cart\CartManager;
 use App\Contracts\CartContract;
-use App\Contracts\MealCategorySorterContract;
-use App\Contracts\MealSorterContract;
-use App\Filters\ProviderFilter;
 use App\Helpers\MealCategorySorter;
 use App\Helpers\MealSorterForLivewire;
 use App\Models\admin\MainCategory;
-use App\Models\providers\Meal;
 use App\Models\providers\ProviderRegister;
+use App\Services\Filters\ProviderFilter;
 use App\Traits\CartTrait;
 use Livewire\Component;
 

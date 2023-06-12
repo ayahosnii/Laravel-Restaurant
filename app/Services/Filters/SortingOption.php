@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filters;
+namespace App\Services\Filters;
 
 use App\Contracts\SortingOptionContract;
 

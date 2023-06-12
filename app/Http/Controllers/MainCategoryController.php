@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Filters\CategoryFilter;
-use App\Filters\ProviderFilter;
-use App\Filters\SortingOption;
 use App\Models\admin\MainCategory;
-use App\Models\admin\Product;
 use App\Models\admin\SubCategory;
 use App\Models\providers\Meal;
 use App\Models\providers\ProviderRegister;
+use App\Services\Filters\CategoryFilter;
+use App\Services\Filters\ProviderFilter;
+use App\Services\Filters\SortingOption;
 use Illuminate\Http\Request;
 
 class MainCategoryController extends Controller
