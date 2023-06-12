@@ -30,21 +30,32 @@ trait MainCatFilter
 
         switch ($sortOption) {
             case 'featured':
-                return new FeaturedMealSorter();
+                $meals =  new FeaturedMealSorter();
+                break;
             case 'alphabet':
-                return new AlphabetMealSorter();
+                $meals =  new AlphabetMealSorter();
+                break;
             case 'alphabet-desc':
-                return new AlphabetMealSorterDESC();
+                $meals =  new AlphabetMealSorterDESC();
+                break;
             case 'price':
-                return new PriceMealSorter();
+                $meals =  new PriceMealSorter();
+                break;
             case 'price-desc':
-                return new PriceMealSorterDESC();
+                $meals =  new PriceMealSorterDESC();
+                break;
             case 'date':
-                return new DateMealSorter();
+                $meals =  new DateMealSorter();
+                break;
             case 'date-desc':
-                return new DateMealSorterDESC();
+                $meals =  new DateMealSorterDESC();
+                break;
             default:
-                throw new \InvalidArgumentException('Invalid sort option');
+                $meals = $query->with(['category' => function($query) use($mainCategorySlug){
+                    $query->where('slug', $mainCategorySlug);
+                }]);
         }
-    }
+        return $meals;
+        }
+
 }
