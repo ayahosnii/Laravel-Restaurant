@@ -135,11 +135,7 @@ class HomeComponent extends BaseLivewireComponent
 
     private function loadLatestPosts()
     {
-        return Meal::whereHas('sales', function ($query) {
-            $query->where('percentage', '>', 0)
-                ->where('ends_at', '>', now())
-                ->where('published', '1');
-        })->inRandomOrder()->take(8)->get();
+        return Post::latest()->with('user')->get();
     }
 
     private function loadLatestSale()
