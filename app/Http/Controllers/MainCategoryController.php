@@ -15,8 +15,6 @@ use Illuminate\Http\Request;
 
 class MainCategoryController extends Controller
 {
-    use MainCatFilter;
-
     public function index($main_category_slug)
     {
         $default_lang = get_default_language();
@@ -41,7 +39,7 @@ class MainCategoryController extends Controller
             'main_category_slug' => $main_category_slug,
         ]);
     }
-    public function sortMealsMain(Request $request)
+    public function sortMealsMain(Request $request): \Illuminate\Http\JsonResponse
     {
         //The requests
         $sortOption = $request->input('sort');
@@ -51,7 +49,7 @@ class MainCategoryController extends Controller
 
         $query = Meal::query()->with('provider');
 
-        //Filters Functions
+        //Filter Functions
         $providerFilter = new ProviderFilter();
         $providerFilter->filter($query, $providerIds);
 

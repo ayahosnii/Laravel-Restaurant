@@ -3,7 +3,9 @@
 namespace App\Filters;
 
 
-class ProviderFilter
+use App\Contracts\Filter;
+
+class ProviderFilter implements Filter
 {
     public function filter($query, $providerIds)
     {

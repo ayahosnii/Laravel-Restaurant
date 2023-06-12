@@ -3,7 +3,9 @@
 namespace App\Filters;
 
 
-class CategoryFilter
+use App\Contracts\Filter;
+
+class CategoryFilter implements Filter
 {
     public function filter($query, $categoryIds)
     {
