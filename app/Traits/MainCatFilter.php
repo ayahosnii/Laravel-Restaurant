@@ -2,14 +2,6 @@
 
 namespace App\Traits;
 
-use App\Sorters\AlphabetMealSorter;
-use App\Sorters\AlphabetMealSorterDESC;
-use App\Sorters\DateMealSorter;
-use App\Sorters\DateMealSorterDESC;
-use App\Sorters\FeaturedMealSorter;
-use App\Sorters\PriceMealSorter;
-use App\Sorters\PriceMealSorterDESC;
-
 trait MainCatFilter
 {
     public function filterByProviderIds($query, $providerIds) {
@@ -27,28 +19,27 @@ trait MainCatFilter
     public function getSortingOption($sortOption, $mainCategorySlug, $query)
     {
         //Filter using "<select>" tag
-
         switch ($sortOption) {
             case 'featured':
-                $meals =  new FeaturedMealSorter();
+                $query->get();
                 break;
             case 'alphabet':
-                $meals =  new AlphabetMealSorter();
+                $meals = $this->alphabet($query, $mainCategorySlug);
                 break;
             case 'alphabet-desc':
-                $meals =  new AlphabetMealSorterDESC();
+                $meals = $this->alphabetDesc($query, $mainCategorySlug);
                 break;
             case 'price':
-                $meals =  new PriceMealSorter();
+                $meals = $this->price($query, $mainCategorySlug);
                 break;
             case 'price-desc':
-                $meals =  new PriceMealSorterDESC();
-                break;
-            case 'date':
-                $meals =  new DateMealSorter();
+                $meals = $this->priceDesc($query, $mainCategorySlug);
                 break;
             case 'date-desc':
-                $meals =  new DateMealSorterDESC();
+                $meals = $this->dateDesc($query, $mainCategorySlug);
+                break;
+            case 'date':
+                $meals = $this->date($query, $mainCategorySlug);
                 break;
             default:
                 $meals = $query->with(['category' => function($query) use($mainCategorySlug){
@@ -56,6 +47,48 @@ trait MainCatFilter
                 }]);
         }
         return $meals;
-        }
+    }
 
+    public function alphabet($query, $mainCategorySlug)
+    {
+        return $query->with(['category' => function($query) use ($mainCategorySlug){
+            $query->where('slug', $mainCategorySlug);
+        }])->orderBy('name', 'asc')->get();
+    }
+
+    public function alphabetDesc($query, $mainCategorySlug)
+    {
+        return $query->with(['category' => function($query) use($mainCategorySlug) {
+            $query->where('slug', $mainCategorySlug);
+        }])->orderBy('name', 'desc')->get();
+    }
+
+    public function price($query, $mainCategorySlug)
+    {
+        return $query->with(['category' => function ($query) use ($mainCategorySlug) {
+            $query->where('slug', $mainCategorySlug);
+        }])->orderBy('price', 'asc')->get();
+    }
+
+
+    public function priceDesc($query, $mainCategorySlug)
+    {
+        return $query->with(['category' => function ($query) use ($mainCategorySlug) {
+            $query->where('slug', $mainCategorySlug);
+        }])->orderBy('price', 'desc')->get();
+    }
+
+    public function date($query, $mainCategorySlug)
+    {
+        return $query->with(['category' => function ($query) use ($mainCategorySlug) {
+            $query->where('slug', $mainCategorySlug);
+        }])->orderBy('created_at', 'asc')->get();
+    }
+
+    public function dateDesc($query, $mainCategorySlug)
+    {
+        return  $query->with(['category' => function($query) use($mainCategorySlug){
+            $query->where('slug', $mainCategorySlug);
+        }])->orderBy('created_at', 'desc')->get();
+    }
 }
