@@ -2,6 +2,14 @@
 
 namespace App\Traits;
 
+use App\Sorters\AlphabetMealSorter;
+use App\Sorters\AlphabetMealSorterDESC;
+use App\Sorters\DateMealSorter;
+use App\Sorters\DateMealSorterDESC;
+use App\Sorters\FeaturedMealSorter;
+use App\Sorters\PriceMealSorter;
+use App\Sorters\PriceMealSorterDESC;
+
 trait MainCatFilter
 {
     public function filterByProviderIds($query, $providerIds) {
@@ -19,45 +27,24 @@ trait MainCatFilter
     public function getSortingOption($sortOption, $mainCategorySlug, $query)
     {
         //Filter using "<select>" tag
+
         switch ($sortOption) {
             case 'featured':
-                $query->get();
-                break;
+                return new FeaturedMealSorter();
             case 'alphabet':
-                $meals = $query->with(['category' => function($query) use ($mainCategorySlug){
-                    $query->where('slug', $mainCategorySlug);
-                }])->orderBy('name', 'asc')->get();
-                break;
+                return new AlphabetMealSorter();
             case 'alphabet-desc':
-                $meals = $query->with(['category' => function($query) use($mainCategorySlug) {
-                    $query->where('slug', $mainCategorySlug);
-                }])->orderBy('name', 'desc')->get();
-                break;
+                return new AlphabetMealSorterDESC();
             case 'price':
-                $meals = $query->with(['category' => function ($query) use ($mainCategorySlug) {
-                    $query->where('slug', $mainCategorySlug);
-                }])->orderBy('price', 'asc')->get();
-                break;
+                return new PriceMealSorter();
             case 'price-desc':
-                $meals = $query->with(['category' => function ($query) use ($mainCategorySlug) {
-                    $query->where('slug', $mainCategorySlug);
-                }])->orderBy('price', 'desc')->get();
-                break;
-            case 'date-desc':
-                $meals = $query->with(['category' => function($query) use($mainCategorySlug){
-                    $query->where('slug', $mainCategorySlug);
-                }])->orderBy('created_at', 'desc')->get();
-                break;
+                return new PriceMealSorterDESC();
             case 'date':
-                $meals = $query->with(['category' => function($query) use($mainCategorySlug){
-                    $query->where('slug', $mainCategorySlug);
-                }])->orderBy('created_at', 'asc')->get();
-                break;
+                return new DateMealSorter();
+            case 'date-desc':
+                return new DateMealSorterDESC();
             default:
-                $meals = $query->with(['category' => function($query) use($mainCategorySlug){
-                    $query->where('slug', $mainCategorySlug);
-                }]);
+                throw new \InvalidArgumentException('Invalid sort option');
         }
-        return $meals;
     }
 }
