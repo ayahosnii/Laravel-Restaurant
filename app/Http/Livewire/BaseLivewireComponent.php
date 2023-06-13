@@ -12,7 +12,7 @@ use App\Services\Filters\ProviderFilter;
 use App\Traits\CartTrait;
 use Livewire\Component;
 
-class BaseLivewireComponent extends Component implements CartContract
+abstract class BaseLivewireComponent extends Component implements CartContract
 {
     // Trait
     use CartTrait;
@@ -114,5 +114,30 @@ class BaseLivewireComponent extends Component implements CartContract
             'providers' => $providers,
         ];
     }
+
+    // Add getters and setters for the protected properties
+    public function getSorting()
+    {
+        return $this->sorting;
+    }
+
+    public function setSorting($sorting)
+    {
+        $this->sorting = $sorting;
+    }
+
+    public function getPriceRange()
+    {
+        return $this->price_range;
+    }
+
+    public function setPriceRange($minPrice, $maxPrice)
+    {
+        $this->price_range = [$minPrice, $maxPrice];
+    }
+
+    // The render method is left to be implemented by the subclasses
+    abstract public function render();
+
 
 }
