@@ -115,7 +115,7 @@ abstract class BaseLivewireComponent extends Component implements CartContract
         ];
     }
 
-    // Add getters and setters for the protected properties
+
     public function getSorting()
     {
         return $this->sorting;
@@ -136,7 +136,7 @@ abstract class BaseLivewireComponent extends Component implements CartContract
         $this->price_range = [$minPrice, $maxPrice];
     }
 
-    // The render method is left to be implemented by the subclasses
+
     abstract public function render();
 
 
