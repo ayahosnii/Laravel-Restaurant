@@ -21,7 +21,7 @@ class MealSorterForLivewire
 
     protected static function scopeDate($mealsQuery, array $parameters)
     {
-        $mealsQuery->whereBetween('id', [$parameters['min_date'], $parameters['max_date']])
+        $mealsQuery->whereBetween('created_at', [$parameters['min_date'], $parameters['max_date']])
             ->orderBy('id', $parameters['orderDirection'] ?? 'ASC');
     }
 
