@@ -10,7 +10,7 @@ class MealSorterForLivewire
     {
         dd($parameters);
         if ($sorting == 'date') {
-           $this->scopeDate($mealsQuery, array $parameters);
+           //$this->scopeDate($mealsQuery, array $parameters);
         } elseif ($sorting == 'date-desc') {
             $mealsQuery->whereBetween('id', [$minDate, $maxDate])->orderBy('id', 'DESC');
         } elseif ($sorting == 'price') {
