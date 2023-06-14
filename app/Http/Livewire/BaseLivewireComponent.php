@@ -78,16 +78,16 @@ abstract class BaseLivewireComponent extends Component implements CartContract
     //Filter The Meals
     public function getFilteredMeals($mealsQuery)
     {
-        $mealsQuery = MealSorterForLivewire::sortMeals(
-            $mealsQuery,
-            $this->sorting,
-            $this->min_date,
-            $this->max_date,
-            $this->min_price,
-            $this->max_price,
-            $this->min_alphabet,
-            $this->max_alphabet
-        );
+        $parameters = [
+            'sorting' => $this->sorting,
+            'min_date' => $this->min_date,
+            'max_date' => $this->max_date,
+            'min_price' => $this->min_price,
+            'max_price' => $this->max_price,
+            'min_alphabet' => $this->min_alphabet,
+            'max_alphabet' => $this->max_alphabet,
+        ];
+        $mealsQuery = MealSorterForLivewire::sortMeals($mealsQuery, $parameters);
 
         $mealsQuery = MealCategorySorter::filterByCategory($mealsQuery, $this->categoryInputs);
 
