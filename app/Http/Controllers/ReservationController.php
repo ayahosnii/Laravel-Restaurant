@@ -19,12 +19,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
-    public function __construct
-    (StepOneReservationHandler $stepOneHandler,
-    StepTwoReservationHandler $stepTwoHandler,
-    StepThreeReservationHandler $stepThreeHandler
-    )
-    {
+    public function __construct(
+        StepOneReservationHandler $stepOneHandler,
+        StepTwoReservationHandler $stepTwoHandler,
+        StepThreeReservationHandler $stepThreeHandler
+    ) {
         $this->stepOneHandler = $stepOneHandler;
         $this->stepTwoHandler = $stepTwoHandler;
         $this->stepThreeHandler = $stepThreeHandler;
@@ -44,6 +43,7 @@ class ReservationController extends Controller
     public function storeStepOne(Request $request)
     {
         $this->stepOneHandler->handle($request);
+        return redirect()->route('reservations.step.two');
     }
 
     public function stepTwo(Request $request)
@@ -54,5 +54,6 @@ class ReservationController extends Controller
     public function storeStepTwo(Request $request)
     {
         $this->stepThreeHandler->handle($request);
+        return redirect()->route('restaurant.index');
     }
 }

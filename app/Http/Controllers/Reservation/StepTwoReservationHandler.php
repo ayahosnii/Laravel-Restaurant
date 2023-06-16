@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Reservation;
 
 use App\Contracts\Reservations\ReservationHandlerInterface;
 
-class StepTwoReservationHandler
+class StepTwoReservationHandler implements ReservationHandlerInterface
 {
     public function __construct(tableAvailability $tableAvailability)
     {
@@ -19,5 +19,4 @@ class StepTwoReservationHandler
 
         return view('site.step-two', compact('reservation', 'tables'));
     }
-
 }

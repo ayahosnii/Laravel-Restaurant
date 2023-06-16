@@ -7,7 +7,7 @@ use App\Models\Reservation;
 use App\Rules\DateBetween;
 use App\Rules\TimeBetween;
 
-class StepOneReservationHandler
+class StepOneReservationHandler implements ReservationHandlerInterface
 {
     public function handle($request)
     {
@@ -21,18 +21,16 @@ class StepOneReservationHandler
             'branch_id' => ['required'],
         ]);
 
-        //Store The Step One Of The Reservation
+        // Store the Step One Of The Reservation
         if (empty($request->session()->get('reservation'))) {
             $reservation = new Reservation();
             $reservation->fill($validated);
-            //Put The Step One Of The Reservation in The Session
+            // Put The Step One Of The Reservation in The Session
             $request->session()->put('reservation', $reservation);
         } else {
             $reservation = $request->session()->get('reservation');
             $reservation->fill($validated);
             $request->session()->put('reservation', $reservation);
         }
-        return redirect()->route('reservations.step.two');
     }
-
 }
