@@ -7,7 +7,7 @@ use App\Models\Reservation;
 use App\Rules\DateBetween;
 use App\Rules\TimeBetween;
 
-class StepOneReservationHandler implements ReservationHandlerInterface
+class StepOneReservationHandler
 {
     public function handle($request)
     {
