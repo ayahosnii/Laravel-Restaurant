@@ -48,8 +48,10 @@ class ReservationController extends Controller
 
     public function stepTwo(Request $request)
     {
-        $this->stepTwoHandler->handle($request);
+        $view = $this->stepTwoHandler->handle($request);
+        return $view;
     }
+
 
     public function storeStepTwo(Request $request)
     {
