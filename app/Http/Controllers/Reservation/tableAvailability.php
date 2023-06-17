@@ -23,6 +23,7 @@ class tableAvailability
             ->where('provider_id', $reservation->provider_id)
             ->where('branch_id', $reservation->branch_id)
             ->whereNotIn('id', $res_table_ids)->get();
-        return view('site.step-two', compact('reservation', 'tables'));
+
+        return $tables;
     }
 }
