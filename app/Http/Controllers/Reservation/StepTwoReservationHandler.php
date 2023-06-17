@@ -15,8 +15,9 @@ class StepTwoReservationHandler implements ReservationHandlerInterface
     {
         $reservation = $request->session()->get('reservation');
 
-        $tables = $this->tableAvailability->getAvailableTable($reservation);
+        $tables = $this->tableAvailability->getAvailableTables($reservation);
 
         $view = view('site.step-two', compact('reservation', 'tables'));
-        return $view;    }
+        return $view;
+    }
 }
