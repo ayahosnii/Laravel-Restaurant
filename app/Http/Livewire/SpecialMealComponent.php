@@ -24,7 +24,7 @@ class SpecialMealComponent extends BaseLivewireComponent
         $categories = $data['categories'];
         $providers = $data['providers'];
 
-        return view('livewire.special-meal-component', ['categories' => $categories, 'providers' => $providers,'meals' => $meals]
+        return view('livewire.collection.special-meal-component', ['categories' => $categories, 'providers' => $providers,'meals' => $meals]
         )->layout('layouts.base');
     }
 }

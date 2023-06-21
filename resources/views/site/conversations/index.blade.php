@@ -15,7 +15,7 @@
 
                             <div class="messages-box">
                                 <div class="list-group rounded-0">
-                                    <livewire:conversations.chat-list :conversations="$chats" />
+                                    <livewire:conversations.chat-list :conversations="$conversations" />
 
                                 </div>
                             </div>

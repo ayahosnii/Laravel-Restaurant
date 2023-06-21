@@ -69,7 +69,7 @@ class HomeComponent extends BaseLivewireComponent
         $data = $this->loadData();
 
 
-        return view('livewire.home-component', $data)
+        return view('livewire.home.home-component', $data)
             ->layout('layouts.base');
     }
 
@@ -86,11 +86,13 @@ class HomeComponent extends BaseLivewireComponent
         $data['posts'] = $this->loadLatestPosts();
         $data['sale'] = $this->loadLatestSale();
 
-        $ends_at = Carbon::parse($data['sale']->ends_at);
-        $now = Carbon::now();
-        $diff = $ends_at->diffInSeconds($now);
-        $this->updateTimeValues($diff);
-        $data['ends_at'] = $ends_at;
+        if (isset($sale->ends_at)) {
+            $ends_at = Carbon::parse($sale->ends_at);
+            $now = Carbon::now();
+            $diff = $ends_at->diffInSeconds($now);
+            $this->updateTimeValues($diff);
+            $data['ends_at'] = $ends_at;
+        }
 
         return $data;
     }

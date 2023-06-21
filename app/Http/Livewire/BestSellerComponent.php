@@ -31,6 +31,6 @@ class BestSellerComponent extends BaseLivewireComponent
         $categories = MainCategory::where('translation_lang', $default_lang)->get();
         $providers = ProviderRegister::where('accountactivated', '1')->get();
 
-        return view('livewire.best-seller-component', ['categories' => $categories, 'meals' => $meals, 'providers' => $providers])->layout('layouts.base');
+        return view('livewire.collection.best-seller-component', ['categories' => $categories, 'meals' => $meals, 'providers' => $providers])->layout('layouts.base');
     }
 }

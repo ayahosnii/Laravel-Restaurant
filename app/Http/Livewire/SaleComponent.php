@@ -27,7 +27,7 @@ class SaleComponent extends BaseLivewireComponent
         $meals = $mealsQuery->whereBetween('price', [$this->min_price, $this->max_price])
             ->paginate($this->pagesize);
 
-        return view('livewire.sale-component', [
+        return view('livewire.collection.sale-component', [
             'categories' => $data['categories'],
             'meals' => $meals,
             'providers' => $data['providers'],

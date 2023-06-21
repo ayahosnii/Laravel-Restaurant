@@ -1,7 +1,6 @@
 @extends('layouts.base-vue')
 
 @section('content')
-    <!-- Page Content -->
     <div class="container intro-container" id="app">
         <global-home></global-home>
 <!--      <div class="row">

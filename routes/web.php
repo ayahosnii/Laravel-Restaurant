@@ -59,10 +59,12 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     })->name('dashboard');
 });
 
+############################## Login by Social Media ##############################
 Route::get('auth/facebook', [AuthController::class, 'redirectToFacebook']);
 Route::get('auth/google', [AuthController::class, 'redirectToGoogle']);
 Route::get('auth/facebook/callback', [AuthController::class, 'handleFacebookCallback']);
 Route::get('/auth/google/callback', [AuthController::class, 'handleGoogleCallback']);
+############################## Login by Social Media ##############################
 
 
 Route::group(['prefix' => LaravelLocalization::setLocale(),
@@ -86,16 +88,23 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         route::get('meal/{name}', [ProductController::class, 'mealsBySlug'])->name('meal.details');
     });
 
+    //############################################ ChatGPT API ############################################
     Route::get('/generate-ideas', [GenerateIdeaController::class, 'index'])->name('generate');
     Route::post('/generate-ideas/create', [GenerateIdeaController::class, 'generate'])->name('generate-ideas.create');
+    //############################################ ChatGPT API ############################################
+
+
     Route::get('/base', [BaseController::class, 'index'])->name('base');
 
 
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+
+    //############################################ reservation ############################################
     Route::get('/reservation/step-one', [ReservationController::class, 'stepOne'])->name('reservations');
     Route::post('/reservation/step-one', [ReservationController::class, 'storeStepOne'])->name('reservations.store.step.one');
     Route::get('/reservation/step-two', [ReservationController::class, 'stepTwo'])->name('reservations.step.two');
     Route::post('/reservation/step-two', [ReservationController::class, 'storeStepTwo'])->name('reservations.store.step.two');
+    //############################################ reservation ############################################
 
 
     Route::get("/reservations/decline/{id}" , [ReservationController::class, "decline_reservation"]);
@@ -107,19 +116,19 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::post('/update/{slug}', [CartController::class, 'postUpdate'])->name('site.cart.update');
         Route::post('/update-all', [CartController::class, 'postUpdateAll'])->name('site.cart.update-all');
     });
+
+    //############################################ AJAX #####################################################
     Route::post('filter-price', [RestaurantController::class, 'filterPrice'])->name('filter.price');
     Route::post('sort-meals', [RestaurantController::class, 'sortMeals'])->name('sort.meal');
     Route::post('sort-meals-main', [MainCategoryController::class, 'sortMealsMain'])->name('sort.meal.main');
     Route::post('/add-to-cart', [RestaurantController::class, 'addToCart'])->name('restaurant.addToCart');
-    Route::get('/phpinfo', function () {
-        phpinfo();
-    });
+    //############################################ AJAX #####################################################
 
-
-
+    //############################################ Collection ############################################
     Route::get('/bestseller', BestSellerComponent::class)->name('bestseller');
     Route::get('/sales', SaleComponent::class)->name('sales');
     Route::get('/special-meal', SpecialMealComponent::class)->name('special.meal');
+    //############################################ Collection ############################################
 
     Route::get('/search', SearchComponent::class)->name('search');
     //Route::get('/cart', \App\Http\Livewire\CartComponent::class)->name('cart');
@@ -147,10 +156,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get('/wish-list', WishListComponent::class)->name('wishlist');
         Route::get('/thankyou', ThankyouComponent::class)->name('thankyou');
 
+
     });
-/*        Route::get('{any}', function ($any){
+        Route::get('{any}', function ($any){
         return view('site.home');
-    })->where('any','.*');*/
+    })->where('any','.*');
 
 });
 
