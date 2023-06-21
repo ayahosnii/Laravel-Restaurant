@@ -88,8 +88,8 @@ class HomeComponent extends BaseLivewireComponent
 
         $ends_at = null;
 
-        if (isset($sale->ends_at)) {
-            $ends_at = Carbon::parse($sale->ends_at);
+        if (isset($data['sale']->ends_at)) {
+            $ends_at = Carbon::parse($data['sale']->ends_at);
         }
 
         $now = Carbon::now();
