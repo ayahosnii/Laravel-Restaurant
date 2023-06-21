@@ -1,5 +1,5 @@
 <div>
-    @foreach($conversations as $conversation)
+    @forelse($conversations as $conversation)
         <a href="{{route('conversations.show', $conversation)}}" class="list-group-item list-group-item-action warning text-white rounded-0 {{ \Str::contains(request()->path(), $conversation->uuid) ? 'active text-white' : 'list-group-item-light' }}">
             <div class="media"><img src="{{ asset('assets/img/chats/beautiful-housewife-is-cooking.webp') }}" alt="{{$conversation->name != '' ? $conversation->name : $conversation->users->pluck('name')->join(', ')}}" width="50" class="rounded-circle">
                 <div class="media-body ml-4">
@@ -10,9 +10,9 @@
                 </div>
             </div>
         </a>
-        {{--@empty
-            <p>No Conversation Found</p>--}}
-    @endforeach
+        @empty
+            <p>No Conversation Found</p>
+    @endforelse
     {{--
       <a href="#" class="list-group-item list-group-item-action list-group-item-light rounded-0">
                                         <div class="media"><img src="https://bootstrapious.com/i/snippets/sn-chat/avatar.svg" alt="user" width="50" class="rounded-circle">

@@ -13,18 +13,25 @@
     {{ $suggestions }}
 </div>
 <script>
-    function userSearchState()
-    {
+    console.log('scriptssss')
+    function userSearchState() {
+        console.log('userSearchState')
         return {
-            suggestions : [],
+            suggestions: [],
 
             search(e) {
-                fetch(`/api/search/users?q=${e.target.value}&excludedUser={{ auth()->id() }}`)
-                .then(response => response.json)
-                .then((suggestions) => {
-                    this.suggestions = suggestions
-                })
+                console.log('search() function called');
 
+                fetch(`/api/search/users?q=${e.target.value}&excludedUser={{ auth()->id() }}`)
+                    .then(response => response.json())
+                    .then((suggestions) => {
+                        this.suggestions = suggestions
+                        console.log(suggestions)
+                    })
+
+                    .catch((error) => {
+                        console.error('An error occurred:', error);
+                    });
             }
         }
     }

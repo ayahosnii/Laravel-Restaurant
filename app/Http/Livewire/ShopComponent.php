@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Basket\Basket;
+use App\Cart\Basket;
 use App\Exceptions\QuantityExceededException;
 use App\Models\admin\MainCategory;
 use App\Models\admin\Product;

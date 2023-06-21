@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Basket\Basket;
+use App\Cart\Basket;
 use App\Extensions\CustomGuard;
 use App\Models\admin\MainCategory;
 use App\Models\providers\ProviderRegister;

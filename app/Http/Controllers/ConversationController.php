@@ -14,8 +14,8 @@ class ConversationController extends Controller
      */
     public function index(Request $request)
     {
-        $chats = $request->user()->conversations;
-        return view('site.conversations.index', compact('chats'));
+        $conversations = $request->user()->conversations;
+        return view('site.conversations.index', compact('conversations'));
     }
 
     /**
