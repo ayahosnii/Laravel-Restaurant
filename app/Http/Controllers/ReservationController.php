@@ -42,8 +42,8 @@ class ReservationController extends Controller
 
     public function storeStepOne(Request $request)
     {
-        $this->stepOneHandler->handle($request);
-        return redirect()->route('reservations.step.two');
+        $view = $this->stepOneHandler->handle($request);
+        return $view;
     }
 
     public function stepTwo(Request $request)
@@ -55,7 +55,7 @@ class ReservationController extends Controller
 
     public function storeStepTwo(Request $request)
     {
-        $this->stepThreeHandler->handle($request);
-        return redirect()->route('restaurant.index');
+        $view = $this->stepThreeHandler->handle($request);
+        return $view;
     }
 }

@@ -32,5 +32,8 @@ class StepOneReservationHandler implements ReservationHandlerInterface
             $reservation->fill($validated);
             $request->session()->put('reservation', $reservation);
         }
+
+        $view = redirect()->route('reservations.step.two');
+        return $view;
     }
 }

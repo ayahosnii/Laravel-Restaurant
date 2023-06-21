@@ -79,13 +79,15 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get('/ajax', [RestaurantController::class, 'meals'])->name('restaurant.ajax');
         Route::get('/main-category/{main_category_slug}', [MainCategoryController::class, 'index'])->name('main-category.index');
         //Route::get('/main-category/{category_slug}', CategoryComponent::class)->name('main-category.index');
-
-
         Route::get('/sub-category/{sub_category_slug}', [SubCategoryController::class, 'index'])->name('sub-category.index');
+        Route::get('meal/{name}', [ProductController::class, 'mealsBySlug'])->name('meal.details');
+
+        ################################ All providers section #########################################
         Route::get('/all', [RestaurantController::class, 'index'])->name('restaurant.all');
         Route::get('/{user_name}', [RestaurantController::class, 'get_rest'])->name('restaurant.details');
         Route::get('branch/{b_username}', [RestaurantController::class, 'get_branch'])->name('branch.details');
-        route::get('meal/{name}', [ProductController::class, 'mealsBySlug'])->name('meal.details');
+        ################################ All providers section #########################################
+
     });
 
     //############################################ ChatGPT API ############################################

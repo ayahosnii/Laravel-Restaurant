@@ -22,7 +22,9 @@ class StepThreeReservationHandler implements ReservationHandlerInterface
         $request->session()->forget('reservation');
 
         //$reservation->notify(new ReservationNotification($invoice));
-        return redirect()->route('restaurant.index');
+
+        $view = redirect()->route('restaurant.index');
+        return $view;
     }
 
 }
