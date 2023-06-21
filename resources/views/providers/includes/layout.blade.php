@@ -330,7 +330,7 @@
                                         <span>Categories</span>
                                         <i class="fa fa-angle-down"></i>
                                     </a>
-                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index2.html#fresh-fruits3" data-bs-toggle="collapse" class="left-mega-menu-xl">
+                                    <a href="" data-bs-toggle="collapse" class="left-mega-menu-xl">
                                         <img src="./Vegist - dashboard_files/image01.jpg" alt="menu-image">
                                         <span>Categories</span>
                                         <i class="fa fa-angle-down"></i>
@@ -355,7 +355,7 @@
                                         <span>Branches</span>
                                         <i class="fa fa-angle-down"></i>
                                     </a>
-                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index2.html#fresh-fruits3" data-bs-toggle="collapse" class="left-mega-menu-xl">
+                                    <a href="" data-bs-toggle="collapse" class="left-mega-menu-xl">
                                         <i class="fa-solid fa-utensils"></i>
                                         <span>Branches</span>
                                         <i class="fa fa-angle-down"></i>
@@ -380,7 +380,7 @@
                                         <span>Meals</span>
                                         <i class="fa fa-angle-down"></i>
                                     </a>
-                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index2.html#fresh-fruits3" data-bs-toggle="collapse" class="left-mega-menu-xl">
+                                    <a href="" data-bs-toggle="collapse" class="left-mega-menu-xl">
                                         <img src="./Vegist - dashboard_files/image01.jpg" alt="menu-image">
                                         <span>Meals</span>
                                         <i class="fa fa-angle-down"></i>
@@ -405,7 +405,7 @@
                                         <span>Tables</span>
                                         <i class="fa fa-angle-down"></i>
                                     </a>
-                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index2.html#fresh-fruits3" data-bs-toggle="collapse" class="left-mega-menu-xl">
+                                    <a href="" data-bs-toggle="collapse" class="left-mega-menu-xl">
                                         <img src="./Vegist - dashboard_files/image01.jpg" alt="menu-image">
                                         <span>Tables</span>
                                         <i class="fa fa-angle-down"></i>
@@ -430,7 +430,7 @@
                                         <span>Coupons</span>
                                         <i class="fa fa-angle-down"></i>
                                     </a>
-                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index2.html#fresh-fruits3" data-bs-toggle="collapse" class="left-mega-menu-xl">
+                                    <a href="" data-bs-toggle="collapse" class="left-mega-menu-xl">
                                         <img src="./Vegist - dashboard_files/image01.jpg" alt="menu-image">
                                         <span>Coupons</span>
                                         <i class="fa fa-angle-down"></i>
@@ -455,9 +455,35 @@
                                         <span>Messages</span>
                                         <i class="fa fa-angle-down"></i>
                                     </a>
-                                    <a href="https://spacingtech.com/html/vegist-final/vegist/index2.html#fresh-fruits3" data-bs-toggle="collapse" class="left-mega-menu-xl">
+                                    <a href="" data-bs-toggle="collapse" class="left-mega-menu-xl">
                                         <i class="fa-solid fa-message"></i>
                                         <span>Messages</span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="dropdown-submenu collapse" id="fresh-fruits3">
+                                        <li class="submenu-li parant">
+                                            <h6>Sections</h6>
+                                            <a href="https://spacingtech.com/html/vegist-final/vegist/index2.html#left-menu-b3" data-bs-toggle="collapse" class="left-mega-menu-xl">
+                                                <span>Sections</span>
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="submenu-megamenu-link collapse" id="left-menu-b3">
+                                                <li class="left-menu-link"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-2.html">Show messages</a></li>
+                                                <li class="left-menu-link"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-2.html">Send Messages</a></li>
+                                                <li class="left-menu-link"><a href="https://spacingtech.com/html/vegist-final/vegist/product-style-2.html">Chat</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-link parent">
+                                    <a href="javascript:void(0)" class="link-title">
+                                        <i class="fa-solid fa-message"></i>
+                                        <span>Reservations</span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <a href="" data-bs-toggle="collapse" class="left-mega-menu-xl">
+                                        <i class="fa-solid fa-message"></i>
+                                        <span>Reservations</span>
                                         <i class="fa fa-angle-down"></i>
                                     </a>
                                     <ul class="dropdown-submenu collapse" id="fresh-fruits3">

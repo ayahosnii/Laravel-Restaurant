@@ -483,10 +483,10 @@
                                                 </li>
 
                                                 <li class="menu-link parent">
-                                                    <a href="{{url('/post')}}" class="link-title">
+                                                    <a href="{{url('/blog')}}" class="link-title">
                                                         <span class="sp-link-title">Blog</span>
                                                     </a>
-                                                    <a href="{{url('/post')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                                    <a href="{{url('/blog')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
                                                         <span class="sp-link-title">Blog</span>
                                                     </a>
                                                 </li>
@@ -616,7 +616,7 @@
                                             <a href="javascript:void(0)" class="link-title">
                                                 <span class="sp-link-title">Blog</span>
                                             </a>
-                                            <a href="{{url('/post')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
+                                            <a href="{{url('/blog')}}" data-bs-toggle="collapse" class="link-title link-title-lg">
                                                 <span class="sp-link-title">Blog</span>
                                             </a>
                                         </li>
