@@ -86,16 +86,18 @@ class HomeComponent extends BaseLivewireComponent
         $data['posts'] = $this->loadLatestPosts();
         $data['sale'] = $this->loadLatestSale();
 
-        $ends_at = null; // Initialize $ends_at with a default value
+        $ends_at = null;
 
         if (isset($sale->ends_at)) {
             $ends_at = Carbon::parse($sale->ends_at);
-            $now = Carbon::now();
-            $diff = $ends_at->diffInSeconds($now);
-            $this->updateTimeValues($diff);
         }
 
-        $data['ends_at'] = $ends_at; // Assign $ends_at to $data regardless of the if condition
+        $now = Carbon::now();
+        $diff = $ends_at !== null ? $ends_at->diffInSeconds($now) : null;
+
+        $this->updateTimeValues($diff);
+
+        $data['ends_at'] = $ends_at;
 
         return $data;
     }
