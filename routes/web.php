@@ -160,9 +160,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 
 
     });
-        Route::get('{any}', function ($any){
+        /*Route::get('{any}', function ($any){
         return view('site.home');
-    })->where('any','.*');
+    })->where('any','.*');*/
 
 });
 
