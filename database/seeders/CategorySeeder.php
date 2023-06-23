@@ -21,35 +21,35 @@ class CategorySeeder extends Seeder
                 'name' => 'Beverages',
                 'slug' => 'beverages',
                 'is_active' => 1,
-                'provider_id' => 22
+                'provider_id' => 2
             ],
             [
                 'id' => 2,
                 'name' => 'Pastries',
                 'slug' => 'pastries',
                 'is_active' => 1,
-                'provider_id' => 22
+                'provider_id' => 2
             ],
             [
                 'id' => 3,
                 'name' => 'Desserts',
                 'slug' => 'desserts',
                 'is_active' => 1,
-                'provider_id' => 24
+                'provider_id' => 4
             ],
             [
                 'id' => 4,
                 'name' => 'Ice Creams',
                 'slug' => 'ice-creams',
                 'is_active' => 1,
-                'provider_id' => 24
+                'provider_id' => 4
             ],
             [
                 'id' => 5,
                 'name' => 'Milkshakes',
                 'slug' => 'milkshakes',
                 'is_active' => 1,
-                'provider_id' => 24
+                'provider_id' => 4
             ]
 
         ]);
