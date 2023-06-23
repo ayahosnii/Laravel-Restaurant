@@ -8,6 +8,9 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Shipping;
 use App\Notifications\NewOrderForProviderNotify;
+use App\Services\Payment\PaymentDashboard;
+use App\Services\Payment\StripePayment;
+use App\Services\Payment\StripePaymentProcessor;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -50,23 +53,8 @@ class CheckoutComponent extends Component
     public $d_zipcode;
     public $d_mobile;
     public $d_email;
-    protected $listeners = ['orderPlaced', 'placeOrder'];
+    protected $listeners = ['placeOrder'];
 
-
-    public function mount()
-    {
-        Stripe::setApiKey(config('services.stripe.secret'));
-        try {
-            $intent = \Stripe\PaymentIntent::create([
-                'amount' => Cart::instance('cart')->total() * 100,
-                'currency' => 'usd',
-            ]);
-            $this->paymentIntentId = $intent->client_secret;
-        } catch (ApiErrorException $e) {
-            session()->flash('stripe_error', $e->getMessage());
-        }
-
-    }
 
     public function rules()
     {
@@ -86,12 +74,6 @@ class CheckoutComponent extends Component
 
 
 
-    public function myFunction($latitude, $longitude)
-    {
-        $this->latitdue = $latitude;
-        $this->longitude = $longitude;
-    }
-
     public function updatedPayMethod($value)
     {
         if ($value === 'cash') {
@@ -103,27 +85,10 @@ class CheckoutComponent extends Component
 
     public function placeOrder()
     {
-        Stripe::setApiKey(config('services.stripe.secret'));
-        try {
-            $paymentIntent = \Stripe\PaymentIntent::retrieve($this->paymentIntentId);
-            $paymentIntent->confirm([
-                'payment_method' => [
-                    'card' => [
-                        'number' => $this->cardNumber,
-                        'exp_month' => $this->cardExpiryMonth,
-                        'exp_year' => $this->cardExpiryYear,
-                        'cvc' => $this->cardCvc,
-                    ],
-                    'billing_details' => [
-                        'name' => $this->firstname . ' ' . $this->lastname,
-                        'email' => auth()->user()->email,
-                    ],
-                ],
-            ]);
-            Livewire.emit('orderPlaced');
-        } catch (ApiErrorException $e) {
-            session()->flash('stripe_error', $e->getMessage());
-        }
+        $stripe = new StripePayment();
+        $stripe->setCreatePay(new StripePayment());
+        $dash = new PaymentDashboard($stripe);
+        $dash->createPaymentIntent();
 
         $this->validate([
             'firstname' => 'required',
@@ -138,6 +103,20 @@ class CheckoutComponent extends Component
             'mobile' => 'required',
         ]);
 
+
+        $this->createOrder();
+
+        if($this->ship_to_different)
+        {
+            $this->shipToDifferent();
+        }
+
+
+        $this->processPayment();
+        return redirect()->route('thankyou');
+    }
+    private function createOrder()
+    {
         $order = new Order();
         $order->user_id = Auth::user()->id;
         $order->subtotal = session()->get('checkout')['subtotal'] ?? floatval(Cart::instance('cart')->subtotal());
@@ -152,8 +131,8 @@ class CheckoutComponent extends Component
         $order->zipcode = $this->zipcode;
         $order->email = $this->email;
         $order->mobile = $this->mobile;
-        $this->myFunction($this->latitude);
-        $this->myFunction($this->longitude);
+        $order->latitude = $this->latitude;
+        $order->longitude = $this->longitude;
         $order->status = 'ordered';
         $order->is_shipping_different = $this->ship_to_different ? 1:0;
         $order->save();
@@ -163,35 +142,38 @@ class CheckoutComponent extends Component
         $admin = Admin::where('id', 1)->first();
 
 
-            foreach(Cart::instance('cart')->content() as $item) {
+        foreach(Cart::instance('cart')->content() as $item) {
 
-                    $orderItem = new OrderItem();
-                    $orderItem->meal_id = $item->id ?? '';
-                    $orderItem->order_id = $order->id;
-                    $orderItem->price = $item->price;
-                    $orderItem->quantity = $item->qty;
+            $orderItem = new OrderItem();
+            $orderItem->meal_id = $item->id ?? '';
+            $orderItem->order_id = $order->id;
+            $orderItem->price = $item->price;
+            $orderItem->quantity = $item->qty;
 
-                $orderItem->save();
-                if ($orderItem) {
-                    $admin->notify(new NewOrderForProviderNotify($orderItem));
-                }
-
+            $orderItem->save();
+            if ($orderItem) {
+                $admin->notify(new NewOrderForProviderNotify($orderItem));
             }
 
-
-        if($this->ship_to_different)
-        {
-            $shipping = new Shipping();
-            $shipping->firstname = $this->d_firstname;
-            $shipping->lastname = $this->d_lastname;
-            $shipping->province = $this->d_province;
-            $shipping->address = $this->d_address;
-            $shipping->city = $this->d_city;
-            $shipping->zipcode = $this->d_zipcode;
-            $shipping->email = $this->d_email;
-            $shipping->mobile = $this->d_mobile;
         }
 
+    }
+
+    private function shipToDifferent()
+    {
+        $shipping = new Shipping();
+        $shipping->firstname = $this->d_firstname;
+        $shipping->lastname = $this->d_lastname;
+        $shipping->province = $this->d_province;
+        $shipping->address = $this->d_address;
+        $shipping->city = $this->d_city;
+        $shipping->zipcode = $this->d_zipcode;
+        $shipping->email = $this->d_email;
+        $shipping->mobile = $this->d_mobile;
+    }
+
+    private function processPayment()
+    {
         Cart::instance('cart')->destroy();
         session()->forget('checkout');
         if (session()->has('coupon')) {
@@ -201,7 +183,6 @@ class CheckoutComponent extends Component
                 $coupon->save();
             }
         }
-        return redirect()->route('thankyou');
     }
     public function render()
     {

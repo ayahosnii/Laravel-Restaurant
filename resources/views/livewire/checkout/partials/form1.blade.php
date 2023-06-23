@@ -56,9 +56,16 @@
     <ul class="billing-ul" onload="getLocation()">
         <button class="btn btn-outline-warning" onclick="showMap(event)">Show Map</button>
         <div id="map" style="height: 500px; display: none;" wire:ignore></div>
-        <input type="text" id="latitude" name="latitude" placeholder="Latitude">
+        <p>
+            Latitude: <span id="lati"></span>
+        </p>
+        <p>
+            Longitude: <span id="longi"></span>
+        </p>
+
+        <input type="text" name="latitude" placeholder="Latitude" wire:model="latitude">
         @error('latitude') <span class="error">{{ $message }}</span> @enderror
-        <input type="text" class="text-danger" id="longitude" name="longitude" placeholder="Longitude">
+        <input type="text"  name="longitude" placeholder="Longitude" wire:model="longitude">
         @error('longitude') <span class="error">{{ $message }}</span> @enderror
         <p id="address-display"></p>
         <button id="add-address-btn" type="button">Add Address</button>

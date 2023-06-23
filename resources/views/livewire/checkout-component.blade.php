@@ -161,14 +161,13 @@
                         });
 
                         // Update the latitude and longitude inputs with the initial coordinates
-                        document.getElementById("latitude").value = latitude;
-                        document.getElementById("longitude").value = longitude;
+                        var latitudeSpan = document.getElementById("lati");
+                        latitudeSpan.textContent = latitude;
+
+                        var longitudeSpan = document.getElementById("longi");
+                        longitudeSpan.textContent = longitude;
 
 
-                        Livewire.on('placeOrder', ({ latitude, longitude }) => {
-                            // Handle the placeOrder event here
-                            console.log(`Placing order at (${latitude}, ${longitude})`);
-                        });
 
                         // Reverse geocode the coordinates to get the address
                         var geocodeUrl = "https://nominatim.openstreetmap.org/reverse?format=json&lat=" + latitude + "&lon=" + longitude + "&accept-language=ar"; // Set the language to Arabic
