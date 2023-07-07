@@ -93,7 +93,7 @@ class AuthController extends Controller
             // If the user already exists, log them in and redirect them to the dashboard
             Auth::login($existingUser);
 
-            return redirect('/dashboard');
+            return redirect('/');
         }
 
         // If the user does not exist, create a new user record in your application's database
@@ -120,7 +120,7 @@ class AuthController extends Controller
             // If the user already exists, log them in and redirect them to the dashboard
             Auth::login($existingUser);
 
-            return redirect('/dashboard');
+            return redirect('/');
         }
 
         // If the user does not exist, create a new user record in your application's database
