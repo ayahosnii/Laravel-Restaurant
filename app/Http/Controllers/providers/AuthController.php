@@ -127,7 +127,7 @@ class AuthController extends Controller
         $newUser = new User;
         $newUser->name = $user->getName();
         $newUser->email = $user->getEmail();
-        $newUser->password = bcrypt(str_random(16)); // or any other default password
+        $newUser->password = bcrypt(Str::random(16));
         $newUser->save();
 
         // Log in the new user and redirect them to the dashboard
